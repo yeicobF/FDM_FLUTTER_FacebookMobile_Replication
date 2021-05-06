@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 /* --------------------------- VARIABLES GLOBALES --------------------------- */
 
 import 'globals/global_values.dart' as global_values;
@@ -24,13 +24,27 @@ import 'screens/login_screen_after_click.dart';
 
 
 void main() {
-  runApp(MyApp());
+  // Mandamos así la App para que se pueda obtener el tamaño de la statusBar.
+  runApp(MaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // CAMBIAR COLOR DEL statusBar
+    // https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter
+    FlutterStatusbarcolor.setStatusBarColor(global_values.darkBackground);
+    // FlutterStatusbarcolor.setStatusBarWhiteForeground(false); // ÍCONOS NEGROS
+    FlutterStatusbarcolor.setStatusBarWhiteForeground(true); // ÍCONOS BLANCOS
+    // FlutterStatusbarcolor.setNavigationBarColor(Colors.black);
+    // FlutterStatusbarcolor.setNavigationBarWhiteForeground(true);
+
+    // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
+    // final double statusBarHeight = MediaQuery.of(context).padding.top;
+
+    // Obtener altura de la STATUS BAR:
+    // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
     return MaterialApp(
       title: 'Flutter Demo',
       // theme: ThemeData(
@@ -46,17 +60,17 @@ class MyApp extends StatelessWidget {
       //   primarySwatch: Colors.blue,
       // ),
       home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text(
-            "Hola",
-            style: TextStyle(
-              // color: fbFontColor,
-            ) 
-          ),
-          backgroundColor: global_values.darkBackground,
+        // appBar: AppBar(
+        //   // AppBar tendrá el tamaño de la statusBar.
+        //   toolbarHeight: 1,
+        //   bottomOpacity: 0.4,
+        //   backgroundColor: global_values.darkBackground, // status bar color
+        //   // ÍCONOS DEL STATUS BAR: BLANCOS - Brightness.darkk
+        //   brightness: Brightness.dark, // status bar brightness
+        // ),
+        body: SafeArea(
+          child: FirstLoginScreen()
         ),
-        body: FirstLoginScreen(),
       )
     );
   }

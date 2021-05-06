@@ -12,9 +12,16 @@ class FirstLoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(
+        20,
+      ),
       // width: 100,
       // height: 100,
       color: global_values.darkBackground,
+      // Solo para poder ver el padding.
+      child: Container(
+        color: fbButtonColor,
+      ),
     );
   }
 }

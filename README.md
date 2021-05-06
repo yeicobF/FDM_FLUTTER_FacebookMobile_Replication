@@ -695,6 +695,22 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 - [elipsis-v](https://fontawesome.com/icons/ellipsis-v?style=solid "elipsis-v")
   - También parece que la versión de Facebook es la `LIGHT` o la `PRO`.
 
+## ***ENLACES EXTRA QUE FUERON ÚTILES***
+
+- https://www.youtube.com/watch?v=d5PpeNb-dOY
+- https://stackoverflow.com/questions/50081213/how-do-i-use-hexadecimal-color-strings-in-flutter
+- https://www.tutorialspoint.com/dart_programming/dart_programming_map.htm
+- https://stackoverflow.com/questions/29182581/global-variables-in-dart
+- https://stackoverflow.com/questions/49541354/disable-defaultfocushighlightenabled-in-the-android-part-for-a-xamarin-forms-app
+  
+  - https://github.com/flutter/flutter/issues/16810
+
+- https://aschilken.medium.com/flutter-best-practices-colors-and-textstyles-6e14b06fc3a1
+- https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter
+- https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
+  - https://stackoverflow.com/questions/61969143/no-mediaquery-ancestor-could-be-found
+- 
+
 [//]: <EN ESTA SECCIÓN SE ENCUENTRAN LAS "VARIABLES" UTILIZADAS PARA EL README.>
 
 [Android Studio]: <https://developer.android.com/studio> "Descargar Android Studio en Windows | 4.2 for Windows 64-bit (934 MiB)"
