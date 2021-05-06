@@ -28,7 +28,7 @@ dependencies:
     sdk: flutter
   # Font Awesome para poder agregar íconos de Facebook, la lupa y así.
   # https://pub.dev/packages/font_awesome_flutter
-  font_awesome_flutter: 9.0.0
+  font_awesome_flutter: ^9.0.0
   # Linter para que el código esté bien hecho.
   lint:
 

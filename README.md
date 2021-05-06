@@ -2,27 +2,27 @@
 
 Para esta actividad trabajaremos en equipo Germán y yo.
 
-## ***FECHA DE ENTREGA***
+Si no entregamos el trabajo, nos bajará 2 puntos.
+
+## 2. ***FECHA DE ENTREGA***
 
 > Jueves, 6 de mayo del 2021
 
-Si no entregamos el trabajo, nos bajará 2 puntos.
-
-## **INSTALACIONES**
+## 3. **INSTALACIONES**
 
 Para que todo funcione correctamente, hay que instalar varias cosas:
 
-### **[Android Studio]**
+### 3.1. **[Android Studio]**
 
 Simplemente descarga el archivo que se encuentra en el enlace y ejecutalo.
 Después podrás configurarlo como tú quieras.
 
-#### **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**
+#### 3.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**
 
 Para que Android Studio y Flutter funcionen de manera correcta, hay que
 configurar unos elementos que serán obligatorios, siguiendo los siguientes pasos:
 
-##### **INSTALACIÓN DE PAQUETES**
+##### 3.1.1.1. **INSTALACIÓN DE PAQUETES**
 
 Hay una serie de paquetes necesarios para trabajar con Flutter y el emulador de
 Android, entre otras cosas más.
@@ -123,7 +123,7 @@ Android, entre otras cosas más.
 
    ![Finish configuration](README_imgs/AS_CONFIG/as_17.png "Finish configuration")
 
-##### **INSTALACIÓN DE PLUGINS**
+##### 3.1.1.2. **INSTALACIÓN DE PLUGINS**
 
 Para trabajar con Flutter de forma cómoda, hay que instalar una serie de Plugins
 que nos facilitarán el desarrollo de los programas.
@@ -160,7 +160,7 @@ que nos facilitarán el desarrollo de los programas.
 
    ![Plugins | Restart IDE](README_imgs/AS_CONFIG/as_23.png "Plugins | Restart IDE")
 
-##### **COMPROBACIÓN DE ACTUALIZACIONES**
+##### 3.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**
 
 Hay que comprobar si hay actualizaciones disponibles.
 
@@ -197,7 +197,92 @@ Hay que comprobar si hay actualizaciones disponibles.
 
 6. Listo.
 
-### **[Flutter]**
+#### 3.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**
+
+Para correr un programa podemos utilizar nuestro celular conectándolo a a la
+computadora mediante cable USB, o mediante un emulador de Android creado con
+Android Studio.
+
+1. Abre Android Studio.
+
+   ![Ventana inicial AS](README_imgs/AS_CONFIG/as_1.png "Ventana inicial AS")
+
+2. Da click en el botón ⚙ **`Configure`**.
+
+   ![Ventana inicial AS | Botón configure](README_imgs/AS_CONFIG/as_2.png "Ventana inicial AS | Botón configure")
+
+3. Da click en la opción de **``AVD Manager``**.
+
+   ![Ventana inicial AS | AVD Manager](README_imgs/AS_CONFIG/as-avd_1.png "Ventana inicial AS | AVD Manager")
+
+   - Se abrirá una nueva ventana "**`Your Virtual Devices`**", en donde se
+     encontrará una lista de dispositivos virtuales (emuladores de android).
+
+   ![Android Virtual Device Manager | Your Virtual Devices](README_imgs/AS_CONFIG/as-avd_2.png "Android Virtual Device Manager | Your Virtual Devices")
+
+4. Da click en **`Create Virtual Device`**.
+
+   ![Android Virtual Device Manager | Your Virtual Devices | Create Virtual Device...](README_imgs/AS_CONFIG/as-avd_3.png "Android Virtual Device Manager | Your Virtual Devices | Create Virtual Device...")
+
+5. Aparecerá una nueva ventana: **`Virtual Device Configuration`**. Elige el
+   dispositivo que quieras emular. En mi caso elegí el **`Pixel 2`**, que es el
+   que recomendó el profesor. Después das click en el botón **`Next`**.
+
+   ![AVD Manager | Virtual Device Configuration | Select Hardware](README_imgs/AS_CONFIG/as-avd_4.png "AVD Manager | Virtual Device Configuration | Select Hardware")
+
+6. Selecciona el Sistema Operativo que quieres que emule el dispositivo virtual.
+   En mi caso elegí **`Android 8.1 (Oreo) | API Level: 27`**.
+
+   - Si no lo tienes descargado, lo tendrás que descargar dando click al
+     **`Download`** que está a la derecha del nombre del Sistema Operativo.
+
+     ![Oreo (8.1) | Download](README_imgs/AS_CONFIG/as-avd_5.png "Oreo (8.1) | Download")
+
+   ![Oreo (8.1) | Installing](README_imgs/AS_CONFIG/as-avd_6.png "Oreo (8.1) | Installing")
+
+7. Una vez terminada la instalación del API que elegiste, da click en
+   **`Finish`**.
+
+   ![Finish API installation](README_imgs/AS_CONFIG/as-avd_7.png "Finish API installation")
+
+8. Da click en **`Next`** después de elegir la API a utilizar.
+
+   ![System Image selected](README_imgs/AS_CONFIG/as-avd_8.png "System Image selected")
+
+9. Verifica tu configuración y cuando todo esté como lo deseas, da click en
+   **`Finish`**.
+
+   - En esta sección puedes cambiar el nombre del dispositivo y algunas
+     configuraciones avanzadas.
+
+   ![AVD | Verify Configuration](README_imgs/AS_CONFIG/as-avd_9.png "AVD | Verify Configuration")
+
+10. Ya está todo listo. Ahora puedes iniciar tu dispositivo dando click en el
+    botón verde bajo la sección "**`Actions`**".
+
+   ![Launch AVD in emulator](README_imgs/AS_CONFIG/as-avd_10.png "Launch AVD in emulator")
+
+##### 3.1.2.1. ***RECOMENDACIÓN IMPORTANTE PARA EL AVD***
+
+Cada vez, el AVD va a ir ocupando una mayor cantidad de espacio en el disco
+duro, el cual se puede ver en la sección de "**`Size on Disk`**", así que viene
+muy bien la liberación de ese espacio.
+
+![AVD Size on Disk](README_imgs/AS_CONFIG/as-avd_11.png "AVD Size on Disk")
+
+1. En la sección "**`Actions`**" da click al botón que tiene la flecha para
+   abajo.
+
+   ![AVD Options](README_imgs/AS_CONFIG/as-avd_12.png "AVD Options")
+
+2. Da click a "**`Wipe Data`**".
+
+   ![AVD | Wipe Data](README_imgs/AS_CONFIG/as-avd_13.png "AVD | Wipe Data")
+
+3. Listo. Ahora has liberado una buen cantidad de espacio en el disco duro.
+   Puedes hacer esto en cualquier momento (mientras no utilices el dispositivo).
+
+### 3.2. **[Flutter]**
 
 Entra al enlace de  la documentación oficial de [Flutter] y en la sección de
 ***"[Get the Flutter SDK]"*** da click en el botón de descarga, el cual dice
@@ -205,7 +290,7 @@ Entra al enlace de  la documentación oficial de [Flutter] y en la sección de
 
 [Get the Flutter SDK]: <https://flutter.dev/docs/get-started/install/windows#get-the-flutter-sdk> "Flutter Windows Install | Get the Flutter SDK"
 
-#### ***EN QUÉ DIRECTORIO COLOCAR FLUTTER***
+#### 3.2.1. ***EN QUÉ DIRECTORIO COLOCAR FLUTTER***
 
 Para no tener problemas con espacios y demás, coloqué Flutter directamente en el
 directorio principal del disco duro (**`C:/`**), creando una carpeta dentro y
@@ -215,24 +300,115 @@ extrayéndolo. Entonces quedaría de la siguiente forma:
 
 Así, cada vez que quiera encontrar Flutter, será más sencillo.
 
-#### **VARIABLE DE USUARIO**
+#### 3.2.2. **VARIABLE DE USUARIO**
 
 Para ver cómo configurar la variable de usuario, dirígete a la **sección del
 siguiente enlace** (te enviará dentro del README):
 
 > [CONFIGURACIÓN DE VARIABLE DE USUARIO PARA FLUTTER](#flutter-user-var "VARIABLE DE USUARIO PARA FLUTTER")
 
-### **[Chocolatey]**
+### 3.3. **[Chocolatey]**
   
-  [Chocolatey] es un administrador de paquetes, con el que podemos instalar una
-  diversidad de paquetes (valga la redundancia) de forma sencilla corriendo
-  comandos desde una terminal.
+  [Chocolatey] es un administrador de paquetes en Windows, con el que podemos
+  instalar una diversidad de paquetes (valga la redundancia) de forma sencilla
+  corriendo comandos desde una terminal.
 
   > Este es solo para instalar [scrcpy]
 
-- [scrcpy]
+#### 3.3.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL***
 
-## ***VARIABLES DEL SISTEMA o de USUARIO***
+De acuerdo con las instrucciones del sitio web de [Chocolatey], hay que seguir
+los siguientes pasos:
+
+> REQUIREMENTS
+>
+> - Windows 7+ / Windows Server 2003+
+> - PowerShell v2+ (minimum is v3 for install from this website due to TLS 1.2
+> requirement)
+> - .NET Framework 4+ (the installation will attempt to install .NET 4.0 if you do
+> not have it installed)(minimum is 4.5 for install from this website due to TLS
+> 1.2 requirement)
+
+1. First, ensure that you are using an
+   [administrative shell](https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/ "administrative shell") -
+   you can also install as a non-admin, check out [Non-Administrative
+   Installation](https://docs.chocolatey.org/en-us/choco/setup#non-administrative-install "Non-Administrative Installation").
+
+2. Install with powershell.exe
+
+   > ***NOTE:* Please inspect [https://chocolatey.org/install.ps1](https://chocolatey.org/install.ps1 "https://chocolatey.org/install.ps1")
+   > prior to running any of these scripts to ensure safety. We already know
+   > it's safe, but you should verify the security and contents of any script
+   > from the internet you are not familiar with. All of these scripts download
+   > a remote PowerShell script and execute it on your machine. We take security
+   > very seriously.
+   > [Learn more about our security protocols](https://docs.chocolatey.org/en-us/information/security "Learn more about our security protocols")
+   > .**
+
+   With PowerShell, you must ensure [Get-ExecutionPolicy](https://go.microsoft.com/fwlink/?LinkID=135170 "Get-ExecutionPolicy")
+   is not Restricted. We suggest using `Bypass` to bypass the policy to get
+   things installed or `AllSigned` for quite a bit more security.
+
+   - Run `Get-ExecutionPolicy`. If it returns `Restricted`, then run `Set-ExecutionPolicy AllSigned` or `Set-ExecutionPolicy Bypass -Scope Process`.
+
+   Now run the following command:
+
+   > ```ps
+   > Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+   > ```
+
+3. Paste the copied text into your shell and press Enter.
+4. Wait a few seconds for the command to complete.
+5. If you don't see any errors, you are ready to use Chocolatey! Type `choco` or
+   `choco -?` now, or see [Getting Started](https://docs.chocolatey.org/en-us/getting-started "Getting Started")
+   for usage instructions.
+
+   ![Chocolatey installation ready](README_imgs/ps-chocolatey.png "Chocolatey installation ready")
+
+   ![Chocolatey installation ready](README_imgs/ps-chocolatey-choco.png "Chocolatey installation ready")
+
+### 3.4. **[scrcpy]**
+
+[scrcpy] es una aplicación para poder ver la pantalla de tu celular en tu
+computadora, conectándolo con un cable USB. Se puede instalar de diversas
+formas, indicadas en el GitHub, al que puedes hacer dando click aquí: [scrcpy].
+
+#### 3.4.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY***
+
+En mi caso, decidí instalarlo con [Chocolatey], ya que es más rápido y sencillo
+que tener que descomprimir carpetas manualmente y cosas así.
+
+Hay que ejecutar los siguientes comandos en la terminal de `Windows Powershell`,
+que ya viene instalada en Windows 10.
+
+> **NOTA**: Va a pedir que aceptes varias cosas, por lo que tendrás que hacerlo
+> para que los programas se puedas descargar e instalar.
+>
+> - **`Y`** <- **Correr solo el script actual.**
+> - **`A`** <- **Correr todos los scripts.**
+
+1. Hay que instalar una cosa antes, para hacerlo funcionar, que es el `Android
+   Debug Bridge (adb)`:
+
+   > ```properties
+   > choco install adb
+   > ```
+
+   ![choco install adb | Installing](README_imgs/ps-choco-adb_1.png "choco install adb | Installing")
+
+   ![choco install adb | Installed](README_imgs/ps-choco-adb_2.png "choco install adb | Installed")
+
+2. Ahora ya habría que instalar [scrpy] escribiendo lo siguiente:
+
+   > ```properties
+   > choco install scrcpy
+   > ```
+
+   ![choco install scrcpy | Installing](README_imgs/ps-choco-scrcpy_1.png "choco install scrcpy | Installing")
+   
+   ![choco install scrcpy | Installed](README_imgs/ps-choco-scrcpy_2.png "choco install scrcpy | Installed")
+
+## 4. ***VARIABLES DEL SISTEMA o de USUARIO***
 
 Para que los programas funcionen de la mejor forma posible, hay que establecer
 las variables del sistema que identifiquen a los programas. Esto se explicará
@@ -241,7 +417,7 @@ en esta sección.
 Además, las variables del sistema permiten ejecutar ciertas instrucciones desde
 la línea de comandos.
 
-### **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**
+### 4.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**
 
 Para esto hay que seguir una serie de pasos que serán indicados a continuación.
 
@@ -251,13 +427,13 @@ Para esto hay que seguir una serie de pasos que serán indicados a continuación
    2. Presiona la combinación de teclas: ***`Windows + S`***
 2. Escribir en la barra lo siguiente: **`env`**
 
-<h3 id="as-user-var"><strong>ANDROID STUDIO</strong></h3>
+<h3 id="as-user-var"><strong>4.2. ANDROID STUDIO</strong></h3>
 
 Para [Android Studio] solo hay una ***VARIABLE DE USUARIO*** que yo utilicé:
 
 > - ANDROID_SDK_ROOT=C:\Users\\...\AppData\Local\Android\Sdk
 
-<h3 id="flutter-user-var"><strong>FLUTTER</strong></h3>
+<h3 id="flutter-user-var"><strong>4.3. FLUTTER</strong></h3>
 
 Para que flutter sea reconocido en el sistema, hay que agregarlo a las
 variables de usuario, [como es indicado en la documentación](https://flutter.dev/docs/get-started/install/windows#update-your-path "Flutter | Windows Install | Update your path").
@@ -276,6 +452,30 @@ llamada **`Path`**.
      > En mi caso puse lo siguiente en **`Path`**:
      >
      > - ***`C:\SDKs\flutter\bin`***
+
+## 5. **Íconos con Font Awesome**
+
+Para poner los íconos utilizamos Font Awesome, ya que nos provee de una gran
+cantidad de elementos.
+
+Utilizamos el paquete:
+
+> [pub.dev | font_awesome_flutter 9.0.0](https://pub.dev/packages/font_awesome_flutter "font_awesome_flutter 9.0.0")
+
+Para que funcione hay que agregar el nombre del paquete y la última versión
+(9.0.0) a las dependencias del [pubspec.yaml](pubspec.yaml "pubspec.yaml").
+
+### 5.1. **Íconos que podríamos utilizar**
+
+- [search](https://fontawesome.com/icons/search?style=solid "search")
+  - El problema es que es más robusto que el de facebook.
+  - El de Facebook parece ser el `LIGHT`, pero ese requiere versión `PRO`.
+- [facebook](https://fontawesome.com/icons/facebook?style=brands "facebook")
+- [plus](https://fontawesome.com/icons/plus?style=solid "plus")
+  - También es algo robusto.
+  - El de Facebook parece ser la versión `LIGHT`.
+- [elipsis-v](https://fontawesome.com/icons/ellipsis-v?style=solid "elipsis-v")
+  - También parece que la versión de Facebook es la `LIGHT` o la `PRO`.
 
 [//]: <EN ESTA SECCIÓN SE ENCUENTRAN LAS "VARIABLES" UTILIZADAS PARA EL README.>
 
