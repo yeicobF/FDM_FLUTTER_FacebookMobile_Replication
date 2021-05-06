@@ -23,8 +23,18 @@ Widget userInfo() {
         Container(
           width: 60,
           height: 60,
-          color: Colors.white,
+          // color: Colors.white,
           margin: const EdgeInsets.only(right: 10,),
+          // PARA HACER EL CÍRCULO SEGUÍ LO SIGUIENTE:
+          // https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: AssetImage("assets/img/first_login_screen/profile_pic_1.jpg"),
+              fit: BoxFit.cover,
+            )
+          ),
         ),
         const Text(
           "German Gonzalez",

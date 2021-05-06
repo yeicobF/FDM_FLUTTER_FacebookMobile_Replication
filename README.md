@@ -712,7 +712,7 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 - https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter
 - https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
   - https://stackoverflow.com/questions/61969143/no-mediaquery-ancestor-could-be-found
-- 
+- https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
 
 [//]: <EN ESTA SECCIÓN SE ENCUENTRAN LAS "VARIABLES" UTILIZADAS PARA EL README.>
 
