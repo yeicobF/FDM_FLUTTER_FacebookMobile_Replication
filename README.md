@@ -8,7 +8,7 @@ Si no entregamos el trabajo, nos bajará 2 puntos.
 
 > Jueves, 6 de mayo del 2021
 
-## TABLA DE CONTENIDOS
+## ***TABLA DE CONTENIDOS***
 
 - [1.3. **PANTALLAS OBJETIVO**](#13-pantallas-objetivo)
 - [1.4. **INSTALACIONES**](#14-instalaciones)
@@ -609,6 +609,23 @@ En el siguiene enlace están las instrucciones para establecer ***`JAVA_HOME`***
 6. Listo, tu variable del sistema ya está establecida.
 
    ![JAVA_HOME en VARIABLES DEL SISTEMA](README_imgs/ENV_VARS/env-vars_8.png "JAVA_HOME en VARIABLES DEL SISTEMA")
+
+#### VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO
+
+Hay que verificar que todo haya salido bien y el sistema identifica la variable
+***`JAVA_HOME`***. Esto se logra ejecutando un comando después de haber
+reiniciado cualquier terminal que haya abierta, ya que si no, las variables del
+sistema no se actualizan, y si no hay efecto, entonces hay que reiniciar el
+sistema.
+
+El comando es el siguiente:
+
+> java --version
+
+Si todo se configuró correctamente, te mostrará un mensaje con tu versión
+instalada de Java.
+
+![java --version | Funcionando correctamente](README_imgs/ENV_VARS/env-vars_9.png "java --version | Funcionando correctamente")
 
 <h3 id="as-user-var"><strong>4.2. ANDROID STUDIO</strong></h3>
 
