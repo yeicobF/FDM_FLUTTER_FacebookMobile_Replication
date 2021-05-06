@@ -8,6 +8,24 @@ Si no entregamos el trabajo, nos bajará 2 puntos.
 
 > Jueves, 6 de mayo del 2021
 
+## 3. **PANTALLAS OBJETIVO**
+
+Hay dos pantallas que tenemos como objetivo, pero una es opcional: pantalla de
+inicio de sesión, y pantalla después de dar click al botón de inicio de sesión.
+
+- P**antalla principal de inicio de sesión (los colores se modificaron al exportar
+  desde Photoshop, ya que le quité la imagen original):**
+
+  ![1 | MAIN LOGIN SCREEN | PICTURE GONE](objective-program-screen/1_main-login-with-picture_PICTURE-GONE_MODIFIED-COLORS-PS.png "1 | MAIN LOGIN SCREEN | PICTURE GONE")
+  
+  > - ***Colores originales:***
+  >
+  > ![1 | MAIN LOGIN SCREEN | ORIGINAL COLORS](objective-program-screen/1_main-login-with-picture_ORIGINAL-COLORS.png "1 | MAIN LOGIN SCREEN | ORIGINAL COLORS")
+
+- ***[OPCIONAL]*** Pantalla después de dar click a iniciar sesión:
+  
+  ![2 | LOGIN AFTER CLICKING BUTTON](objective-program-screen/2_login-into-account-clicked_NO-NUMBER.png "2 | LOGIN AFTER CLICKING BUTTON")
+
 ## 3. **INSTALACIONES**
 
 Para que todo funcione correctamente, hay que instalar varias cosas:
@@ -218,7 +236,7 @@ Android Studio.
    - Se abrirá una nueva ventana "**`Your Virtual Devices`**", en donde se
      encontrará una lista de dispositivos virtuales (emuladores de android).
 
-   ![Android Virtual Device Manager | Your Virtual Devices](README_imgs/AS_CONFIG/as-avd_2.png "Android Virtual Device Manager | Your Virtual Devices")
+      ![Android Virtual Device Manager | Your Virtual Devices](README_imgs/AS_CONFIG/as-avd_2.png "Android Virtual Device Manager | Your Virtual Devices")
 
 4. Da click en **`Create Virtual Device`**.
 
@@ -453,10 +471,25 @@ llamada **`Path`**.
      >
      > - ***`C:\SDKs\flutter\bin`***
 
-## 5. **Íconos con Font Awesome**
+## 5. USO DE ÍCONOS
 
-Para poner los íconos utilizamos Font Awesome, ya que nos provee de una gran
-cantidad de elementos.
+Podemos utilizar varios paquetes de íconos. En nuestro caso consideramos
+Font Awesome y Material Design.
+
+### 5.1. GOOGLE FONTS | MATERIAL ICONS
+
+> [Google Fonts | Material Icons](https://fonts.google.com/icons "Google Fonts | Material Icons")
+
+#### 5.1.1. Íconos que podríamos utilizar
+
+- [Facebook](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Afacebook "Facebook")
+- [Search](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Asearch "Search")
+- [Add](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Aadd "Add")
+- [More Vert](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert "https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert")
+
+### 5.2. **Íconos con Font Awesome**
+
+Font Awesome, nos provee de una gran cantidad de elementos.
 
 Utilizamos el paquete:
 
@@ -465,7 +498,7 @@ Utilizamos el paquete:
 Para que funcione hay que agregar el nombre del paquete y la última versión
 (9.0.0) a las dependencias del [pubspec.yaml](pubspec.yaml "pubspec.yaml").
 
-### 5.1. **Íconos que podríamos utilizar**
+#### 5.2.1. **Íconos que podríamos utilizar**
 
 - [search](https://fontawesome.com/icons/search?style=solid "search")
   - El problema es que es más robusto que el de facebook.
