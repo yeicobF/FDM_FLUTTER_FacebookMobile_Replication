@@ -1,14 +1,14 @@
-# **[T2.3] COPIAR MAQUETACIÓN DE PANTALLA LOGIN DE FACEBOOK**
+# 1. **[T2.3] COPIAR MAQUETACIÓN DE PANTALLA LOGIN DE FACEBOOK**
 
 Para esta actividad trabajaremos en equipo Germán y yo.
 
 Si no entregamos el trabajo, nos bajará 2 puntos.
 
-## 2. ***FECHA DE ENTREGA***
+## 1.1. ***FECHA DE ENTREGA***
 
 > Jueves, 6 de mayo del 2021
 
-## 3. **PANTALLAS OBJETIVO**
+## 1.2. **PANTALLAS OBJETIVO**
 
 Hay dos pantallas que tenemos como objetivo, pero una es opcional: pantalla de
 inicio de sesión, y pantalla después de dar click al botón de inicio de sesión.
@@ -27,21 +27,21 @@ inicio de sesión, y pantalla después de dar click al botón de inicio de sesi�
   
   ![2 | LOGIN AFTER CLICKING BUTTON](objective-program-screen/2_login-into-account-clicked_NO-NUMBER.png "2 | LOGIN AFTER CLICKING BUTTON")
 
-## 3. **INSTALACIONES**
+## 1.3. **INSTALACIONES**
 
 Para que todo funcione correctamente, hay que instalar varias cosas:
 
-### 3.1. **[Android Studio]**
+### 1.3.1. **[Android Studio]**
 
 Simplemente descarga el archivo que se encuentra en el enlace y ejecutalo.
 Después podrás configurarlo como tú quieras.
 
-#### 3.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**
+#### 1.3.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**
 
 Para que Android Studio y Flutter funcionen de manera correcta, hay que
 configurar unos elementos que serán obligatorios, siguiendo los siguientes pasos:
 
-##### 3.1.1.1. **INSTALACIÓN DE PAQUETES**
+##### 1.3.1.1.1. **INSTALACIÓN DE PAQUETES**
 
 Hay una serie de paquetes necesarios para trabajar con Flutter y el emulador de
 Android, entre otras cosas más.
@@ -142,7 +142,7 @@ Android, entre otras cosas más.
 
    ![Finish configuration](README_imgs/AS_CONFIG/as_17.png "Finish configuration")
 
-##### 3.1.1.2. **INSTALACIÓN DE PLUGINS**
+##### 1.3.1.1.2. **INSTALACIÓN DE PLUGINS**
 
 Para trabajar con Flutter de forma cómoda, hay que instalar una serie de Plugins
 que nos facilitarán el desarrollo de los programas.
@@ -179,7 +179,7 @@ que nos facilitarán el desarrollo de los programas.
 
    ![Plugins | Restart IDE](README_imgs/AS_CONFIG/as_23.png "Plugins | Restart IDE")
 
-##### 3.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**
+##### 1.3.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**
 
 Hay que comprobar si hay actualizaciones disponibles.
 
@@ -216,7 +216,7 @@ Hay que comprobar si hay actualizaciones disponibles.
 
 6. Listo.
 
-#### 3.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**
+#### 1.3.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**
 
 Para correr un programa podemos utilizar nuestro celular conectándolo a a la
 computadora mediante cable USB, o mediante un emulador de Android creado con
@@ -281,7 +281,7 @@ Android Studio.
 
    ![Launch AVD in emulator](README_imgs/AS_CONFIG/as-avd_10.png "Launch AVD in emulator")
 
-##### 3.1.2.1. ***RECOMENDACIÓN IMPORTANTE PARA EL AVD***
+##### 1.3.1.2.1. ***RECOMENDACIÓN IMPORTANTE PARA EL AVD***
 
 Cada vez, el AVD va a ir ocupando una mayor cantidad de espacio en el disco
 duro, el cual se puede ver en la sección de "**`Size on Disk`**", así que viene
@@ -301,7 +301,7 @@ muy bien la liberación de ese espacio.
 3. Listo. Ahora has liberado una buen cantidad de espacio en el disco duro.
    Puedes hacer esto en cualquier momento (mientras no utilices el dispositivo).
 
-### 3.2. **[Flutter]**
+### 1.3.2. **[Flutter]**
 
 Entra al enlace de  la documentación oficial de [Flutter] y en la sección de
 ***"[Get the Flutter SDK]"*** da click en el botón de descarga, el cual dice
@@ -309,7 +309,7 @@ Entra al enlace de  la documentación oficial de [Flutter] y en la sección de
 
 [Get the Flutter SDK]: <https://flutter.dev/docs/get-started/install/windows#get-the-flutter-sdk> "Flutter Windows Install | Get the Flutter SDK"
 
-#### 3.2.1. ***EN QUÉ DIRECTORIO COLOCAR FLUTTER***
+#### 1.3.2.1. ***EN QUÉ DIRECTORIO COLOCAR FLUTTER***
 
 Para no tener problemas con espacios y demás, coloqué Flutter directamente en el
 directorio principal del disco duro (**`C:/`**), creando una carpeta dentro y
@@ -319,14 +319,14 @@ extrayéndolo. Entonces quedaría de la siguiente forma:
 
 Así, cada vez que quiera encontrar Flutter, será más sencillo.
 
-#### 3.2.2. **VARIABLE DE USUARIO**
+#### 1.3.2.2. **VARIABLE DE USUARIO**
 
 Para ver cómo configurar la variable de usuario, dirígete a la **sección del
 siguiente enlace** (te enviará dentro del README):
 
 > [CONFIGURACIÓN DE VARIABLE DE USUARIO PARA FLUTTER](#flutter-user-var "VARIABLE DE USUARIO PARA FLUTTER")
 
-### 3.3. **[Chocolatey]**
+### 1.3.3. **[Chocolatey]**
   
   [Chocolatey] es un administrador de paquetes en Windows, con el que podemos
   instalar una diversidad de paquetes (valga la redundancia) de forma sencilla
@@ -334,7 +334,7 @@ siguiente enlace** (te enviará dentro del README):
 
   > Este es solo para instalar [scrcpy]
 
-#### 3.3.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL***
+#### 1.3.3.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL***
 
 De acuerdo con las instrucciones del sitio web de [Chocolatey], hay que seguir
 los siguientes pasos:
@@ -386,13 +386,13 @@ los siguientes pasos:
 
    ![Chocolatey installation ready](README_imgs/ps-chocolatey-choco.png "Chocolatey installation ready")
 
-### 3.4. **[scrcpy]**
+### 1.3.4. **[scrcpy]**
 
 [scrcpy] es una aplicación para poder ver la pantalla de tu celular en tu
 computadora, conectándolo con un cable USB. Se puede instalar de diversas
 formas, indicadas en el GitHub, al que puedes hacer dando click aquí: [scrcpy].
 
-#### 3.4.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY***
+#### 1.3.4.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY***
 
 En mi caso, decidí instalarlo con [Chocolatey], ya que es más rápido y sencillo
 que tener que descomprimir carpetas manualmente y cosas así.
@@ -424,10 +424,10 @@ que ya viene instalada en Windows 10.
    > ```
 
    ![choco install scrcpy | Installing](README_imgs/ps-choco-scrcpy_1.png "choco install scrcpy | Installing")
-   
+
    ![choco install scrcpy | Installed](README_imgs/ps-choco-scrcpy_2.png "choco install scrcpy | Installed")
 
-## 4. ***VARIABLES DEL SISTEMA o de USUARIO***
+## 1.4. ***VARIABLES DEL SISTEMA o de USUARIO***
 
 Para que los programas funcionen de la mejor forma posible, hay que establecer
 las variables del sistema que identifiquen a los programas. Esto se explicará
@@ -436,7 +436,7 @@ en esta sección.
 Además, las variables del sistema permiten ejecutar ciertas instrucciones desde
 la línea de comandos.
 
-### 4.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**
+### 1.4.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**
 
 Para esto hay que seguir una serie de pasos que serán indicados a continuación.
 
@@ -445,6 +445,82 @@ Para esto hay que seguir una serie de pasos que serán indicados a continuación
       tareas.
    2. Presiona la combinación de teclas: ***`Windows + S`***
 2. Escribir en la barra lo siguiente: **`env`**
+
+#### 1.4.1.1. **DESCARGA DE JAVA**
+
+En mi caso descargué la versión **`Java SE 11 (LTS)`**, ya que es la última
+versión que se ha lanzado con **`LTS (Long Term Support - Soporte a largo
+plazo)`**, lo que significa que es una versión que tendrá soporte por mucho más
+tiempo de lo habitual. Esto no debería se un problema y podría instalar la
+última versión que se ha lanzado, la **`Java SE 16`**, pero por ahora instalaré
+esta.
+
+> - [TheServerSide | Don't ever put a non-Java LTS release into production](https://www.theserverside.com/opinion/Dont-ever-put-a-non-Java-LTS-release-into-production "TheServerSide | Don't ever put a non-Java LTS release into production")
+
+Por lo que leí, la próxima versión de **`Java LTS`** será la versión **`17`**, y
+llegará en este año 2021, pero a día de hoy, Mayo del 2021 aún no ha salido.
+Cada versión de Java es lanzada cada 6 meses.
+
+> ***ENLACE DE DESCARGA DE VERSIONES DE `JAVA SE (Standard Edition)`***
+>
+> - [Oracle | Java SE Downloads | Java Platform, Standard Edition](https://www.oracle.com/mx/java/technologies/javase-downloads.html "Oracle | Java SE Downloads | Java Platform, Standard Edition")
+>
+> ***DESCARGAS DE `Java SE Development Kit (JDK) 11`***
+>
+> - [Oracle | Java SE Development Kit 11 Downloads](https://www.oracle.com/mx/java/technologies/javase-jdk11-downloads.html "Oracle | Java SE Development Kit 11 Downloads")
+
+- ***Descargué la versión de Windows:***
+
+| Product / File Description | File Size | Download |
+| :------------------------: | :-------: | :------: |
+| **Windows x64 Installer** | 152.05 MB | jdk-11.0.11_windows-x64_bin.exe |
+
+#### 1.4.1.2. INFORMACIÓN SOBRE LAS VERSIONES DE JAVA
+
+Hay diversas versiones de Java, por lo que hay que saber elegir cuál utilizar.
+En el siguiente enlace esto viene bien explicado:
+
+> - [stackchief | Which Version of Java Should You Use?]
+
+#### 1.4.1.3. CONCEPTOS EN LOS ACRÓNIMOS DE JAVA: ***`JDK, JVM, JRE`***
+
+Hay diversos acrónimos que se manejan en Java, por lo que identificar cuál
+significa qué cosa es complicado.
+
+La información para conocer esto la encontré en el siguiente enlace (mismo del
+punto anterior):
+
+> - [stackchief | Which Version of Java Should You Use?]
+>
+> - **`JDK: Java Developer Kit`**
+>  
+>   The **`Java Developer Kit (JDK)`** is a development environment that you
+>   download for developing Java applications. It includes the JRE as well as an
+>   interpreter, compiler, and other tools for debugging and development. You'll
+>   need the JDK to develop Java applications, but not to run them. This is
+>   because the JRE is included with Java installs.
+>
+> - **`JVM: Java Virtual Machine`**
+>
+>   The **`Java Virtual Machine (JVM)`** which is an abstract computing machine
+>   that enables your computer to run a Java program.
+>
+> - **`JRE: Java Runtime Environment`**
+>
+>   Java requires a runtime environment **to execute the code you write**. When
+>   you download Java, you also get the **`Java Runtime Environment (JRE)`**.
+>   This JRE includes a Java Virtual Machine (JVM) which is an abstract
+>   computing machine that enables your computer to run a Java program.
+
+[stackchief | Which Version of Java Should You Use?]: <https://www.stackchief.com/blog/Which%20Version%20of%20Java%20Should%20You%20Use%3F> "stackchief | Which Version of Java Should You Use?"
+
+#### 1.4.1.4. JAVA_HOME
+
+Para poder ejecutar los programas necesitamos tener instalado `Java` y agregado a ***`JAVA_HOME`***.
+
+En el siguiene enlace están las instrucciones para establecer ***`JAVA_HOME`***:
+
+> - [Confluence Support | Setting the JAVA_HOME Variable in Windows](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html "Confluence Support | Setting the JAVA_HOME Variable in Windows")
 
 <h3 id="as-user-var"><strong>4.2. ANDROID STUDIO</strong></h3>
 
@@ -472,23 +548,23 @@ llamada **`Path`**.
      >
      > - ***`C:\SDKs\flutter\bin`***
 
-## 5. USO DE ÍCONOS
+## 1.5. USO DE ÍCONOS
 
 Podemos utilizar varios paquetes de íconos. En nuestro caso consideramos
 Font Awesome y Material Design.
 
-### 5.1. GOOGLE FONTS | MATERIAL ICONS
+### 1.5.1. GOOGLE FONTS | MATERIAL ICONS
 
 > [Google Fonts | Material Icons](https://fonts.google.com/icons "Google Fonts | Material Icons")
 
-#### 5.1.1. Íconos que podríamos utilizar
+#### 1.5.1.1. Íconos que podríamos utilizar
 
 - [Facebook](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Afacebook "Facebook")
 - [Search](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Asearch "Search")
 - [Add](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Aadd "Add")
 - [More Vert](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert "https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert")
 
-### 5.2. **Íconos con Font Awesome**
+### 1.5.2. **Íconos con Font Awesome**
 
 Font Awesome, nos provee de una gran cantidad de elementos.
 
@@ -499,7 +575,7 @@ Utilizamos el paquete:
 Para que funcione hay que agregar el nombre del paquete y la última versión
 (9.0.0) a las dependencias del [pubspec.yaml](pubspec.yaml "pubspec.yaml").
 
-#### 5.2.1. **Íconos que podríamos utilizar**
+#### 1.5.2.1. **Íconos que podríamos utilizar**
 
 - [search](https://fontawesome.com/icons/search?style=solid "search")
   - El problema es que es más robusto que el de facebook.
