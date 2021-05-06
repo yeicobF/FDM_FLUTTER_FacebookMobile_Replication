@@ -1,14 +1,45 @@
-# 1. **[T2.3] COPIAR MAQUETACIÓN DE PANTALLA LOGIN DE FACEBOOK**
+# **[T2.3] COPIAR MAQUETACIÓN DE PANTALLA LOGIN DE FACEBOOK**
 
 Para esta actividad trabajaremos en equipo Germán y yo.
 
 Si no entregamos el trabajo, nos bajará 2 puntos.
 
-## 1.1. ***FECHA DE ENTREGA***
+## ***FECHA DE ENTREGA***
 
 > Jueves, 6 de mayo del 2021
 
-## 1.2. **PANTALLAS OBJETIVO**
+## TABLA DE CONTENIDOS
+
+- [1.3. **PANTALLAS OBJETIVO**](#13-pantallas-objetivo)
+- [1.4. **INSTALACIONES**](#14-instalaciones)
+  - [1.4.1. **Android Studio**](#141-android-studio)
+    - [1.4.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**](#1411-configuración-obligatoria-android-studio)
+      - [1.4.1.1.1. **INSTALACIÓN DE PAQUETES**](#14111-instalación-de-paquetes)
+      - [1.4.1.1.2. **INSTALACIÓN DE PLUGINS**](#14112-instalación-de-plugins)
+      - [1.4.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**](#14113-comprobación-de-actualizaciones)
+    - [1.4.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**](#1412-crear-un-emulador-de-android-android-virtual-device)
+      - [1.4.1.2.1. ***RECOMENDACIÓN IMPORTANTE PARA EL AVD***](#14121-recomendación-importante-para-el-avd)
+  - [1.4.2. **Flutter**](#142-flutter)
+    - [1.4.2.1. ***EN QUÉ DIRECTORIO COLOCAR FLUTTER***](#1421-en-qué-directorio-colocar-flutter)
+    - [1.4.2.2. **VARIABLE DE USUARIO**](#1422-variable-de-usuario)
+  - [1.4.3. **Chocolatey**](#143-chocolatey)
+    - [1.4.3.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL***](#1431-instrucciones-instalación-desde-powershell)
+  - [1.4.4. **scrcpy**](#144-scrcpy)
+    - [1.4.4.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY***](#1441-instrucciones-instalación-desde-powershell-con-chocolatey)
+  - [1.4.5. JAVA](#145-java)
+    - [1.4.5.1. INFORMACIÓN SOBRE LAS VERSIONES DE JAVA](#1451-información-sobre-las-versiones-de-java)
+    - [1.4.5.2. CONCEPTOS EN LOS ACRÓNIMOS DE JAVA: ***`JDK, JVM, JRE`***](#1452-conceptos-en-los-acrónimos-de-java-jdk-jvm-jre)
+    - [1.4.5.3. **DESCARGA DE JAVA**](#1453-descarga-de-java)
+- [1.5. ***VARIABLES DEL SISTEMA o de USUARIO***](#15-variables-del-sistema-o-de-usuario)
+  - [1.5.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**](#151-acceder-a-la-sección-para-editar-las-variables)
+  - [1.5.2. VARIABLE DEL SISTEMA: JAVA_HOME](#152-variable-del-sistema-java_home)
+- [1.6. USO DE ÍCONOS](#16-uso-de-íconos)
+  - [1.6.1. GOOGLE FONTS | MATERIAL ICONS](#161-google-fonts--material-icons)
+    - [1.6.1.1. Íconos que podríamos utilizar](#1611-íconos-que-podríamos-utilizar)
+  - [1.6.2. **Íconos con Font Awesome**](#162-íconos-con-font-awesome)
+    - [1.6.2.1. **Íconos que podríamos utilizar**](#1621-íconos-que-podríamos-utilizar)
+
+## 1.3. **PANTALLAS OBJETIVO**
 
 Hay dos pantallas que tenemos como objetivo, pero una es opcional: pantalla de
 inicio de sesión, y pantalla después de dar click al botón de inicio de sesión.
@@ -27,21 +58,21 @@ inicio de sesión, y pantalla después de dar click al botón de inicio de sesi�
   
   ![2 | LOGIN AFTER CLICKING BUTTON](objective-program-screen/2_login-into-account-clicked_NO-NUMBER.png "2 | LOGIN AFTER CLICKING BUTTON")
 
-## 1.3. **INSTALACIONES**
+## 1.4. **INSTALACIONES**
 
 Para que todo funcione correctamente, hay que instalar varias cosas:
 
-### 1.3.1. **[Android Studio]**
+### 1.4.1. **[Android Studio]**
 
 Simplemente descarga el archivo que se encuentra en el enlace y ejecutalo.
 Después podrás configurarlo como tú quieras.
 
-#### 1.3.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**
+#### 1.4.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**
 
 Para que Android Studio y Flutter funcionen de manera correcta, hay que
 configurar unos elementos que serán obligatorios, siguiendo los siguientes pasos:
 
-##### 1.3.1.1.1. **INSTALACIÓN DE PAQUETES**
+##### 1.4.1.1.1. **INSTALACIÓN DE PAQUETES**
 
 Hay una serie de paquetes necesarios para trabajar con Flutter y el emulador de
 Android, entre otras cosas más.
@@ -142,7 +173,7 @@ Android, entre otras cosas más.
 
    ![Finish configuration](README_imgs/AS_CONFIG/as_17.png "Finish configuration")
 
-##### 1.3.1.1.2. **INSTALACIÓN DE PLUGINS**
+##### 1.4.1.1.2. **INSTALACIÓN DE PLUGINS**
 
 Para trabajar con Flutter de forma cómoda, hay que instalar una serie de Plugins
 que nos facilitarán el desarrollo de los programas.
@@ -179,7 +210,7 @@ que nos facilitarán el desarrollo de los programas.
 
    ![Plugins | Restart IDE](README_imgs/AS_CONFIG/as_23.png "Plugins | Restart IDE")
 
-##### 1.3.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**
+##### 1.4.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**
 
 Hay que comprobar si hay actualizaciones disponibles.
 
@@ -216,7 +247,7 @@ Hay que comprobar si hay actualizaciones disponibles.
 
 6. Listo.
 
-#### 1.3.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**
+#### 1.4.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**
 
 Para correr un programa podemos utilizar nuestro celular conectándolo a a la
 computadora mediante cable USB, o mediante un emulador de Android creado con
@@ -281,7 +312,7 @@ Android Studio.
 
    ![Launch AVD in emulator](README_imgs/AS_CONFIG/as-avd_10.png "Launch AVD in emulator")
 
-##### 1.3.1.2.1. ***RECOMENDACIÓN IMPORTANTE PARA EL AVD***
+##### 1.4.1.2.1. ***RECOMENDACIÓN IMPORTANTE PARA EL AVD***
 
 Cada vez, el AVD va a ir ocupando una mayor cantidad de espacio en el disco
 duro, el cual se puede ver en la sección de "**`Size on Disk`**", así que viene
@@ -301,7 +332,7 @@ muy bien la liberación de ese espacio.
 3. Listo. Ahora has liberado una buen cantidad de espacio en el disco duro.
    Puedes hacer esto en cualquier momento (mientras no utilices el dispositivo).
 
-### 1.3.2. **[Flutter]**
+### 1.4.2. **[Flutter]**
 
 Entra al enlace de  la documentación oficial de [Flutter] y en la sección de
 ***"[Get the Flutter SDK]"*** da click en el botón de descarga, el cual dice
@@ -309,7 +340,7 @@ Entra al enlace de  la documentación oficial de [Flutter] y en la sección de
 
 [Get the Flutter SDK]: <https://flutter.dev/docs/get-started/install/windows#get-the-flutter-sdk> "Flutter Windows Install | Get the Flutter SDK"
 
-#### 1.3.2.1. ***EN QUÉ DIRECTORIO COLOCAR FLUTTER***
+#### 1.4.2.1. ***EN QUÉ DIRECTORIO COLOCAR FLUTTER***
 
 Para no tener problemas con espacios y demás, coloqué Flutter directamente en el
 directorio principal del disco duro (**`C:/`**), creando una carpeta dentro y
@@ -319,14 +350,14 @@ extrayéndolo. Entonces quedaría de la siguiente forma:
 
 Así, cada vez que quiera encontrar Flutter, será más sencillo.
 
-#### 1.3.2.2. **VARIABLE DE USUARIO**
+#### 1.4.2.2. **VARIABLE DE USUARIO**
 
 Para ver cómo configurar la variable de usuario, dirígete a la **sección del
 siguiente enlace** (te enviará dentro del README):
 
 > [CONFIGURACIÓN DE VARIABLE DE USUARIO PARA FLUTTER](#flutter-user-var "VARIABLE DE USUARIO PARA FLUTTER")
 
-### 1.3.3. **[Chocolatey]**
+### 1.4.3. **[Chocolatey]**
   
   [Chocolatey] es un administrador de paquetes en Windows, con el que podemos
   instalar una diversidad de paquetes (valga la redundancia) de forma sencilla
@@ -334,7 +365,7 @@ siguiente enlace** (te enviará dentro del README):
 
   > Este es solo para instalar [scrcpy]
 
-#### 1.3.3.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL***
+#### 1.4.3.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL***
 
 De acuerdo con las instrucciones del sitio web de [Chocolatey], hay que seguir
 los siguientes pasos:
@@ -386,13 +417,13 @@ los siguientes pasos:
 
    ![Chocolatey installation ready](README_imgs/ps-chocolatey-choco.png "Chocolatey installation ready")
 
-### 1.3.4. **[scrcpy]**
+### 1.4.4. **[scrcpy]**
 
 [scrcpy] es una aplicación para poder ver la pantalla de tu celular en tu
 computadora, conectándolo con un cable USB. Se puede instalar de diversas
 formas, indicadas en el GitHub, al que puedes hacer dando click aquí: [scrcpy].
 
-#### 1.3.4.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY***
+#### 1.4.4.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY***
 
 En mi caso, decidí instalarlo con [Chocolatey], ya que es más rápido y sencillo
 que tener que descomprimir carpetas manualmente y cosas así.
@@ -427,62 +458,19 @@ que ya viene instalada en Windows 10.
 
    ![choco install scrcpy | Installed](README_imgs/ps-choco-scrcpy_2.png "choco install scrcpy | Installed")
 
-## 1.4. ***VARIABLES DEL SISTEMA o de USUARIO***
+### 1.4.5. **JAVA**
 
-Para que los programas funcionen de la mejor forma posible, hay que establecer
-las variables del sistema que identifiquen a los programas. Esto se explicará
-en esta sección.
+Es necesario tener instalado Java y tenerlo en las variables del sistema para
+poder ejecutar los programas.
 
-Además, las variables del sistema permiten ejecutar ciertas instrucciones desde
-la línea de comandos.
-
-### 1.4.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**
-
-Para esto hay que seguir una serie de pasos que serán indicados a continuación.
-
-1. Abre el buscador de Windows. Hay 2 formas de hacerlo.
-   1. Presiona la lupa que está al lado del ícono de Windows en la barra de
-      tareas.
-   2. Presiona la combinación de teclas: ***`Windows + S`***
-2. Escribir en la barra lo siguiente: **`env`**
-
-#### 1.4.1.1. **DESCARGA DE JAVA**
-
-En mi caso descargué la versión **`Java SE 11 (LTS)`**, ya que es la última
-versión que se ha lanzado con **`LTS (Long Term Support - Soporte a largo
-plazo)`**, lo que significa que es una versión que tendrá soporte por mucho más
-tiempo de lo habitual. Esto no debería se un problema y podría instalar la
-última versión que se ha lanzado, la **`Java SE 16`**, pero por ahora instalaré
-esta.
-
-> - [TheServerSide | Don't ever put a non-Java LTS release into production](https://www.theserverside.com/opinion/Dont-ever-put-a-non-Java-LTS-release-into-production "TheServerSide | Don't ever put a non-Java LTS release into production")
-
-Por lo que leí, la próxima versión de **`Java LTS`** será la versión **`17`**, y
-llegará en este año 2021, pero a día de hoy, Mayo del 2021 aún no ha salido.
-Cada versión de Java es lanzada cada 6 meses.
-
-> ***ENLACE DE DESCARGA DE VERSIONES DE `JAVA SE (Standard Edition)`***
->
-> - [Oracle | Java SE Downloads | Java Platform, Standard Edition](https://www.oracle.com/mx/java/technologies/javase-downloads.html "Oracle | Java SE Downloads | Java Platform, Standard Edition")
->
-> ***DESCARGAS DE `Java SE Development Kit (JDK) 11`***
->
-> - [Oracle | Java SE Development Kit 11 Downloads](https://www.oracle.com/mx/java/technologies/javase-jdk11-downloads.html "Oracle | Java SE Development Kit 11 Downloads")
-
-- ***Descargué la versión de Windows:***
-
-| Product / File Description | File Size | Download |
-| :------------------------: | :-------: | :------: |
-| **Windows x64 Installer** | 152.05 MB | jdk-11.0.11_windows-x64_bin.exe |
-
-#### 1.4.1.2. INFORMACIÓN SOBRE LAS VERSIONES DE JAVA
+#### 1.4.5.1. ***INFORMACIÓN SOBRE LAS VERSIONES DE JAVA***
 
 Hay diversas versiones de Java, por lo que hay que saber elegir cuál utilizar.
 En el siguiente enlace esto viene bien explicado:
 
 > - [stackchief | Which Version of Java Should You Use?]
 
-#### 1.4.1.3. CONCEPTOS EN LOS ACRÓNIMOS DE JAVA: ***`JDK, JVM, JRE`***
+#### 1.4.5.2. **CONCEPTOS EN LOS ACRÓNIMOS DE JAVA:** ***`JDK, JVM, JRE`***
 
 Hay diversos acrónimos que se manejan en Java, por lo que identificar cuál
 significa qué cosa es complicado.
@@ -514,13 +502,113 @@ punto anterior):
 
 [stackchief | Which Version of Java Should You Use?]: <https://www.stackchief.com/blog/Which%20Version%20of%20Java%20Should%20You%20Use%3F> "stackchief | Which Version of Java Should You Use?"
 
-#### 1.4.1.4. JAVA_HOME
+#### 1.4.5.3. **DESCARGA DE JAVA**
+
+En mi caso descargué la versión **`Java SE 11 (LTS)`**, ya que es la última
+versión que se ha lanzado con **`LTS (Long Term Support - Soporte a largo
+plazo)`**, lo que significa que es una versión que tendrá soporte por mucho más
+tiempo de lo habitual. Esto no debería se un problema y podría instalar la
+última versión que se ha lanzado, la **`Java SE 16`**, pero por ahora instalaré
+esta.
+
+> - [TheServerSide | Don't ever put a non-Java LTS release into production](https://www.theserverside.com/opinion/Dont-ever-put-a-non-Java-LTS-release-into-production "TheServerSide | Don't ever put a non-Java LTS release into production")
+
+Por lo que leí, la próxima versión de **`Java LTS`** será la versión **`17`**, y
+llegará en este año 2021, pero a día de hoy, Mayo del 2021 aún no ha salido.
+Cada versión de Java es lanzada cada 6 meses.
+
+> ***ENLACE DE DESCARGA DE VERSIONES DE `JAVA SE (Standard Edition)`***
+>
+> - [Oracle | Java SE Downloads | Java Platform, Standard Edition](https://www.oracle.com/mx/java/technologies/javase-downloads.html "Oracle | Java SE Downloads | Java Platform, Standard Edition")
+>
+> ***DESCARGAS DE `Java SE Development Kit (JDK) 11`***
+>
+> - [Oracle | Java SE Development Kit 11 Downloads](https://www.oracle.com/mx/java/technologies/javase-jdk11-downloads.html "Oracle | Java SE Development Kit 11 Downloads")
+
+- ***Descargué la versión de Windows:***
+
+| Product / File Description | File Size | Download |
+| :------------------------: | :-------: | :------: |
+| **Windows x64 Installer** | 152.05 MB | jdk-11.0.11_windows-x64_bin.exe |
+
+> ***NOTA: REQUIERES TENER UNA CUENTA DE `ORACLE` PARA LA INSTALACIÓN.***
+>
+> - ***DIRECTORIO EN MI PC: `C:\Program Files\Java\jdk-11.0.11\`***#
+
+## 1.5. ***VARIABLES DEL SISTEMA o de USUARIO***
+
+Para que los programas funcionen de la mejor forma posible, hay que establecer
+las variables del sistema que identifiquen a los programas. Esto se explicará
+en esta sección.
+
+Además, las variables del sistema permiten ejecutar ciertas instrucciones desde
+la línea de comandos.
+
+### 1.5.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**
+
+Para esto hay que seguir una serie de pasos que serán indicados a continuación.
+
+1. Abre el buscador de Windows. Hay 2 formas de hacerlo.
+   1. Presiona la lupa que está al lado del ícono de Windows en la barra de
+      tareas.
+   2. Presiona la combinación de teclas: ***`Windows + S`***
+2. Escribir en la barra lo siguiente: **`env`**.
+3. Selecciona la opción: "***`Editar las variables de entorno del sistema`***".
+
+   ![Buscar | Editar las variables de entorno del sistema](README_imgs/ENV_VARS/env-vars_1.png "Buscar | Editar las variables de entorno del sistema")
+
+   - Te aparecerá una ventana: **Propiedades del sistema**.
+
+     ![Propiedades del sistema](README_imgs/ENV_VARS/env-vars_2.png "Propiedades del sistema")
+
+4. Selecciona el botón: "**`Variables de entorno...`**".
+
+     ![Propiedades del sistema | Variables del entorno](README_imgs/ENV_VARS/env-vars_3.png "Propiedades del sistema | Variables del entorno")
+
+   - Te aparecerá una nueva ventana: "Variables de entorno", que muestra y da la
+     opción de manipular todas las variables de usuario y del sistema.
+
+     ![Variables del entorno](README_imgs/ENV_VARS/env-vars_4.png "Variables del entorno")
+
+5. En esta sección ya puedes modificar las ***variables de usuario o del
+   sistema*** como lo requieras.
+
+### 1.5.2. **VARIABLE DEL SISTEMA: `JAVA_HOME`**
 
 Para poder ejecutar los programas necesitamos tener instalado `Java` y agregado a ***`JAVA_HOME`***.
 
 En el siguiene enlace están las instrucciones para establecer ***`JAVA_HOME`***:
 
 > - [Confluence Support | Setting the JAVA_HOME Variable in Windows](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html "Confluence Support | Setting the JAVA_HOME Variable in Windows")
+
+1. Accede a la ventana de ***"Variables del entorno"*** como indican los pasos
+   del inicio de la sección.
+
+   ![Variables del entorno](README_imgs/ENV_VARS/env-vars_4.png "Variables del entorno")
+
+2. En las ***`variables del sistema`*** da click en "***`Nueva...`***".
+
+   ![Variables del sistema | Nueva...](README_imgs/ENV_VARS/env-vars_5.png "Variables del sistema | Nueva...")
+
+3. En el campo "***`Nombre de la variable:`***" ingresa lo siguiente:
+
+   > JAVA_HOME
+
+   ![Nombre de la variable: JAVA_HOME](README_imgs/ENV_VARS/env-vars_6.png "Nombre de la variable: JAVA_HOME")
+
+4. En el campo "***`Valor de la variable:`***" ingresa el directorio de
+   instalación de tu JDK. En mi caso fue el siguiente (no lleva backslash "\\"
+   al final):
+
+   > C:\Program Files\Java\jdk-11.0.11
+
+   ![Valor de la variable](README_imgs/ENV_VARS/env-vars_7.png "Valor de la variable")
+
+5. Da click en "***`Aceptar`***".
+
+6. Listo, tu variable del sistema ya está establecida.
+
+   ![JAVA_HOME en VARIABLES DEL SISTEMA](README_imgs/ENV_VARS/env-vars_8.png "JAVA_HOME en VARIABLES DEL SISTEMA")
 
 <h3 id="as-user-var"><strong>4.2. ANDROID STUDIO</strong></h3>
 
@@ -548,23 +636,23 @@ llamada **`Path`**.
      >
      > - ***`C:\SDKs\flutter\bin`***
 
-## 1.5. USO DE ÍCONOS
+## 1.6. USO DE ÍCONOS
 
 Podemos utilizar varios paquetes de íconos. En nuestro caso consideramos
 Font Awesome y Material Design.
 
-### 1.5.1. GOOGLE FONTS | MATERIAL ICONS
+### 1.6.1. GOOGLE FONTS | MATERIAL ICONS
 
 > [Google Fonts | Material Icons](https://fonts.google.com/icons "Google Fonts | Material Icons")
 
-#### 1.5.1.1. Íconos que podríamos utilizar
+#### 1.6.1.1. Íconos que podríamos utilizar
 
 - [Facebook](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Afacebook "Facebook")
 - [Search](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Asearch "Search")
 - [Add](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Aadd "Add")
 - [More Vert](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert "https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert")
 
-### 1.5.2. **Íconos con Font Awesome**
+### 1.6.2. **Íconos con Font Awesome**
 
 Font Awesome, nos provee de una gran cantidad de elementos.
 
@@ -575,7 +663,7 @@ Utilizamos el paquete:
 Para que funcione hay que agregar el nombre del paquete y la última versión
 (9.0.0) a las dependencias del [pubspec.yaml](pubspec.yaml "pubspec.yaml").
 
-#### 1.5.2.1. **Íconos que podríamos utilizar**
+#### 1.6.2.1. **Íconos que podríamos utilizar**
 
 - [search](https://fontawesome.com/icons/search?style=solid "search")
   - El problema es que es más robusto que el de facebook.
