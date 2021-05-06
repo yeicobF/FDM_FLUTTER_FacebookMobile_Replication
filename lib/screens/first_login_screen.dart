@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // VARIABLES GLOBALES
 import '../globals/global_values.dart' as global_values;
+/* ---------------- WIDGET DEL NOMBRE DEL USUARIO EN EL LOGIN --------------- */
+import '../widgets/login_username.dart' as login_username;
 
  // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
 
@@ -43,9 +45,9 @@ class FirstLoginScreen extends StatelessWidget {
               child: Column(
                 // mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const <Widget>[
-                  Padding(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  const Padding(
                     padding: EdgeInsets.only(top: 120,),
                     child: Icon(
                       FontAwesomeIcons.facebook,
@@ -53,6 +55,7 @@ class FirstLoginScreen extends StatelessWidget {
                       size: 45,
                     ),
                   ),
+                  login_username.userInfo(),
                 ],
               ),
             ),
