@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // VARIABLES GLOBALES
 import '../globals/global_values.dart' as global_values;
 
@@ -11,16 +12,47 @@ class FirstLoginScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(
-        20,
-      ),
-      // width: 100,
-      // height: 100,
-      color: global_values.darkBackground,
-      // Solo para poder ver el padding.
+    // TAMAÑO RELATIVO AL TAMAÑO DEL DISPOSITIVO CON
+    // - FractionallySizedBox
+    return FractionallySizedBox(
+      widthFactor: 1,
+      heightFactor: 1,
       child: Container(
-        color: fbButtonColor,
+        color: global_values.darkBackground,
+        child: Column(
+        children: [
+          // Un ícono antes de agregar el PADDING a los demás elementos.
+          const Padding(
+            padding: EdgeInsets.only(left: 10, top: 10,),
+            child: Align(
+              // heightFactor: 1.4,
+              alignment: Alignment.bottomLeft,
+              child: Icon(
+                Icons.info_outline_rounded,
+                size: 22,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(
+              30,
+            ),
+            // color: fbButtonColor,
+            // Solo para poder ver el padding.
+              child: Column(
+                children: const <Widget>[
+                  Icon(
+                    FontAwesomeIcons.facebook,
+                    color: Colors.white,
+                    size: 45,
+                  ),
+                ],
+              ),
+            ),
+        ],
+        
+      ),
       ),
     );
   }

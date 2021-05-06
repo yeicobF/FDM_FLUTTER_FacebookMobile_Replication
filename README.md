@@ -671,6 +671,7 @@ Font Awesome y Material Design.
 - [Search](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Asearch "Search")
 - [Add](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Aadd "Add")
 - [More Vert](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert "https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert")
+- [info_outlined](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Ainfo "info_outlined")
 
 ### 1.6.2. **Íconos con Font Awesome**
 
@@ -694,6 +695,8 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
   - El de Facebook parece ser la versión `LIGHT`.
 - [elipsis-v](https://fontawesome.com/icons/ellipsis-v?style=solid "elipsis-v")
   - También parece que la versión de Facebook es la `LIGHT` o la `PRO`.
+- [info-circle](https://fontawesome.com/icons/info-circle?style=solid "info-circle")
+  - **`LIGH`**.
 
 ## ***ENLACES EXTRA QUE FUERON ÚTILES***
 

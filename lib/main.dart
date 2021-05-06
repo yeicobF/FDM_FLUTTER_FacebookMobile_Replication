@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 /* --------------------------- VARIABLES GLOBALES --------------------------- */
 
@@ -69,7 +68,7 @@ class MyApp extends StatelessWidget {
         //   brightness: Brightness.dark, // status bar brightness
         // ),
         body: SafeArea(
-          child: FirstLoginScreen()
+          child: FirstLoginScreen(),
         ),
       )
     );
