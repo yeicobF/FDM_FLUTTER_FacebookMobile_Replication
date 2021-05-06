@@ -43,7 +43,7 @@ class FirstLoginScreen extends StatelessWidget {
             // color: fbButtonColor,
             // Solo para poder ver el padding.
               child: Column(
-                // mainAxisSize: MainAxisSize.max,
+                mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[

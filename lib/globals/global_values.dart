@@ -5,4 +5,9 @@ library facebook_login_screen_replication.global_values;
 import 'package:flutter/material.dart';
 
 // Fondo oscuro de facebook.
-const Color darkBackground = Color(0xFF242527);
+// const Color darkBackground = Color(0xFF242527);
+// rgba(36,37,39,255)
+
+// No sé por qué, pero el color se ve diferente al de la imagen original,
+// supongo que será por el Image color picker.
+const Color darkBackground = Color.fromARGB(255, 36, 37, 39);
