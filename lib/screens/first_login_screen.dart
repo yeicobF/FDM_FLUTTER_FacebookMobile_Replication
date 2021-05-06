@@ -41,11 +41,17 @@ class FirstLoginScreen extends StatelessWidget {
             // color: fbButtonColor,
             // Solo para poder ver el padding.
               child: Column(
+                // mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: const <Widget>[
-                  Icon(
-                    FontAwesomeIcons.facebook,
-                    color: Colors.white,
-                    size: 45,
+                  Padding(
+                    padding: EdgeInsets.only(top: 120,),
+                    child: Icon(
+                      FontAwesomeIcons.facebook,
+                      color: Colors.white,
+                      size: 45,
+                    ),
                   ),
                 ],
               ),
