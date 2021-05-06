@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// VARIABLES GLOBALES
+
+/* --------------------------- VARIABLES GLOBALES --------------------------- */
+
 import 'globals/global_values.dart' as global_values;
 
+/* ------------------------------ LAS PANTALLAS ----------------------------- */
+// PANTALLA INICIAL
+import 'screens/first_login_screen.dart';
+// PANTALLA DESPUÉS DE DAR CLICK A BOTÓN
+import 'screens/login_screen_after_click.dart';
 /* -------------------------------------------------------------------------- */
 
 // Guardar colores en HEXADECIMAL.
@@ -49,6 +56,7 @@ class MyApp extends StatelessWidget {
           ),
           backgroundColor: global_values.darkBackground,
         ),
+        body: FirstLoginScreen(),
       )
     );
   }

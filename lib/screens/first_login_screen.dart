@@ -4,6 +4,17 @@ import '../globals/global_values.dart' as global_values;
 
  // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
 
-const Color fbButtonColor = Color(0xFF273951);
-const Color fbFontColor = Color(0xFF4e9af5);
+class FirstLoginScreen extends StatelessWidget {
+  final  Color fbButtonColor = const Color(0xFF273951);
+  final Color fbFontColor = const Color(0xFF4e9af5);
 // const Color fbFontColor = Color(0xFF4e9bf9);
+  
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // width: 100,
+      // height: 100,
+      color: global_values.darkBackground,
+    );
+  }
+}
