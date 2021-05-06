@@ -1,8 +1,8 @@
 # **[T2.3] COPIAR MAQUETACIÓN DE PANTALLA LOGIN DE FACEBOOK**
 
-Para esta actividad trabajaremos en equipo Germán y yo.
-
-Si no entregamos el trabajo, nos bajará 2 puntos.
+> - Para esta actividad trabajaremos en equipo Germán y yo.
+>
+> - ***IMPORTANTE:*** Si no entregamos el trabajo, nos bajará 2 puntos.
 
 ## ***FECHA DE ENTREGA***
 
@@ -26,13 +26,14 @@ Si no entregamos el trabajo, nos bajará 2 puntos.
     - [1.4.3.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL***](#1431-instrucciones-instalación-desde-powershell)
   - [1.4.4. **scrcpy**](#144-scrcpy)
     - [1.4.4.1. ***INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY***](#1441-instrucciones-instalación-desde-powershell-con-chocolatey)
-  - [1.4.5. JAVA](#145-java)
-    - [1.4.5.1. INFORMACIÓN SOBRE LAS VERSIONES DE JAVA](#1451-información-sobre-las-versiones-de-java)
-    - [1.4.5.2. CONCEPTOS EN LOS ACRÓNIMOS DE JAVA: ***`JDK, JVM, JRE`***](#1452-conceptos-en-los-acrónimos-de-java-jdk-jvm-jre)
+  - [1.4.5. **JAVA**](#145-java)
+    - [1.4.5.1. ***INFORMACIÓN SOBRE LAS VERSIONES DE JAVA***](#1451-información-sobre-las-versiones-de-java)
+    - [1.4.5.2. **CONCEPTOS EN LOS ACRÓNIMOS DE JAVA:** ***`JDK, JVM, JRE`***](#1452-conceptos-en-los-acrónimos-de-java-jdk-jvm-jre)
     - [1.4.5.3. **DESCARGA DE JAVA**](#1453-descarga-de-java)
 - [1.5. ***VARIABLES DEL SISTEMA o de USUARIO***](#15-variables-del-sistema-o-de-usuario)
   - [1.5.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**](#151-acceder-a-la-sección-para-editar-las-variables)
-  - [1.5.2. VARIABLE DEL SISTEMA: JAVA_HOME](#152-variable-del-sistema-java_home)
+  - [1.5.2. **VARIABLE DEL SISTEMA: `JAVA_HOME`**](#152-variable-del-sistema-java_home)
+    - [1.5.2.1. VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO](#1521-verificación-de-que-java_home-está-establecido)
 - [1.6. USO DE ÍCONOS](#16-uso-de-íconos)
   - [1.6.1. GOOGLE FONTS | MATERIAL ICONS](#161-google-fonts--material-icons)
     - [1.6.1.1. Íconos que podríamos utilizar](#1611-íconos-que-podríamos-utilizar)
@@ -610,7 +611,7 @@ En el siguiene enlace están las instrucciones para establecer ***`JAVA_HOME`***
 
    ![JAVA_HOME en VARIABLES DEL SISTEMA](README_imgs/ENV_VARS/env-vars_8.png "JAVA_HOME en VARIABLES DEL SISTEMA")
 
-#### VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO
+#### 1.5.2.1. VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO
 
 Hay que verificar que todo haya salido bien y el sistema identifica la variable
 ***`JAVA_HOME`***. Esto se logra ejecutando un comando después de haber
@@ -620,7 +621,9 @@ sistema.
 
 El comando es el siguiente:
 
+> ```properties
 > java --version
+> ```
 
 Si todo se configuró correctamente, te mostrará un mensaje con tu versión
 instalada de Java.
