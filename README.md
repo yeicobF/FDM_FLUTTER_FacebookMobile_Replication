@@ -14,13 +14,14 @@ Hay dos pantallas que tenemos como objetivo, pero una es opcional: pantalla de
 inicio de sesión, y pantalla después de dar click al botón de inicio de sesión.
 
 - P**antalla principal de inicio de sesión (los colores se modificaron al exportar
-  desde Photoshop, ya que le quité la imagen original):**
+  desde Photoshop, ya que le quité la imagen original).**
 
-  ![1 | MAIN LOGIN SCREEN | PICTURE GONE](objective-program-screen/1_main-login-with-picture_PICTURE-GONE_MODIFIED-COLORS-PS.png "1 | MAIN LOGIN SCREEN | PICTURE GONE")
-  
-  > - ***Colores originales:***
-  >
-  > ![1 | MAIN LOGIN SCREEN | ORIGINAL COLORS](objective-program-screen/1_main-login-with-picture_ORIGINAL-COLORS.png "1 | MAIN LOGIN SCREEN | ORIGINAL COLORS")
+  | LOGIN PRINCIPAL COLORES MODIFICADOS | COLORES ORIGINALES |
+  | :-----------------------: | :----------------: |
+  | ![1 - MAIN LOGIN SCREEN - PICTURE GONE] | ![1 - MAIN LOGIN SCREEN - ORIGINAL COLORS] |
+
+[1 - MAIN LOGIN SCREEN - PICTURE GONE]: <objective-program-screen/1_main-login-with-picture_PICTURE-GONE_MODIFIED-COLORS-PS.png> "1 | MAIN LOGIN SCREEN | PICTURE GONE"
+[1 - MAIN LOGIN SCREEN - ORIGINAL COLORS]: <objective-program-screen/1_main-login-with-picture_ORIGINAL-COLORS.png> "1 | MAIN LOGIN SCREEN | ORIGINAL COLORS"
 
 - ***[OPCIONAL]*** Pantalla después de dar click a iniciar sesión:
   
