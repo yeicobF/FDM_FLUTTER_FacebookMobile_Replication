@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 /* --------------------------- VARIABLES GLOBALES --------------------------- */
 
+// Se acceden los valores como: "global_values.variable"
 import 'globals/global_values.dart' as global_values;
 
 /* ------------------------------ LAS PANTALLAS ----------------------------- */

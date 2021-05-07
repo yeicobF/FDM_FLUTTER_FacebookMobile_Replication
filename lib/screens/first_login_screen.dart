@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // VARIABLES GLOBALES
 import '../globals/global_values.dart' as global_values;
 /* ---------------- WIDGET DEL NOMBRE DEL USUARIO EN EL LOGIN --------------- */
-import '../widgets/login_username.dart' as login_username;
+import '../widgets/first_login_screen/login_username.dart' as login_username;
 
  // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
 
@@ -43,7 +43,7 @@ class FirstLoginScreen extends StatelessWidget {
             // color: fbButtonColor,
             // Solo para poder ver el padding.
               child: Column(
-                mainAxisSize: MainAxisSize.max,
+                // mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
@@ -55,6 +55,7 @@ class FirstLoginScreen extends StatelessWidget {
                       size: 45,
                     ),
                   ),
+                  // AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO.
                   login_username.userInfo(),
                 ],
               ),

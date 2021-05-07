@@ -696,7 +696,7 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 - [elipsis-v](https://fontawesome.com/icons/ellipsis-v?style=solid "elipsis-v")
   - También parece que la versión de Facebook es la `LIGHT` o la `PRO`.
 - [info-circle](https://fontawesome.com/icons/info-circle?style=solid "info-circle")
-  - **`LIGH`**.
+  - **`LIGHT`**.
 
 ## ***ENLACES EXTRA QUE FUERON ÚTILES***
 

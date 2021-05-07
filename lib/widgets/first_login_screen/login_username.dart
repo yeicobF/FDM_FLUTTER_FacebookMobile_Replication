@@ -1,4 +1,6 @@
-// Este es el Widget del nombre de usuario.
+// Este es el Widget del nombre de usuario en la primera pantalla del login.
+// Se muestra la foto de perfil, el número de notificaciones, el nombre, y 3
+// puntos (que son un botón).
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -46,8 +48,9 @@ Widget userInfo() {
           )  
         ),
         // EXPANDED para que se ocupe todo el ancho restante. Si solo pongo el
-        // conatiner, no se adaptará el ancho
+        // container, no se adaptará el ancho
         Expanded(
+          // ESTE DEBERÍA DE SER UN BOTÓN.
           child: Container(
             alignment: Alignment.centerRight,
             child: const Icon(
