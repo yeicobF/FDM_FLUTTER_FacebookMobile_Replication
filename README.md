@@ -714,6 +714,8 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 - https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
   - https://stackoverflow.com/questions/61969143/no-mediaquery-ancestor-could-be-found
 - https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
+- [Stack Overflow | What is the Dart null checking idiom or best practice?](https://stackoverflow.com/questions/17006664/what-is-the-dart-null-checking-idiom-or-best-practice "Stack Overflow | What is the Dart null checking idiom or best practice?")
+  - [Stack Overflow | What is the Dart null checking idiom or best practice? | atreeon's answer](https://stackoverflow.com/a/58027593/13562806 "Stack Overflow | What is the Dart null checking idiom or best practice? | atreeon's answer")
 
 [//]: <EN ESTA SECCIÓN SE ENCUENTRAN LAS "VARIABLES" UTILIZADAS PARA EL README.>
 

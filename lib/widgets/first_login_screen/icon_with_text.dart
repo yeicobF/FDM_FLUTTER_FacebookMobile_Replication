@@ -17,7 +17,9 @@ Widget iconWithText(IconData icon, double iconSize, String text, Color buttonCol
   // Si recibimos tamaño del ícono, lo dejamos así, pero si no recibimos nada,
   // utilizamos el "default", que es 24.0.
 
-  if (iconSize == Null || iconSize < 0) iconSize = 24.0; 
+  // Estos operadores asignarán 24.0 a "iconSize" si su valor = NULL.
+  // https://stackoverflow.com/questions/17006664/what-is-the-dart-null-checking-idiom-or-best-practice
+  iconSize ??= 24.0; 
 
   return Padding(
     padding: const EdgeInsets.only(top: 20),
@@ -35,7 +37,7 @@ Widget iconWithText(IconData icon, double iconSize, String text, Color buttonCol
           child: Center(
             child: Icon(
               icon,
-              size: size,
+              size: iconSize,
               color: fontColor,
             ),
           ),

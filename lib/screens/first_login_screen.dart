@@ -58,22 +58,24 @@ class FirstLoginScreen extends StatelessWidget {
                   ),
                   // AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO.
                   login_username.userInfo(),
+                  // ROW CON ÍCONO Y TEXTO.
                   icon_with_text.iconWithText(
                     Icons.add_sharp,
-                    24,
+                    null, // null PARA QUE EL TAMAÑO DEL ÍCONO SEA EL DEFAULT.
                     "Log Into Another Account",
                     fbButtonColor,
                     fbFontColor
                   ),
                   icon_with_text.iconWithText(
                     Icons.search,
-                    24,
+                    28,
                     // ES MÁS PARECIDO, PERO LA VERSIÓN "LIGHT" ES DE PAGA.
                     // FontAwesomeIcons.search,
                     "Find Your Account",
                     fbButtonColor,
                     fbFontColor
                   ),
+                  // ÚLTIMO BOTÓN.
                 ],
               ),
             ),
