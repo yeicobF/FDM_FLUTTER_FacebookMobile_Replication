@@ -2,7 +2,6 @@
 // Se muestra la foto de perfil, el número de notificaciones, el nombre, y 3
 // puntos (que son un botón).
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget userInfo() {
   return Padding(
