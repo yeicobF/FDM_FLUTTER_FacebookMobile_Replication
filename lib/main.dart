@@ -45,6 +45,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Facebook Login',
       home: Scaffold(
+        // ---------------------------------------------------------------------
+        // CON EL APPBAR SE PUEDEN CAMBIAR LOS ATRIBUTOS DEL StatusBar respecto
+        // a sus colores, pero es menos lío con "FlutterStatusbarcolor"
+        //          ------------------------------------------
         // appBar: AppBar(
         //   // AppBar tendrá el tamaño de la statusBar.
         //   toolbarHeight: 1,
@@ -53,6 +57,7 @@ class MyApp extends StatelessWidget {
         //   // ÍCONOS DEL STATUS BAR: BLANCOS - Brightness.darkk
         //   brightness: Brightness.dark, // status bar brightness
         // ),
+        // ---------------------------------------------------------------------
         body: SafeArea(
           child: FirstLoginScreen(),
         ),

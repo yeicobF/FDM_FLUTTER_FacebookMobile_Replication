@@ -8,7 +8,7 @@ Widget userInfo() {
   return Padding(
     padding: const EdgeInsets.only(top: 40,),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      // mainAxisAlignment: MainAxisAlignment.start,
       // crossAxisAlignment: CrossAxisAlignment.stretch,
       // mainAxisSize: MainAxisSize.max,
       children: [

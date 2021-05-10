@@ -48,16 +48,17 @@ inicio de sesión, y pantalla después de dar click al botón de inicio de sesi�
 - P**antalla principal de inicio de sesión (los colores se modificaron al exportar
   desde Photoshop, ya que le quité la imagen original).**
 
-  | LOGIN PRINCIPAL COLORES MODIFICADOS | COLORES ORIGINALES |
-  | :-----------------------: | :----------------: |
-  | ![1 - MAIN LOGIN SCREEN - PICTURE GONE] | ![1 - MAIN LOGIN SCREEN - ORIGINAL COLORS] |
+  | NÚMERO DE PANTALLA | DESCRIPCIÓN DE PANTALLA | IMAGEN DE LA PANTALLA |
+  | :----------------: | :---------------------: | :-------------------: |
+  | 1 | PRIMERA PANTALLA DE INICIO DE SESIÓN CON LOS COLORES MODIFICADOS | ![1 - MAIN LOGIN SCREEN - PICTURE GONE] |
+  | 1 | COLORES ORIGINALES DE LA PRIMERA PANTALLA DE INICIO DE SESIÓN | ![1 - MAIN LOGIN SCREEN - ORIGINAL COLORS] |
+  | 2 | PANTALLA PARA INICIAR SESIÓN DESPUÉS DE DAR CLICK AL BOTÓN "Log Into Another Account" | ![2 - LOGIN AFTER CLICKING BUTTON] |
+  | 3 | FEED PRINCIPAL DESPUÉS DE HABER INICIADO SESIÓN (LOS ELEMENTOS SON IMPRECISOS RESPECTO A POSICIÓN Y TAMAÑO PORQUE LA IMAGEN FUE EDITADA PARA OCULTAR INFORMACIÓN PERSONAL. NOS BASAMOS EN LA IMAGEN SIN EDITAR.) | ![3 - MAIN FEED - EDITED IMAGE] |
 
-[1 - MAIN LOGIN SCREEN - PICTURE GONE]: <objective-program-screen/1_main-login-with-picture_PICTURE-GONE_MODIFIED-COLORS-PS.png> "1 | MAIN LOGIN SCREEN | PICTURE GONE"
-[1 - MAIN LOGIN SCREEN - ORIGINAL COLORS]: <objective-program-screen/1_main-login-with-picture_ORIGINAL-COLORS.png> "1 | MAIN LOGIN SCREEN | ORIGINAL COLORS"
-
-- ***[OPCIONAL]*** Pantalla después de dar click a iniciar sesión:
-  
-  ![2 | LOGIN AFTER CLICKING BUTTON](objective-program-screen/2_login-into-account-clicked_NO-NUMBER.png "2 | LOGIN AFTER CLICKING BUTTON")
+[1 - MAIN LOGIN SCREEN - PICTURE GONE]: <objective-program-screen/LOGIN_SCREENS/1_main-login-with-picture_PICTURE-GONE_MODIFIED-COLORS-PS.png> "1 | MAIN LOGIN SCREEN | PICTURE GONE"
+[1 - MAIN LOGIN SCREEN - ORIGINAL COLORS]: <objective-program-screen/LOGIN_SCREENS/1_main-login-with-picture_ORIGINAL-COLORS.png> "1 | MAIN LOGIN SCREEN | ORIGINAL COLORS"
+[2 - LOGIN AFTER CLICKING BUTTON]: <objective-program-screen/LOGIN_SCREENS/2_login-into-account-clicked_NO-NUMBER.png> "2 | LOGIN AFTER CLICKING BUTTON"
+[3 - MAIN FEED - EDITED IMAGE]: <objective-program-screen/MAIN_FEED_SCREENS/main-feed_screen_1_EDITADA-SIN-DATOS-PERSONALES.png> "3 | MAIN FEED | EDITED IMAGE"
 
 ## 1.4. **INSTALACIONES**
 

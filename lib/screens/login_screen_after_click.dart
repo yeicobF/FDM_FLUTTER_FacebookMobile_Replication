@@ -27,7 +27,7 @@ class LoginScreenAfterClick extends StatelessWidget {
     "placeholder": const Color(0xFF919296),
     "bottomLine": const Color(0xFF3a85e4),
   };
-
+  
   final Color fbLogo = const Color(0xFF1878f3);
   // El fondo oscuro deberá ser un color global.
   // final Color darkBackground = const Color(0xFF242527);
@@ -36,6 +36,8 @@ class LoginScreenAfterClick extends StatelessWidget {
 /* --------------------- FUNCIÓN PARA CONSTRUIR PANTALLA -------------------- */
   @override
   Widget build(BuildContext context) {
+
+    // loginButtonColors["background"]; <- ACCESO A LOS MAPAS.
 
     // Con FractionallySizedBox puedes hacer que el tamaño de lo que muestras
     // en pantalla sea relativo al tamaño máximo del dispositivo con los
