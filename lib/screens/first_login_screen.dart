@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../globals/global_values.dart' as global_values;
 /* ---------------- WIDGET DEL NOMBRE DEL USUARIO EN EL LOGIN --------------- */
 import '../widgets/first_login_screen/login_username.dart' as login_username;
+import '../widgets/first_login_screen/icon_with_text.dart' as icon_with_text;
 
  // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
 
@@ -57,6 +58,22 @@ class FirstLoginScreen extends StatelessWidget {
                   ),
                   // AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO.
                   login_username.userInfo(),
+                  icon_with_text.iconWithText(
+                    Icons.add_sharp,
+                    24,
+                    "Log Into Another Account",
+                    fbButtonColor,
+                    fbFontColor
+                  ),
+                  icon_with_text.iconWithText(
+                    Icons.search,
+                    24,
+                    // ES MÁS PARECIDO, PERO LA VERSIÓN "LIGHT" ES DE PAGA.
+                    // FontAwesomeIcons.search,
+                    "Find Your Account",
+                    fbButtonColor,
+                    fbFontColor
+                  ),
                 ],
               ),
             ),
