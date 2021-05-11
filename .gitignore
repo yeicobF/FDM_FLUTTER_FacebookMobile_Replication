@@ -1,6 +1,7 @@
 # IMÁGENES DEL LOGIN CON DATOS SIN EDITAR
 objective-program-screen/NOT_LOAD_REPO/
 *.psd
+*.code-workspace
 
 # Miscellaneous
 *.class

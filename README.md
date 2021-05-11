@@ -728,6 +728,14 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 - [GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21](https://github.com/Genymobile/scrcpy/issues/21 "GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21")
   - [GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21 | Command to take Screenshot or record video](https://github.com/Genymobile/scrcpy/issues/21#issuecomment-371967985 "GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21 | Command to take Screenshot or record video")
 
+- [Stack Overflow | How to clear Flutter's Build cache?](https://stackoverflow.com/questions/49279379/how-to-clear-flutters-build-cache "Stack Overflow | How to clear Flutter's Build cache?")
+- [Stack Overflow | How can I add a border to a widget in Flutter?](https://stackoverflow.com/questions/47423297/how-can-i-add-a-border-to-a-widget-in-flutter "Stack Overflow | How can I add a border to a widget in Flutter?")
+- [Stack Overflow | Flutter Image Variable](https://stackoverflow.com/questions/59878027/flutter-image-variable "Stack Overflow | Flutter Image Variable")
+- [Stack Overflow | How to make a widget fill remaining space in a Column](https://stackoverflow.com/questions/49977864/how-to-make-a-widget-fill-remaining-space-in-a-column "Stack Overflow | How to make a widget fill remaining space in a Column")
+- [Stack Overflow | ]( "Stack Overflow | ")
+- [Stack Overflow | ]( "Stack Overflow | ")
+
+
 [//]: <EN ESTA SECCIÓN SE ENCUENTRAN LAS "VARIABLES" UTILIZADAS PARA EL README.>
 
 [Android Studio]: <https://developer.android.com/studio> "Descargar Android Studio en Windows | 4.2 for Windows 64-bit (934 MiB)"
