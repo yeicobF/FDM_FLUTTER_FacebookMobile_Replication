@@ -10,6 +10,8 @@ import 'globals/global_values.dart' as global_values;
 import 'screens/first_login_screen.dart';
 // PANTALLA DESPUÉS DE DAR CLICK A BOTÓN
 import 'screens/login_screen_after_click.dart';
+// PANTALLA DE FEED PRINCIPAL.
+import 'screens/main_feed_screen.dart';
 /* -------------------------------------------------------------------------- */
 
 // Guardar colores en HEXADECIMAL.
@@ -59,7 +61,7 @@ class MyApp extends StatelessWidget {
         // ),
         // ---------------------------------------------------------------------
         body: SafeArea(
-          child: Login_screen_after_click(),
+          child: MainFeedScreen(),
         ),
       )
     );
