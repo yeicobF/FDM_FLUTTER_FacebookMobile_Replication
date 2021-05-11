@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../widgets/first_login_screen/login_button.dart';
-import '../widgets/login_screen_after_click/ForgotPassword.dart';
 // VARIABLES GLOBALES
 import '../globals/global_values.dart' as global_values;
+
+import '../widgets/first_login_screen/login_button.dart';
+import '../widgets/login_screen_after_click/ForgotPassword.dart';
 import '../widgets/login_screen_after_click/textFormField.dart';
 
 
 // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
 
-class Login_screen_after_click extends StatelessWidget {
+class LoginScreenAfterClick extends StatelessWidget {
   final  Color fbButtonColor = const Color(0xFF03A9F4);
   final Color fbFontColor = const Color(0xFF4e9af5);
   final Color fbFontColor2 = const Color(0xFFFFFFFF);
