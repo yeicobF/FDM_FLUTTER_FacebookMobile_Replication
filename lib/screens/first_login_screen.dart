@@ -93,7 +93,7 @@ class FirstLoginScreen extends StatelessWidget {
         /* --------------- AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO. -------------- */
 
                             login_username.showUserInfo("Jacob Flores"),
-                            // Este es un separador entre la información del
+                            // Este es un separador entre la información del  
                             // usuario y los botones.
                             const SizedBox(
                               height: 5,
