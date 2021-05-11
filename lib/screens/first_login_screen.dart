@@ -66,40 +66,61 @@ class FirstLoginScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   // crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
+                    // PONEMOS UN EXPANDED PARA QUE SE TOME LA MITAD DE LA
+                    // PANTALLA, la cual se repartirá con el botón que estará 
+                    // hasta abajo de crear una nueva cuenta.
+                    //
+                    Expanded(
+                      // Flex: 2, para que ocupe 2/3 partes del restante de la
+                      // pantalla. El 1/3 restante lo tiene el botón de hasta
+                      // abajo.
+                      flex: 2,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          /* ---------------------------- LOGO DE FACEBOOK ---------------------------- */
 
-  /* ---------------------------- LOGO DE FACEBOOK ---------------------------- */
+                          // const Padding(
+                          //   padding: EdgeInsets.only(top: 120,),
+                          //   child: 
+                          const Icon(
+                              FontAwesomeIcons.facebook,
+                              color: Colors.white,
+                              size: 50,
+                            ),
+                          // ),
 
-                    const Padding(
-                      padding: EdgeInsets.only(top: 120,),
-                      child: Icon(
-                        FontAwesomeIcons.facebook,
-                        color: Colors.white,
-                        size: 45,
+        /* --------------- AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO. -------------- */
+
+                          login_username.showUserInfo("Jacob Flores"),
+                          // Este es un separador entre la información del
+                          // usuario y los botones.
+                          const SizedBox(
+                            height: 5,
+                          ),
+        /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
+
+                          icon_with_text.iconWithText(
+                            Icons.add_sharp,
+                            null, // null PARA QUE EL TAMAÑO DEL ÍCONO SEA EL DEFAULT.
+                            "Log Into Another Account",
+                            fbButtonColor,
+                            fbFontColor
+                          ),
+                          icon_with_text.iconWithText(
+                            Icons.search,
+                            28,
+                            // ES MÁS PARECIDO, PERO LA VERSIÓN "LIGHT" ES DE PAGA.
+                            // FontAwesomeIcons.search,
+                            "Find Your Account",
+                            fbButtonColor,
+                            fbFontColor
+                          )
+                        ],
                       ),
+
                     ),
 
-  /* --------------- AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO. -------------- */
-
-                    login_username.showUserInfo("German Gonzalez"),
-
-  /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
-
-                    icon_with_text.iconWithText(
-                      Icons.add_sharp,
-                      null, // null PARA QUE EL TAMAÑO DEL ÍCONO SEA EL DEFAULT.
-                      "Log Into Another Account",
-                      fbButtonColor,
-                      fbFontColor
-                    ),
-                    icon_with_text.iconWithText(
-                      Icons.search,
-                      28,
-                      // ES MÁS PARECIDO, PERO LA VERSIÓN "LIGHT" ES DE PAGA.
-                      // FontAwesomeIcons.search,
-                      "Find Your Account",
-                      fbButtonColor,
-                      fbFontColor
-                    ),
 
   /* ---------- ÚLTIMO BOTÓN PARA CREAR UNA NUEVA CUENTA DE FACEBOOK ---------- */
 
@@ -109,7 +130,8 @@ class FirstLoginScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
+              )
+
             ),
           ],
         ),

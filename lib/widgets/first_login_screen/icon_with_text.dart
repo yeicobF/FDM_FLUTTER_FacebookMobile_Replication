@@ -22,7 +22,7 @@ Widget iconWithText(IconData icon, double iconSize, String text, Color buttonCol
   iconSize ??= 24.0; 
 
   return Padding(
-    padding: const EdgeInsets.only(top: 20),
+    padding: const EdgeInsets.only(top: 18),
     child: Row(
       children: [
         Container(

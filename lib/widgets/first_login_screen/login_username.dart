@@ -16,14 +16,14 @@ Widget showUserInfo(String userName) {
           8,
           65,
           'assets/img/profile_pictures/invincible_1.png',
-          const EdgeInsets.only(right: 10),
+          const EdgeInsets.only(right: 12),
         ),
         Text(
           userName,
           textAlign: TextAlign.center,
           style: const TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: FontWeight.bold,
           )  
         ),

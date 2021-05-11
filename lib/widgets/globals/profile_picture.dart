@@ -56,21 +56,28 @@ Widget createProfilePictureWithNotifications(
           // AQUÍ NECESITAMOS ENVIAR UN MARGEN DE 0, YA QUE SI NO, SE MODIFICA
           // EL TAMAÑO DEL WODGET DE LA FOTO DE PERFIL Y NO QUEDAN BIEN LOS
           // ELEMENTOS.
+          // - CREAMOS LA FOTO DE PERFIL.
           createBareProfilePicture(size, assetImagePath, const EdgeInsets.all(0)),
+          // AQUÍ CREAREMOS EL ÍCONO QUE INDICA LAS NOTIFICACIONES, el cual hay
+          // que alinear en la esquina superior derecha.
           Align(
             alignment: Alignment.topRight,
+            // Contenedor con el número de notificaciones.
             child: Container(
+
               width: size / 2.8,
               height: size / 2.8,
               alignment: Alignment.topRight,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
+                // Color rojo.
                 color: const Color(0xFFea2945),
                 border: Border.all(
                   color: global_values.darkBackground,
                   width: 2,
                 )
               ),
+              // AQUÍ VA EL NÚMERO DE NOTIFICACIONES.
               child: Center(
                 child: Text(
                   notificationsNumber.toString(),
