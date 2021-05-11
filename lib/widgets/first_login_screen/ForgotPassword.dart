@@ -26,7 +26,7 @@ Widget ForgotPassword(Color fontColor) {
             child: Container(
               child: Center(
                 child: Text(
-                    "FORGOT PASSWORD?",
+                    "Forgot Password?",
                     style: TextStyle(
                       fontSize: 16.5,
                       fontWeight: FontWeight.w700,

@@ -30,7 +30,7 @@ Widget login_button(Color buttonColor, Color fontColor) {
               ),
               child: Center(
                 child: Text(
-                    "LOGIN",
+                    "Log In",
                     style: TextStyle(
                       fontSize: 16.5,
                       fontWeight: FontWeight.w700,
