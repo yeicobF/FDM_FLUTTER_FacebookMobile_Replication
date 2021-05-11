@@ -1,10 +1,11 @@
-import 'package:facebook_login_screen_replication/widgets/first_login_screen/ForgotPassword.dart';
-import 'package:facebook_login_screen_replication/widgets/first_login_screen/login_button.dart';
-import 'package:facebook_login_screen_replication/widgets/first_login_screen/textFormField.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../widgets/first_login_screen/login_button.dart';
+import '../widgets/login_screen_after_click/ForgotPassword.dart';
 // VARIABLES GLOBALES
 import '../globals/global_values.dart' as global_values;
+import '../widgets/login_screen_after_click/textFormField.dart';
 
 
 // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.

@@ -7,7 +7,7 @@ Widget showTextFormField(String text, Color fontColor) {
     decoration: InputDecoration(
       labelText: text,
       // fillColor: Colors.grey,
-      ),
+    ),
     
     style: TextStyle(
       color: fontColor,
