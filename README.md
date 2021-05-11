@@ -60,6 +60,14 @@ inicio de sesión, y pantalla después de dar click al botón de inicio de sesi�
 [2 - LOGIN AFTER CLICKING BUTTON]: <objective-program-screen/LOGIN_SCREENS/2_login-into-account-clicked_NO-NUMBER.png> "2 | LOGIN AFTER CLICKING BUTTON"
 [3 - MAIN FEED - EDITED IMAGE]: <objective-program-screen/MAIN_FEED_SCREENS/main-feed_screen_1_EDITADA-SIN-DATOS-PERSONALES.png> "3 | MAIN FEED | EDITED IMAGE"
 
+## **RESULTADOS DE LAS PANTALLAS**
+
+| NÚMERO DE PANTALLA | DESCRIPCIÓN DE PANTALLA | IMAGEN DE LA PANTALLA |
+| :----------------: | :---------------------: | :-------------------: |
+| 1 | PRIMERA PANTALLA DE INICIO DE SESIÓN QUE MUESTRA NÚMERO DE NOTIFICACIONES [SAMSUNG A20S] | ![1 - OWN MAIN LOGIN SCREEN] |
+
+[1 - OWN MAIN LOGIN SCREEN]: <SS_PROGRESS/JACOB_CELL/loginScreen_1_JACOB_CELL.png> "1 - OWN MAIN LOGIN SCREEN"
+
 ## 1.4. **INSTALACIONES**
 
 Para que todo funcione correctamente, hay que instalar varias cosas:
@@ -714,6 +722,11 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 - https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
   - https://stackoverflow.com/questions/61969143/no-mediaquery-ancestor-could-be-found
 - https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
+- [Stack Overflow | What is the Dart null checking idiom or best practice?](https://stackoverflow.com/questions/17006664/what-is-the-dart-null-checking-idiom-or-best-practice "Stack Overflow | What is the Dart null checking idiom or best practice?")
+  - [Stack Overflow | What is the Dart null checking idiom or best practice? | atreeon's answer](https://stackoverflow.com/a/58027593/13562806 "Stack Overflow | What is the Dart null checking idiom or best practice? | atreeon's answer")
+- [Stack Overflow | Button Width Match Parent](https://stackoverflow.com/questions/50014342/button-width-match-parent "Stack Overflow | Button Width Match Parent")
+- [GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21](https://github.com/Genymobile/scrcpy/issues/21 "GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21")
+  - [GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21 | Command to take Screenshot or record video](https://github.com/Genymobile/scrcpy/issues/21#issuecomment-371967985 "GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21 | Command to take Screenshot or record video")
 
 [//]: <EN ESTA SECCIÓN SE ENCUENTRAN LAS "VARIABLES" UTILIZADAS PARA EL README.>
 
