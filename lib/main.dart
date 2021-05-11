@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
         // ),
         // ---------------------------------------------------------------------
         body: SafeArea(
-          child: Login_screen_after_click(),
+          child: LoginScreenAfterClick(),
         ),
       )
     );

@@ -10,7 +10,7 @@ import '../widgets/login_screen_after_click/textFormField.dart';
 
 // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
 
-class Login_screen_after_click extends StatelessWidget {
+class LoginScreenAfterClick extends StatelessWidget {
   final  Color fbButtonColor = const Color(0xFF03A9F4);
   final Color fbFontColor = const Color(0xFF4e9af5);
   final Color fbFontColor2 = const Color(0xFFFFFFFF);
