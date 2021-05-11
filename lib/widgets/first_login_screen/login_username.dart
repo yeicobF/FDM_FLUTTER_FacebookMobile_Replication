@@ -2,8 +2,9 @@
 // Se muestra la foto de perfil, el número de notificaciones, el nombre, y 3
 // puntos (que son un botón).
 import 'package:flutter/material.dart';
+import '../globals/profile_picture.dart' as profile_picture;
 
-Widget userInfo() {
+Widget showUserInfo(String userName) {
   return Padding(
     padding: const EdgeInsets.only(top: 40,),
     child: Row(
@@ -11,36 +12,16 @@ Widget userInfo() {
       // crossAxisAlignment: CrossAxisAlignment.stretch,
       // mainAxisSize: MainAxisSize.max,
       children: [
-        // CONTENEDOR PARA VER EL TAMAÑO DEL ROW.
-        //         Container(
-        //           // constraints: BoxConstraints.expand(),
-        // 
-        //           margin: const EdgeInsets.only(top: 40,),
-        //           // width: double.infinity, // Me dieron problemas
-        //           width: 350,
-        //           height: 60,
-        //           color: Colors.black,
-        //         ),
-        Container(
-          width: 60,
-          height: 60,
-          // color: Colors.white,
-          margin: const EdgeInsets.only(right: 10,),
-          // PARA HACER EL CÍRCULO SEGUÍ LO SIGUIENTE:
-          // https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage("assets/img/first_login_screen/profile_pic_1.jpg"),
-              fit: BoxFit.cover,
-            )
-          ),
+        profile_picture.createProfilePictureWithNotifications(
+          8,
+          65,
+          'assets/img/profile_pictures/invincible_1.png',
+          const EdgeInsets.only(right: 10),
         ),
-        const Text(
-          "German Gonzalez",
+        Text(
+          userName,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,

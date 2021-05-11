@@ -53,6 +53,7 @@ flutter:
 
   assets:
     - assets/img/first_login_screen/
+    - assets/img/profile_pictures/
   
   # To add assets to your application, add an assets section, like this:
   # assets:

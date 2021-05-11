@@ -46,7 +46,8 @@ class FirstLoginScreen extends StatelessWidget {
             ),
 
   /* ------------ TODOS LOS BOTONES Y ELEMENTOS QUE TENDRÁN PADDING ----------- */
-
+            // SE PONE EL EXPANDED PARA QUE TOME EL TAMAÑO RESTANTE DE TODA LA
+            // PANTALLA, Y ASÍ SE PUEDAN REPARTIR LOS ELEMENTOS.
             Expanded(
               // color: fbButtonColor,
               // Solo para poder ver el padding.
@@ -79,7 +80,7 @@ class FirstLoginScreen extends StatelessWidget {
 
   /* --------------- AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO. -------------- */
 
-                    login_username.userInfo(),
+                    login_username.showUserInfo("German Gonzalez"),
 
   /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
 
