@@ -1,20 +1,18 @@
+import 'package:facebook_login_screen_replication/widgets/first_login_screen/Publication.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 // VARIABLES GLOBALES
 import '../globals/global_values.dart' as global_values;
-
-import '../widgets/first_login_screen/login_button.dart';
-import '../widgets/login_screen_after_click/ForgotPassword.dart';
-import '../widgets/login_screen_after_click/textFormField.dart';
-
+/* ---------------- WIDGET DEL NOMBRE DEL USUARIO EN EL LOGIN --------------- */
+import '../widgets/first_login_screen/create_new_fb_account.dart' as create_account;
+import '../widgets/first_login_screen/icon_with_text.dart' as icon_with_text;
+import '../widgets/first_login_screen/login_username.dart' as login_username;
 
 // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
 
-class LoginScreenAfterClick extends StatelessWidget {
-  final  Color fbButtonColor = const Color(0xFF03A9F4);
+class TestScreen extends StatelessWidget {
+  final  Color fbButtonColor = const Color(0xFF273951);
   final Color fbFontColor = const Color(0xFF4e9af5);
-  final Color fbFontColor2 = const Color(0xFFFFFFFF);
 // const Color fbFontColor = Color(0xFF4e9bf9);
 
   @override
@@ -77,7 +75,7 @@ class LoginScreenAfterClick extends StatelessWidget {
                         // Flex: 2, para que ocupe 2/3 partes del restante de la
                         // pantalla. El 1/3 restante lo tiene el botón de hasta
                         // abajo.
-                        flex: 3,
+                        flex: 2,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -88,37 +86,31 @@ class LoginScreenAfterClick extends StatelessWidget {
                             //   child:
                             const Icon(
                               FontAwesomeIcons.facebook,
-                              color: Colors.blue,
-                              size: 60,
+                              color: Colors.white,
+                              size: 50,
                             ),
                             // ),
 
+                            /* --------------- AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO. -------------- */
+                            // Este es un separador entre la información del
+                            // usuario y los botones.
                             const SizedBox(
-                              height: 20,
+                              height: 5,
                             ),
                             /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
 
-                            showTextFormField("Correo electronico", fbFontColor2),
-
-                            const SizedBox(
-                              height: 5,
-                            ),
-
-                            showTextFormField("Contraseña", fbFontColor2),
-
-                            const SizedBox(
-                              height: 5,
-                            ),
-
-                            login_button(fbButtonColor, fbFontColor2),
-                            
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ForgotPassword(fbFontColor),
+                            publication("assets/img/profile_pictures/invincible_1.png", "assets/img/profile_pictures/invincible_1.png"),
                           ],
                         ),
 
+                      ),
+
+
+                      /* ---------- ÚLTIMO BOTÓN PARA CREAR UNA NUEVA CUENTA DE FACEBOOK ---------- */
+
+                      create_account.createNewFacebookAccountButton(
+                        fbButtonColor,
+                        fbFontColor,
                       ),
                     ],
                   ),

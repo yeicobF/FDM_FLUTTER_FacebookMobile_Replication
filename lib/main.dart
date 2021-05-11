@@ -1,3 +1,4 @@
+import 'package:facebook_login_screen_replication/screens/Test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 /* --------------------------- VARIABLES GLOBALES --------------------------- */
@@ -10,6 +11,8 @@ import 'globals/global_values.dart' as global_values;
 import 'screens/first_login_screen.dart';
 // PANTALLA DESPUÉS DE DAR CLICK A BOTÓN
 import 'screens/login_screen_after_click.dart';
+// PANTALLA DE FEED PRINCIPAL.
+import 'screens/main_feed_screen.dart';
 /* -------------------------------------------------------------------------- */
 
 // Guardar colores en HEXADECIMAL.
@@ -59,7 +62,7 @@ class MyApp extends StatelessWidget {
         // ),
         // ---------------------------------------------------------------------
         body: SafeArea(
-          child: LoginScreenAfterClick(),
+          child: MainFeedScreen(),
         ),
       )
     );

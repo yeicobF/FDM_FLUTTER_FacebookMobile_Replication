@@ -2,15 +2,34 @@
 // pasado por las dos pantallas de inicio de sesión.
 
 import 'package:flutter/material.dart';
+// CAMBIAR EL COLOR DE LA STATUSBAR.
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class MainFeed extends StatelessWidget {
+import '../widgets/main_feed_screen/facebook_top_bar.dart' as fb_top_bar;
+import '../globals/global_values.dart' as global_values;
+
+import '../widgets/first_login_screen/ScrollFeed.dart' as scroll_feed;
+
+class MainFeedScreen extends StatelessWidget {
+  final fbColors = {
+    "fbIconButton": const Color(0xFFf1f2f6),
+    "fbIcon": const Color(0xFF010102),
+  };
+
   @override
   Widget build(BuildContext context) {
+        // CAMBIAR COLOR DEL statusBar
+    // https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter
+    FlutterStatusbarcolor.setStatusBarColor(const Color(0xFFFFFFFF));
+    // FlutterStatusbarcolor.setStatusBarWhiteForeground(false); // ÍCONOS NEGROS
+    FlutterStatusbarcolor.setStatusBarWhiteForeground(false); // ÍCONOS NEGROS
+    
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Container(
-      width: 50,
-      height: 50,
-      color: Colors.amber[200],
-    );
+      // color: global_values.darkBackground,
+      child: scroll_feed.ScrollFeed("hola", Colors.blue),
+      );
   }
 }
