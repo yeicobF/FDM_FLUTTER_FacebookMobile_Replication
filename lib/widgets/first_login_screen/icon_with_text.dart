@@ -21,41 +21,53 @@ Widget iconWithText(IconData icon, double iconSize, String text, Color buttonCol
   // https://stackoverflow.com/questions/17006664/what-is-the-dart-null-checking-idiom-or-best-practice
   iconSize ??= 24.0; 
 
-  return Padding(
-    padding: const EdgeInsets.only(top: 18),
-    child: Row(
-      children: [
-        Container(
-          alignment: Alignment.bottomLeft,
-          height: 30,
-          width: 30,
-          decoration: BoxDecoration(
-              color: buttonColor,
-              // shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(5.0),
-          ),
-          child: Center(
-            child: Icon(
-              icon,
-              size: iconSize,
-              color: fontColor,
+  return Container(
+    // El container solo es para establecer la altura de los botones y su
+    // margen superior.
+    margin: const EdgeInsets.only(top: 18),
+    height: 30,
+
+    // Ponemos un botón, que estará decorado con distintos WIDGETS.
+    child:TextButton(
+      // Al presionar el botón queremos cambiar de pantalla.
+      onPressed: (){ print("\n" + text + " -> CAMBIAR DE PANTALLA");},
+      style: ButtonStyle(
+        // Le quitamos Padding al botón, ya que agregaba uno indeseado.
+        padding: MaterialStateProperty.all(EdgeInsets.zero)
+      ),
+      child: Row(
+        children: [
+          Container(
+            alignment: Alignment.bottomLeft,
+            width: 30,
+            decoration: BoxDecoration(
+                color: buttonColor,
+                // shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(5.0),
+            ),
+            child: Center(
+              child: Icon(
+                icon,
+                size: iconSize,
+                color: fontColor,
+              ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: Text(
-            text,
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              color: fontColor,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              letterSpacing: 0.5,
+          Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Text(
+              text,
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                color: fontColor,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 0.5,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      )
     )
   );
 }
