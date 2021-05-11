@@ -37,10 +37,8 @@ Widget ScrollFeed(String text, Color fontColor) {
             bottom_publication.bottomPublication(),
             SizedBox(
               height: 20,
-              child: Expanded(
-                child: Container(
-                  color: Colors.grey[400],
-                ),
+              child: Container(
+                color: Colors.grey[400],
               ),
             )
           ],
