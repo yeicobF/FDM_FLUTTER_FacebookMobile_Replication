@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
     // Obtener altura de la STATUS BAR:
     // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
     return MaterialApp(
-      title: 'Facebook Login',
+      title: 'Facebook',
       home: Scaffold(
         // ---------------------------------------------------------------------
         // CON EL APPBAR SE PUEDEN CAMBIAR LOS ATRIBUTOS DEL StatusBar respecto

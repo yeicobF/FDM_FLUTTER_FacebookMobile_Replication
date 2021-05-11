@@ -1,51 +1,134 @@
-// Pantalla de inicio de sesión después de dar click al botón de inicio de
-// sesión: "Login Into Another Account".
-
+import 'package:facebook_login_screen_replication/widgets/first_login_screen/ForgotPassword.dart';
+import 'package:facebook_login_screen_replication/widgets/first_login_screen/login_button.dart';
+import 'package:facebook_login_screen_replication/widgets/first_login_screen/textFormField.dart';
 import 'package:flutter/material.dart';
-
-/* --------------------------- VARIABLES GLOBALES --------------------------- */
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// VARIABLES GLOBALES
 import '../globals/global_values.dart' as global_values;
+/* ---------------- WIDGET DEL NOMBRE DEL USUARIO EN EL LOGIN --------------- */
+import '../widgets/first_login_screen/create_new_fb_account.dart' as create_account;
+import '../widgets/first_login_screen/icon_with_text.dart' as icon_with_text;
+import '../widgets/first_login_screen/login_username.dart' as login_username;
 
+// PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
 
-// OBTENER COLORES DE LAS IMÁGENES: https://imagecolorpicker.com/
+class Login_screen_after_click extends StatelessWidget {
+  final  Color fbButtonColor = const Color(0xFF03A9F4);
+  final Color fbFontColor = const Color(0xFF4e9af5);
+  final Color fbFontColor2 = const Color(0xFFFFFFFF);
+// const Color fbFontColor = Color(0xFF4e9bf9);
 
-class LoginScreenAfterClick extends StatelessWidget {
-
-/* -------------------------------- VARIABLES ------------------------------- */
-
-  // MAPA CON VALORES DE COLORES DEL FONDO Y TEXTO DEL BOTÓN DE LOGIN.
-  final loginButtonColors = {
-  // final Color loginButtonBackground = Color(0xFF2d87ff);
-  // final Color loginButtonFontColor = Color(0xFF242527);
-    "background": const Color(0xFF2d87ff),
-    "font": const Color(0xFF242527),
-  };
-
-  // Para los campos de ingreso de datos
-  final inputTextBoxColors = {
-    "placeholder": const Color(0xFF919296),
-    "bottomLine": const Color(0xFF3a85e4),
-  };
-  
-  final Color fbLogo = const Color(0xFF1878f3);
-  // El fondo oscuro deberá ser un color global.
-  // final Color darkBackground = const Color(0xFF242527);
-  final Color forgotPasswordColorText = const Color(0xFF3a85e4);
-
-/* --------------------- FUNCIÓN PARA CONSTRUIR PANTALLA -------------------- */
   @override
   Widget build(BuildContext context) {
+    // TAMAÑO RELATIVO AL TAMAÑO DEL DISPOSITIVO CON
+    // - FractionallySizedBox
+    return FractionallySizedBox(
+      widthFactor: 1,
+      heightFactor: 1,
+      // UN CONTENEDOR PARA PODER ESTABLECER EL COLOR DEL FONDO DE LA PANTALLA.
+      child: Container(
+        color: global_values.darkBackground,
 
-    // loginButtonColors["background"]; <- ACCESO A LOS MAPAS.
+/* ------------- COLUMNA CON TODOS LOS ELEMENTOS DE LA PANTALLA ------------- */
 
-    // Con FractionallySizedBox puedes hacer que el tamaño de lo que muestras
-    // en pantalla sea relativo al tamaño máximo del dispositivo con los
-    // atributos:
-    // - widthFactor, heightFactor
-    // 1 = TAMAÑO PANTALLA COMPLETA., 0.5 = TAMAÑO MITAD MEDIDA, ...
-    return const FractionallySizedBox(
+        child: Column(
+          children: [
 
+            /* -------- ícono antes de agregar el PADDING a los demás elementos. -------- */
+
+            const Padding(
+              padding: EdgeInsets.only(left: 10, top: 10,),
+              child: Align(
+                // heightFactor: 1.4,
+                alignment: Alignment.bottomLeft,
+                child: Icon(
+                  Icons.info_outline_rounded,
+                  size: 22,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+
+            /* ------------ TODOS LOS BOTONES Y ELEMENTOS QUE TENDRÁN PADDING ----------- */
+            // SE PONE EL EXPANDED PARA QUE TOME EL TAMAÑO RESTANTE DE TODA LA
+            // PANTALLA, Y ASÍ SE PUEDAN REPARTIR LOS ELEMENTOS.
+            Expanded(
+              // color: fbButtonColor,
+              // Solo para poder ver el padding.
+
+              /* ------------- SE ESTABLECE EL PADDING DE TODOS LOS ELEMENTOS ------------- */
+
+                child: Padding(
+                  padding: const EdgeInsets.all(
+                    30,
+                  ),
+
+                  /* --- COLUMNA CON TODOS LOS ELEMENTOS A LOS QUE SE LES APLICÓ EL PADDING. -- */
+
+                  child: Column(
+                    // mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      // PONEMOS UN EXPANDED PARA QUE SE TOME LA MITAD DE LA
+                      // PANTALLA, la cual se repartirá con el botón que estará
+                      // hasta abajo de crear una nueva cuenta.
+                      //
+                      Expanded(
+                        // Flex: 2, para que ocupe 2/3 partes del restante de la
+                        // pantalla. El 1/3 restante lo tiene el botón de hasta
+                        // abajo.
+                        flex: 3,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            /* ---------------------------- LOGO DE FACEBOOK ---------------------------- */
+
+                            // const Padding(
+                            //   padding: EdgeInsets.only(top: 120,),
+                            //   child:
+                            const Icon(
+                              FontAwesomeIcons.facebook,
+                              color: Colors.blue,
+                              size: 50,
+                            ),
+                            // ),
+
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
+
+                            showTextFormField("Correo electronico", fbFontColor2),
+
+                            const SizedBox(
+                              height: 5,
+                            ),
+
+                            showTextFormField("Contraseña", fbFontColor2),
+
+                            const SizedBox(
+                              height: 5,
+                            ),
+
+                            login_button(fbButtonColor, fbFontColor),
+                            
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            ForgotPassword(fbFontColor2),
+                          ],
+                        ),
+
+                      ),
+                    ],
+                  ),
+                )
+
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
