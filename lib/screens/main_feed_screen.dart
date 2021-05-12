@@ -9,7 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../widgets/main_feed_screen/facebook_top_bar.dart' as fb_top_bar;
 import '../globals/global_values.dart' as global_values;
 
-import '../widgets/first_login_screen/ScrollFeed.dart' as scroll_feed;
+import '../widgets/main_feed_screen/ScrollFeed.dart' as scroll_feed;
 
 class MainFeedScreen extends StatelessWidget {
   final fbColors = {
