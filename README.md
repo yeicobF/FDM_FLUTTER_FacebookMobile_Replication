@@ -665,16 +665,43 @@ llamada **`Path`**.
      >
      > - ***`C:\SDKs\flutter\bin`***
 
-## 1.6. USO DE ÍCONOS
+## RECURSOS DE FACEBOOK APP (SVG, ÍCONOS, ...)
+
+Para poder maquetar de forma más precisa las pantallas de la app de Facebook
+para celulares, necesitamos diversos recursos, como los íconos de Facebook,
+reacciones y demás.
+
+En esta sección se encontrarán diversos enlaces, en los cuales se podrán
+encontrar los recursos que utilizamos.
+
+### **REACCIONES DE FACEBOOK**
+
+Facebook tiene su propio sitio web en donde provee de estos íconos, pero se
+tienen que seguir ciertas pautas para utilizarlos de forma que no se rompan las
+normas de Facebook. El enlace es el siguiente:
+
+> - [***Brand Resources / Facebook App / Reactions***](https://en.facebookbrand.com/facebookapp/assets/reactions/ "Brand Resources / Facebook App / Reactions")
+
+El problema es que se descargan como una imagen en PNG y los necesitamos por
+separado, por lo que recurrimos al siguiente enlace:
+
+> - [iconscout | Facebook Reaction Icon Pack](https://iconscout.com/icon-pack/facebook-reactions-emoticons "iconscout | Facebook Reaction Icon Pack")
+
+- **Y para poder renderizar y modificar los elementos en SVG podemos utilizar
+  el siguiente paquete:**
+
+   > - [pub.dev | flutter_svg 0.22.0](https://pub.dev/packages/flutter_svg "pub.dev | flutter_svg 0.22.0")
+
+### 1.6. USO DE ÍCONOS
 
 Podemos utilizar varios paquetes de íconos. En nuestro caso consideramos
 Font Awesome y Material Design.
 
-### 1.6.1. GOOGLE FONTS | MATERIAL ICONS
+#### 1.6.1. GOOGLE FONTS | MATERIAL ICONS
 
 > [Google Fonts | Material Icons](https://fonts.google.com/icons "Google Fonts | Material Icons")
 
-#### 1.6.1.1. Íconos que podríamos utilizar
+##### 1.6.1.1. Íconos que podríamos utilizar
 
 - [Facebook](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Afacebook "Facebook")
 - [Search](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Asearch "Search")
@@ -682,7 +709,7 @@ Font Awesome y Material Design.
 - [More Vert](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert "https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert")
 - [info_outlined](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Ainfo "info_outlined")
 
-### 1.6.2. **Íconos con Font Awesome**
+#### 1.6.2. **Íconos con Font Awesome**
 
 Font Awesome, nos provee de una gran cantidad de elementos.
 
@@ -693,7 +720,7 @@ Utilizamos el paquete:
 Para que funcione hay que agregar el nombre del paquete y la última versión
 (9.0.0) a las dependencias del [pubspec.yaml](pubspec.yaml "pubspec.yaml").
 
-#### 1.6.2.1. **Íconos que podríamos utilizar**
+##### 1.6.2.1. **Íconos que podríamos utilizar**
 
 - [search](https://fontawesome.com/icons/search?style=solid "search")
   - El problema es que es más robusto que el de facebook.
@@ -732,8 +759,10 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 - [Stack Overflow | How can I add a border to a widget in Flutter?](https://stackoverflow.com/questions/47423297/how-can-i-add-a-border-to-a-widget-in-flutter "Stack Overflow | How can I add a border to a widget in Flutter?")
 - [Stack Overflow | Flutter Image Variable](https://stackoverflow.com/questions/59878027/flutter-image-variable "Stack Overflow | Flutter Image Variable")
 - [Stack Overflow | How to make a widget fill remaining space in a Column](https://stackoverflow.com/questions/49977864/how-to-make-a-widget-fill-remaining-space-in-a-column "Stack Overflow | How to make a widget fill remaining space in a Column")
-- [Stack Overflow | ]( "Stack Overflow | ")
-- [Stack Overflow | ]( "Stack Overflow | ")
+- [Dart | Effective Dart: Style](https://dart.dev/guides/language/effective-dart/style "Dart | Effective Dart: Style")
+- [Medium | DARTLANG | Dart (DartLang) Introduction: String Interpolation](https://medium.com/run-dart/dart-dartlang-introduction-string-interpolation-8ed99174119a "Medium | DARTLANG | Dart (DartLang) Introduction: String Interpolation")
+- [Dart getters and setters](https://dev.to/newtonmunene_yg/dart-getters-and-setters-1c8f "Dart getters and setters")
+- [Dart | A tour of the Dart language](https://dart.dev/guides/language/language-tour#getters-and-setters "Dart | A tour of the Dart language")
 
 [//]: <EN ESTA SECCIÓN SE ENCUENTRAN LAS "VARIABLES" UTILIZADAS PARA EL README.>
 

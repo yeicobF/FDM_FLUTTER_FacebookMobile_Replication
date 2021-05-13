@@ -1,18 +1,12 @@
-import 'package:facebook_login_screen_replication/screens/Test.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
-/* --------------------------- VARIABLES GLOBALES --------------------------- */
-
-// Se acceden los valores como: "global_values.variable"
-import 'globals/global_values.dart' as global_values;
 
 /* ------------------------------ LAS PANTALLAS ----------------------------- */
 // PANTALLA INICIAL
-import 'screens/first_login_screen.dart';
+import 'screens/first_login_screen.dart' as first_login_screen;
 // PANTALLA DESPUÉS DE DAR CLICK A BOTÓN
-import 'screens/login_screen_after_click.dart';
+import 'screens/login_screen_after_click.dart' as login_screen_after_click;
 // PANTALLA DE FEED PRINCIPAL.
-import 'screens/main_feed_screen.dart';
+import 'screens/main_feed_screen.dart' as main_feed_screen;
 /* -------------------------------------------------------------------------- */
 
 // Guardar colores en HEXADECIMAL.
@@ -26,45 +20,4 @@ import 'screens/main_feed_screen.dart';
 
 // Mandamos así la App para que se pueda obtener el tamaño de la statusBar.
 // - Me refiero al runApp(MaterialApp(home: Aplicacion()));
-void main() => runApp(MaterialApp(home: MyApp()));
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    // CAMBIAR COLOR DEL statusBar
-    // https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter
-    FlutterStatusbarcolor.setStatusBarColor(global_values.darkBackground);
-    // FlutterStatusbarcolor.setStatusBarWhiteForeground(false); // ÍCONOS NEGROS
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(true); // ÍCONOS BLANCOS
-    // FlutterStatusbarcolor.setNavigationBarColor(Colors.black);
-    // FlutterStatusbarcolor.setNavigationBarWhiteForeground(true);
-
-    // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
-    // final double statusBarHeight = MediaQuery.of(context).padding.top;
-
-    // Obtener altura de la STATUS BAR:
-    // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
-    return MaterialApp(
-      title: 'Facebook',
-      home: Scaffold(
-        // ---------------------------------------------------------------------
-        // CON EL APPBAR SE PUEDEN CAMBIAR LOS ATRIBUTOS DEL StatusBar respecto
-        // a sus colores, pero es menos lío con "FlutterStatusbarcolor"
-        //          ------------------------------------------
-        // appBar: AppBar(
-        //   // AppBar tendrá el tamaño de la statusBar.
-        //   toolbarHeight: 1,
-        //   bottomOpacity: 0.4,
-        //   backgroundColor: global_values.darkBackground, // status bar color
-        //   // ÍCONOS DEL STATUS BAR: BLANCOS - Brightness.darkk
-        //   brightness: Brightness.dark, // status bar brightness
-        // ),
-        // ---------------------------------------------------------------------
-        body: SafeArea(
-          child: MainFeedScreen(),
-        ),
-      )
-    );
-  }
-}
+void main() => runApp(MaterialApp(home: first_login_screen.FirstLoginScreen()));

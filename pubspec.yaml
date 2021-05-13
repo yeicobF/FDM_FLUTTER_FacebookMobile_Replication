@@ -52,8 +52,10 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/img/
-    - assets/img/profile_pictures/
+    - assets/user/
+    - assets/user/profile_pictures/
+    # REACCIONES FB SVG
+    - assets/fb_non-official/facebook-reactions-emoticons/svg
   
   # To add assets to your application, add an assets section, like this:
   # assets:
