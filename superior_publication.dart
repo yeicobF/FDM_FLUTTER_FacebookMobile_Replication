@@ -9,8 +9,8 @@ Widget superiorPublication(String userName, String pic) {
       children: [
         profile_picture.createBareProfilePicture(50, pic, const EdgeInsets.only(right: 12)),
         Text(
-            'Jacobo Flores Rodriguez, \n 4h                                         .',
-            textAlign: TextAlign.center,
+            'Jacobo Flores Rodriguez \n 4h',
+            textAlign: TextAlign.left,
             style: const TextStyle(
               color: Colors.black,
               fontSize: 18,
