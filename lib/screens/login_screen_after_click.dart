@@ -8,7 +8,6 @@ import '../widgets/first_login_screen/login_button.dart';
 import '../widgets/login_screen_after_click/ForgotPassword.dart';
 import '../widgets/login_screen_after_click/textFormField.dart';
 
-
 // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
 
 class LoginScreenAfterClick extends StatelessWidget {

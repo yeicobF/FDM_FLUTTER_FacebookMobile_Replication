@@ -1,3 +1,5 @@
+// PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
+
 import 'package:flutter/material.dart';
 // Íconos de Font Awesome.
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -9,18 +11,28 @@ import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 // Se acceden los valores como: "global_values.variable"
 import '../globals/global_values.dart' as global_values;
+// USUARIO
+import '../user/user.dart';
 /* ---------------- WIDGET DEL NOMBRE DEL USUARIO EN EL LOGIN --------------- */
 import '../widgets/first_login_screen/create_new_fb_account.dart'
     as create_account;
 import '../widgets/first_login_screen/icon_with_text.dart' as icon_with_text;
 import '../widgets/first_login_screen/login_username.dart' as login_username;
 
-// PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
-
 class FirstLoginScreen extends StatelessWidget {
   final Color fbButtonColor = const Color(0xFF273951);
   final Color fbFontColor = const Color(0xFF4e9af5);
   // const Color fbFontColor = Color(0xFF4e9bf9);
+
+  // USUARIO ESTÁTICO PARA MOSTRARLO IGUAL EN TODOS LADOS.
+  static User currentUser = User("Jacob Flores", "assets/user/profile_pictures/invincible_1.png");
+  // Agregaré algunos amigos solo como prueba.
+  final List<User> friendsList = [
+    User("Germán González", ""),
+    User("Sergio", ""),
+    User("Rodrigo", ""),
+    User("Eduardo", ""),
+  ];
 
   // Wiget que contiene a todos los elementos de la pantalla.
   Widget displayScreenElements() {
@@ -93,7 +105,7 @@ class FirstLoginScreen extends StatelessWidget {
 
                     /* --------------- AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO. -------------- */
 
-                    login_username.showUserInfo("Jacob Flores"),
+                    login_username.showUserInfo(currentUser),
                     // Este es un separador entre la información del
                     // usuario y los botones.
                     const SizedBox(

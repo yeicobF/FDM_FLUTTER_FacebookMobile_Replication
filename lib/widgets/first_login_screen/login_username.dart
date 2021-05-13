@@ -4,7 +4,10 @@
 import 'package:flutter/material.dart';
 import '../globals/profile_picture.dart' as profile_picture;
 
-Widget showUserInfo(String userName) {
+// USUARIO
+import '../../user/user.dart';
+
+Widget showUserInfo(User currentUser) {
   return Padding(
     padding: const EdgeInsets.only(top: 40,),
     child: Row(
@@ -15,11 +18,11 @@ Widget showUserInfo(String userName) {
         profile_picture.createProfilePictureWithNotifications(
           8,
           65,
-          'assets/img/profile_pictures/invincible_1.png',
+          currentUser.profilePicturePath,
           const EdgeInsets.only(right: 12),
         ),
         Text(
-          userName,
+          currentUser.name,
           textAlign: TextAlign.center,
           style: const TextStyle(
             color: Colors.white,
