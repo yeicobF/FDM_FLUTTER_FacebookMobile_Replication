@@ -8,8 +8,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../widgets/main_feed_screen/facebook_top_bar.dart' as fb_top_bar;
 import '../globals/global_values.dart' as global_values;
-
 import '../widgets/main_feed_screen/ScrollFeed.dart' as scroll_feed;
+
+
+
 
 class MainFeedScreen extends StatelessWidget {
   final fbColors = {
@@ -29,7 +31,7 @@ class MainFeedScreen extends StatelessWidget {
 
     return Container(
       // color: global_values.darkBackground,
-      child: scroll_feed.ScrollFeed("hola", Colors.blue),
+      child: scroll_feed.scrollFeed("hola", Colors.blue),
       );
   }
 }

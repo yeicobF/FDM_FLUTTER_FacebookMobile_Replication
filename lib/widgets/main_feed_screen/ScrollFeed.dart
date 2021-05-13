@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'Publication.dart' as publication;
 import 'bottomPublication.dart' as bottom_publication;
+import 'Publication.dart' as publication;
+import 'reactionBar.dart';
 import 'superior_publication.dart' as superior_pub;
 
-
-Widget ScrollFeed(String text, Color fontColor) {
-
+Widget scrollFeed(String text, Color fontColor) {
   return ListView.builder(
     // itemCount: 100,
     scrollDirection: Axis.vertical,
@@ -21,20 +20,31 @@ Widget ScrollFeed(String text, Color fontColor) {
       // );
 
       // FUNCIONA
-      return Container(
-        color: Colors.white,
+      return  Center(
+
+        // color: Colors.white,
+        child: Container(
+          constraints:  const BoxConstraints(
+          // Así se pone un ancho máximo. Dentro de un center y con los
+          // constraints. Más que nada pensado para la vista web.
+          maxWidth: 500,
+        ),
+          color: Colors.white,
+          // width: 50,
         child: Column(
           children: [
-            superior_pub.superiorPublication("German", "assets/img/profile_pictures/invincible_1.png"),
+            superior_pub.superiorPublication(
+                "German", "assets/img/profile_pictures/invincible_1.png"),
             Container(
               width: double.infinity,
               child: Image.asset(
                 'assets/img/profile_pictures/invincible_1.png',
-                width:  200,
+                width: 200,
                 fit: BoxFit.fitWidth,
               ),
             ),
             // FUNCIONA
+            reactionBar("255", "100"),
             bottom_publication.bottomPublication(),
             SizedBox(
               height: 20,
@@ -44,13 +54,10 @@ Widget ScrollFeed(String text, Color fontColor) {
             )
           ],
         ),
+        ),
       );
-      
-
-
       // return publication.publication(path_photo, path_pic);
-    }  
+    }
   );
   // fillColor: Colors.grey,
-
 }
