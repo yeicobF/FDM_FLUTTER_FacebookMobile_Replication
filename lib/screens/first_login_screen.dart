@@ -24,15 +24,13 @@ class FirstLoginScreen extends StatelessWidget {
   final Color fbFontColor = const Color(0xFF4e9af5);
   // const Color fbFontColor = Color(0xFF4e9bf9);
 
+  // DIRECTORIO DE LAS IMÁGENES.
+  final String profilePicsPath = "assets/user/profile_pictures";
+
   // USUARIO ESTÁTICO PARA MOSTRARLO IGUAL EN TODOS LADOS.
-  static User currentUser = User("Jacob Flores", "assets/user/profile_pictures/invincible_1.png");
-  // Agregaré algunos amigos solo como prueba.
-  final List<User> friendsList = [
-    User("Germán González", ""),
-    User("Sergio", ""),
-    User("Rodrigo", ""),
-    User("Eduardo", ""),
-  ];
+  // Se inicializa en Build para poder enviar la variable "profilePicsPath" en
+  // el constructor.
+  static User currentUser;
 
   // Wiget que contiene a todos los elementos de la pantalla.
   Widget displayScreenElements() {
@@ -146,6 +144,21 @@ class FirstLoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Usuario actual.
+    currentUser = User("Jacob Flores", "'$profilePicsPath'/invincible_1.png");
+    // Agregaré algunos amigos solo como prueba.
+    final List<User> friendsList = [
+      User("Germán González", "'$profilePicsPath'/german.jpg"),
+      User("Sergio", "'$profilePicsPath'/"),
+      User("Rodrigo", "'$profilePicsPath'/rodrigo.jpg"),
+      User("Eduardo", "'$profilePicsPath'/eduardo_roca.jpg"),
+    ];
+
+    // Agregar a todos los usuarios a la lista de amigos.
+    for (final User friend in friendsList) {
+      currentUser.addFriend(friend);
+    }
+
     // CAMBIAR COLOR DEL statusBar
     // https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter
     FlutterStatusbarcolor.setStatusBarColor(global_values.darkBackground);

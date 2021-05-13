@@ -763,6 +763,7 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 - [Medium | DARTLANG | Dart (DartLang) Introduction: String Interpolation](https://medium.com/run-dart/dart-dartlang-introduction-string-interpolation-8ed99174119a "Medium | DARTLANG | Dart (DartLang) Introduction: String Interpolation")
 - [Dart getters and setters](https://dev.to/newtonmunene_yg/dart-getters-and-setters-1c8f "Dart getters and setters")
 - [Dart | A tour of the Dart language](https://dart.dev/guides/language/language-tour#getters-and-setters "Dart | A tour of the Dart language")
+- [GitHub Gist | aruld/foreachlistset.dart](https://gist.github.com/aruld/1299218 "GitHub Gist | aruld/foreachlistset.dart")
 
 [//]: <EN ESTA SECCIÓN SE ENCUENTRAN LAS "VARIABLES" UTILIZADAS PARA EL README.>
 
