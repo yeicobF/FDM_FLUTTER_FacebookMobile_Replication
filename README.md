@@ -735,7 +735,6 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 - [Stack Overflow | ]( "Stack Overflow | ")
 - [Stack Overflow | ]( "Stack Overflow | ")
 
-
 [//]: <EN ESTA SECCIÓN SE ENCUENTRAN LAS "VARIABLES" UTILIZADAS PARA EL README.>
 
 [Android Studio]: <https://developer.android.com/studio> "Descargar Android Studio en Windows | 4.2 for Windows 64-bit (934 MiB)"
