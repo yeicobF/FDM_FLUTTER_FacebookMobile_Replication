@@ -144,15 +144,17 @@ class FirstLoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Usuario actual.
-    currentUser = User("Jacob Flores", "'$profilePicsPath'/invincible_1.png");
     // Agregaré algunos amigos solo como prueba.
     final List<User> friendsList = [
-      User("Germán González", "'$profilePicsPath'/german.jpg"),
-      User("Sergio", "'$profilePicsPath'/"),
-      User("Rodrigo", "'$profilePicsPath'/rodrigo.jpg"),
-      User("Eduardo", "'$profilePicsPath'/eduardo_roca.jpg"),
+      User("Germán González", "$profilePicsPath/german.jpg"),
+      User("Sergio", "$profilePicsPath/sergio.jpg"),
+      User("Rodrigo", "$profilePicsPath/rodrigo.jpg"),
+      User("Eduardo", "$profilePicsPath/eduardo_roca.jpg"),
     ];
+
+    // Usuario actual.
+    currentUser = User("Jacob Flores", "$profilePicsPath/invincible_1.png");
+    // currentUser = friendsList[1];
 
     // Agregar a todos los usuarios a la lista de amigos.
     for (final User friend in friendsList) {

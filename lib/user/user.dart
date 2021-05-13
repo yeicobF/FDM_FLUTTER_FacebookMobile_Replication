@@ -7,7 +7,8 @@ class User {
   String name;
   String profilePicturePath;
   DateTime creationDate;
-
+  // Número de notificaciones.
+  int notificationNumber;
   // Lista de amigos.
   List<User> friends;
 
@@ -20,6 +21,7 @@ class User {
     // Inicialización de listas vacías.
     friends = [];
     postList = [];
+    notificationNumber = 0;
   }
 
 /* ---------------------- GETTERS, SETTERS y FUNCIONES ---------------------- */
