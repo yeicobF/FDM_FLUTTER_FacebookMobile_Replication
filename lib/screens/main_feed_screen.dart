@@ -54,14 +54,32 @@ class MainFeedScreen extends StatelessWidget {
     );
     friendsList[0].addPost(postGerman);
 
-    imgPath.clear();
-    imgPath.add("assets/user/post_images/rodrigo.jpg");
+    // Creo que mostraban lo mismo por ser el mismo apuntador.
+    // imgPath.clear();
+
+    final List<String> imgPathRodri = ["assets/user/post_images/rodrigo.jpg"];
 
     final Post postRodrigo = Post(
       "Isaac",
-      imgPath
+      imgPathRodri
     );
     friendsList[2].addPost(postRodrigo);
+    
+    final List<String> imgPathSergio = ["assets/user/post_images/sergio_1.jpg"];
+
+    final Post postSergio = Post(
+      "S",
+      imgPathSergio
+    );
+    friendsList[1].addPost(postSergio);
+
+    final List<String> imgPathEduardo = ["assets/user/post_images/eduardo_gambling.jpg"];
+
+    final Post postEduardo = Post(
+      "gambling",
+      imgPathEduardo
+    );
+    friendsList[3].addPost(postEduardo);
 
     // Usuario actual.
     final User currentUser = User("Jacob Flores", "$profilePicsPath/invincible_1.png");

@@ -35,13 +35,13 @@ class User {
   // Número de notificaciones.
   // NO PERMITIR GUARDAR VALORES NEGATIVOS.
   set notificationsNumber(int number) {
-    if (number < 0){
+    if (number < 0) {
       _notificationsNumber = 0;
-    }
-    else {
+    } else {
       _notificationsNumber = number;
     }
   }
+
   int get notificationsNumber => _notificationsNumber;
 
   // Obtener número de amigos.
@@ -64,6 +64,9 @@ class User {
     postList.add(post);
   }
 
+  // Obtener número total de publicaciones.
+  int get totalPosts => postList.length;
+
 /* ----------------- MÉTODOS PARA CREAR LAS FOTOS DE PERFIL ----------------- */
 
 // - Número de notificaciones: Círuclo rojo en esquina superior derecha con el
@@ -74,7 +77,6 @@ class User {
 // Crear la foto de perfil sin nada más (notificaciones, etc).
   Widget createBareProfilePicture(
       double size, EdgeInsetsGeometry customMargin) {
-
     return Container(
       // 60 es el tamaño promedio.
       width: size,
@@ -87,9 +89,20 @@ class User {
           color: Colors.white,
           shape: BoxShape.circle,
           // Ya que tiene un borde establecido por default se lo quitamos.
-          border: Border.all(width: 0),
+          border: Border.all(
+            // YA NO SE MUESTRA EL BORDE NEGRO QUE SE VEÍA EN LA FOTO DE PERFIL.
+            color: Colors.transparent,
+            width: 0,
+          ),
           image: DecorationImage(
             image: AssetImage(profilePicturePath),
+
+            // Así se baja la calidad.
+            // image: ResizeImage(
+            //   AssetImage(profilePicturePath),
+            //   width: size.toInt(),
+            //   height: size.toInt()
+            // ),
             fit: BoxFit.cover,
           )),
     );
@@ -103,15 +116,11 @@ class User {
   // esquina superior derecha
   Widget createProfilePictureWithNotifications(
       double size, EdgeInsetsGeometry customMargin) {
-
     const notificationsRed = Color(0xFFea2945);
     // Número de notificaciones a mostrar.
     // Si las notificaciones > 99, mostrar el 99.
-    final String notificationsNumberToShow = ((notificationsNumber > 99)
-                                             ? 99
-                                             : notificationsNumber).toString();
-
-
+    final String notificationsNumberToShow =
+        ((notificationsNumber > 99) ? 99 : notificationsNumber).toString();
 
     return Container(
       width: size,
@@ -128,22 +137,47 @@ class User {
           // AQUÍ CREAREMOS EL ÍCONO QUE INDICA LAS NOTIFICACIONES, el cual hay
           // que alinear en la esquina superior derecha.
           Align(
-              alignment: Alignment.topRight,
-              // Contenedor con el número de notificaciones.
-              child: Container(
-                width: size / 2.8,
-                height: size / 2.8,
-                alignment: Alignment.topRight,
-                decoration: BoxDecoration(
+            alignment: Alignment.topRight,
+            // Contenedor con el número de notificaciones.
+            child: Container(
+              width: size / 2.8,
+              height: size / 2.8,
+              // alignment: Alignment.topRight,
+              padding: const EdgeInsets.all(0.0),
+              margin: const EdgeInsets.all(0.0),
+              // color: Colors.transparent,
+
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                // Color rojo.
+                color: global_values.darkBackground,
+                // border: Border.all(
+                //   color: global_values.darkBackground,
+                //   // style: BorderStyle.none,
+                //   width: 2,
+                // )
+              ),
+
+              /** PUSE LAS NOTIFICACIONES AQUÍ, ya que con el BoxDecoration y
+               * su borde, se alcanzaba a ver un pequeño borde rojo detrás
+               * del borde gris, lo cual era molesto. Entonces mejor solo
+               * tomé el tamaño relativo del contenedor padre y lo puse del
+               * color de las notificaciones, simulando el borde gris (del
+               * color de la pantalla).
+               * */
+              child: FractionallySizedBox(
+                // alignment: Alignment.center,
+                heightFactor: 0.8,
+                widthFactor: 0.8,
+                child: Container(
+                  // color: Colors.green,
+                  alignment: Alignment.center,
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     // Color rojo.
                     color: notificationsRed,
-                    border: Border.all(
-                      color: global_values.darkBackground,
-                      width: 2,
-                    )),
-                // AQUÍ VA EL NÚMERO DE NOTIFICACIONES.
-                child: Center(
+                  ),
+                  // AQUÍ VA EL NÚMERO DE NOTIFICACIONES.
                   child: Text(
                     notificationsNumberToShow,
                     style: const TextStyle(
@@ -153,7 +187,8 @@ class User {
                     ),
                   ),
                 ),
-              )),
+              ),
+            )),
         ],
       ),
     );

@@ -40,13 +40,16 @@ Widget superiorPublication(User currentUser, int index) {
       // Publicación en texto.
       Align(
         alignment: Alignment.centerLeft,
-        child: Text(
-          currentUser.postList[index].caption,
-          // Que el texto se acople dentro del contenedor.
-          overflow: TextOverflow.clip,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 18,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 5, bottom: 5, left: 15),
+          child: Text(
+            currentUser.postList[index].caption,
+            // Que el texto se acople dentro del contenedor.
+            overflow: TextOverflow.clip,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+            ),
           ),
         ),
       ),
