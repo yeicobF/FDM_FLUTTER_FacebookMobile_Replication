@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'bottomPublication.dart';
-import 'superior_publication.dart';
 // VARIABLES GLOBALES
+import '../../globals/global_values.dart' as global_values;
+import '../../user/user.dart';
+import 'bottom_publication.dart';
+import 'superior_publication.dart';
 
-import 'package:facebook_login_screen_replication/globals/global_values.dart' as global_values;
-
-Widget publication(String pathPhoto, String pathPic) {
+Widget publication(User user) {
   // TAMAÑO RELATIVO AL TAMAÑO DEL DISPOSITIVO CON
   // - FractionallySizedBox
   return FractionallySizedBox(
@@ -87,7 +87,7 @@ Widget publication(String pathPhoto, String pathPic) {
                           ),
                           /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
 
-                          superiorPublication("hola", 'assets/img/profile_pictures/invincible_1.png'),
+                          superiorPublication(user),
 
                           const SizedBox(
                             height: 5,

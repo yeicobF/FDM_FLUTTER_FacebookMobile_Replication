@@ -6,8 +6,8 @@ import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import '../globals/global_values.dart' as global_values;
 
 import '../widgets/first_login_screen/login_button.dart';
-import '../widgets/login_screen_after_click/ForgotPassword.dart';
-import '../widgets/login_screen_after_click/textFormField.dart';
+import '../widgets/login_screen_after_click/forgot_password.dart';
+import '../widgets/login_screen_after_click/text_form_field.dart';
 
 // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
 

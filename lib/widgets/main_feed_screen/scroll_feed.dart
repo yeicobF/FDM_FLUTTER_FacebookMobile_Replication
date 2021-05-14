@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'bottomPublication.dart' as bottom_publication;
-import 'Publication.dart' as publication;
-import 'reactionBar.dart';
+import '../../user/user.dart';
+import 'bottom_publication.dart' as bottom_publication;
+import 'reaction_bar.dart';
 import 'superior_publication.dart' as superior_pub;
 
-Widget scrollFeed(String text, Color fontColor) {
+Widget scrollFeed(User user, String text, Color fontColor) {
   return ListView.builder(
     // itemCount: 100,
     scrollDirection: Axis.vertical,
@@ -33,8 +33,7 @@ Widget scrollFeed(String text, Color fontColor) {
           // width: 50,
         child: Column(
           children: [
-            superior_pub.superiorPublication(
-                "German", "assets/img/profile_pictures/invincible_1.png"),
+            superior_pub.superiorPublication(user),
             Container(
               width: double.infinity,
               child: Image.asset(

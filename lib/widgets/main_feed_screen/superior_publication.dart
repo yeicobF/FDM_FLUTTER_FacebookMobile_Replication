@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import '../globals/profile_picture.dart' as profile_picture;
 
-Widget superiorPublication(String userName, String pic) {
+import '../../user/user.dart';
+
+Widget superiorPublication(User currentUser) {
   return Row(
     // mainAxisAlignment: MainAxisAlignment.start,
     // crossAxisAlignment: CrossAxisAlignment.stretch,
     // mainAxisSize: MainAxisSize.max,
     children: [
-      profile_picture.createBareProfilePicture(
-          50, pic, const EdgeInsets.only(right: 12)),
-      Text(userName,
+      currentUser.createBareProfilePicture(
+          50, const EdgeInsets.only(right: 12)),
+      Text(currentUser.name,
           textAlign: TextAlign.left,
           style: const TextStyle(
             color: Colors.black,
@@ -20,14 +21,14 @@ Widget superiorPublication(String userName, String pic) {
       // container, no se adaptará el ancho
       Expanded(
           // ESTE DEBERÍA DE SER UN BOTÓN.
-          child: Container(
-        alignment: Alignment.centerRight,
-        child: const Icon(
-          // FontAwesomeIcons.ellipsisV, // ESTÁ MÁS ROBUSTO
-          Icons.more_horiz_outlined,
-          color: Colors.black,
-        ),
-      ))
+        child: Container(
+          alignment: Alignment.centerRight,
+          child: const Icon(
+            // FontAwesomeIcons.ellipsisV, // ESTÁ MÁS ROBUSTO
+            Icons.more_horiz_outlined,
+            color: Colors.black,
+          ),
+        ))
     ],
   );
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 // VARIABLES GLOBALES
 import '../globals/global_values.dart' as global_values;
+import '../user/user.dart';
 /* ---------------- WIDGET DEL NOMBRE DEL USUARIO EN EL LOGIN --------------- */
 import '../widgets/first_login_screen/create_new_fb_account.dart' as create_account;
-import '../widgets/first_login_screen/icon_with_text.dart' as icon_with_text;
-import '../widgets/first_login_screen/login_username.dart' as login_username;
 import '../widgets/main_feed_screen/Publication.dart';
 
 // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
@@ -99,7 +99,7 @@ class TestScreen extends StatelessWidget {
                             ),
                             /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
 
-                            publication("assets/img/profile_pictures/invincible_1.png", "assets/img/profile_pictures/invincible_1.png"),
+                            publication(User("Jacob Flores", "assets/user/profile_pictures/invincible_1.png")),
                           ],
                         ),
 

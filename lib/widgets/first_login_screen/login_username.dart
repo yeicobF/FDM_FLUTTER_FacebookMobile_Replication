@@ -2,25 +2,35 @@
 // Se muestra la foto de perfil, el número de notificaciones, el nombre, y 3
 // puntos (que son un botón).
 import 'package:flutter/material.dart';
-import '../globals/profile_picture.dart' as profile_picture;
 
 // USUARIO
 import '../../user/user.dart';
 
-Widget showUserInfo(User currentUser) {
-  return Padding(
-    padding: const EdgeInsets.only(top: 40,),
+Widget showUserInfo(
+  User currentUser, double pictureSize, EdgeInsetsGeometry customPictureMargin) {
+  // Guardar foto de perfil dependiendo de si tiene notificaciones o no.
+  final Widget _profilePicture =
+    (currentUser.notificationsNumber > 0)
+    ? currentUser.createProfilePictureWithNotifications(
+        pictureSize,
+        customPictureMargin,
+      )
+    : currentUser.createBareProfilePicture(
+        pictureSize,
+        customPictureMargin
+      );
+
+
+  return Container(
+    margin: const EdgeInsets.only(top: 40,),
     child: Row(
       // mainAxisAlignment: MainAxisAlignment.start,
       // crossAxisAlignment: CrossAxisAlignment.stretch,
       // mainAxisSize: MainAxisSize.max,
       children: [
-        profile_picture.createProfilePictureWithNotifications(
-          8,
-          65,
-          currentUser.profilePicturePath,
-          const EdgeInsets.only(right: 12),
-        ),
+        // Aquí mostraremos una foto de perfil dependiendo de si tiene
+        // notificaciones o no.
+        _profilePicture,
         Text(
           currentUser.name,
           textAlign: TextAlign.center,
