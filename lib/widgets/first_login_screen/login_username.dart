@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import '../../user/user.dart';
 
 Widget showUserInfo(
-  User currentUser, double pictureSize, EdgeInsetsGeometry customPictureMargin) {
+  User currentUser, double pictureSize,
+  EdgeInsetsGeometry customPictureMargin) {
   // Guardar foto de perfil dependiendo de si tiene notificaciones o no.
   final Widget _profilePicture =
     (currentUser.notificationsNumber > 0)

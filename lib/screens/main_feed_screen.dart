@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 // CAMBIAR EL COLOR DE LA STATUSBAR.
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
+import '../user/post.dart';
 import '../user/user.dart';
 import '../widgets/main_feed_screen/scroll_feed.dart' as scroll_feed;
 
@@ -27,7 +28,48 @@ class MainFeedScreen extends StatelessWidget {
     
     final Size screenSize = MediaQuery.of(context).size;
 
-    return scroll_feed.scrollFeed(User("Jacob Flores", "assets/user/profile_pictures/invincible_1.png"), "hola", Colors.blue);
+    // DIRECTORIO DE LAS IMÁGENES.
+    const String profilePicsPath = "assets/user/profile_pictures";
+
+    final Map<String, User> usersMap = {
+      "german": User("Germán González", "$profilePicsPath/german.jpg"),
+      "sergio": User("Sergio", "$profilePicsPath/sergio.jpg"),
+      "rodrigo": User("Rodrigo", "$profilePicsPath/rodrigo.jpg"),
+      "eduardo": User("Eduardo", "$profilePicsPath/eduardo_roca.jpg"),
+    };
+
+    // Agregaré algunos amigos solo como prueba.
+    final List<User> friendsList = [
+      usersMap["german"],
+      usersMap["sergio"],
+      usersMap["rodrigo"],
+      usersMap["eduardo"],
+    ];
+
+    final List<String> imgPath = [];
+    imgPath.add("assets/user/post_images/german.jpg");
+    final Post postGerman = Post(
+      "Hola, que tal.",
+      imgPath
+    );
+    friendsList[0].addPost(postGerman);
+
+    imgPath.clear();
+    imgPath.add("assets/user/post_images/rodrigo.jpg");
+
+    final Post postRodrigo = Post(
+      "Isaac",
+      imgPath
+    );
+    friendsList[2].addPost(postRodrigo);
+
+    // Usuario actual.
+    final User currentUser = User("Jacob Flores", "$profilePicsPath/invincible_1.png");
+    // Agregar a todos los usuarios a la lista de amigos.
+    // MÉTODO 1.
+    currentUser.addFriends(friendsList);
+
+    return scroll_feed.scrollFeed(currentUser, "hola", Colors.blue);
 
 //     return Column(
 // 

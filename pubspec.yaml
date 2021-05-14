@@ -54,6 +54,7 @@ flutter:
   assets:
     - assets/user/
     - assets/user/profile_pictures/
+    - assets/user/post_images/
     # REACCIONES FB SVG
     - assets/fb_non-official/facebook-reactions-emoticons/svg/
   

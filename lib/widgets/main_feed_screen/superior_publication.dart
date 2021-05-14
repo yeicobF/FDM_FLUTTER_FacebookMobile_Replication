@@ -2,21 +2,32 @@ import 'package:flutter/material.dart';
 
 import '../../user/user.dart';
 
-Widget superiorPublication(User currentUser) {
+Widget superiorPublication(User currentUser, int index) {
   return Row(
     // mainAxisAlignment: MainAxisAlignment.start,
     // crossAxisAlignment: CrossAxisAlignment.stretch,
     // mainAxisSize: MainAxisSize.max,
     children: [
       currentUser.createBareProfilePicture(
-          50, const EdgeInsets.only(right: 12)),
-      Text(currentUser.name,
-          textAlign: TextAlign.left,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          )),
+        50,
+        const EdgeInsets.only(right: 12)
+      ),
+      Text(
+        currentUser.name,
+        textAlign: TextAlign.left,
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        )
+      ),
+      Text(
+        currentUser.postList[index].caption,
+        style: const TextStyle(
+          color: Colors.red,
+          fontSize: 30,
+        ),
+      ),
       // EXPANDED para que se ocupe todo el ancho restante. Si solo pongo el
       // container, no se adaptará el ancho
       Expanded(

@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
 
+import '../../user/post.dart';
 import '../../user/user.dart';
 import 'bottom_publication.dart' as bottom_publication;
 import 'reaction_bar.dart';
 import 'superior_publication.dart' as superior_pub;
 
 Widget scrollFeed(User user, String text, Color fontColor) {
+  String currPath = "";
+
   return ListView.builder(
-    // itemCount: 100,
+    itemCount: 100,
     scrollDirection: Axis.vertical,
     itemBuilder: (_, index) {
+
+      // index = index % user.friendsNumber;
+
+      for (final Post post in user.friends[index].postList) {
+        currPath = post.imgPathList[0];
+      }
+
+
       // return Container(
       //   // color: Colors.blue,
       //   height: 30,
@@ -29,15 +40,15 @@ Widget scrollFeed(User user, String text, Color fontColor) {
           // constraints. Más que nada pensado para la vista web.
           maxWidth: 500,
         ),
-          color: Colors.white,
-          // width: 50,
+        color: Colors.white,
+        // width: 50,
         child: Column(
           children: [
-            superior_pub.superiorPublication(user),
+            superior_pub.superiorPublication(user, index),
             Container(
               width: double.infinity,
               child: Image.asset(
-                'assets/img/profile_pictures/invincible_1.png',
+                currPath,
                 width: 200,
                 fit: BoxFit.fitWidth,
               ),

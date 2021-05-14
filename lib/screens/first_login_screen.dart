@@ -161,7 +161,7 @@ class FirstLoginScreen extends StatelessWidget {
     // currentUser = friendsList[1];
     
     // Establecer número de notificaciones.
-    currentUser.notificationsNumber = 1056;
+    currentUser.notificationsNumber = 10;
 
     // Agregar a todos los usuarios a la lista de amigos.
     // MÉTODO 1.

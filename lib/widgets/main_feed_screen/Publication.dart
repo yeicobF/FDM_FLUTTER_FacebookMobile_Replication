@@ -87,7 +87,7 @@ Widget publication(User user) {
                           ),
                           /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
 
-                          superiorPublication(user),
+                          superiorPublication(user, 0),
 
                           const SizedBox(
                             height: 5,
