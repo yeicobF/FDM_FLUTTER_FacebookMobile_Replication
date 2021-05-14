@@ -12,13 +12,25 @@ Widget scrollFeed(User user, String text, Color fontColor) {
   return ListView.builder(
     itemCount: 100,
     scrollDirection: Axis.vertical,
-    itemBuilder: (_, index) {
+    itemBuilder: (_, friendNumber) {
 
-      // index = index % user.friendsNumber;
+      // CREO QUE MEJOR HAY QUE IMPLEMENTAR QUE EL MISMO AMIGO CREE POST POR
+      // POST
+      // 
+      // user.displayPost(int currentPost);
+      
+      friendNumber = friendNumber % user.friendsNumber;
 
-      for (final Post post in user.friends[index].postList) {
-        currPath = post.imgPathList[0];
-      }
+      // Si el amigo actual no tiene posts, cambiar al siguiente amigo.
+      if (user.friends[friendNumber].postList.isEmpty) friendNumber++;
+
+
+
+      currPath = user.friends[friendNumber].postList[0].imgPathList[0];
+
+      // for (final Post post in user.friends[friendNumber].postList) {
+      //   currPath = post.imgPathList[0];
+      // }
 
 
       // return Container(
@@ -44,12 +56,12 @@ Widget scrollFeed(User user, String text, Color fontColor) {
         // width: 50,
         child: Column(
           children: [
-            superior_pub.superiorPublication(user, index),
+            superior_pub.superiorPublication(user.friends[friendNumber], 0),
             Container(
               width: double.infinity,
               child: Image.asset(
                 currPath,
-                width: 200,
+                height: 200,
                 fit: BoxFit.fitWidth,
               ),
             ),
