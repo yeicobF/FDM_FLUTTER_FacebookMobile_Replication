@@ -54,8 +54,9 @@ class FacebookScreens extends StatelessWidget {
     return MaterialApp(
       // PARA ELIMINAR LA ETIQUETA DE LA PARTE SUPERIOR DERECHA QUE INDICA 
       // "Debug".
+      // https://stackoverflow.com/questions/48893935/how-to-remove-the-flutter-debug-banner
+      debugShowCheckedModeBanner: false, // No me funciona y no sé por qué.
       home: screens[screenToShow],
-      debugShowCheckedModeBanner: false,
     );
   }
 }

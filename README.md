@@ -370,6 +370,28 @@ extrayéndolo. Entonces quedaría de la siguiente forma:
 
 Así, cada vez que quiera encontrar Flutter, será más sencillo.
 
+#### **FLUTTER** ***`SOUND NULL SAFETY`***
+
+> ***A día de hoy, Viernes, 21 de mayo del 2021, aún no lo implementamos, pero
+> dejamos las instrucciones para un futuro.***
+
+Habilitamos la opción `Sound Null Safety` de Flutter para evitar problemas con
+valores null. Esto lo podemos encontrar en la documentación:
+
+> [Dart | Samples & tutorials/Null Safety](https://dart.dev/null-safety#enable-null-safety "Dart | Samples & tutorials/Null Safety")
+
+Como se indica en el sitio web:
+
+***To make Dart treat your code as null safe, the SDK constraints must***
+***require a language version that has null safety support. For example, your***
+***`pubspec.yaml` file might have the following constraints:***
+
+> ```yaml
+> environment:
+>   sdk: ">=2.12.0 <3.0.0"
+> ```
+
+Siguiendo lo anterior, `Sound null safety` estaría activado.
 #### 1.4.2.2. **VARIABLE DE USUARIO**
 
 Para ver cómo configurar la variable de usuario, dirígete a la **sección del
