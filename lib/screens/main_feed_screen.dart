@@ -87,7 +87,12 @@ class MainFeedScreen extends StatelessWidget {
     // MÉTODO 1.
     currentUser.addFriends(friendsList);
 
-    return scroll_feed.scrollFeed(currentUser, "hola", Colors.blue);
+    // return scroll_feed.scrollFeed(currentUser, "hola", Colors.blue);
+
+    // Se requiere un Scaffold para poner TODOS los elementos de la APP.
+    return Scaffold(
+      body: scroll_feed.scrollFeed(currentUser)
+    );
 
 //     return Column(
 // 

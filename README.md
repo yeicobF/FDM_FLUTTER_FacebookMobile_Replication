@@ -1,4 +1,4 @@
-# **[T2.3] COPIAR MAQUETACIÓN DE PANTALLA LOGIN DE FACEBOOK**
+# **[T2.3] COPIAR DIVERSAS PANTALLAS DE LA APP DE FACEBOOK PARA CELULAR**
 
 > - Para esta actividad trabajaremos en equipo Germán y yo.
 >
@@ -6,7 +6,17 @@
 
 ## ***FECHA DE ENTREGA***
 
-> Jueves, 6 de mayo del 2021
+> PRIMERA: Jueves, 6 de mayo del 2021
+
+## **NOMBRE DEL PAQUETE DE LA APP**
+
+El nombre del paquete de la app lo cambié para registrarlo con Firebase,
+siguiendo la nomenclatura:
+
+> com.company.appname
+>
+> - NOMBRE DEL PAQUETE:
+>   - com.uaslp.facebook_simple_replication
 
 ## ***TABLA DE CONTENIDOS***
 
@@ -66,7 +76,7 @@ inicio de sesión, y pantalla después de dar click al botón de inicio de sesi�
 | :----------------: | :---------------------: | :-------------------: |
 | 1 | PRIMERA PANTALLA DE INICIO DE SESIÓN QUE MUESTRA NÚMERO DE NOTIFICACIONES [SAMSUNG A20S] | ![1 - OWN MAIN LOGIN SCREEN] |
 
-[1 - OWN MAIN LOGIN SCREEN]: <SS_PROGRESS/JACOB_CELL/loginScreen_1_JACOB_CELL.png> "1 - OWN MAIN LOGIN SCREEN"
+[1 - OWN MAIN LOGIN SCREEN]: <VIDEOS_SS_PROGRESS/JACOB_CELL/loginScreen_1_JACOB_CELL.png> "1 - OWN MAIN LOGIN SCREEN"
 
 ## 1.4. **INSTALACIONES**
 
@@ -664,6 +674,81 @@ llamada **`Path`**.
      > En mi caso puse lo siguiente en **`Path`**:
      >
      > - ***`C:\SDKs\flutter\bin`***
+
+## FIREBASE
+
+Para poder utilizar Firebase se tuvieron que realizar algunas modificaciones
+en algunos archivos, además de hacer la configuración en línea.
+
+> - com.uaslp.facebook_simple_replication
+
+### SCREENSHOTS CONFIGURACIÓN FIREBASE
+
+![Firebase configuration screenshots 1](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_1.png "Firebase configuration screenshots 1")
+![Firebase configuration screenshots 2](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_2.png "Firebase configuration screenshots 2")
+![Firebase configuration screenshots 3](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_3.png "Firebase configuration screenshots 3")
+![Firebase configuration screenshots 4](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_4.png "Firebase configuration screenshots 4")
+![Firebase configuration screenshots 5](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_5.png "Firebase configuration screenshots 5")
+
+### AGREGAR LAS SIGUIENTES LÍNEAS
+
+De las instrucciones de ***Agrega Firebase a tu app para Android***:
+
+> 3. Agregar el SDK de Firebase
+>
+>    El complemento de Google Services para
+> [Gradle](https://gradle.org/ "https://gradle.org/") carga el archivo
+> google-services.json que acabas de descargar. Para usar el complemento, debes
+> modificar los archivos ***`build.gradle`***.
+>
+>    **Archivo ***`build.gradle`*** de nivel de proyecto**
+> (***`<project>/build.gradle`***):
+>
+>    ```gradle
+>    buildscript {
+>      repositories {
+>        // Check that you have the following line (if not, add it):
+>        google()  // Google's Maven repository
+>      }
+>      dependencies {
+>        ...
+>        // Add this line
+>        classpath 'com.google.gms:google-services:4.3.8'
+>      }
+>    }
+>    
+>    allprojects {
+>      ...
+>      repositories {
+>        // Check that you have the following line (if not, add it):
+>        google()  // Google's Maven repository
+>        ...
+>      }
+>    }
+>    ```
+>
+>    **Archivo ***`build.gradle`*** de nivel de app**
+> (***`<project>/<app-module>/build.gradle`***):
+>
+>    ```gradle
+>    apply plugin: 'com.android.application'
+>    // Add this line
+>    apply plugin: 'com.google.gms.google-services'
+>    
+>    dependencies {
+>      // Import the Firebase BoM
+>      implementation platform('com.google.firebase:firebase-bom:28.0.1')
+>    
+>      // Add the dependencies for the desired Firebase products
+>      // https://firebase.google.com/docs/android/setup#available-libraries
+>    }
+>    ```
+>
+> Después de haber realizado estos pasos anteriores, utilizar el comando
+> `flutter pacckages get` (equivalente a `flutter pub get`) para que quede todo
+> actualizado, el cual es indicado en el siguiente sitio web:
+>
+> - [Firebase | Documentación | Firebase / Documentos / Información básica / Agrega Firebase a tu app de Flutter](https://firebase.google.com/docs/flutter/setup?platform=android#add-config-file "Firebase | Documentación | Firebase / Documentos / Información básica / Agrega Firebase a tu app de Flutter")
 
 ## RECURSOS DE FACEBOOK APP (SVG, ÍCONOS, ...)
 

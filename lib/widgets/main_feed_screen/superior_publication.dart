@@ -41,7 +41,7 @@ Widget superiorPublication(User currentUser, int index) {
       Align(
         alignment: Alignment.centerLeft,
         child: Padding(
-          padding: const EdgeInsets.only(top: 5, bottom: 5, left: 15),
+          padding: const EdgeInsets.only(top: 10, bottom: 5, left: 5),
           child: Text(
             currentUser.postList[index].caption,
             // Que el texto se acople dentro del contenedor.

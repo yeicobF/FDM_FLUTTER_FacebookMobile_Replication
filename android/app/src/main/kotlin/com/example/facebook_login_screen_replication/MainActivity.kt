@@ -1,4 +1,4 @@
-package com.example.facebook_login_screen_replication
+package com.uaslp.facebook_simple_replication
 
 import io.flutter.embedding.android.FlutterActivity
 

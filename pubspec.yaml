@@ -24,6 +24,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  # PARA UTILIZAR FIREBASE
+  firebase_core: ^1.2.0
+  firebase_storage: ^8.1.0
   flutter:
     sdk: flutter
   # CAMBIAR COLOR DEL statusBar

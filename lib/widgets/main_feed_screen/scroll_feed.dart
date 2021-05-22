@@ -6,7 +6,7 @@ import 'bottom_publication.dart' as bottom_publication;
 import 'reaction_bar.dart';
 import 'superior_publication.dart' as superior_pub;
 
-Widget scrollFeed(User user, String text, Color fontColor) {
+Widget scrollFeed(User user) {
   String currPath = "";
   // Número total de publicaciones.
   int friendsTotalPublications = 0;

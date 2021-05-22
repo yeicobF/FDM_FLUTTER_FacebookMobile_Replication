@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.facebook_login_screen_replication">
+    package="com.uaslp.facebook_simple_replication">
    <application
-        android:label="facebook_login_screen_replication"
+        android:label="facebook_simple_replication"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
