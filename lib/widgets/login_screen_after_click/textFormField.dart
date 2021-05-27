@@ -14,6 +14,11 @@ Widget showTextFormField(String text, Color fontColor) {
     textAlignVertical: TextAlignVertical.bottom,
     cursorColor: cursorColor,
     cursorWidth: 0.5,
+    // Para cambiar el color de la letra en el input.
+    style: const TextStyle(
+      color: Colors.white,
+      fontSize: 18, 
+    ),
     decoration: InputDecoration(
       // labelText: "hola",
       // contentPadding: const EdgeInsets.only(bottom: 0.0),
@@ -21,7 +26,7 @@ Widget showTextFormField(String text, Color fontColor) {
       hintStyle: const TextStyle(
         color: hintTextColor,
         //decorationColor: Colors.grey,
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: FontWeight.w500,
         letterSpacing: -0.2,
       ),

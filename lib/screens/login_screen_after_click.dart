@@ -70,21 +70,6 @@ class LoginScreenAfterClick extends StatelessWidget {
                   children: [
                     /* -------- ícono antes de agregar el PADDING a los demás elementos. -------- */
 
-                    const Padding(
-                      padding: EdgeInsets.only(
-                        left: 10,
-                        top: 10,
-                      ),
-                      child: Align(
-                        // heightFactor: 1.4,
-                        alignment: Alignment.bottomLeft,
-                        child: Icon(
-                          Icons.info_outline_rounded,
-                          size: 22,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
 
                     /* ------------ TODOS LOS BOTONES Y ELEMENTOS QUE TENDRÁN PADDING ----------- */
                     // SE PONE EL EXPANDED PARA QUE TOME EL TAMAÑO RESTANTE DE TODA LA
@@ -135,10 +120,6 @@ class LoginScreenAfterClick extends StatelessWidget {
                                   ),
                                 ),
                                 // ),
-
-                                const SizedBox(
-                                  height: 20,
-                                ),
                                 /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
 
                                 showTextFormField(
