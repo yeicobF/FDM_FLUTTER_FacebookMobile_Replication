@@ -9,11 +9,14 @@ const Map<String, Color> bottomBorderColors = {
 const Color hintTextColor = Color(0xFF909195);
 const Color cursorColor = Color(0xFF909195);
 
-Widget showTextFormField(String text, Color fontColor) {
+Widget showTextFormField(String text, Color fontColor,
+                         {bool isPassword = false}) {
   return TextFormField(
     textAlignVertical: TextAlignVertical.bottom,
     cursorColor: cursorColor,
     cursorWidth: 0.5,
+    // Ocultar el texto (para la contraseña).
+    obscureText: isPassword,
     // Para cambiar el color de la letra en el input.
     style: const TextStyle(
       color: Colors.white,

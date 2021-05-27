@@ -39,6 +39,8 @@ class LoginScreenAfterClick extends StatelessWidget {
     return MaterialApp(
         title: 'Facebook Login Screen',
         home: Scaffold(
+          backgroundColor: global_values.darkBackground,
+          // resizeToAvoidBottomInset: false,
           // ---------------------------------------------------------------------
           // CON EL APPBAR SE PUEDEN CAMBIAR LOS ATRIBUTOS DEL StatusBar respecto
           // a sus colores, pero es menos lío con "FlutterStatusbarcolor"
@@ -55,100 +57,71 @@ class LoginScreenAfterClick extends StatelessWidget {
           body: SafeArea(
             child: // TAMAÑO RELATIVO AL TAMAÑO DEL DISPOSITIVO CON
                 // - FractionallySizedBox
-                FractionallySizedBox(
-              widthFactor: 1,
-              heightFactor: 1,
-              // UN CONTENEDOR PARA PODER ESTABLECER EL COLOR DEL FONDO DE LA PANTALLA.
-
-              // UN CONTENEDOR PARA PODER ESTABLECER EL COLOR DEL FONDO DE LA PANTALLA.
-              child: Container(
-                color: global_values.darkBackground,
-
-/* ------------- COLUMNA CON TODOS LOS ELEMENTOS DE LA PANTALLA ------------- */
-
+            FractionallySizedBox(
+              heightFactor: 1.0,
+              widthFactor: 1.0,
+              child: Padding(
+                padding: const EdgeInsets.all(30),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    /* -------- ícono antes de agregar el PADDING a los demás elementos. -------- */
+                    /* ---------------------------- LOGO DE FACEBOOK ---------------------------- */
 
+                    // const Padding(
+                    //   padding: EdgeInsets.only(top: 120,),
+                    //   child:
 
-                    /* ------------ TODOS LOS BOTONES Y ELEMENTOS QUE TENDRÁN PADDING ----------- */
-                    // SE PONE EL EXPANDED PARA QUE TOME EL TAMAÑO RESTANTE DE TODA LA
-                    // PANTALLA, Y ASÍ SE PUEDAN REPARTIR LOS ELEMENTOS.
+                    // LOGO DE FACEBOOK
                     Expanded(
-                        // color: fbButtonColor,
-                        // Solo para poder ver el padding.
-
-                        /* ------------- SE ESTABLECE EL PADDING DE TODOS LOS ELEMENTOS ------------- */
-
-                        child: Padding(
-                      padding: const EdgeInsets.all(
-                        30,
+                      flex: 1,
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 30, bottom: 30),
+                        width: 70,
+                        child: Image.asset(
+                          'assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png',
+                          fit: BoxFit.fitWidth,
+                        ),
                       ),
+                    ),
+                    // ),
+                    /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
 
-                      /* --- COLUMNA CON TODOS LOS ELEMENTOS A LOS QUE SE LES APLICÓ EL PADDING. -- */
-
+                    Expanded(
+                      flex: 1,
                       child: Column(
-                        // mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        // crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          // PONEMOS UN EXPANDED PARA QUE SE TOME LA MITAD DE LA
-                          // PANTALLA, la cual se repartirá con el botón que estará
-                          // hasta abajo de crear una nueva cuenta.
-                          //
-                          Expanded(
-                            // Flex: 2, para que ocupe 2/3 partes del restante de la
-                            // pantalla. El 1/3 restante lo tiene el botón de hasta
-                            // abajo.
-                            flex: 3,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                /* ---------------------------- LOGO DE FACEBOOK ---------------------------- */
-
-                                // const Padding(
-                                //   padding: EdgeInsets.only(top: 120,),
-                                //   child:
-
-                                Container(
-                                  margin: const EdgeInsets.only(top: 30, bottom: 30),
-                                  width: 70,
-                                  child: Image.asset(
-                                    'assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png',
-                                    fit: BoxFit.fitWidth,
-                                  ),
-                                ),
-                                // ),
-                                /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
-
-                                showTextFormField(
-                                    "Phone or email", fbGray),
-
-                                const SizedBox(
-                                  height: 5,
-                                ),
-
-                                showTextFormField("Password", fbGray),
-
-                                const SizedBox(
-                                  height: 5,
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10),
-                                  child: login_button(Colors.blueAccent, fbFontColor2),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10),
-                                  child: ForgotPassword(fbFontColor),
-                                ),
-                              ],
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 5),
+                            child: showTextFormField(
+                              "Phone or email",
+                              fbGray
                             ),
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 5),
+                            child: showTextFormField(
+                              "Password",
+                              fbGray,
+                              // Indicar que es contraseña.
+                              isPassword: true
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: login_button(Colors.blueAccent, fbFontColor2),
                           ),
                         ],
                       ),
-                    )),
+                    ),
+
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: ForgotPassword(fbFontColor),
+                      ),
+                    ),
                   ],
                 ),
               ),
