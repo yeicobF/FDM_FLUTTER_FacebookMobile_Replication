@@ -12,30 +12,25 @@ Widget ForgotPassword(Color fontColor) {
 
   // CON EXPANDED SE TOMA TODO EL TAMAÑO RESTANTE DE LA PANTALLA, POR LO QUE
   // TIENE CIERTO GRADO DE RESPONSIVIDAD.
-  return Expanded(
-    // padding: const EdgeInsets.only(top: 150),
-
-    // ALINEAMOS EL BOTÓN AL FONDO DEL TAMAÑO RESTANTE DE LA PANTALLA.
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: SizedBox(
-            height: 40,
-            // QUE EL ANCHO SEA EL MÁXIMO POSIBLE.
-            // https://stackoverflow.com/questions/50014342/button-width-match-parent
-            width: double.infinity,
-            child: Container(
-              child: Center(
-                child: Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                      fontSize: 16.5,
-                      fontWeight: FontWeight.w700,
-                      color: fontColor,
-                    )
-                ),
-              ),
-            )
-        ),
-      )
+  return Align(
+    alignment: Alignment.bottomCenter,
+    child: SizedBox(
+        height: 40,
+        // QUE EL ANCHO SEA EL MÁXIMO POSIBLE.
+        // https://stackoverflow.com/questions/50014342/button-width-match-parent
+        width: double.infinity,
+        child: Container(
+          child: Center(
+            child: Text(
+                "Forgot Password?",
+                style: TextStyle(
+                  fontSize: 16.5,
+                  fontWeight: FontWeight.w700,
+                  color: fontColor,
+                )
+            ),
+          ),
+        )
+    ),
   );
 }

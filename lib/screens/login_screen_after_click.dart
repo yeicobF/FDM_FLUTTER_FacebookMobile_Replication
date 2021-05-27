@@ -102,7 +102,7 @@ class LoginScreenAfterClick extends StatelessWidget {
                             // abajo.
                             flex: 3,
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 /* ---------------------------- LOGO DE FACEBOOK ---------------------------- */
 
@@ -134,12 +134,15 @@ class LoginScreenAfterClick extends StatelessWidget {
                                   height: 5,
                                 ),
 
-                                login_button(Colors.blueAccent, fbFontColor2),
-
-                                const SizedBox(
-                                  height: 5,
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: login_button(Colors.blueAccent, fbFontColor2),
                                 ),
-                                ForgotPassword(fbFontColor),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: ForgotPassword(fbFontColor),
+                                ),
                               ],
                             ),
                           ),
