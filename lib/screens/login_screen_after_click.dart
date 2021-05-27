@@ -3,11 +3,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 // VARIABLES GLOBALES
-import '../globals/global_values.dart' as global_values;
+import '../../../globals/global_values.dart' as global_values;
 
-import '../widgets/first_login_screen/login_button.dart';
-import '../widgets/login_screen_after_click/forgot_password.dart';
-import '../widgets/login_screen_after_click/text_form_field.dart';
+import '../../../widgets/first_login_screen/login_button.dart';
+import '../../../widgets/login_screen_after_click/ForgotPassword.dart';
+import '../../../widgets/login_screen_after_click/textFormField.dart';
 
 // PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
 
@@ -15,6 +15,8 @@ class LoginScreenAfterClick extends StatelessWidget {
   final Color fbButtonColor = const Color(0xFF03A9F4);
   final Color fbFontColor = const Color(0xFF4e9af5);
   final Color fbFontColor2 = const Color(0xFFFFFFFF);
+  final Color fbButtonColor2 = const Color(0xFF0F163D);
+  final Color fbGray = const Color(0x636565);
 // const Color fbFontColor = Color(0xFF4e9bf9);
 
   @override
@@ -122,10 +124,15 @@ class LoginScreenAfterClick extends StatelessWidget {
                                 // const Padding(
                                 //   padding: EdgeInsets.only(top: 120,),
                                 //   child:
-                                const Icon(
-                                  FontAwesomeIcons.facebook,
-                                  color: Colors.blue,
-                                  size: 60,
+
+                                Container(
+
+                                  width: double.infinity,
+                                  child: Image.asset(
+                                    'assets/img/profile_pictures/invincible_1.png',
+                                    width: 60,
+                                    fit: BoxFit.fitWidth,
+                                  ),
                                 ),
                                 // ),
 
@@ -135,19 +142,19 @@ class LoginScreenAfterClick extends StatelessWidget {
                                 /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
 
                                 showTextFormField(
-                                    "Correo electronico", fbFontColor2),
+                                    "Phone or email", fbGray),
 
                                 const SizedBox(
                                   height: 5,
                                 ),
 
-                                showTextFormField("Contraseña", fbFontColor2),
+                                showTextFormField("Password", fbGray),
 
                                 const SizedBox(
                                   height: 5,
                                 ),
 
-                                login_button(fbButtonColor, fbFontColor2),
+                                login_button(Colors.blueAccent, fbFontColor2),
 
                                 const SizedBox(
                                   height: 5,

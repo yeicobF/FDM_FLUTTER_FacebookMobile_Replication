@@ -23,7 +23,7 @@ import 'screens/main_feed_screen.dart' as main_feed_screen;
 
 // void main() => runApp(MaterialApp(home: first_login_screen.FirstLoginScreen()));
 // void main() => runApp(MaterialApp(home: login_screen_after_click.LoginScreenAfterClick()));
-void main() => runApp(FacebookScreens(0));
+void main() => runApp(FacebookScreens(1));
 
 // CLASE PROVISIONAL PARA MOSTRAR LAS PANTALLAS QUE HEMOS HECHO DEPENDIENDO DEL
 // NÚMERO QUE RECIBA COMO PARÁMETRO.
