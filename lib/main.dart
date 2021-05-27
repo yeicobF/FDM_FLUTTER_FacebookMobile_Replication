@@ -23,41 +23,4 @@ import 'screens/main_feed_screen.dart' as main_feed_screen;
 
 // void main() => runApp(MaterialApp(home: first_login_screen.FirstLoginScreen()));
 // void main() => runApp(MaterialApp(home: login_screen_after_click.LoginScreenAfterClick()));
-void main() => runApp(FacebookScreens(0));
-
-// CLASE PROVISIONAL PARA MOSTRAR LAS PANTALLAS QUE HEMOS HECHO DEPENDIENDO DEL
-// NÚMERO QUE RECIBA COMO PARÁMETRO.
-class FacebookScreens extends StatelessWidget {
-  // El número de la pantalla.
-  final int screenNumber;
-  // Las pantallas.
-  final List<Widget> screens = [
-    first_login_screen.FirstLoginScreen(),
-    login_screen_after_click.LoginScreenAfterClick(),
-    main_feed_screen.MainFeedScreen(),
-  ];
-  
-  // CONSTRUCTOR QUE RECIBE EL NÚMERO DE LA PANTALLA A MOSTRAR.
-  FacebookScreens(this.screenNumber);
-
-
-  @override
-  Widget build(BuildContext context) {
-
-    // Si el número de pantalla es null, < 0, o mayor al número de pantallas,
-    // hacerlo 0.
-    final int screenToShow = (screenNumber < 0
-                              || screenNumber > (screens.length - 1)
-                              || screenNumber == null)
-                              ? 0
-                              : screenNumber;
-
-    return MaterialApp(
-      // PARA ELIMINAR LA ETIQUETA DE LA PARTE SUPERIOR DERECHA QUE INDICA 
-      // "Debug".
-      // https://stackoverflow.com/questions/48893935/how-to-remove-the-flutter-debug-banner
-      debugShowCheckedModeBanner: false, // No me funciona y no sé por qué.
-      home: screens[screenToShow],
-    );
-  }
-}
+void main() => runApp(MaterialApp(home: login_screen_after_click.LoginScreenAfterClick()));

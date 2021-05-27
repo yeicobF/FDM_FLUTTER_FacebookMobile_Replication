@@ -1,12 +1,11 @@
 buildscript {
     ext.kotlin_version = '1.3.50'
     repositories {
-        google() // FIREBASE
+        google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.google.gms:google-services:4.3.8' // FIREBASE
         classpath 'com.android.tools.build:gradle:4.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
@@ -14,7 +13,7 @@ buildscript {
 
 allprojects {
     repositories {
-        google() // FIREBASE: Google's Maven repository
+        google()
         jcenter()
     }
 }

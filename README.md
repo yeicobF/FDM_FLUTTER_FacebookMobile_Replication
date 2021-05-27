@@ -1,4 +1,4 @@
-# **[T2.3] COPIAR DIVERSAS PANTALLAS DE LA APP DE FACEBOOK PARA CELULAR**
+# **[T2.3] COPIAR MAQUETACIÓN DE PANTALLA LOGIN DE FACEBOOK**
 
 > - Para esta actividad trabajaremos en equipo Germán y yo.
 >
@@ -6,17 +6,7 @@
 
 ## ***FECHA DE ENTREGA***
 
-> PRIMERA: Jueves, 6 de mayo del 2021
-
-## **NOMBRE DEL PAQUETE DE LA APP**
-
-El nombre del paquete de la app lo cambié para registrarlo con Firebase,
-siguiendo la nomenclatura:
-
-> com.company.appname
->
-> - NOMBRE DEL PAQUETE:
->   - com.uaslp.facebook_simple_replication
+> Jueves, 6 de mayo del 2021
 
 ## ***TABLA DE CONTENIDOS***
 
@@ -76,7 +66,7 @@ inicio de sesión, y pantalla después de dar click al botón de inicio de sesi�
 | :----------------: | :---------------------: | :-------------------: |
 | 1 | PRIMERA PANTALLA DE INICIO DE SESIÓN QUE MUESTRA NÚMERO DE NOTIFICACIONES [SAMSUNG A20S] | ![1 - OWN MAIN LOGIN SCREEN] |
 
-[1 - OWN MAIN LOGIN SCREEN]: <VIDEOS_SS_PROGRESS/JACOB_CELL/loginScreen_1_JACOB_CELL.png> "1 - OWN MAIN LOGIN SCREEN"
+[1 - OWN MAIN LOGIN SCREEN]: <SS_PROGRESS/JACOB_CELL/loginScreen_1_JACOB_CELL.png> "1 - OWN MAIN LOGIN SCREEN"
 
 ## 1.4. **INSTALACIONES**
 
@@ -370,28 +360,6 @@ extrayéndolo. Entonces quedaría de la siguiente forma:
 
 Así, cada vez que quiera encontrar Flutter, será más sencillo.
 
-#### **FLUTTER** ***`SOUND NULL SAFETY`***
-
-> ***A día de hoy, Viernes, 21 de mayo del 2021, aún no lo implementamos, pero
-> dejamos las instrucciones para un futuro.***
-
-Habilitamos la opción `Sound Null Safety` de Flutter para evitar problemas con
-valores null. Esto lo podemos encontrar en la documentación:
-
-> [Dart | Samples & tutorials/Null Safety](https://dart.dev/null-safety#enable-null-safety "Dart | Samples & tutorials/Null Safety")
-
-Como se indica en el sitio web:
-
-***To make Dart treat your code as null safe, the SDK constraints must***
-***require a language version that has null safety support. For example, your***
-***`pubspec.yaml` file might have the following constraints:***
-
-> ```yaml
-> environment:
->   sdk: ">=2.12.0 <3.0.0"
-> ```
-
-Siguiendo lo anterior, `Sound null safety` estaría activado.
 #### 1.4.2.2. **VARIABLE DE USUARIO**
 
 Para ver cómo configurar la variable de usuario, dirígete a la **sección del
@@ -697,81 +665,6 @@ llamada **`Path`**.
      >
      > - ***`C:\SDKs\flutter\bin`***
 
-## FIREBASE
-
-Para poder utilizar Firebase se tuvieron que realizar algunas modificaciones
-en algunos archivos, además de hacer la configuración en línea.
-
-> - com.uaslp.facebook_simple_replication
-
-### SCREENSHOTS CONFIGURACIÓN FIREBASE
-
-![Firebase configuration screenshots 1](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_1.png "Firebase configuration screenshots 1")
-![Firebase configuration screenshots 2](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_2.png "Firebase configuration screenshots 2")
-![Firebase configuration screenshots 3](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_3.png "Firebase configuration screenshots 3")
-![Firebase configuration screenshots 4](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_4.png "Firebase configuration screenshots 4")
-![Firebase configuration screenshots 5](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_5.png "Firebase configuration screenshots 5")
-
-### AGREGAR LAS SIGUIENTES LÍNEAS
-
-De las instrucciones de ***Agrega Firebase a tu app para Android***:
-
-> 3. Agregar el SDK de Firebase
->
->    El complemento de Google Services para
-> [Gradle](https://gradle.org/ "https://gradle.org/") carga el archivo
-> google-services.json que acabas de descargar. Para usar el complemento, debes
-> modificar los archivos ***`build.gradle`***.
->
->    **Archivo ***`build.gradle`*** de nivel de proyecto**
-> (***`<project>/build.gradle`***):
->
->    ```gradle
->    buildscript {
->      repositories {
->        // Check that you have the following line (if not, add it):
->        google()  // Google's Maven repository
->      }
->      dependencies {
->        ...
->        // Add this line
->        classpath 'com.google.gms:google-services:4.3.8'
->      }
->    }
->    
->    allprojects {
->      ...
->      repositories {
->        // Check that you have the following line (if not, add it):
->        google()  // Google's Maven repository
->        ...
->      }
->    }
->    ```
->
->    **Archivo ***`build.gradle`*** de nivel de app**
-> (***`<project>/<app-module>/build.gradle`***):
->
->    ```gradle
->    apply plugin: 'com.android.application'
->    // Add this line
->    apply plugin: 'com.google.gms.google-services'
->    
->    dependencies {
->      // Import the Firebase BoM
->      implementation platform('com.google.firebase:firebase-bom:28.0.1')
->    
->      // Add the dependencies for the desired Firebase products
->      // https://firebase.google.com/docs/android/setup#available-libraries
->    }
->    ```
->
-> Después de haber realizado estos pasos anteriores, utilizar el comando
-> `flutter pacckages get` (equivalente a `flutter pub get`) para que quede todo
-> actualizado, el cual es indicado en el siguiente sitio web:
->
-> - [Firebase | Documentación | Firebase / Documentos / Información básica / Agrega Firebase a tu app de Flutter](https://firebase.google.com/docs/flutter/setup?platform=android#add-config-file "Firebase | Documentación | Firebase / Documentos / Información básica / Agrega Firebase a tu app de Flutter")
-
 ## RECURSOS DE FACEBOOK APP (SVG, ÍCONOS, ...)
 
 Para poder maquetar de forma más precisa las pantallas de la app de Facebook
@@ -871,7 +764,6 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 - [Dart getters and setters](https://dev.to/newtonmunene_yg/dart-getters-and-setters-1c8f "Dart getters and setters")
 - [Dart | A tour of the Dart language](https://dart.dev/guides/language/language-tour#getters-and-setters "Dart | A tour of the Dart language")
 - [GitHub Gist | aruld/foreachlistset.dart](https://gist.github.com/aruld/1299218 "GitHub Gist | aruld/foreachlistset.dart")
-- [Stack Overflow | What is the difference between named and positional parameters in Dart? | Seth Ladd](https://stackoverflow.com/a/13264231/13562806 "Stack Overflow | What is the difference between named and positional parameters in Dart? | Seth Ladd")
 
 [//]: <EN ESTA SECCIÓN SE ENCUENTRAN LAS "VARIABLES" UTILIZADAS PARA EL README.>
 

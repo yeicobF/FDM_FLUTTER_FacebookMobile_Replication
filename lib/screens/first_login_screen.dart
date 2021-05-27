@@ -65,10 +65,10 @@ class FirstLoginScreen extends StatelessWidget {
 
 /* ------------- SE ESTABLECE EL PADDING DE TODOS LOS ELEMENTOS ------------- */
 
-          child: Padding(
-            padding: const EdgeInsets.all(
-              30,
-            ),
+            child: Padding(
+          padding: const EdgeInsets.all(
+            30,
+          ),
 
 /* --- COLUMNA CON TODOS LOS ELEMENTOS A LOS QUE SE LES APLICÓ EL PADDING. -- */
 
@@ -103,11 +103,7 @@ class FirstLoginScreen extends StatelessWidget {
 
                     /* --------------- AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO. -------------- */
 
-                    login_username.showUserInfo(
-                      currentUser,
-                      65,
-                      const EdgeInsets.only(right: 12)
-                    ),
+                    login_username.showUserInfo(currentUser),
                     // Este es un separador entre la información del
                     // usuario y los botones.
                     const SizedBox(
@@ -159,21 +155,11 @@ class FirstLoginScreen extends StatelessWidget {
     // Usuario actual.
     currentUser = User("Jacob Flores", "$profilePicsPath/invincible_1.png");
     // currentUser = friendsList[1];
-    
-    // Establecer número de notificaciones.
-    currentUser.notificationsNumber = 18;
 
     // Agregar a todos los usuarios a la lista de amigos.
-    // MÉTODO 1.
-    currentUser.addFriends(friendsList);
-
-    // Agregar a todos los usuarios a la lista de amigos.
-    // MÉTODO 2.
-    //
-    // for (final User friend in friendsList) {
-    //   currentUser.addFriend(friend);
-    // }
-
+    for (final User friend in friendsList) {
+      currentUser.addFriend(friend);
+    }
 
     // CAMBIAR COLOR DEL statusBar
     // https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter
