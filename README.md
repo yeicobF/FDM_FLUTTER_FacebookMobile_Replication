@@ -781,6 +781,35 @@ reacciones y demás.
 En esta sección se encontrarán diversos enlaces, en los cuales se podrán
 encontrar los recursos que utilizamos.
 
+### LOGO DE FACEBOOK
+
+Los logos de Facebook los descargamos de la página oficial de los recursos
+(assets):
+
+> - [Brand Resources / Facebook App / “f” Logo](https://en.facebookbrand.com/facebookapp/assets/f-logo/?audience=landing "Brand Resources / Facebook App / “f” Logo")
+
+Los logotipos descargados se encuentran en el siguiente directorio:
+
+[Directorio con todos los logos descargados | assets/fb_official/logos/](assets/fb_official/logos/ "Directorio con todos los logos descargados | assets/fb_official/logos/")
+
+> Los logos con la F blanca y el círculo azul, se encuentran en diversos
+> directorios y con diversos tamaños, por lo que los listaré para encontrarlos
+> con mayor facilidad y utilizar los que más nos convengan:
+>
+> - [Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/ "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/")
+>
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png")
+>
+> - [Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/](assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/ "Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/")
+>
+>   - ![assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png](assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png "assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png")
+
 ### **REACCIONES DE FACEBOOK**
 
 Facebook tiene su propio sitio web en donde provee de estos íconos, pero se
