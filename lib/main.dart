@@ -37,6 +37,7 @@ class FacebookScreens extends StatelessWidget {
     main_feed_screen.MainFeedScreen(),
   ];
   
+  // CONSTRUCTOR QUE RECIBE EL NÚMERO DE LA PANTALLA A MOSTRAR.
   FacebookScreens(this.screenNumber);
 
 
