@@ -111,11 +111,10 @@ class LoginScreenAfterClick extends StatelessWidget {
                                 //   child:
 
                                 Container(
-
-                                  width: double.infinity,
+                                  margin: const EdgeInsets.only(top: 30, bottom: 30),
+                                  width: 70,
                                   child: Image.asset(
-                                    'assets/img/profile_pictures/invincible_1.png',
-                                    width: 60,
+                                    'assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png',
                                     fit: BoxFit.fitWidth,
                                   ),
                                 ),
