@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-Widget ForgotPassword(Color fontColor) {
+Widget ForgotPassword(Color fontColor,
+                     {AlignmentGeometry alignment = Alignment.bottomCenter}) {
   // PREFERIRÍA PONER UN "EXPANDED" en lugar de un "PADDING", pero como tengo
   // los elementos en distintas columnas y contenedores, cuando utilizo el
   // EXPANDED, la pantalla solo se ve del contenedor del primer contenedor, así
@@ -13,7 +14,7 @@ Widget ForgotPassword(Color fontColor) {
   // CON EXPANDED SE TOMA TODO EL TAMAÑO RESTANTE DE LA PANTALLA, POR LO QUE
   // TIENE CIERTO GRADO DE RESPONSIVIDAD.
   return Align(
-    alignment: Alignment.bottomCenter,
+    alignment: alignment,
     child: SizedBox(
         height: 40,
         // QUE EL ANCHO SEA EL MÁXIMO POSIBLE.

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../screens/login_screen_after_click.dart';
 
 const Map<String, Color> bottomBorderColors = {
   "blueFocus": Color(0xFF3987ea),
@@ -12,6 +12,10 @@ const Color cursorColor = Color(0xFF909195);
 Widget showTextFormField(String text, Color fontColor,
                          {bool isPassword = false}) {
   return TextFormField(
+    onTap: ()   {LoginScreenAfterClick.isInputActive = true;
+      print("Input");},
+    onEditingComplete: () {LoginScreenAfterClick.isInputActive = false;
+      print("Salió");},
     textAlignVertical: TextAlignVertical.bottom,
     cursorColor: cursorColor,
     cursorWidth: 0.5,
