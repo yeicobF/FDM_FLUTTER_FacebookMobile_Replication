@@ -101,13 +101,19 @@ class LoginScreenContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+
     return FractionallySizedBox(
       heightFactor: 1.0,
       widthFactor: 1.0,
       child: Builder(
-        builder: (newContext) {
+        builder: (BuildContext newContext) {
+          print(newContext.describeOwnershipChain("FractionallySizedBox").getProperties().asMap());
+          print("newContext.size.height: ${MediaQuery.of(newContext).size.height}");
+          print("newContext.owner: ${newContext.owner}");
           currentScreenHeight = MediaQuery.of(newContext).size.height;
+          print(MediaQuery.of(newContext).viewPadding);
           print("currentScreenHeight: $currentScreenHeight");
+
           return Padding(
           padding: const EdgeInsets.all(30),
           child: Column(
