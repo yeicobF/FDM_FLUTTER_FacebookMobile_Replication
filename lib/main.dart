@@ -23,7 +23,7 @@ import 'screens/main_feed_screen.dart' as main_feed_screen;
 
 // void main() => runApp(MaterialApp(home: first_login_screen.FirstLoginScreen()));
 // void main() => runApp(MaterialApp(home: login_screen_after_click.LoginScreenAfterClick()));
-void main() => runApp(FacebookScreens(1));
+void main() => runApp(FacebookScreens(0));
 
 // CLASE PROVISIONAL PARA MOSTRAR LAS PANTALLAS QUE HEMOS HECHO DEPENDIENDO DEL
 // NÚMERO QUE RECIBA COMO PARÁMETRO.
@@ -46,11 +46,19 @@ class FacebookScreens extends StatelessWidget {
 
     // Si el número de pantalla es null, < 0, o mayor al número de pantallas,
     // hacerlo 0.
-    final int screenToShow = (screenNumber < 0
-                              || screenNumber > (screens.length - 1)
-                              || screenNumber == null)
-                              ? 0
-                              : screenNumber;
+    //
+    // Si screenNumber == undefined o null, dar valor = 0, si no, tomar
+    // screenNumber.
+    int screenToShow = screenNumber ?? 0;
+    
+    // Revisar que el número de pantalla no exceda el número de pantallas.
+    if (screenNumber > (screens.length - 1)) screenToShow = 0;
+    
+    // int screenToShow = (screenNumber < 0
+    //                     || screenNumber > (screens.length - 1)
+    //                     || screenNumber == null)
+    //                     ? 0
+    //                     : screenNumber;
 
     return MaterialApp(
       // PARA ELIMINAR LA ETIQUETA DE LA PARTE SUPERIOR DERECHA QUE INDICA 

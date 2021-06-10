@@ -65,10 +65,10 @@ class FirstLoginScreen extends StatelessWidget {
 
 /* ------------- SE ESTABLECE EL PADDING DE TODOS LOS ELEMENTOS ------------- */
 
-          child: Padding(
-            padding: const EdgeInsets.all(
-              30,
-            ),
+            child: Padding(
+          padding: const EdgeInsets.all(
+            30,
+          ),
 
 /* --- COLUMNA CON TODOS LOS ELEMENTOS A LOS QUE SE LES APLICÓ EL PADDING. -- */
 
@@ -104,10 +104,7 @@ class FirstLoginScreen extends StatelessWidget {
                     /* --------------- AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO. -------------- */
 
                     login_username.showUserInfo(
-                      currentUser,
-                      65,
-                      const EdgeInsets.only(right: 12)
-                    ),
+                        currentUser, 65, const EdgeInsets.only(right: 12)),
                     // Este es un separador entre la información del
                     // usuario y los botones.
                     const SizedBox(
@@ -116,19 +113,19 @@ class FirstLoginScreen extends StatelessWidget {
                     /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
 
                     icon_with_text.iconWithText(
-                      Icons.add_sharp,
-                      null, // null PARA QUE EL TAMAÑO DEL ÍCONO SEA EL DEFAULT.
-                      "Log Into Another Account",
-                      fbButtonColor,
-                      fbFontColor),
+                        Icons.add_sharp,
+                        null, // null PARA QUE EL TAMAÑO DEL ÍCONO SEA EL DEFAULT.
+                        "Log Into Another Account",
+                        fbButtonColor,
+                        fbFontColor),
                     icon_with_text.iconWithText(
-                      Icons.search,
-                      28,
-                      // ES MÁS PARECIDO, PERO LA VERSIÓN "LIGHT" ES DE PAGA.
-                      // FontAwesomeIcons.search,
-                      "Find Your Account",
-                      fbButtonColor,
-                      fbFontColor)
+                        Icons.search,
+                        28,
+                        // ES MÁS PARECIDO, PERO LA VERSIÓN "LIGHT" ES DE PAGA.
+                        // FontAwesomeIcons.search,
+                        "Find Your Account",
+                        fbButtonColor,
+                        fbFontColor)
                   ],
                 ),
               ),
@@ -159,9 +156,9 @@ class FirstLoginScreen extends StatelessWidget {
     // Usuario actual.
     currentUser = User("Jacob Flores", "$profilePicsPath/invincible_1.png");
     // currentUser = friendsList[1];
-    
+
     // Establecer número de notificaciones.
-    currentUser.notificationsNumber = 18;
+    currentUser.notificationsNumber = 1;
 
     // Agregar a todos los usuarios a la lista de amigos.
     // MÉTODO 1.
@@ -173,7 +170,6 @@ class FirstLoginScreen extends StatelessWidget {
     // for (final User friend in friendsList) {
     //   currentUser.addFriend(friend);
     // }
-
 
     // CAMBIAR COLOR DEL statusBar
     // https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter
@@ -188,37 +184,35 @@ class FirstLoginScreen extends StatelessWidget {
 
     // Obtener altura de la STATUS BAR:
     // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
-    return MaterialApp(
-        title: 'Facebook Login Screen',
-        home: Scaffold(
-          // ---------------------------------------------------------------------
-          // CON EL APPBAR SE PUEDEN CAMBIAR LOS ATRIBUTOS DEL StatusBar respecto
-          // a sus colores, pero es menos lío con "FlutterStatusbarcolor"
-          //          ------------------------------------------
-          // appBar: AppBar(
-          //   // AppBar tendrá el tamaño de la statusBar.
-          //   toolbarHeight: 1,
-          //   bottomOpacity: 0.4,
-          //   backgroundColor: global_values.darkBackground, // status bar color
-          //   // ÍCONOS DEL STATUS BAR: BLANCOS - Brightness.darkk
-          //   brightness: Brightness.dark, // status bar brightness
-          // ),
-          // ---------------------------------------------------------------------
-          body: SafeArea(
-            child: // TAMAÑO RELATIVO AL TAMAÑO DEL DISPOSITIVO CON
-                // - FractionallySizedBox
-                FractionallySizedBox(
-              widthFactor: 1,
-              heightFactor: 1,
-              // UN CONTENEDOR PARA PODER ESTABLECER EL COLOR DEL FONDO DE LA PANTALLA.
-              child: Container(
-                // Fondo de Facebook oscuro.
-                color: global_values.darkBackground,
-                // Mostrar todos los elementos de la pantalla.
-                child: displayScreenElements(),
-              ),
-            ),
+    return Scaffold(
+      // ---------------------------------------------------------------------
+      // CON EL APPBAR SE PUEDEN CAMBIAR LOS ATRIBUTOS DEL StatusBar respecto
+      // a sus colores, pero es menos lío con "FlutterStatusbarcolor"
+      //          ------------------------------------------
+      // appBar: AppBar(
+      //   // AppBar tendrá el tamaño de la statusBar.
+      //   toolbarHeight: 1,
+      //   bottomOpacity: 0.4,
+      //   backgroundColor: global_values.darkBackground, // status bar color
+      //   // ÍCONOS DEL STATUS BAR: BLANCOS - Brightness.darkk
+      //   brightness: Brightness.dark, // status bar brightness
+      // ),
+      // ---------------------------------------------------------------------
+      body: SafeArea(
+        child: // TAMAÑO RELATIVO AL TAMAÑO DEL DISPOSITIVO CON
+            // - FractionallySizedBox
+            FractionallySizedBox(
+          widthFactor: 1,
+          heightFactor: 1,
+          // UN CONTENEDOR PARA PODER ESTABLECER EL COLOR DEL FONDO DE LA PANTALLA.
+          child: Container(
+            // Fondo de Facebook oscuro.
+            color: global_values.darkBackground,
+            // Mostrar todos los elementos de la pantalla.
+            child: displayScreenElements(),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

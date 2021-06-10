@@ -18,9 +18,28 @@ class LoginScreenAfterClick extends StatelessWidget {
   final Color fbButtonColor2 = const Color(0xFF0F163D);
   final Color fbGray = const Color(0x636565);
 // const Color fbFontColor = Color(0xFF4e9bf9);
+  
+  // Obtener el tamaño inicial de la pantalla para así, si cambia el tamaño
+  // porque se ac
+  // static const double? initialScreenHeight = null;
+  // static const double initialScreenHeight = null;
+
+  // Guardar si se comenzó a ingresar texto. Esto lo recibe desde la función
+  // de las entradas de texto.
+  static bool isInputActive = false;
+
+  // Guardamos el tamaño de pantalla inicial y el actual.
+  double initialScreenHeight = null;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {   
+    isInputActive = false; 
+    // Si el tamaño inicial es null, darle el valor actual.
+    initialScreenHeight ??= MediaQuery.of(context).size.height;
+
+    print("initialScreenHeight: $initialScreenHeight");
+    // print("PANTALLA ACTUAL: $screenHeight['current']");
+
     // TAMAÑO RELATIVO AL TAMAÑO DEL DISPOSITIVO CON
     // - FractionallySizedBox
     // CAMBIAR COLOR DEL statusBar
@@ -38,6 +57,7 @@ class LoginScreenAfterClick extends StatelessWidget {
     // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
     return MaterialApp(
         title: 'Facebook Login Screen',
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
           backgroundColor: global_values.darkBackground,
           // resizeToAvoidBottomInset: false,
@@ -57,76 +77,111 @@ class LoginScreenAfterClick extends StatelessWidget {
           body: SafeArea(
             child: // TAMAÑO RELATIVO AL TAMAÑO DEL DISPOSITIVO CON
                 // - FractionallySizedBox
-            FractionallySizedBox(
-              heightFactor: 1.0,
-              widthFactor: 1.0,
-              child: Padding(
-                padding: const EdgeInsets.all(30),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    /* ---------------------------- LOGO DE FACEBOOK ---------------------------- */
-
-                    // const Padding(
-                    //   padding: EdgeInsets.only(top: 120,),
-                    //   child:
-
-                    // LOGO DE FACEBOOK
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 30, bottom: 30),
-                        width: 70,
-                        child: Image.asset(
-                          'assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png',
-                          fit: BoxFit.fitWidth,
-                        ),
-                      ),
-                    ),
-                    // ),
-                    /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
-
-                    Expanded(
-                      flex: 1,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 5),
-                            child: showTextFormField(
-                              "Phone or email",
-                              fbGray
-                            ),
-                          ),
-
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 5),
-                            child: showTextFormField(
-                              "Password",
-                              fbGray,
-                              // Indicar que es contraseña.
-                              isPassword: true
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10),
-                            child: login_button(Colors.blueAccent, fbFontColor2),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: ForgotPassword(fbFontColor),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            LoginScreenContent(initialScreenHeight: initialScreenHeight, fbGray: fbGray, fbFontColor2: fbFontColor2, fbFontColor: fbFontColor),
           ),
         ));
+  }
+}
+
+class LoginScreenContent extends StatelessWidget {
+  LoginScreenContent({
+    Key key,
+    @required this.initialScreenHeight,
+    @required this.fbGray,
+    @required this.fbFontColor2,
+    @required this.fbFontColor,
+  }) : super(key: key);
+
+  final double initialScreenHeight;
+  final Color fbGray;
+  final Color fbFontColor2;
+  final Color fbFontColor;
+  double currentScreenHeight;
+
+  @override
+  Widget build(BuildContext context) {
+
+
+    return FractionallySizedBox(
+      heightFactor: 1.0,
+      widthFactor: 1.0,
+      child: Builder(
+        builder: (BuildContext newContext) {
+          print(newContext.describeOwnershipChain("FractionallySizedBox").getProperties().asMap());
+          print("newContext.size.height: ${MediaQuery.of(newContext).size.height}");
+          print("newContext.owner: ${newContext.owner}");
+          currentScreenHeight = MediaQuery.of(newContext).size.height;
+          print(MediaQuery.of(newContext).viewPadding);
+          print("currentScreenHeight: $currentScreenHeight");
+
+          return Padding(
+          padding: const EdgeInsets.all(30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              /* ---------------------------- LOGO DE FACEBOOK ---------------------------- */
+
+              // const Padding(
+              //   padding: EdgeInsets.only(top: 120,),
+              //   child:
+
+              // LOGO DE FACEBOOK
+              Expanded(
+                flex: 1,
+                child: Container(
+                  margin: const EdgeInsets.only(top: 30, bottom: 30),
+                  width: 70,
+                  child: Image.asset(
+                    'assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png',
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+              ),
+              // ),
+              /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
+
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: showTextFormField(
+                      "Phone or email",
+                      fbGray
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: showTextFormField(
+                      "Password",
+                      fbGray,
+                      // Indicar que es contraseña.
+                      isPassword: true
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: login_button(Colors.blueAccent, fbFontColor2),
+                  ),
+                ],
+              ),
+
+              Expanded(
+                
+                flex: 1,
+                child: ForgotPassword(
+                  fbFontColor,
+                  alignment: 
+                    (currentScreenHeight < initialScreenHeight)
+                    ? Alignment.topCenter
+                    : Alignment.bottomCenter,
+                ),
+              ),
+            ],
+          ),
+        );
+        },
+      ),
+    );
   }
 }
