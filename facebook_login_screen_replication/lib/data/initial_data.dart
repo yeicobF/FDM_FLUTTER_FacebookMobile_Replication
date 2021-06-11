@@ -43,22 +43,23 @@ abstract class InitialData {
       shares: 666,
       timeAgo: "6s",
     ),
-    // 4
+    // 2
     Post(
       /// Concatenamos una RAW String para que no tenga problemas con nuevas líneas ni backslashes o caracteres especiales:
       ///
       /// https://www.educative.io/edpresso/how-to-create-a-raw-string-in-dart
       /// https://github.com/Crissov/unicode-proposals/issues/408
-      caption: "  ʌ" +
+      caption:
+           "  ʌ" +
           r" / \" +
           r"/   \" +
-          "| | |" +
+           "| | |" +
           r"\ \/" +
           r"/\  \" +
-          "| | |" +
+           "| | |" +
           r"\   /" +
           r" \ /" +
-          "  v",
+           "  v",
       imageUrl: "assets/user/post_images/sergio_1.jpg",
       isProfilePictureFromInternet: false,
       comments: 2,
@@ -66,7 +67,7 @@ abstract class InitialData {
       shares: 222,
       timeAgo: "2s",
     ),
-    // 5
+    // 3
     Post(
       caption: "",
       imageUrl: "assets/user/post_images/eduardo_gambling.jpg",
@@ -76,7 +77,7 @@ abstract class InitialData {
       comments: 123,
       shares: 5000,
     ),
-    // 6
+    // 4
     Post(
       caption: 'Check out these cool puppers',
       timeAgo: '58m',
@@ -86,7 +87,7 @@ abstract class InitialData {
       comments: 184,
       shares: 96,
     ),
-    // 7
+    // 5
     Post(
       caption:
           'Please enjoy this placeholder text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -97,7 +98,7 @@ abstract class InitialData {
       comments: 79,
       shares: 18,
     ),
-    // 8
+    // 6
     Post(
       caption: 'This is a very good boi.',
       timeAgo: '8hr',
@@ -108,7 +109,7 @@ abstract class InitialData {
       comments: 201,
       shares: 27,
     ),
-    // 9
+    // 7
     Post(
       caption: 'Adventure 🏔',
       timeAgo: '15hr',
@@ -119,7 +120,7 @@ abstract class InitialData {
       comments: 183,
       shares: 42,
     ),
-    // 10
+    // 8
     Post(
       caption:
           'More placeholder text for the soul: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -130,7 +131,7 @@ abstract class InitialData {
       comments: 37,
       shares: 9,
     ),
-    // 11
+    // 9
     Post(
       caption: 'A classic.',
       timeAgo: '1d',
@@ -243,14 +244,12 @@ abstract class InitialData {
       profilePicturePath:
           'https://images.unsplash.com/photo-1519631128182-433895475ffe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
       isProfilePictureFromInternet: true,
-      singlePost: postList[10],
     ),
     User(
       name: 'Elizabeth Wong',
       profilePicturePath:
           'https://images.unsplash.com/photo-1515077678510-ce3bdf418862?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=675&q=80',
       isProfilePictureFromInternet: true,
-      singlePost: postList[4],
     ),
     User(
       name: 'James Lathrop',

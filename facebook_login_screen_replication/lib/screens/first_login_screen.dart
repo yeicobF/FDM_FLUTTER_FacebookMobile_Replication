@@ -25,7 +25,7 @@ class FirstLoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// Establecer número de notificaciones del usuario actual.
-    InitialData.currentUser.notificationsNumber = 1;
+    InitialData.currentUser.notificationsNumber = 1000;
 
     // Establecer los amigos del usuario actual.
     InitialData.currentUser.friends = InitialData.friendsList;
@@ -60,16 +60,17 @@ class FirstLoginScreen extends StatelessWidget {
       // ),
       // ---------------------------------------------------------------------
       body: FractionallySizedBox(
-          widthFactor: 1,
-          heightFactor: 1,
-          // UN CONTENEDOR PARA PODER ESTABLECER EL COLOR DEL FONDO DE LA PANTALLA.
-          child: Container(
-      // Fondo de Facebook oscuro.
-      color: Palette.darkBackground,
-      // Mostrar todos los elementos de la pantalla.
-      child: _DisplayAllScreenElements(currentUser: InitialData.currentUser),
-          ),
+        widthFactor: 1,
+        heightFactor: 1,
+        // UN CONTENEDOR PARA PODER ESTABLECER EL COLOR DEL FONDO DE LA PANTALLA.
+        child: Container(
+          // Fondo de Facebook oscuro.
+          color: Palette.darkBackground,
+          // Mostrar todos los elementos de la pantalla.
+          child:
+              _DisplayAllScreenElements(currentUser: InitialData.currentUser),
         ),
+      ),
     );
   }
 }

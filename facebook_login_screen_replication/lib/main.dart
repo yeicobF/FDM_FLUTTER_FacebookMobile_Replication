@@ -23,22 +23,27 @@ import 'screens/main_feed_screen.dart' show MainFeedScreen;
 
 // void main() => runApp(MaterialApp(home: first_login_screen.FirstLoginScreen()));
 // void main() => runApp(MaterialApp(home: login_screen_after_click.LoginScreenAfterClick()));
-void main() => runApp(FacebookScreens(0));
+void main() => runApp(const FacebookScreens(screenNumber: 0,));
 
-// CLASE PROVISIONAL PARA MOSTRAR LAS PANTALLAS QUE HEMOS HECHO DEPENDIENDO DEL
-// NÚMERO QUE RECIBA COMO PARÁMETRO.
+/// CLASE PROVISIONAL PARA MOSTRAR LAS PANTALLAS QUE HEMOS HECHO DEPENDIENDO DEL
+/// NÚMERO QUE RECIBA COMO PARÁMETRO.
 class FacebookScreens extends StatelessWidget {
-  // El número de la pantalla.
+  /// El número de la pantalla a mostrar.
   final int screenNumber;
-  // Las pantallas.
-  final List<Widget> screens = [
-    FirstLoginScreen(),
-    LoginScreenAfterClick(),
-    MainFeedScreen(),
-  ];
 
-  // CONSTRUCTOR QUE RECIBE EL NÚMERO DE LA PANTALLA A MOSTRAR.
-  FacebookScreens(this.screenNumber);
+  /// Las pantallas de la app.
+  List<Widget> get screens => [
+        FirstLoginScreen(),
+        LoginScreenAfterClick(),
+        MainFeedScreen(),
+      ];
+
+  const FacebookScreens({
+    Key key,
+    this.screenNumber = 0,
+  }) : super(key: key);
+
+  /// CONSTRUCTOR QUE RECIBE EL NÚMERO DE LA PANTALLA A MOSTRAR.
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +68,7 @@ class FacebookScreens extends StatelessWidget {
       /// "Debug".
       /// https://stackoverflow.com/questions/48893935/how-to-remove-the-flutter-debug-banner
       debugShowCheckedModeBanner: false, // No me funciona y no sé por qué.
-      
+
       /// Ponemos las pantallas dentro de un [SafeArea] para que no ocupe el
       /// espacio de la barra de navegación ni la de notificaciones del celular.
       home: SafeArea(

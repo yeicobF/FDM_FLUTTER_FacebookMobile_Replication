@@ -90,76 +90,69 @@ class _LoginScreenContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FractionallySizedBox(
-      heightFactor: 1.0,
-      widthFactor: 1.0,
-      child: Builder(
-        builder: (BuildContext newContext) {
-          return Padding(
-            padding: const EdgeInsets.all(30),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                /* ---------------------------- LOGO DE FACEBOOK ---------------------------- */
+    return Padding(
+      padding: const EdgeInsets.all(30),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          /* ---------------------------- LOGO DE FACEBOOK ---------------------------- */
 
-                // const Padding(
-                //   padding: EdgeInsets.only(top: 120,),
-                //   child:
+          // const Padding(
+          //   padding: EdgeInsets.only(top: 120,),
+          //   child:
 
-                // LOGO DE FACEBOOK
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    margin: const EdgeInsets.only(top: 30, bottom: 30),
-                    width: 70,
-                    child: Image.asset(
-                      'assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png',
-                      fit: BoxFit.fitWidth,
-                    ),
-                  ),
-                ),
-                // ),
-                /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
-
-                Column(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 5),
-                      child: _TextInputField(
-                        hintText: "Phone or email",
-                        isPassword: false,
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 5),
-                      child: _TextInputField(
-                        hintText: "Password",
-                        isPassword: true,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: _LoginButton(
-                        buttonColor: Colors.blueAccent,
-                        fontColor: fbFontColor2,
-                      ),
-                    ),
-                  ],
-                ),
-
-                Expanded(
-                  flex: 1,
-                  child: _ForgotPassword(
-                    fontColor: fbFontColor,
-                    // alignment: (currentScreenHeight < initialScreenHeight)
-                    //     ? Alignment.topCenter
-                    //     : Alignment.bottomCenter,
-                  ),
-                ),
-              ],
+          /// LOGO DE FACEBOOK
+          Expanded(
+            flex: 1,
+            child: Container(
+              margin: const EdgeInsets.only(top: 30, bottom: 30),
+              // width: 70,
+              child: Image.asset(
+                'assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png',
+                width: 70,
+                fit: BoxFit.fitWidth,
+              ),
             ),
-          );
-        },
+          ),
+          // ),
+          /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
+
+          Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(bottom: 5),
+                child: _TextInputField(
+                  hintText: "Phone or email",
+                  isPassword: false,
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 5),
+                child: _TextInputField(
+                  hintText: "Password",
+                  isPassword: true,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: _LoginButton(
+                  buttonColor: Colors.blueAccent,
+                  fontColor: fbFontColor2,
+                ),
+              ),
+            ],
+          ),
+
+          Expanded(
+            flex: 1,
+            child: _ForgotPassword(
+              fontColor: fbFontColor,
+              // alignment: (currentScreenHeight < initialScreenHeight)
+              //     ? Alignment.topCenter
+              //     : Alignment.bottomCenter,
+            ),
+          ),
+        ],
       ),
     );
   }
