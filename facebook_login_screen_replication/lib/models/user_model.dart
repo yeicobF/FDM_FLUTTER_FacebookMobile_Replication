@@ -1,10 +1,8 @@
 /// Archivo en el que se manejan los datos de usuario.
-
-// Posts.
 import 'package:flutter/material.dart';
 
-import '../globals/global_values.dart' as global_values;
-import 'post.dart';
+import '../config/palette.dart' show Palette;
+import 'post_model.dart' show Post;
 
 /// Clase en donde se guardarán todos los elementos de un usuario.
 class User {
@@ -103,13 +101,13 @@ class User {
 
 // Crear la foto de perfil sin nada más (notificaciones, etc).
   Widget createBareProfilePicture(
-      double size, EdgeInsetsGeometry customMargin) {
+      double size) {
     return Container(
       // 60 es el tamaño promedio.
       width: size,
       height: size,
       // color: Colors.white,
-      margin: customMargin,
+      
       // PARA HACER EL CÍRCULO SEGUÍ LO SIGUIENTE:
       // https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
       decoration: BoxDecoration(
@@ -143,7 +141,7 @@ class User {
   // Crear foto de perfil con un número de notificaciones en un círculo rojo en la
   // esquina superior derecha
   Widget createProfilePictureWithNotifications(
-      double size, EdgeInsetsGeometry customMargin) {
+      double size) {
     const notificationsRed = Color(0xFFea2945);
     // Número de notificaciones a mostrar.
     // Si las notificaciones > 99, mostrar el 99.
@@ -154,14 +152,13 @@ class User {
       width: size,
       height: size,
       color: Colors.transparent,
-      margin: customMargin,
       child: Stack(
         children: [
           // AQUÍ NECESITAMOS ENVIAR UN MARGEN DE 0, YA QUE SI NO, SE MODIFICA
           // EL TAMAÑO DEL WODGET DE LA FOTO DE PERFIL Y NO QUEDAN BIEN LOS
           // ELEMENTOS.
           // - CREAMOS LA FOTO DE PERFIL.
-          createBareProfilePicture(size, const EdgeInsets.all(0)),
+          createBareProfilePicture(size),
           // AQUÍ CREAREMOS EL ÍCONO QUE INDICA LAS NOTIFICACIONES, el cual hay
           // que alinear en la esquina superior derecha.
           Align(
@@ -178,7 +175,7 @@ class User {
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 // Color rojo.
-                color: global_values.darkBackground,
+                color: Palette.darkBackground,
                 // border: Border.all(
                 //   color: global_values.darkBackground,
                 //   // style: BorderStyle.none,

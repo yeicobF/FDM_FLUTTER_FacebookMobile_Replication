@@ -10,7 +10,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart'
     show FontAwesomeIcons;
 
 /// Paleta de colores.
-import '../config/palette.dart';
+import '../globals/palette.dart';
+
+// VARIABLES GLOBALES
+import '../globals/global_values.dart' as global_values;
 
 // USUARIO
 import '../user/user.dart' show User;

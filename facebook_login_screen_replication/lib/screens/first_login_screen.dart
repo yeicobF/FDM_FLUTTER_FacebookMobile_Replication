@@ -1,87 +1,34 @@
 /// PANTALLA PRINCIPAL PARA EL LOGIN. Será la pantalla inicial.
-
 import 'package:flutter/material.dart';
-// Cambiar colores de la "status bar" y la barra inferior con botones del
-// celular.
+
+/// Cambiar colores de la "status bar" y la barra inferior con botones del
+/// celular.
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart'
     show FlutterStatusbarcolor;
-// Íconos de Font Awesome.
+
+/// Íconos de Font Awesome.
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'
     show FontAwesomeIcons;
 
 /// Paleta de colores.
-import '../config/palette.dart';
+import '../config/palette.dart' show Palette;
+import '../data/initial_data.dart' show InitialData;
 
-// USUARIO
-import '../user/user.dart' show User;
-/* ---------------- WIDGET DEL NOMBRE DEL USUARIO EN EL LOGIN --------------- */
-import '../widgets/first_login_screen/create_new_fb_account.dart'
-    as create_account;
-import '../widgets/first_login_screen/login_username.dart' as login_username;
+/// USUARIO
+import '../models/models.dart' show User;
 
 /// Primera pantalla de Login.
 ///
 /// En esta pantalla se renderiza la foto de perfil, la cual indica el número de
 /// notificaciones que el usuario no ha visto.
 class FirstLoginScreen extends StatelessWidget {
-  // const Color fbFontColor = Color(0xFF4e9bf9);
-
-  // DIRECTORIO DE LAS IMÁGENES.
-  final String profilePicsPath = "assets/user/profile_pictures";
-
-  // USUARIO ESTÁTICO PARA MOSTRARLO IGUAL EN TODOS LADOS.
-  // Se inicializa en Build para poder enviar la variable "profilePicsPath" en
-  // el constructor.
-  static User currentUser;
-
   @override
   Widget build(BuildContext context) {
-    /// Lista de amigos.
-    ///
-    /// - Agregaré algunos amigos solo como prueba.
-    final List<User> friendsList = [
-      User(
-        name: "Germán González",
-        profilePicturePath: "$profilePicsPath/german.jpg",
-      ),
-      User(
-        name: "Sergio",
-        profilePicturePath: "$profilePicsPath/sergio.jpg",
-      ),
-      User(
-        name: "Rodrigo",
-        profilePicturePath: "$profilePicsPath/rodrigo.jpg",
-      ),
-      User(
-        name: "Eduardo",
-        profilePicturePath: "$profilePicsPath/eduardo_roca.jpg",
-      ),
-    ];
+    /// Establecer número de notificaciones del usuario actual.
+    InitialData.currentUser.notificationsNumber = 1;
 
-    /// Inicialización del usuario actual.
-    currentUser = User(
-      name: "Jacob Flores",
-      profilePicturePath: "$profilePicsPath/invincible_1.png",
-    );
-
-    // currentUser = friendsList[1];
-
-    /// Establecer número de notificaciones.
-    currentUser.notificationsNumber = 1;
-
-    /// Agregar a todos los usuarios a la lista de amigos.
-    ///
-    /// - MÉTODO 1.
-    currentUser.addFriends(friendsList);
-
-    /// Agregar a todos los usuarios a la lista de amigos.
-    /// - MÉTODO 2.
-    ///
-    /// ```dart
-    /// for (final User friend in friendsList) {
-    ///   currentUser.addFriend(friend);
-    /// }
-    /// ```
+    // Establecer los amigos del usuario actual.
+    InitialData.currentUser.friends = InitialData.friendsList;
 
     /// [FlutterStatusbarcolor.setStatusBarColor(Palette.darkBackground)]
     /// - CAMBIAR COLOR DEL statusBar.
@@ -96,9 +43,9 @@ class FirstLoginScreen extends StatelessWidget {
     // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
     // final double statusBarHeight = MediaQuery.of(context).padding.top;
 
-    // Obtener altura de la STATUS BAR:
-    // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
     return Scaffold(
+      // Obtener altura de la STATUS BAR:
+      // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
       // ---------------------------------------------------------------------
       // CON EL APPBAR SE PUEDEN CAMBIAR LOS ATRIBUTOS DEL StatusBar respecto
       // a sus colores, pero es menos lío con "FlutterStatusbarcolor"
@@ -123,7 +70,7 @@ class FirstLoginScreen extends StatelessWidget {
             // Fondo de Facebook oscuro.
             color: Palette.darkBackground,
             // Mostrar todos los elementos de la pantalla.
-            child: _DisplayAllScreenElements(currentUser: currentUser),
+            child: _DisplayAllScreenElements(currentUser: InitialData.currentUser),
           ),
         ),
       ),
@@ -214,8 +161,10 @@ class _DisplayAllScreenElements extends StatelessWidget {
 
                       /* --------------- AGREGAMOS EL ROW CON LOS DATOS DEL USUARIO. -------------- */
 
-                      login_username.showUserInfo(
-                          currentUser, 65, const EdgeInsets.only(right: 12)),
+                      _ShowUserInfo(
+                        currentUser: currentUser,
+                        pictureSize: 65,
+                      ),
                       // Este es un separador entre la información del
                       // usuario y los botones.
                       const SizedBox(
@@ -223,14 +172,14 @@ class _DisplayAllScreenElements extends StatelessWidget {
                       ),
                       /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
 
-                      _IconWithText(
+                      _LargeIconAndTextButton(
                         icon: Icons.add_sharp,
                         // null, // null PARA QUE EL TAMAÑO DEL ÍCONO SEA EL DEFAULT.
                         text: "Log Into Another Account",
                         buttonColor: Palette.firstScreenColors["fbButtonColor"],
                         fontColor: Palette.firstScreenColors["fbFontColor"],
                       ),
-                      _IconWithText(
+                      _LargeIconAndTextButton(
                         icon: Icons.search,
                         iconSize: 28,
                         // ES MÁS PARECIDO, PERO LA VERSIÓN "LIGHT" ES DE PAGA.
@@ -245,9 +194,9 @@ class _DisplayAllScreenElements extends StatelessWidget {
 
 /* ---------- ÚLTIMO BOTÓN PARA CREAR UNA NUEVA CUENTA DE FACEBOOK ---------- */
 
-                create_account.createNewFacebookAccountButton(
-                  Palette.firstScreenColors["fbButtonColor"],
-                  Palette.firstScreenColors["fbFontColor"],
+                _CreateNewFacebookAccountButton(
+                  buttonColor: Palette.firstScreenColors["fbButtonColor"],
+                  fontColor: Palette.firstScreenColors["fbFontColor"],
                 ),
               ],
             ),
@@ -258,13 +207,13 @@ class _DisplayAllScreenElements extends StatelessWidget {
   }
 }
 
-/// Generador de ícono + texto.
+/// Generador de botón con ícono + texto.
 ///
 /// Esta clase manejará los [Widget]s que tienen el siguiente formato:
 ///
 /// - [ÍCONO]  Log Into Another Account
 /// - [ÍCONO] Find Your Account
-class _IconWithText extends StatelessWidget {
+class _LargeIconAndTextButton extends StatelessWidget {
   /// Ícono a mostrar.
   final IconData icon;
 
@@ -282,7 +231,8 @@ class _IconWithText extends StatelessWidget {
   /// Color de la fuente del texto.
   final Color fontColor;
 
-  const _IconWithText({
+  /// Constructor.
+  const _LargeIconAndTextButton({
     Key key,
     @required this.icon,
 
@@ -318,9 +268,9 @@ class _IconWithText extends StatelessWidget {
         /// Al presionar el botón queremos cambiar de pantalla.
         onPressed: () => print("\n Botón $text -> CAMBIAR DE PANTALLA"),
         style: ButtonStyle(
-
-            /// Le quitamos [Padding] al botón, ya que agregaba uno indeseado.
-            padding: MaterialStateProperty.all(EdgeInsets.zero)),
+          /// Le quitamos [Padding] al botón, ya que agregaba uno indeseado.
+          padding: MaterialStateProperty.all(EdgeInsets.zero),
+        ),
 
         /// Fila con el ícono y el texto.
         child: Row(
@@ -363,6 +313,157 @@ class _IconWithText extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Generador de botón para crear una nueva cuenta de facebook.
+///
+/// > "CREATE NEW FACEBOOK ACCOUNT"
+class _CreateNewFacebookAccountButton extends StatelessWidget {
+  /// Color del botón.
+  final Color buttonColor;
+
+  /// Color de la fuente.
+  final Color fontColor;
+
+  /// Constructor.
+  const _CreateNewFacebookAccountButton({
+    Key key,
+    @required this.buttonColor,
+    @required this.fontColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // PREFERIRÍA PONER UN "EXPANDED" en lugar de un "PADDING", pero como tengo
+    // los elementos en distintas columnas y contenedores, cuando utilizo el
+    // EXPANDED, la pantalla solo se ve del contenedor del primer contenedor, así
+    // que mejor utilicé el PADDING, pero esto le quita la responsividad y solo se
+    // vería igual en el mismo dispositivo (Google Pixel 2).
+    //
+    // - ESTO DE ARRIBA ERA PORQUE HABÍA PUESTO PADDING.
+
+    /// CON [Expanded] SE TOMA TODO EL TAMAÑO RESTANTE DE LA PANTALLA, POR LO
+    /// QUE TIENE CIERTO GRADO DE RESPONSIVIDAD.
+    return Expanded(
+      // padding: const EdgeInsets.only(top: 150),
+
+      /// ALINEAMOS EL BOTÓN AL FONDO DEL TAMAÑO RESTANTE DE LA PANTALLA.
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: SizedBox(
+          height: 40,
+
+          /// [width.infinity]: QUE EL ANCHO SEA EL MÁXIMO POSIBLE.
+          ///
+          /// https://stackoverflow.com/questions/50014342/button-width-match-parent
+          width: double.infinity,
+
+          /// Contenedor con el texto.
+          child: Container(
+            decoration: BoxDecoration(
+              color: buttonColor,
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+
+            /// Centrar texto.
+            child: Center(
+              child: Text(
+                "CREATE NEW FACEBOOK ACCOUNT",
+                style: TextStyle(
+                  fontSize: 16.5,
+                  fontWeight: FontWeight.w700,
+                  color: fontColor,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Muestra los datos del usuario.
+///
+/// Se muestran los siguientes delementos:
+///
+/// - foto de perfil
+/// - número de notificaciones
+/// - nombre
+/// - Botón de más con 3 puntos (que son un botón).
+class _ShowUserInfo extends StatelessWidget {
+  /// Usuario actual que está utilizando la app.
+  final User currentUser;
+
+  /// Tamaño de la foto de perfil del usuario.
+  final double pictureSize;
+
+  const _ShowUserInfo({
+    Key key,
+    @required this.currentUser,
+    @required this.pictureSize,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // Guardar foto de perfil dependiendo de si tiene notificaciones o no.
+    // final Widget _profilePicture = (currentUser.notificationsNumber > 0)
+    //     ? currentUser.createProfilePictureWithNotifications(
+    //         pictureSize,
+    //         const EdgeInsets.only(right: 0),
+    //       )
+    //     : currentUser.createBareProfilePicture(
+    //         pictureSize, const EdgeInsets.only(right: 0));
+
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 40,
+      ),
+      child: Row(
+        // mainAxisAlignment: MainAxisAlignment.start,
+        // crossAxisAlignment: CrossAxisAlignment.stretch,
+        // mainAxisSize: MainAxisSize.max,
+        children: [
+          // Aquí mostraremos una foto de perfil dependiendo de si tiene
+          // notificaciones o no.
+          Container(
+            /// Margin a la derecha de la foto de perfil.
+            margin: const EdgeInsets.only(right: 12),
+            child: (currentUser.notificationsNumber > 0)
+                ? currentUser.createProfilePictureWithNotifications(
+                    pictureSize,
+                  )
+                : currentUser.createBareProfilePicture(
+                    pictureSize,
+                  ),
+          ),
+
+          Text(
+            currentUser.name,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          // EXPANDED para que se ocupe todo el ancho restante. Si solo pongo el
+          // container, no se adaptará el ancho
+          Expanded(
+            // ESTE DEBERÍA DE SER UN BOTÓN.
+            child: Container(
+              alignment: Alignment.centerRight,
+              child: const Icon(
+                // FontAwesomeIcons.ellipsisV, // ESTÁ MÁS ROBUSTO
+                Icons.more_vert,
+                color: Colors.white,
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
