@@ -59,21 +59,17 @@ class FirstLoginScreen extends StatelessWidget {
       //   brightness: Brightness.dark, // status bar brightness
       // ),
       // ---------------------------------------------------------------------
-      body: SafeArea(
-        child: // TAMAÑO RELATIVO AL TAMAÑO DEL DISPOSITIVO CON
-            // - FractionallySizedBox
-            FractionallySizedBox(
+      body: FractionallySizedBox(
           widthFactor: 1,
           heightFactor: 1,
           // UN CONTENEDOR PARA PODER ESTABLECER EL COLOR DEL FONDO DE LA PANTALLA.
           child: Container(
-            // Fondo de Facebook oscuro.
-            color: Palette.darkBackground,
-            // Mostrar todos los elementos de la pantalla.
-            child: _DisplayAllScreenElements(currentUser: InitialData.currentUser),
+      // Fondo de Facebook oscuro.
+      color: Palette.darkBackground,
+      // Mostrar todos los elementos de la pantalla.
+      child: _DisplayAllScreenElements(currentUser: InitialData.currentUser),
           ),
         ),
-      ),
     );
   }
 }
