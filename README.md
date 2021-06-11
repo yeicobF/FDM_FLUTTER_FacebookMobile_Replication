@@ -1,14 +1,13 @@
-# 1. **[T2.3] COPIAR DIVERSAS PANTALLAS DE LA APP DE FACEBOOK PARA CELULAR**
+# **[T2.3] COPIAR DIVERSAS PANTALLAS DE LA APP DE FACEBOOK PARA CELULAR**
 
 > - Para esta actividad trabajaremos en equipo Germán y yo.
->
-> - **_IMPORTANTE:_** Si no entregamos el trabajo, nos bajará 2 puntos.
+> Es el trabajo para fin de semestre.
 
-## 1.1. **_FECHA DE ENTREGA_**
+## **_FECHA DE ENTREGA_**
 
 > Viernes, 11 de junio del 2021, 5PM
 
-## 1.2. **NOMBRE DEL PAQUETE DE LA APP**
+## **NOMBRE DEL PAQUETE DE LA APP**
 
 El nombre del paquete de la app lo cambié para registrarlo con Firebase,
 siguiendo la nomenclatura:
@@ -18,7 +17,7 @@ siguiendo la nomenclatura:
 > - NOMBRE DEL PAQUETE:
 >   - com.uaslp.facebook_simple_replication
 
-## 1.3. **_TABLA DE CONTENIDOS_**
+## **_TABLA DE CONTENIDOS_**
 
 - [1. **_FECHA DE ENTREGA_**](#11-fecha-de-entrega)
 - [2. **NOMBRE DEL PAQUETE DE LA APP**](#12-nombre-del-paquete-de-la-app)
@@ -106,8 +105,8 @@ seguir ciertos pasos:
    encuentran definidas en [**Effective Dart: Documentation**](https://dart.dev/guides/language/effective-dart/documentation "Dart / Docs / Effective Dart: Documentation"),
    en donde lo más importante es lo siguiente:
 
-   - Los comentarios deben de iniciar con **3 backslashes (\\\)** si queremos
-     que aparezca el texto en la documentación. Si lo hacemos con 2 (\\), no
+   - Los comentarios deben de iniciar con **3 backslashes (\\\\\\)** si queremos
+     que aparezca el texto en la documentación. Si lo hacemos con 2 (\\\\), no
      saldrá.
 
    - Podemos agregar descripciones de archivos, clases, atributos, funciones,
@@ -156,7 +155,7 @@ flutter pub global activate dartdoc
 7. Para ver la documentación, solamente hay que abrir el archivo y se abrirá una
    ventana en nuestro navegador. El documento tiene enlaces a los elementos,
    además de la descripción de cada uno a los que le agregamos con los
-   comentarios en el formato mencionado anteriormente (\\\).
+   comentarios en el formato mencionado anteriormente (\\\\\\).
 
 ## 1.7. **INSTALACIONES**
 
@@ -784,15 +783,15 @@ trabajar bien con flutter, que son las siguientes:
 
 - **`Path`**
 
-  - C:\SDKs\flutter\\.pub-cache\\bin
-  - C:\SDKs\flutter\bin\cache\dart-sdk\bin
+  - **C:\SDKs\flutter\\.pub-cache\bin**
+  - **C:\SDKs\flutter\bin\cache\dart-sdk\bin**
 
-    - Esta variable de usuario es requerida para poder ejecutar **_`dartdoc`_**
-      desde la terminal.
+    > Esta variable de usuario es requerida para poder ejecutar **_`dartdoc`_**
+    >  desde la terminal.
 
 - **`FLUTTER_ROOT`**
 
-  - C:\SDKs\flutter
+  - **C:\SDKs\flutter**
 
 ## 1.9. FIREBASE
 
@@ -887,25 +886,25 @@ Los logos de Facebook los descargamos de la página oficial de los recursos
 
 Los logotipos descargados se encuentran en el siguiente directorio:
 
-[Directorio con todos los logos descargados | assets/fb_official/logos/](assets/fb_official/logos/ "Directorio con todos los logos descargados | assets/fb_official/logos/")
+[Directorio con todos los logos descargados | assets/fb_official/logos/](facebook_login_screen_replication/assets/fb_official/logos/ "Directorio con todos los logos descargados | assets/fb_official/logos/")
 
 > Los logos con la F blanca y el círculo azul, se encuentran en diversos
 > directorios y con diversos tamaños, por lo que los listaré para encontrarlos
 > con mayor facilidad y utilizar los que más nos convengan:
 >
-> - [Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/ "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/")
+> - [Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/](facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/ "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/")
 >
->   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png")
->   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png")
->   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png")
->   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png")
->   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png")
->   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png")
->   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png](assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png](facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png](facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png](facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png](facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png](facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png](facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png")
+>   - ![assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png](facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png "assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png")
 >
-> - [Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/](assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/ "Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/")
+> - [Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/](facebook_login_screen_replication/assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/ "Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/")
 >
->   - ![assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png](assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png "assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png")
+>   - ![assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png](facebook_login_screen_replication/assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png "assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png")
 
 ### 1.10.2. **REACCIONES DE FACEBOOK**
 
