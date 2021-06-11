@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 /* ------------------------------ LAS PANTALLAS ----------------------------- */
 // PANTALLA INICIAL
-import 'screens/first_login_screen.dart' as first_login_screen;
+import 'screens/first_login_screen.dart' show FirstLoginScreen;
 // PANTALLA DESPUÉS DE DAR CLICK A BOTÓN
-import 'screens/login_screen_after_click.dart' as login_screen_after_click;
+import 'screens/login_screen_after_click.dart' show LoginScreenAfterClick;
 // PANTALLA DE FEED PRINCIPAL.
-import 'screens/main_feed_screen.dart' as main_feed_screen;
+import 'screens/main_feed_screen.dart' show MainFeedScreen;
 /* -------------------------------------------------------------------------- */
 
 // Guardar colores en HEXADECIMAL.
@@ -32,9 +32,9 @@ class FacebookScreens extends StatelessWidget {
   final int screenNumber;
   // Las pantallas.
   final List<Widget> screens = [
-    first_login_screen.FirstLoginScreen(),
-    login_screen_after_click.LoginScreenAfterClick(),
-    main_feed_screen.MainFeedScreen(),
+    FirstLoginScreen(),
+    LoginScreenAfterClick(),
+    MainFeedScreen(),
   ];
 
   // CONSTRUCTOR QUE RECIBE EL NÚMERO DE LA PANTALLA A MOSTRAR.

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../user/user.dart';
+import '../../models/models.dart';
+
 
 Widget superiorPublication(User currentUser, int index) {
   return Column(
@@ -12,7 +13,6 @@ Widget superiorPublication(User currentUser, int index) {
         children: [
           currentUser.createBareProfilePicture(
             50,
-            const EdgeInsets.only(right: 12)
           ),
           Text(
             currentUser.name,

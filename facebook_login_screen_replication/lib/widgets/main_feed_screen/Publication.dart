@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../config/palette.dart' show Palette;
+import '../../models/models.dart' show User;
 // VARIABLES GLOBALES
-import '../../globals/global_values.dart' as global_values;
-import '../../user/user.dart';
 import 'bottom_publication.dart';
 import 'superior_publication.dart';
 
@@ -15,7 +15,7 @@ Widget publication(User user) {
     heightFactor: 1,
     // UN CONTENEDOR PARA PODER ESTABLECER EL COLOR DEL FONDO DE LA PANTALLA.
     child: Container(
-      color: global_values.darkBackground,
+      color: Palette.darkBackground,
 
 /* ------------- COLUMNA CON TODOS LOS ELEMENTOS DE LA PANTALLA ------------- */
 
