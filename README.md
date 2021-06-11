@@ -1,6 +1,7 @@
 # **[T2.3] COPIAR DIVERSAS PANTALLAS DE LA APP DE FACEBOOK PARA CELULAR**
 
 > - Para esta actividad trabajaremos en equipo Germán y yo.
+>
 > Es el trabajo para fin de semestre.
 
 ## **_FECHA DE ENTREGA_**
@@ -26,29 +27,29 @@ siguiendo la nomenclatura:
 - [6. DOCUMENTACIÓN AUTOMÁTICA CON **_`dartdoc`_**](#16-documentación-automática-con-dartdoc)
 - [7. **INSTALACIONES**](#17-instalaciones)
   - [7.1. **Android Studio**](#171-android-studio)
-  - [7.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**](#1711-configuración-obligatoria-android-studio)
-    - [7.1.1.1. **INSTALACIÓN DE PAQUETES**](#17111-instalación-de-paquetes)
-    - [7.1.1.2. **INSTALACIÓN DE PLUGINS**](#17112-instalación-de-plugins)
-    - [7.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**](#17113-comprobación-de-actualizaciones)
-  - [7.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**](#1712-crear-un-emulador-de-android-android-virtual-device)
-    - [7.1.2.1. **_RECOMENDACIÓN IMPORTANTE PARA EL AVD_**](#17121-recomendación-importante-para-el-avd)
+    - [7.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**](#1711-configuración-obligatoria-android-studio)
+      - [7.1.1.1. **INSTALACIÓN DE PAQUETES**](#17111-instalación-de-paquetes)
+      - [7.1.1.2. **INSTALACIÓN DE PLUGINS**](#17112-instalación-de-plugins)
+      - [7.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**](#17113-comprobación-de-actualizaciones)
+    - [7.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**](#1712-crear-un-emulador-de-android-android-virtual-device)
+      - [7.1.2.1. **_RECOMENDACIÓN IMPORTANTE PARA EL AVD_**](#17121-recomendación-importante-para-el-avd)
   - [7.2. **Flutter**](#172-flutter)
-  - [7.2.1. **_EN QUÉ DIRECTORIO COLOCAR FLUTTER_**](#1721-en-qué-directorio-colocar-flutter)
-  - [7.2.2. **FLUTTER** **_`SOUND NULL SAFETY`_**](#1722-flutter-sound-null-safety)
-  - [7.2.3. **VARIABLE DE USUARIO**](#1723-variable-de-usuario)
+    - [7.2.1. **_EN QUÉ DIRECTORIO COLOCAR FLUTTER_**](#1721-en-qué-directorio-colocar-flutter)
+    - [7.2.2. **FLUTTER** **_`SOUND NULL SAFETY`_**](#1722-flutter-sound-null-safety)
+    - [7.2.3. **VARIABLE DE USUARIO**](#1723-variable-de-usuario)
   - [7.3. **Chocolatey**](#173-chocolatey)
-  - [7.3.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL_**](#1731-instrucciones-instalación-desde-powershell)
+    - [7.3.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL_**](#1731-instrucciones-instalación-desde-powershell)
   - [7.4. **scrcpy**](#174-scrcpy)
-  - [7.4.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY_**](#1741-instrucciones-instalación-desde-powershell-con-chocolatey)
+    - [7.4.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY_**](#1741-instrucciones-instalación-desde-powershell-con-chocolatey)
   - [7.5. **JAVA**](#175-java)
-  - [7.5.1. **_INFORMACIÓN SOBRE LAS VERSIONES DE JAVA_**](#1751-información-sobre-las-versiones-de-java)
-  - [7.5.2. **CONCEPTOS EN LOS ACRÓNIMOS DE JAVA:** **_`JDK, JVM, JRE`_**](#1752-conceptos-en-los-acrónimos-de-java-jdk-jvm-jre)
-  - [7.5.3. **DESCARGA DE JAVA**](#1753-descarga-de-java)
+    - [7.5.1. **_INFORMACIÓN SOBRE LAS VERSIONES DE JAVA_**](#1751-información-sobre-las-versiones-de-java)
+    - [7.5.2. **CONCEPTOS EN LOS ACRÓNIMOS DE JAVA:** **_`JDK, JVM, JRE`_**](#1752-conceptos-en-los-acrónimos-de-java-jdk-jvm-jre)
+    - [7.5.3. **DESCARGA DE JAVA**](#1753-descarga-de-java)
 - [8. **_VARIABLES DEL SISTEMA o de USUARIO_**](#18-variables-del-sistema-o-de-usuario)
   - [8.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**](#181-acceder-a-la-sección-para-editar-las-variables)
   - [8.2. **VARIABLE DEL SISTEMA: `JAVA_HOME`**](#182-variable-del-sistema-java_home)
-  - [8.2.1. VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO](#1821-verificación-de-que-java_home-está-establecido)
-  - [8.2.2. OTRAS VARIABLES DE USUARIO PARA FLUTTER y DART](#1822-otras-variables-de-usuario-para-flutter-y-dart)
+    - [8.2.1. VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO](#1821-verificación-de-que-java_home-está-establecido)
+    - [8.2.2. OTRAS VARIABLES DE USUARIO PARA FLUTTER y DART](#1822-otras-variables-de-usuario-para-flutter-y-dart)
 - [9. FIREBASE](#19-firebase)
   - [9.1. SCREENSHOTS CONFIGURACIÓN FIREBASE](#191-screenshots-configuración-firebase)
   - [9.2. AGREGAR LAS SIGUIENTES LÍNEAS](#192-agregar-las-siguientes-líneas)
@@ -56,10 +57,10 @@ siguiendo la nomenclatura:
   - [10.1. LOGO DE FACEBOOK](#1101-logo-de-facebook)
   - [10.2. **REACCIONES DE FACEBOOK**](#1102-reacciones-de-facebook)
   - [10.3. USO DE ÍCONOS](#1103-uso-de-íconos)
-  - [10.3.1. GOOGLE FONTS | MATERIAL ICONS](#11031-google-fonts--material-icons)
-    - [10.3.1.1. Íconos que podríamos utilizar](#110311-íconos-que-podríamos-utilizar)
-  - [10.3.2. **Íconos con Font Awesome**](#11032-íconos-con-font-awesome)
-    - [10.3.2.1. **Íconos que podríamos utilizar**](#110321-íconos-que-podríamos-utilizar)
+    - [10.3.1. GOOGLE FONTS | MATERIAL ICONS](#11031-google-fonts--material-icons)
+      - [10.3.1.1. Íconos que podríamos utilizar](#110311-íconos-que-podríamos-utilizar)
+    - [10.3.2. **Íconos con Font Awesome**](#11032-íconos-con-font-awesome)
+      - [10.3.2.1. **Íconos que podríamos utilizar**](#110321-íconos-que-podríamos-utilizar)
 - [11. **_ENLACES EXTRA QUE FUERON ÚTILES_**](#111-enlaces-extra-que-fueron-útiles)
 
 ## 1.4. **PANTALLAS OBJETIVO**
@@ -90,7 +91,7 @@ inicio de sesión, y pantalla después de dar click al botón de inicio de sesi�
 
 [1 - own main login screen]: VIDEOS_SS_PROGRESS/JACOB_CELL/loginScreen_1_JACOB_CELL.png "1 - OWN MAIN LOGIN SCREEN"
 
-## 1.6. DOCUMENTACIÓN AUTOMÁTICA CON **_`dartdoc`_**
+## **1.6. DOCUMENTACIÓN AUTOMÁTICA CON _`dartdoc`_**
 
 En dart, gracias a un comando llamado **_`dartdoc`_**, es posible generar la
 documentación de **_`Dart`_** y **_`Flutter`_** de forma automática, pero hay que
@@ -968,19 +969,19 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 
 ## 1.11. **_ENLACES EXTRA QUE FUERON ÚTILES_**
 
-- https://www.youtube.com/watch?v=d5PpeNb-dOY
-- https://stackoverflow.com/questions/50081213/how-do-i-use-hexadecimal-color-strings-in-flutter
-- https://www.tutorialspoint.com/dart_programming/dart_programming_map.htm
-- https://stackoverflow.com/questions/29182581/global-variables-in-dart
-- https://stackoverflow.com/questions/49541354/disable-defaultfocushighlightenabled-in-the-android-part-for-a-xamarin-forms-app
+- [https://www.youtube.com/watch?v=d5PpeNb-dOY]()
+- [https://stackoverflow.com/questions/50081213/how-do-i-use-hexadecimal-color-strings-in-flutter]()
+- [https://www.tutorialspoint.com/dart_programming/dart_programming_map.htm]()
+- [https://stackoverflow.com/questions/29182581/global-variables-in-dart]()
+- [https://stackoverflow.com/questions/49541354/disable-defaultfocushighlightenabled-in-the-android-part-for-a-xamarin-forms-app]()
 
-  - https://github.com/flutter/flutter/issues/16810
+  - [https://github.com/flutter/flutter/issues/16810]()
 
-- https://aschilken.medium.com/flutter-best-practices-colors-and-textstyles-6e14b06fc3a1
-- https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter
-- https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
-  - https://stackoverflow.com/questions/61969143/no-mediaquery-ancestor-could-be-found
-- https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
+- [https://aschilken.medium.com/flutter-best-practices-colors-and-textstyles-6e14b06fc3a1]()
+- [https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter]()
+- [https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter]()
+  - [https://stackoverflow.com/questions/61969143/no-mediaquery-ancestor-could-be-found]()
+- [https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531]()
 - [Stack Overflow | What is the Dart null checking idiom or best practice?](https://stackoverflow.com/questions/17006664/what-is-the-dart-null-checking-idiom-or-best-practice "Stack Overflow | What is the Dart null checking idiom or best practice?")
   - [Stack Overflow | What is the Dart null checking idiom or best practice? | atreeon's answer](https://stackoverflow.com/a/58027593/13562806 "Stack Overflow | What is the Dart null checking idiom or best practice? | atreeon's answer")
 - [Stack Overflow | Button Width Match Parent](https://stackoverflow.com/questions/50014342/button-width-match-parent "Stack Overflow | Button Width Match Parent")
