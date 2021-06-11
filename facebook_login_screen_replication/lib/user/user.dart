@@ -1,4 +1,4 @@
-// Clase en donde se guardarán todos los elementos de un usuario.
+/// Archivo en el que se manejan los datos de usuario.
 
 // Posts.
 import 'package:flutter/material.dart';
@@ -6,34 +6,56 @@ import 'package:flutter/material.dart';
 import '../globals/global_values.dart' as global_values;
 import 'post.dart';
 
+/// Clase en donde se guardarán todos los elementos de un usuario.
 class User {
-  String name;
-  String profilePicturePath;
+  /// Nombre del usuario.
+  final String name;
+
+  /// Directorio de la foto de perfil.
+  final String profilePicturePath;
+
+  /// Fecha de creación de la cuenta.
+  ///
+  /// Se inicializa cuando se crea la instancia de la cuenta.
   DateTime creationDate;
-  // Si está conectado o no.
+
+  /// Booleano para ver si el usuario está conectado o no.
   bool isConected;
+
+  /// Número de notificaciones del usuario.
   int _notificationsNumber;
-  // Lista de amigos.
+
+  /// Lista de amigos.
   List<User> friends;
 
-  // Lista de todos los post.
+  /// Lista de todos los post que ha hecho el usuario.
   List<Post> postList;
 
-  User(this.name, this.profilePicturePath) {
-    // Obtención del momento en que se creó la cuenta.
+  /// Constructor de la clase.
+  ///
+  /// Inicializa las variables, además de recibir unos parámetros nombrados
+  /// obligatorios.
+  User({
+    @required this.name,
+    @required this.profilePicturePath,
+  }) {
+    /// Obtención del momento en que se creó la cuenta.
     creationDate = DateTime.now();
-    // Inicialización de listas vacías.
+
+    /// Inicialización de listas vacías.
     friends = [];
     postList = [];
+
+    /// Inicializar el número de notificaciones.
     notificationsNumber = 0;
-    // Si se creó un usuario (se registró), establecerlo como conectado.
+
+    /// Si se creó un usuario (se registró), establecerlo como conectado.
     isConected = true;
   }
 
 /* ---------------------- GETTERS, SETTERS y FUNCIONES ---------------------- */
 
-  // Número de notificaciones.
-  // NO PERMITIR GUARDAR VALORES NEGATIVOS.
+  /// Setter del número de notificaciones.
   set notificationsNumber(int number) {
     if (number < 0) {
       _notificationsNumber = 0;
@@ -42,29 +64,34 @@ class User {
     }
   }
 
+  /// Getter del número de notificaciones.
   int get notificationsNumber => _notificationsNumber;
 
-  // Obtener número de amigos.
+  /// Obtener número de amigos.
   int get friendsNumber => friends.length;
 
-  // Método para agregar a un amigo.
+  /// Método para agregar a un amigo.
+  ///
+  /// Recibe como parámetro una instancia de la clase [User].
   void addFriend(User friend) {
     friends.add(friend);
   }
 
-  // Método para agregar a varios amigos.
+  /// Método para agregar a varios amigos.
+  ///
+  /// Recibe una lista de tipo [User].
   void addFriends(List<User> friendsList) {
     for (final User friend in friendsList) {
       friends.add(friend);
     }
   }
 
-  // Método para agregar un post ya creado.
+  /// Método para agregar un post ya creado.
   void addPost(Post post) {
     postList.add(post);
   }
 
-  // Obtener número total de publicaciones.
+  /// Obtener número total de publicaciones que ha hecho el usuario.
   int get totalPosts => postList.length;
 
 /* ----------------- MÉTODOS PARA CREAR LAS FOTOS DE PERFIL ----------------- */
@@ -86,25 +113,26 @@ class User {
       // PARA HACER EL CÍRCULO SEGUÍ LO SIGUIENTE:
       // https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
       decoration: BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.circle,
-          // Ya que tiene un borde establecido por default se lo quitamos.
-          border: Border.all(
-            // YA NO SE MUESTRA EL BORDE NEGRO QUE SE VEÍA EN LA FOTO DE PERFIL.
-            color: Colors.transparent,
-            width: 0,
-          ),
-          image: DecorationImage(
-            image: AssetImage(profilePicturePath),
+        color: Colors.white,
+        shape: BoxShape.circle,
+        // Ya que tiene un borde establecido por default se lo quitamos.
+        border: Border.all(
+          // YA NO SE MUESTRA EL BORDE NEGRO QUE SE VEÍA EN LA FOTO DE PERFIL.
+          color: Colors.transparent,
+          width: 0,
+        ),
+        image: DecorationImage(
+          image: AssetImage(profilePicturePath),
 
-            // Así se baja la calidad.
-            // image: ResizeImage(
-            //   AssetImage(profilePicturePath),
-            //   width: size.toInt(),
-            //   height: size.toInt()
-            // ),
-            fit: BoxFit.cover,
-          )),
+          // Así se baja la calidad.
+          // image: ResizeImage(
+          //   AssetImage(profilePicturePath),
+          //   width: size.toInt(),
+          //   height: size.toInt()
+          // ),
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 
@@ -188,7 +216,8 @@ class User {
                   ),
                 ),
               ),
-            )),
+            ),
+          ),
         ],
       ),
     );
