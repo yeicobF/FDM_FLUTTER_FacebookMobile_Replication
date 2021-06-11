@@ -1,4 +1,5 @@
 /// Archivo en el que se manejan los datos de usuario.
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../config/palette.dart' show Palette;
@@ -9,16 +10,27 @@ class User {
   /// Nombre del usuario.
   final String name;
 
-  /// Directorio de la foto de perfil.
+  /// Booleano para indicar si la foto de perfil proviene del sistema de
+  /// archivos o de internet.
+  final bool isProfilePictureFromInternet;
+
+  /// Dirección de la foto de perfil.
+  ///
+  /// Puede ser obtenida de internet o del sistema de archivos. Esto lo define la variable [isProfilePictureFromInternet].
   final String profilePicturePath;
+
+  /// Indicador de que el usuario está conectado.
+  bool isOnline;
+
+  /// Imagen obtenida de un URL de internet.
+  ///
+  /// Esta propiedad será opcional.
+  // final String propilePictureUrl;
 
   /// Fecha de creación de la cuenta.
   ///
   /// Se inicializa cuando se crea la instancia de la cuenta.
   DateTime creationDate;
-
-  /// Booleano para ver si el usuario está conectado o no.
-  bool isConected;
 
   /// Número de notificaciones del usuario.
   int _notificationsNumber;
@@ -29,13 +41,29 @@ class User {
   /// Lista de todos los post que ha hecho el usuario.
   List<Post> postList;
 
+  /// Solo una publicación.
+  Post singlePost;
+
   /// Constructor de la clase.
   ///
   /// Inicializa las variables, además de recibir unos parámetros nombrados
   /// obligatorios.
+  ///
+  /// - Puede recibir tanto una imagen del directorio, como una imagen de
+  /// internet.
   User({
     @required this.name,
+    @required this.isProfilePictureFromInternet,
+
+    /// Inicializarla como vacía nos permite la posibilidad de revisar si se
+    /// envió una imagen o no.
     @required this.profilePicturePath,
+
+    /// Lista de posts por si los auieren enviar.
+    this.postList,
+
+    /// Solo una publicación.
+    this.singlePost,
   }) {
     /// Obtención del momento en que se creó la cuenta.
     creationDate = DateTime.now();
@@ -48,7 +76,7 @@ class User {
     notificationsNumber = 0;
 
     /// Si se creó un usuario (se registró), establecerlo como conectado.
-    isConected = true;
+    isOnline = true;
   }
 
 /* ---------------------- GETTERS, SETTERS y FUNCIONES ---------------------- */
@@ -100,14 +128,13 @@ class User {
 // - Si no estás conectado: Círculo rojo.
 
 // Crear la foto de perfil sin nada más (notificaciones, etc).
-  Widget createBareProfilePicture(
-      double size) {
+  Widget createBareProfilePicture(double size) {
     return Container(
       // 60 es el tamaño promedio.
       width: size,
       height: size,
       // color: Colors.white,
-      
+
       // PARA HACER EL CÍRCULO SEGUÍ LO SIGUIENTE:
       // https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
       decoration: BoxDecoration(
@@ -120,7 +147,14 @@ class User {
           width: 0,
         ),
         image: DecorationImage(
+          /// Revisar si la imagen proviene de internet o del sistema de
+          /// archivos. Dependiendo de la procedencia, se utiliza uno u otro
+          /// widget.
           image: AssetImage(profilePicturePath),
+
+          // image: isProfilePictureFromInternet
+          //     ? CachedNetworkImageProvider(profilePicturePath)
+          //     : AssetImage(profilePicturePath),
 
           // Así se baja la calidad.
           // image: ResizeImage(
@@ -140,8 +174,7 @@ class User {
 
   // Crear foto de perfil con un número de notificaciones en un círculo rojo en la
   // esquina superior derecha
-  Widget createProfilePictureWithNotifications(
-      double size) {
+  Widget createProfilePictureWithNotifications(double size) {
     const notificationsRed = Color(0xFFea2945);
     // Número de notificaciones a mostrar.
     // Si las notificaciones > 99, mostrar el 99.

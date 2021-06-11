@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -28,6 +28,8 @@ environment:
   # sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  # Cargar imágenes de internet y colocarlas/guardarlas en el dispositivo.
+  cached_network_image: ^2.2.0+1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -43,8 +45,9 @@ dependencies:
   # https://pub.dev/packages/font_awesome_flutter
   font_awesome_flutter: ^9.0.0
   # Linter para que el código esté bien hecho.
-  lint:
-
+  lint: ^1.5.3
+  # Íconos de Material Design.
+  material_design_icons_flutter: ^4.0.5345
 
 dev_dependencies:
   flutter_test:
@@ -55,7 +58,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -67,9 +69,9 @@ flutter:
     - assets/user/post_images/
     # REACCIONES FB SVG
     - assets/fb_non-official/facebook-reactions-emoticons/svg/
-    # Logo de Facebook azul + blanco de distintos tamaños. 
+    # Logo de Facebook azul + blanco de distintos tamaños.
     - assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/
-  
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

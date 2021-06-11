@@ -1,3 +1,4 @@
+import 'package:facebook_login_screen_replication/models/models.dart';
 import 'package:flutter/material.dart';
 
 /// Clase en donde se manejarán los Post (publicaciones) de los usuarios.
@@ -16,6 +17,36 @@ class Post {
   /// Esta se inicializa cuando se hace la publicación.
   DateTime creationDate;
 
+  /// Usuario al que pertenece el post.
+  /// 
+  /// No es necesario enviar al usuario, ya que cada usuario guarda sus
+  /// publicaciones:
+  /// 
+  /// ```dart
+  /// user.post.atributosPost
+  /// ```
+  /// 
+  // final User user;
+
+  /// Hace cuánto tiempo se hizo la publicación.
+  final String timeAgo;
+
+  /// Booleano para indicar si la foto de perfil proviene del sistema de
+  /// archivos o de internet.
+  final bool isProfilePictureFromInternet;
+
+  /// URL de la imagen a mostrar.
+  final String imageUrl;
+
+  /// Número de likes.
+  final int likes;
+
+  /// Número de comentarios.
+  final int comments;
+
+  /// Número de veces que se compartió la publicación.
+  final int shares;
+
   /// Íconos de las reacciones de Facebook en formato SVG.
   ///
   /// Es una variable PRIVADA, por eso el guión bajo (_).
@@ -28,8 +59,15 @@ class Post {
 /* ---------------------- CONSTRUCTOR DE LA CLASE POST. --------------------- */
 
   Post({
+    // @required this.user,
     @required this.caption,
-    @required this.imgPathList,
+    @required this.isProfilePictureFromInternet,
+    @required this.imageUrl,
+    @required this.timeAgo,
+    @required this.likes,
+    @required this.comments,
+    @required this.shares,
+    this.imgPathList,
   }) {
     // Establecemos la creación del Post.
     creationDate = DateTime.now();
