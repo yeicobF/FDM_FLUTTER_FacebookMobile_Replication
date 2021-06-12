@@ -1,7 +1,7 @@
 /// Variables e información de la app inicializada, para así poder probar más
 /// fácil la app con valores predefinidos.
 
-import '../models/models.dart' show Post, User;
+import '../models/models.dart' show Post, Story, User;
 
 /// Clase que maneja datos iniciales que se manejarán para probar la app.
 ///
@@ -17,7 +17,7 @@ abstract class InitialData {
   /// directorio en donde se encuentran las fotos de perfil.
   static final User currentUser = User(
     name: "Jacob Flores",
-    profilePicturePath: "$profilePicsPath/invincible_1.png",
+    imageUrl: "$profilePicsPath/invincible_1.png",
     isProfilePictureFromInternet: false,
   );
 
@@ -49,17 +49,16 @@ abstract class InitialData {
       ///
       /// https://www.educative.io/edpresso/how-to-create-a-raw-string-in-dart
       /// https://github.com/Crissov/unicode-proposals/issues/408
-      caption:
-           "  ʌ" +
+      caption: "  ʌ" +
           r" / \" +
           r"/   \" +
-           "| | |" +
+          "| | |" +
           r"\ \/" +
           r"/\  \" +
-           "| | |" +
+          "| | |" +
           r"\   /" +
           r" \ /" +
-           "  v",
+          "  v",
       imageUrl: "assets/user/post_images/sergio_1.jpg",
       isProfilePictureFromInternet: false,
       comments: 2,
@@ -144,6 +143,66 @@ abstract class InitialData {
     ),
   ];
 
+  /// Lista de historias.
+  ///
+  /// Se le asignará una historia a cada usuario.
+  static const List<Story> stories = [
+    // 0
+    Story(
+      imageUrl:
+          'https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80',
+    ),
+    // 1
+    Story(
+      imageUrl:
+          'https://images.unsplash.com/photo-1499363536502-87642509e31b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+      isViewed: true,
+    ),
+    // 2
+    Story(
+      imageUrl:
+          'https://images.unsplash.com/photo-1497262693247-aa258f96c4f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=624&q=80',
+    ),
+    // 3
+    Story(
+      imageUrl:
+          'https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+      isViewed: true,
+    ),
+    // 4
+    Story(
+      imageUrl:
+          'https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80',
+    ),
+    // 5
+    Story(
+      imageUrl:
+          'https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80',
+    ),
+    // 6
+    Story(
+      imageUrl:
+          'https://images.unsplash.com/photo-1499363536502-87642509e31b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+      isViewed: true,
+    ),
+    // 7
+    Story(
+      imageUrl:
+          'https://images.unsplash.com/photo-1497262693247-aa258f96c4f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=624&q=80',
+    ),
+    // 8
+    Story(
+      imageUrl:
+          'https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+      isViewed: true,
+    ),
+    // 9
+    Story(
+      imageUrl:
+          'https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80',
+    ),
+  ];
+
   /// Lista de amigos.
   ///
   /// - Agregaré algunos amigos solo como prueba.
@@ -175,151 +234,161 @@ abstract class InitialData {
   static final List<User> friendsList = [
     User(
       name: "Germán González",
-      profilePicturePath: "$profilePicsPath/german.jpg",
+      imageUrl: "$profilePicsPath/german.jpg",
       isProfilePictureFromInternet: false,
       singlePost: postList[0],
+      singleStory: stories[0],
     ),
     User(
       name: "Sergio",
-      profilePicturePath: "$profilePicsPath/sergio.jpg",
+      imageUrl: "$profilePicsPath/sergio.jpg",
       isProfilePictureFromInternet: false,
       singlePost: postList[1],
+      singleStory: stories[1],
     ),
     User(
       name: "Rodrigo",
-      profilePicturePath: "$profilePicsPath/rodrigo.jpg",
+      imageUrl: "$profilePicsPath/rodrigo.jpg",
       isProfilePictureFromInternet: false,
       singlePost: postList[2],
+      singleStory: stories[0],
     ),
     User(
       name: "Eduardo",
-      profilePicturePath: "$profilePicsPath/eduardo_roca.jpg",
+      imageUrl: "$profilePicsPath/eduardo_roca.jpg",
       isProfilePictureFromInternet: false,
       singlePost: postList[3],
+      singleStory: stories[3],
     ),
     User(
       name: 'David Brooks',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
       isProfilePictureFromInternet: true,
       singlePost: postList[4],
+      singleStory: stories[4],
     ),
     User(
       name: 'Jane Doe',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
       isProfilePictureFromInternet: true,
       singlePost: postList[5],
+      singleStory: stories[5],
     ),
     User(
       name: 'Matthew Hinkle',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1331&q=80',
       isProfilePictureFromInternet: true,
       singlePost: postList[6],
+      singleStory: stories[6],
     ),
     User(
       name: 'Amy Smith',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80',
       isProfilePictureFromInternet: true,
       singlePost: postList[7],
+      singleStory: stories[7],
     ),
     User(
       name: 'Ed Morris',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=664&q=80',
       isProfilePictureFromInternet: true,
       singlePost: postList[8],
+      singleStory: stories[8],
     ),
     User(
       name: 'Carolyn Duncan',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
       isProfilePictureFromInternet: true,
       singlePost: postList[9],
+      singleStory: stories[9],
     ),
     User(
       name: 'Paul Pinnock',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1519631128182-433895475ffe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'Elizabeth Wong',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1515077678510-ce3bdf418862?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=675&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'James Lathrop',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=592&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'Jessie Samson',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'David Brooks',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'Jane Doe',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'Matthew Hinkle',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1331&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'Amy Smith',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'Ed Morris',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=664&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'Carolyn Duncan',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'Paul Pinnock',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1519631128182-433895475ffe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'Elizabeth Wong',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1515077678510-ce3bdf418862?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=675&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'James Lathrop',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=592&q=80',
       isProfilePictureFromInternet: true,
     ),
     User(
       name: 'Jessie Samson',
-      profilePicturePath:
+      imageUrl:
           'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
       isProfilePictureFromInternet: true,
     ),

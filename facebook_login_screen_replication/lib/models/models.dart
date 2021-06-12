@@ -4,5 +4,8 @@
 /// Publicaciones.
 export 'post_model.dart';
 
+/// Historias.
+export 'story_model.dart';
+
 /// Usuario.
 export 'user_model.dart';

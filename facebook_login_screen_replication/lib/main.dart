@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'screens/first_login_screen.dart' show FirstLoginScreen;
 // PANTALLA DESPUÉS DE DAR CLICK A BOTÓN
 import 'screens/login_screen_after_click.dart' show LoginScreenAfterClick;
-// PANTALLA DE FEED PRINCIPAL.
-import 'screens/main_feed_screen.dart' show MainFeedScreen;
+
 /* -------------------------------------------------------------------------- */
 
 // Guardar colores en HEXADECIMAL.
@@ -23,7 +22,7 @@ import 'screens/main_feed_screen.dart' show MainFeedScreen;
 
 // void main() => runApp(MaterialApp(home: first_login_screen.FirstLoginScreen()));
 // void main() => runApp(MaterialApp(home: login_screen_after_click.LoginScreenAfterClick()));
-void main() => runApp(const FacebookScreens(screenNumber: 0,));
+void main() => runApp(const FacebookScreens(screenNumber: 0));
 
 /// CLASE PROVISIONAL PARA MOSTRAR LAS PANTALLAS QUE HEMOS HECHO DEPENDIENDO DEL
 /// NÚMERO QUE RECIBA COMO PARÁMETRO.
@@ -35,7 +34,6 @@ class FacebookScreens extends StatelessWidget {
   List<Widget> get screens => [
         FirstLoginScreen(),
         LoginScreenAfterClick(),
-        MainFeedScreen(),
       ];
 
   const FacebookScreens({

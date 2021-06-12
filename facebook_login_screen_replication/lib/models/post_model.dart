@@ -1,4 +1,3 @@
-import 'package:facebook_login_screen_replication/models/models.dart';
 import 'package:flutter/material.dart';
 
 /// Clase en donde se manejarán los Post (publicaciones) de los usuarios.
