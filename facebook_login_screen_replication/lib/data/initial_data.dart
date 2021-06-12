@@ -409,7 +409,4 @@ abstract class InitialData {
   ///   currentUser.addFriend(friend);
   /// }
   /// ```
-
-  /// Lista con publicaciones.
-
 }
