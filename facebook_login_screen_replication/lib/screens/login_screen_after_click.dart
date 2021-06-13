@@ -1,19 +1,18 @@
+/// Segunda pantalla de inicio de sesión.
+
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../config/palette.dart' show Palette;
 
-/// Segunda pantalla de Login. Aquí se ingresan los datos de inicio de sesión.
+/// Segunda pantalla de Login.
+///
+/// Aquí se ingresan los datos de inicio de sesión:
+///
+/// - Username
+/// - Password
 
 class LoginScreenAfterClick extends StatelessWidget {
-  final Color fbButtonColor = const Color(0xFF03A9F4);
-  final Color fbFontColor = const Color(0xFF4e9af5);
-  final Color fbFontColor2 = const Color(0xFFFFFFFF);
-  final Color fbButtonColor2 = const Color(0xFF0F163D);
-  final Color fbGray = const Color(0xFF636565);
-// const Color fbFontColor = Color(0xFF4e9bf9);
-
   // Obtener el tamaño inicial de la pantalla para así, si cambia el tamaño
   // porque se ac
   // static const double? initialScreenHeight = null;
@@ -50,7 +49,7 @@ class LoginScreenAfterClick extends StatelessWidget {
 
     // Obtener altura de la STATUS BAR:
     // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Palette.darkBackground,
       // resizeToAvoidBottomInset: false,
       // ---------------------------------------------------------------------
@@ -66,26 +65,17 @@ class LoginScreenAfterClick extends StatelessWidget {
       //   brightness: Brightness.dark, // status bar brightness
       // ),
       // ---------------------------------------------------------------------
-      body: _LoginScreenContent(
-        fbGray: fbGray,
-        fbFontColor2: fbFontColor2,
-        fbFontColor: fbFontColor,
-      ),
+      body: _LoginScreenContent(),
     );
   }
 }
 
+/// Contenidos de la segunda pantalla de Login ([LoginScreenAfterClick]).
 class _LoginScreenContent extends StatelessWidget {
-  final Color fbGray;
-  final Color fbFontColor2;
-  final Color fbFontColor;
-  double currentScreenHeight;
+  // double currentScreenHeight;
 
-  _LoginScreenContent({
+  const _LoginScreenContent({
     Key key,
-    @required this.fbGray,
-    @required this.fbFontColor2,
-    @required this.fbFontColor,
   }) : super(key: key);
 
   @override
@@ -104,14 +94,10 @@ class _LoginScreenContent extends StatelessWidget {
           /// LOGO DE FACEBOOK
           Expanded(
             flex: 1,
-            child: Container(
-              margin: const EdgeInsets.only(top: 30, bottom: 30),
-              // width: 70,
-              child: Image.asset(
-                'assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png',
-                width: 70,
-                fit: BoxFit.fitWidth,
-              ),
+            child: Image.asset(
+              'assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png',
+              width: 70,
+              fit: BoxFit.fitWidth,
             ),
           ),
           // ),
@@ -119,26 +105,22 @@ class _LoginScreenContent extends StatelessWidget {
 
           Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(bottom: 5),
-                child: _TextInputField(
+              Container(
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: const _TextInputField(
                   hintText: "Phone or email",
                   isPassword: false,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 5),
-                child: _TextInputField(
+              Container(
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: const _TextInputField(
                   hintText: "Password",
                   isPassword: true,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: _LoginButton(
-                  buttonColor: Colors.blueAccent,
-                  fontColor: fbFontColor2,
-                ),
+              _LoginButton(
+                onPressed: () => print("Log In"),
               ),
             ],
           ),
@@ -146,10 +128,7 @@ class _LoginScreenContent extends StatelessWidget {
           Expanded(
             flex: 1,
             child: _ForgotPassword(
-              fontColor: fbFontColor,
-              // alignment: (currentScreenHeight < initialScreenHeight)
-              //     ? Alignment.topCenter
-              //     : Alignment.bottomCenter,
+              onPressed: () => print("Forgot Password?"),
             ),
           ),
         ],
@@ -159,12 +138,17 @@ class _LoginScreenContent extends StatelessWidget {
 }
 
 /// Clase para crear un cuadro de entrada de texto.
+///
+/// Este puede mostrar sus caracteres dependiendo de si se trata de una
+/// contraseña o no. Esto lo determina el atributo [isPassword].
+///
+/// **NOTA: [hintText] es como un placeholder.**
 class _TextInputField extends StatelessWidget {
   /// Colores para el borde inferior del cuadro de entrada de texto.
   ///
   /// Este es diferente cuando está activo y cuando no lo está.
   Map<String, Color> get bottomBorderColors => const {
-        "blueFocus": Color(0xFF3987ea),
+        "blueFocus": Palette.fbButtonLighterBlue,
         "grayNotFocus": Color(0xFF505153),
       };
 
@@ -172,7 +156,7 @@ class _TextInputField extends StatelessWidget {
   Color get cursorColor => const Color(0xFF909195);
 
   /// Color del [hintText], que es como un placeholder.
-  static const Color hintTextColor = Color(0xFF909195);
+  Color get hintTextColor => const Color(0xFF909195);
 
   /// [hintText] del cuadro de texto para cuando no está activo.
   final String hintText;
@@ -180,10 +164,14 @@ class _TextInputField extends StatelessWidget {
   /// Indicador de si es una contraseña o no.
   final bool isPassword;
 
+  /// Tamaño de la fuente cuando está ingresando texto.
+  final double inputFontSize;
+
   const _TextInputField({
     Key key,
     @required this.hintText,
     @required this.isPassword,
+    this.inputFontSize = 22.0,
   }) : super(key: key);
 
   @override
@@ -203,20 +191,20 @@ class _TextInputField extends StatelessWidget {
       // Ocultar el texto (para la contraseña).
       obscureText: isPassword,
       // Para cambiar el color de la letra en el input.
-      style: const TextStyle(
+      style: TextStyle(
         color: Colors.white,
-        fontSize: 18,
+        fontSize: inputFontSize,
       ),
       decoration: InputDecoration(
         // labelText: "hola",
         // contentPadding: const EdgeInsets.only(bottom: 0.0),
         hintText: hintText,
-        hintStyle: const TextStyle(
+        hintStyle: TextStyle(
           color: hintTextColor,
           //decorationColor: Colors.grey,
-          fontSize: 20,
+          fontSize: inputFontSize - 1.0,
           fontWeight: FontWeight.w500,
-          letterSpacing: -0.2,
+          letterSpacing: -0.1,
         ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
@@ -243,18 +231,30 @@ class _TextInputField extends StatelessWidget {
   }
 }
 
-/// Botón de Login.
+/// Botón de Log In.
 ///
 /// Este botón permite iniciar sesión y avanzar a la siguiente pantalla.
 class _LoginButton extends StatelessWidget {
+  /// Función a ejecutar al presionar el botón.
+  final void Function() onPressed;
+
+  /// Color de la fuente.
+  final Color fontColor;
+
+  /// Tamaño de la fuente.
+  final double fontSize;
+
   /// Color del botón.
   final Color buttonColor;
-  final Color fontColor;
 
   const _LoginButton({
     Key key,
-    @required this.buttonColor,
-    @required this.fontColor,
+    @required this.onPressed,
+    this.buttonColor = Palette.fbButtonLighterBlue,
+
+    // this.buttonColor = Colors.blueAccent,
+    this.fontColor = Palette.fbFontLighterBlue,
+    this.fontSize = 19.0,
   }) : super(key: key);
 
   @override
@@ -269,41 +269,61 @@ class _LoginButton extends StatelessWidget {
 
     // CON EXPANDED SE TOMA TODO EL TAMAÑO RESTANTE DE LA PANTALLA, POR LO QUE
     // TIENE CIERTO GRADO DE RESPONSIVIDAD.
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: SizedBox(
-        height: 40,
-
-        /// [double.infinity]: QUE EL ANCHO SEA EL MÁXIMO POSIBLE.
-        /// https://stackoverflow.com/questions/50014342/button-width-match-parent
-        width: double.infinity,
-        child: Container(
-          decoration: BoxDecoration(
-            color: buttonColor,
-            borderRadius: BorderRadius.circular(5.0),
-          ),
-          child: Center(
-            child: Text(
-              "Log In",
-              style: TextStyle(
-                fontSize: 16.5,
-                fontWeight: FontWeight.w700,
-                color: fontColor,
-              ),
-            ),
+    return Container(
+      /// [width]: [double.infinity] -> Toma todo el ancho disponible en la
+      /// pantalla.
+      width: double.infinity,
+      child: TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+          backgroundColor: buttonColor,
+        ),
+        child: Text(
+          "Log In",
+          style: TextStyle(
+            fontSize: fontSize,
+            fontWeight: FontWeight.w700,
+            color: fontColor,
           ),
         ),
       ),
     );
+
+//     Align(
+//       alignment: Alignment.bottomCenter,
+//       child: SizedBox(
+//         height: 40,
+//
+//         /// [double.infinity]: QUE EL ANCHO SEA EL MÁXIMO POSIBLE.
+//         /// https://stackoverflow.com/questions/50014342/button-width-match-parent
+//         width: double.infinity,
+//         child: Container(
+//           decoration: BoxDecoration(
+//             color: buttonColor,
+//             borderRadius: BorderRadius.circular(5.0),
+//           ),
+//
+//           ),
+//         ),
+//       ),
+//     );
   }
 }
 
+/// Botón de texto para ver opciones de recuperación de contraseña.
+///
 /// Texto que indica la siguiente leyenda:
 ///
-/// "Forgot Password?"
+/// > "Forgot Password?"
 class _ForgotPassword extends StatelessWidget {
+  /// Función a ejecutar cuando se presione el botón.
+  final void Function() onPressed;
+
   /// Color de la fuente.
   final Color fontColor;
+
+  /// Tamaño de la fuente.
+  final double fontSize;
 
   /// Alineación del texto.
   ///
@@ -315,11 +335,13 @@ class _ForgotPassword extends StatelessWidget {
 
   const _ForgotPassword({
     Key key,
-    @required this.fontColor,
+    @required this.onPressed,
+    this.fontColor = const Color(0xFF4e9af5),
 
     /// Por default se inicializará en la parte inferior si no se envía el
     /// parámetro.
     this.alignment = Alignment.bottomCenter,
+    this.fontSize = 19.0,
   }) : super(key: key);
 
   @override
@@ -336,19 +358,17 @@ class _ForgotPassword extends StatelessWidget {
     // TIENE CIERTO GRADO DE RESPONSIVIDAD.
     return Align(
       alignment: alignment,
-      child: SizedBox(
-        height: 40,
-        // QUE EL ANCHO SEA EL MÁXIMO POSIBLE.
-        // https://stackoverflow.com/questions/50014342/button-width-match-parent
-        width: double.infinity,
-        child: Center(
-          child: Text(
-            "Forgot Password?",
-            style: TextStyle(
-              fontSize: 16.5,
-              fontWeight: FontWeight.w700,
-              color: fontColor,
-            ),
+      // QUE EL ANCHO SEA EL MÁXIMO POSIBLE.
+      // https://stackoverflow.com/questions/50014342/button-width-match-parent
+      child: TextButton(
+        onPressed: onPressed,
+        child: Text(
+          "Forgot Password?",
+          style: TextStyle(
+            fontSize: fontSize,
+            fontWeight: FontWeight.w600,
+            color: fontColor,
+            letterSpacing: 0.5,
           ),
         ),
       ),
