@@ -28,25 +28,28 @@ import '../config/palette.dart';
 /// todos los booleanos que indican qué tipo de imagen será
 /// ([isPictureFromLogin], [[isPictureFromStory], [isBarePicture]]),
 /// están en false.
+///
+///
+/// **NOTA:** *Las clases [@immutable] deben tener todos sus atributos como
+/// [final] y los constructores deben ser preferiblemente [const].*
+///
+///   - Aún así, por ahora no lo haré así, porque quiero definir diversos
+/// parámetros con diferentes constructores y si tengo todos en [final] no los
+/// puedo tener. Esto es porque cuenta como que los parámetros ya están
+/// inicializados por ser final y tenerlos en diversos constructores.
 class ProfileAvatar extends StatelessWidget {
   /// Usuario al cual le pertenece la foto de perfil.
   final User user;
-
-  /// Historia actual que se está mostrando.
-  Story currentStory;
 
   /// Tamaño de la foto de perfil.
   final double size;
 
   /// Indicador de que se quiere mostrar la foto de perfil sin ningún elemento
   /// por encima.
-  bool isPictureWithoutElements;
-
-  /// Booleano para ver si la foto de perfil se trata para una historia.
   ///
-  /// De esto depende si dibujar una foto de perfil con un círculo azul
-  /// alrededor o no.
-  bool isPictureFromStory;
+  /// > [!isPictureWithoutElements] significa que la foto sí tendrá
+  /// elementos.
+  bool isPictureWithoutElements;
 
   /// Booleano para ver si la foto de perfil se encontrará en la pantalla de
   /// Login.
@@ -54,27 +57,67 @@ class ProfileAvatar extends StatelessWidget {
   /// Si la pantalla es de Login, no puede ser de una historia y viceversa.
   bool isPictureFromLogin;
 
+  /// Booleano para ver si la foto de perfil se trata para una historia.
+  ///
+  /// De esto depende si dibujar una foto de perfil con un círculo azul
+  /// alrededor o no.
+  bool isPictureFromStory;
+
+  /// Historia actual que se está mostrando.
+  Story currentStory;
+
   /// Constructor para mostrar la foto de perfil con o sin símbolo de estar
   /// conectado.
   ///
   /// Es el constructor genérico para mostrar la foto de perfil.
+  ///
+  /// Las opciones son:
+  ///
+  /// - La de pantalla de Login con círculo de notificaciones.
+  /// - La de las historias con el borde alrededor.
+  /// - La foto sin ningún elementos por encima.
+  /// - Si no es ninguna de las anteriores, mostrarla con el círculo verde
+  /// si es que está conectado el usuario.
+  ///
+  /// [isPictureFromLogin] y [isPictureFromStory] = false porque en este
+  /// constructor se muestra la imagen con Online o sin elementos, dependiendo
+  /// de lo que se envíe en [isPictureWithoutElements].
+  ///
+  /// - Estos ya tienen sus propios constructores.
+  ///
+  /// Los elementos que están después de los dos puntos (:) están siendo
+  /// inicializados.
   ProfileAvatar({
     Key key,
     @required this.user,
-    @required this.size,
-  }) : super(key: key) {
-    isPictureWithoutElements = false;
-  }
+    this.size = 20.0,
+    this.isPictureWithoutElements = false,
+  })  : isPictureFromLogin = false,
+        isPictureFromStory = false,
+        currentStory = null,
+        super(key: key);
 
   /// Constructor para la foto de perfil en una historia.
   ProfileAvatar.forStory({
-    this.user,
-    this.currentStory,
-    this.size,
-    this.isPictureWithoutElements,
-    this.isPictureFromStory,
-    this.isPictureFromLogin,
-  });
+    @required this.user,
+    @required this.currentStory,
+    this.size = 20.0,
+  })  :
+
+        /// La imagen sí es de las historias.
+        isPictureFromStory = true,
+        isPictureWithoutElements = false,
+        isPictureFromLogin = false;
+
+  /// Constructor para la foto de perfil en la pantalla de Login.
+  ///
+  /// En esta pantalla se muestra el círculo de notificaciones.
+  ProfileAvatar.forLogin({
+    @required this.user,
+    this.size = 20.0,
+  })  : isPictureFromLogin = true,
+        isPictureFromStory = false,
+        isPictureWithoutElements = false;
 
   /// Obtener el radio de la foto de perfil.
   ///
@@ -136,18 +179,52 @@ class ProfileAvatar extends StatelessWidget {
             isProfilePictureFromInternet: user.isProfilePictureFromInternet,
           ),
         ),
-        /// Si [isOnline] == true, mostrar ícono verde indicando conexión.
-        /// Si no es true, entonces poner un SizedBox del menor tamaño posible.
-        user.isOnline
+
+        /// Revisar qué tipo de foto de perfil se quiere mostrar.
+        ///
+        /// > [!isPictureWithoutElements] significa que la foto sí tendrá
+        /// elementos.
+        ///
+        /// Las opciones son:
+        ///
+        /// - La de pantalla de Login con círculo de notificaciones.
+        /// - La de las historias con el borde alrededor.
+        /// - La foto sin ningún elementos por encima.
+        /// - Si no es ninguna de las anteriores, mostrarla con el círculo verde
+        if (!isPictureWithoutElements)
+
+          /// No se pueden poner corchetes ({}) en los [if], ya que se
+          /// interpreta como un [Set<Widget>].
+          /// 
+          /// - https://stackoverflow.com/questions/63247314/how-can-use-if-statement-with-container-widget-in-flutter
+          if (isPictureFromLogin)
+            _NotificationsCircle(
+              profilePictureSize: size,
+              notificationsNumber: user.notificationsNumber,
+            )
+          else if (user.isOnline)
+
+            /// - Si es que está conectado el usuario.
+            /// - Si [isOnline] == true, mostrar ícono verde indicando conexión.
+            /// - Si no es true, entonces poner un SizedBox del menor tamaño posible.
             // [Positioned] pone el widget en la posición indicada respecto al
             // contenedor.
-            ? const Positioned(
-                bottom: 0.0,
-                right: 0.0,
-                // [Container] es requerido para mostrar el círculo verde.
-                child: _OnlineIndicator(),
-              )
-            : const SizedBox.shrink(),
+            const Positioned(
+              bottom: 0.0,
+              right: 0.0,
+              // [Container] es requerido para mostrar el círculo verde.
+              child: _OnlineIndicator(),
+            )
+            /// Si el usuario no está online.
+            else const SizedBox.shrink()
+        /// Si la imagen sí tiene elementos.
+        /// 
+        /// Este [else] corresponde al [if]:
+        /// 
+        /// ```dart
+        /// if (!isPictureWithoutElements)
+        /// ```
+        else const SizedBox.shrink(),
       ],
     );
   }
