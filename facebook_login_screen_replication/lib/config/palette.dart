@@ -38,6 +38,9 @@ class Palette {
   /// Color verde que indica que un usuario está online.
   static const Color online = Color(0xFF4BCB1F);
 
+    /// Color rojo para el círculo de las notificaciones.
+  static const notificationsRed = Color(0xFFea2945);
+
   /// Gradiente lineal que se sobrepone a las historias ([Story]).
   static const LinearGradient storyGradient = LinearGradient(
     begin: Alignment.topCenter,

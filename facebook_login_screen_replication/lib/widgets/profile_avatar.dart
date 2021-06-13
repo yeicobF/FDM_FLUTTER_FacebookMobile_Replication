@@ -124,10 +124,16 @@ class ProfileAvatar extends StatelessWidget {
 /// Agregar a la foto de perfil el número de notificaciones en un círculo rojo
 /// en la esquina superior derecha
 class _NotificationsCircle extends StatelessWidget {
-  /// Tamaño del círculo de notificaciones.
-  final double size;
+  /// Tamaño de la foto de perfil.
+  /// 
+  /// A partir del tamaño de la foto de perfil se calcula el tamaño del círculo
+  /// de notifiaciones.
+  final double profilePictureSize;
   /// Número de notificaciones.
   final int notificationsNumber;
+
+  /// Color del borde del círculo de notificaciones.
+  final Color borderColor;
 
   /// Número de notificaciones a mostrar en el círculo.
   /// 
@@ -144,99 +150,96 @@ class _NotificationsCircle extends StatelessWidget {
   /// lo muestra. Esto se comprueba desde el [Widget] [ProfileAvatar].
   String notificationsNumberToShow;
 
-  const _NotificationsCircle({
+  /// Tamaño del círculo de notificaciones.
+  /// 
+  /// Este será calculado a partir del tamaño de la foto de perfil.
+  double notificationsSize;
+
+  _NotificationsCircle({
     Key key,
-    @required this.size,
+    @required this.profilePictureSize,
     @required this.notificationsNumber,
-    }) : super(key: key);
+    this.borderColor = Palette.darkBackground,
+    }) : super(key: key)
+    {
+      /// Revisar el número de notificaciones para ver qué número se va a
+      /// mostrar.
+      notificationsNumberToShow =
+          ((notificationsNumber > 99)
+          ? 99
+          : notificationsNumber).toString();
+
+      /// Calcular el tamaño del círculo de notificaciones.
+      notificationsSize = profilePictureSize / 2.8;
+    }
 
 
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
-  }
-}
+    /// El ícono de notificaciones debe estar alineado en la esquina superior
+    /// derecha de la foto de perfil.
+    /// 
+    /// Creo que el [Align] debería estar en el [ProfileAvatar].
+    return Align(
+      alignment: Alignment.topRight,
+      /// Contenedor con el número de notificaciones y su borde.
+      /// 
+      /// El círculo con el color de fondo del número de notificaciones está
+      /// definido en el [child] de este [Widget].
+      child: Container(
+        width: notificationsSize,
+        height: notificationsSize,
+        // alignment: Alignment.topRight,
+        padding: const EdgeInsets.all(0.0),
+        margin: const EdgeInsets.all(0.0),
+        // color: Colors.transparent,
 
+        /// Borde alrededor del círculo de notificaciones.
+        /// 
+        /// Podría hacerlo con dos [CircleAvatar], uno más grande que el otro,
+        /// pero no tendría mucha coherencia con el nombre del [Widget].
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          // Color rojo.
+          color: borderColor,
+          // border: Border.all(
+          //   color: global_values.darkBackground,
+          //   // style: BorderStyle.none,
+          //   width: 2,
+          // )
+        ),
 
-
-
-Widget _NotificationsCircle(double size) {
-  const notificationsRed = Color(0xFFea2945);
-
-  final String notificationsNumberToShow =
-      ((notificationsNumber > 99) ? 99 : notificationsNumber).toString();
-
-  return Container(
-    width: size,
-    height: size,
-    color: Colors.transparent,
-    child: Stack(
-      children: [
-        // AQUÍ NECESITAMOS ENVIAR UN MARGEN DE 0, YA QUE SI NO, SE MODIFICA
-        // EL TAMAÑO DEL WODGET DE LA FOTO DE PERFIL Y NO QUEDAN BIEN LOS
-        // ELEMENTOS.
-        // - CREAMOS LA FOTO DE PERFIL.
-        createBareProfilePicture(size),
-        // AQUÍ CREAREMOS EL ÍCONO QUE INDICA LAS NOTIFICACIONES, el cual hay
-        // que alinear en la esquina superior derecha.
-        Align(
-          alignment: Alignment.topRight,
-          // Contenedor con el número de notificaciones.
+        /// PUSE LAS NOTIFICACIONES AQUÍ, ya que con el BoxDecoration y
+        /// su borde, se alcanzaba a ver un pequeño borde rojo detrás
+        /// del borde gris, lo cual era molesto. Entonces mejor solo
+        /// tomé el tamaño relativo del contenedor padre y lo puse del
+        /// color de las notificaciones, simulando el borde gris (del
+        /// color de la pantalla).
+        child: FractionallySizedBox(
+          // alignment: Alignment.center,
+          heightFactor: 0.8,
+          widthFactor: 0.8,
           child: Container(
-            width: size / 2.8,
-            height: size / 2.8,
-            // alignment: Alignment.topRight,
-            padding: const EdgeInsets.all(0.0),
-            margin: const EdgeInsets.all(0.0),
-            // color: Colors.transparent,
-
+            // color: Colors.green,
+            alignment: Alignment.center,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               // Color rojo.
-              color: Palette.darkBackground,
-              // border: Border.all(
-              //   color: global_values.darkBackground,
-              //   // style: BorderStyle.none,
-              //   width: 2,
-              // )
+              color: Palette.notificationsRed,
             ),
-
-            /** PUSE LAS NOTIFICACIONES AQUÍ, ya que con el BoxDecoration y
-               * su borde, se alcanzaba a ver un pequeño borde rojo detrás
-               * del borde gris, lo cual era molesto. Entonces mejor solo
-               * tomé el tamaño relativo del contenedor padre y lo puse del
-               * color de las notificaciones, simulando el borde gris (del
-               * color de la pantalla).
-               * */
-            child: FractionallySizedBox(
-              // alignment: Alignment.center,
-              heightFactor: 0.8,
-              widthFactor: 0.8,
-              child: Container(
-                // color: Colors.green,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  // Color rojo.
-                  color: notificationsRed,
-                ),
-                // AQUÍ VA EL NÚMERO DE NOTIFICACIONES.
-                child: Text(
-                  notificationsNumberToShow,
-                  style: const TextStyle(
-                    color: Color(0xFFffffff),
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
+            // AQUÍ VA EL NÚMERO DE NOTIFICACIONES.
+            child: Text(
+              notificationsNumberToShow,
+              style: const TextStyle(
+                color: Color(0xFFffffff),
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
               ),
             ),
           ),
         ),
-      ],
-    ),
-  );
+      ),
+    );
+  }
 }
