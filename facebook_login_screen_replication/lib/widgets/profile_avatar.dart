@@ -40,28 +40,31 @@ class ProfileAvatar extends StatelessWidget {
 
   /// Indicador de que se quiere mostrar la foto de perfil sin ningún elemento
   /// por encima.
-  final bool isPictureWithoutElements;
+  bool isPictureWithoutElements;
 
   /// Booleano para ver si la foto de perfil se trata para una historia.
   ///
   /// De esto depende si dibujar una foto de perfil con un círculo azul
   /// alrededor o no.
-  final bool isPictureFromStory;
+  bool isPictureFromStory;
 
   /// Booleano para ver si la foto de perfil se encontrará en la pantalla de
   /// Login.
   ///
   /// Si la pantalla es de Login, no puede ser de una historia y viceversa.
-  final bool isPictureFromLogin;
+  bool isPictureFromLogin;
 
+  /// Constructor para mostrar la foto de perfil con o sin símbolo de estar
+  /// conectado.
+  ///
+  /// Es el constructor genérico para mostrar la foto de perfil.
   ProfileAvatar({
     Key key,
     @required this.user,
     @required this.size,
-    @required this.isPictureWithoutElements,
-    this.isPictureFromStory = false,
-    this.isPictureFromLogin = false,
-  }) : super(key: key);
+  }) : super(key: key) {
+    isPictureWithoutElements = false;
+  }
 
   /// Constructor para la foto de perfil en una historia.
   ProfileAvatar.forStory({
@@ -97,7 +100,7 @@ class ProfileAvatar extends StatelessWidget {
     /// historia [singleStory]. Si no existe, no sigue avanzando en la
     /// verificación de la condicional.
     if (isPictureFromStory && !user.singleStory?.isViewed) {
-      return size - 3;
+      return size - 3.0;
     }
 
     /// Si la foto de perfil no se ha visto, regresar el tamaño original.
@@ -108,8 +111,8 @@ class ProfileAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Stack es requerido para poder apilar los elementos con el ícono verde que
-    // indica que un usuario está conectado.
+    /// [Stack] es requerido para poder apilar los elementos.
+
     return Stack(
       children: [
         /// Crea un círculo azul alrededor de la foto de perfil si [hasBorder]
@@ -127,46 +130,22 @@ class ProfileAvatar extends StatelessWidget {
           /// esto, tendríamos que revisar lo siguiente:
           ///
           ///   - Si la historia ya se vio o no.
-          child: CircleAvatar(
-            /// Si [hasBorder] == true -> La foto de perfil será más pequeña que
-            /// el contenedor padre, por lo que se logrará ver el borde azul
-            /// cirular.
-            ///
-            /// Si [hasBorder] == false -> La foto de perfil será del mismo
-            /// tamaño que el contenedor padre [CircleAvatar], por lo que el
-            /// borde azul no se verá.
-            radius: _getPictureRadius(),
-            backgroundColor: Colors.grey[200],
-            // Imagen de fondo obtenida de un URL.
-            backgroundImage: CachedNetworkImageProvider(user.imageUrl),
+          child: _CreatePicture(
+            size: _getPictureRadius(),
+            imageUrl: user.imageUrl,
+            isProfilePictureFromInternet: user.isProfilePictureFromInternet,
           ),
         ),
-        // Si [isOnline] == true, mostrar ícono verde indicando conexión.
-        // Si no es true, entonces poner un SizedBox del menor tamaño posible.
+        /// Si [isOnline] == true, mostrar ícono verde indicando conexión.
+        /// Si no es true, entonces poner un SizedBox del menor tamaño posible.
         user.isOnline
             // [Positioned] pone el widget en la posición indicada respecto al
             // contenedor.
-            ? Positioned(
+            ? const Positioned(
                 bottom: 0.0,
                 right: 0.0,
                 // [Container] es requerido para mostrar el círculo verde.
-                child: Container(
-                  height: 15.0,
-                  width: 15.0,
-                  // [decoration] es requerido para hacer el circulo que indica
-                  // la conexión.
-                  decoration: BoxDecoration(
-                    color: Palette.online,
-                    shape: BoxShape.circle,
-                    // [border: Border.all(...)] para mostrar el borde circular
-                    // blanco
-                    // alrededor del círculo verde que indica la conexión.
-                    border: Border.all(
-                      width: 2.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                child: _OnlineIndicator(),
               )
             : const SizedBox.shrink(),
       ],
@@ -182,11 +161,130 @@ class ProfileAvatar extends StatelessWidget {
 /// - AssetImage()
 /// - CachedNetworkImageProvider()
 class _CreatePicture extends StatelessWidget {
-  const _CreatePicture({Key? key}) : super(key: key);
+  /// Tamaño de la imagen.
+  final double size;
+
+  /// Url de la imagen.
+  final String imageUrl;
+
+  /// Booleano para indicar si la foto de perfil proviene del sistema de
+  /// archivos o de internet.
+  ///
+  /// - Si la imagen viene de internet, utilizar
+  /// [CachedNetworkImageProvider].
+  ///
+  /// - Si la imagen no viene de internet significa que viene de los
+  /// [Asset]s, por lo que hay que utilizar [AssetImage].
+  ///
+  /// **El linter marcaba error si el casting se hacía de la siguiente
+  /// manera:**
+  ///
+  /// ```dart
+  /// backgroundImage: isProfilePictureFromInternet
+  ///    ? CachedNetworkImageProvider(imageUrl)
+  ///    : AssetImage(imageUrl);
+  /// ```
+  ///
+  /// > **Por lo que se tuvo que hacer un cast:**
+  ///
+  /// ```dart
+  /// backgroundImage: isProfilePictureFromInternet
+  ///    ? CachedNetworkImageProvider(imageUrl)
+  ///    : AssetImage(imageUrl) as ImageProvider;
+  /// ```
+  ///
+  /// > **Fuente:**
+  /// >
+  /// > - *https://github.com/flutter/flutter/issues/77782*
+  /// > - *https://github.com/flutter/flutter/issues/77782#issuecomment-799560559*
+  final bool isProfilePictureFromInternet;
+
+  const _CreatePicture({
+    Key key,
+    @required this.size,
+    @required this.imageUrl,
+    @required this.isProfilePictureFromInternet,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    /// Aquí puede devolver una u otra forma de renderizar la imagen
+    /// dependiendo de si viene de internet o no.
+    return CircleAvatar(
+      /// Si [hasBorder] == true -> La foto de perfil será más pequeña que
+      /// el contenedor padre, por lo que se logrará ver el borde azul
+      /// cirular.
+      ///
+      /// Si [hasBorder] == false -> La foto de perfil será del mismo
+      /// tamaño que el contenedor padre [CircleAvatar], por lo que el
+      /// borde azul no se verá.
+      radius: size,
+      backgroundColor: Colors.grey[200],
+
+      /// Imagen de fondo obtenida de un URL.
+      ///
+      /// - Si la imagen viene de internet, utilizar
+      /// [CachedNetworkImageProvider].
+      ///
+      /// - Si la imagen no viene de internet significa que viene de los
+      /// [Asset]s, por lo que hay que utilizar [AssetImage].
+      ///
+      /// **El linter marcaba error si el casting se hacía de la siguiente
+      /// manera:**
+      ///
+      /// ```dart
+      /// backgroundImage: isProfilePictureFromInternet
+      ///    ? CachedNetworkImageProvider(imageUrl)
+      ///    : AssetImage(imageUrl);
+      /// ```
+      ///
+      /// > **Por lo que se tuvo que hacer un cast:**
+      ///
+      /// ```dart
+      /// backgroundImage: isProfilePictureFromInternet
+      ///    ? CachedNetworkImageProvider(imageUrl)
+      ///    : AssetImage(imageUrl) as ImageProvider;
+      /// ```
+      backgroundImage: isProfilePictureFromInternet
+          ? CachedNetworkImageProvider(imageUrl)
+          : AssetImage(imageUrl) as ImageProvider,
+    );
+  }
+}
+
+/// Crear el círculo verde que indica si el usuario está online.
+class _OnlineIndicator extends StatelessWidget {
+  /// Tamaño del indicador de estado, que es color verde.
+  final double indicatorSize;
+
+  /// Tamaño del borde del círculo verde.
+  final double borderSize;
+
+  const _OnlineIndicator({
+    Key key,
+    this.indicatorSize = 15.0,
+    this.borderSize = 2.0,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: indicatorSize,
+      width: indicatorSize,
+      // [decoration] es requerido para hacer el circulo que indica
+      // la conexión.
+      decoration: BoxDecoration(
+        color: Palette.online,
+        shape: BoxShape.circle,
+        // [border: Border.all(...)] para mostrar el borde circular
+        // blanco
+        // alrededor del círculo verde que indica la conexión.
+        border: Border.all(
+          width: borderSize,
+          color: Colors.white,
+        ),
+      ),
+    );
   }
 }
 

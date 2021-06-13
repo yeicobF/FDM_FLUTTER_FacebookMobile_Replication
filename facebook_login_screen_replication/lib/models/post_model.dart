@@ -30,9 +30,38 @@ class Post {
   /// Hace cuánto tiempo se hizo la publicación.
   final String timeAgo;
 
+
   /// Booleano para indicar si la foto de perfil proviene del sistema de
   /// archivos o de internet.
-  final bool isProfilePictureFromInternet;
+  /// 
+  /// - Si la imagen viene de internet, utilizar
+  /// [CachedNetworkImageProvider].
+  /// 
+  /// - Si la imagen no viene de internet significa que viene de los
+  /// [Asset]s, por lo que hay que utilizar [AssetImage].
+  /// 
+  /// **El linter marcaba error si el casting se hacía de la siguiente
+  /// manera:**
+  /// 
+  /// ```dart
+  /// backgroundImage: isPictureFromInternet
+  ///    ? CachedNetworkImageProvider(imageUrl)
+  ///    : AssetImage(imageUrl);
+  /// ```
+  /// 
+  /// > **Por lo que se tuvo que hacer un cast:**
+  /// 
+  /// ```dart
+  /// backgroundImage: isPictureFromInternet
+  ///    ? CachedNetworkImageProvider(imageUrl)
+  ///    : AssetImage(imageUrl) as ImageProvider;
+  /// ```
+  /// 
+  /// > **Fuente:**
+  /// >
+  /// > - *https://github.com/flutter/flutter/issues/77782*
+  /// > - *https://github.com/flutter/flutter/issues/77782#issuecomment-799560559*
+  final bool isPictureFromInternet;
 
   /// URL de la imagen a mostrar.
   final String imageUrl;
@@ -60,7 +89,7 @@ class Post {
   Post({
     // @required this.user,
     @required this.caption,
-    @required this.isProfilePictureFromInternet,
+    @required this.isPictureFromInternet,
     @required this.imageUrl,
     @required this.timeAgo,
     @required this.likes,
