@@ -152,6 +152,49 @@ class ProfileAvatar extends StatelessWidget {
     }
   }
 
+  /// Obtener qué elementos se mostrará encima de la foto de perfil.
+  ///
+  /// Las opciones son:
+  ///
+  /// - La de pantalla de Login con círculo de notificaciones.
+  /// - La de las historias con el borde alrededor.
+  /// - La foto sin ningún elementos por encima.
+  /// - Si no es ninguna de las anteriores, mostrarla con el círculo verde
+  Widget _getElementAbovePicture() {
+    /// Revisar si la foto es de la pantalla de Login.
+    if (isPictureFromLogin) {
+      return _NotificationsCircle(
+        profilePictureSize: size,
+        notificationsNumber: user.notificationsNumber,
+      );
+    }
+
+    /// Si no es de la pantalla de Login, hay que revisar si el usuario está
+    /// conectado.
+    else {
+      /// El usuario está conectado.
+      if (user.isOnline) {
+        /// - Si es que está conectado el usuario.
+        /// - Si [isOnline] == true, mostrar ícono verde indicando conexión.
+        /// - Si no es true, entonces poner un SizedBox del menor tamaño posible.
+        // [Positioned] pone el widget en la posición indicada respecto al
+        // contenedor.
+        return const Positioned(
+          bottom: 0.0,
+          right: 0.0,
+          // [Container] es requerido para mostrar el círculo verde.
+          child: _OnlineIndicator(),
+        );
+      }
+
+      /// Si el usuario no está online, poner un [SizedBox] del menor tamaño
+      /// que permita el Widget padre.
+      else {
+        return const SizedBox.shrink();
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     /// [Stack] es requerido para poder apilar los elementos.
@@ -185,46 +228,22 @@ class ProfileAvatar extends StatelessWidget {
         /// > [!isPictureWithoutElements] significa que la foto sí tendrá
         /// elementos.
         ///
-        /// Las opciones son:
+        /// No se pueden poner corchetes ({}) en los [if], ya que se
+        /// interpreta como un [Set<Widget>].
         ///
-        /// - La de pantalla de Login con círculo de notificaciones.
-        /// - La de las historias con el borde alrededor.
-        /// - La foto sin ningún elementos por encima.
-        /// - Si no es ninguna de las anteriores, mostrarla con el círculo verde
+        /// - https://stackoverflow.com/questions/63247314/how-can-use-if-statement-with-container-widget-in-flutter
         if (!isPictureWithoutElements)
+          _getElementAbovePicture()
 
-          /// No se pueden poner corchetes ({}) en los [if], ya que se
-          /// interpreta como un [Set<Widget>].
-          /// 
-          /// - https://stackoverflow.com/questions/63247314/how-can-use-if-statement-with-container-widget-in-flutter
-          if (isPictureFromLogin)
-            _NotificationsCircle(
-              profilePictureSize: size,
-              notificationsNumber: user.notificationsNumber,
-            )
-          else if (user.isOnline)
-
-            /// - Si es que está conectado el usuario.
-            /// - Si [isOnline] == true, mostrar ícono verde indicando conexión.
-            /// - Si no es true, entonces poner un SizedBox del menor tamaño posible.
-            // [Positioned] pone el widget en la posición indicada respecto al
-            // contenedor.
-            const Positioned(
-              bottom: 0.0,
-              right: 0.0,
-              // [Container] es requerido para mostrar el círculo verde.
-              child: _OnlineIndicator(),
-            )
-            /// Si el usuario no está online.
-            else const SizedBox.shrink()
         /// Si la imagen sí tiene elementos.
-        /// 
+        ///
         /// Este [else] corresponde al [if]:
-        /// 
+        ///
         /// ```dart
         /// if (!isPictureWithoutElements)
         /// ```
-        else const SizedBox.shrink(),
+        else
+          const SizedBox.shrink(),
       ],
     );
   }
@@ -325,7 +344,6 @@ class _CreatePicture extends StatelessWidget {
       backgroundImage: isProfilePictureFromInternet
           ? CachedNetworkImageProvider(imageUrl)
           : AssetImage(imageUrl) as ImageProvider,
-          
     );
   }
 }
