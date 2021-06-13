@@ -1,10 +1,10 @@
 /// AVATAR DE PERFIL.
-/// 
+///
 /// Es una clase para crear la foto de perfil de un usuario.
-/// 
+///
 /// Tiene variaciones, ya que depende de qué se quiere mostrar. Los elementos
 /// que podría llevar son:
-/// 
+///
 /// - Número de notificaciones.
 /// - Borde azul para cuando se muestra en historias.
 /// - Círculo verde indicando que el usuario está conectado.
@@ -15,15 +15,15 @@ import 'package:flutter/material.dart';
 
 import '../config/palette.dart';
 
-/// Clase para crear una foto de perfil.
+/// Clase para crear una foto de perfil con diversas variantes.
 ///
 /// La foto de perfil puede ir con el círculo verde indicando que está conectado
 /// cuando [isOnline] = true. En caso contrario solamente muestra la foto de
 /// perfil.
-/// 
+///
 /// - Una foto de perfil no puede ser al mismo tiempo de la pantalla Login y de
 /// historias.
-/// 
+///
 /// - Una foto de perfil con ícono de estar conectado solamente se indicará si
 /// todos los booleanos que indican qué tipo de imagen será
 /// ([isPictureFromLogin], [[isPictureFromStory], [isBarePicture]]),
@@ -32,34 +32,79 @@ class ProfileAvatar extends StatelessWidget {
   /// Usuario al cual le pertenece la foto de perfil.
   final User user;
 
+  /// Historia actual que se está mostrando.
+  Story currentStory;
+
   /// Tamaño de la foto de perfil.
   final double size;
 
+  /// Indicador de que se quiere mostrar la foto de perfil sin ningún elemento
+  /// por encima.
+  final bool isPictureWithoutElements;
+
   /// Booleano para ver si la foto de perfil se trata para una historia.
-  /// 
+  ///
   /// De esto depende si dibujar una foto de perfil con un círculo azul
   /// alrededor o no.
   final bool isPictureFromStory;
 
   /// Booleano para ver si la foto de perfil se encontrará en la pantalla de
   /// Login.
-  /// 
+  ///
   /// Si la pantalla es de Login, no puede ser de una historia y viceversa.
   final bool isPictureFromLogin;
-
-  /// Indicador de que se quiere mostrar la foto de perfil sin ningún elemento
-  /// por encima.
 
   ProfileAvatar({
     Key key,
     @required this.user,
-  }) : super(key: key) {
-    /// [this.isOnline] = false: NO ES OBLIGATORIO, Y ES FALSE POR DEFAULT.
-    this.isOnline = user.isOnline;
+    @required this.size,
+    @required this.isPictureWithoutElements,
+    this.isPictureFromStory = false,
+    this.isPictureFromLogin = false,
+  }) : super(key: key);
 
-    /// Valor opcional.
-    this.hasBorder = false,
-  };
+  /// Constructor para la foto de perfil en una historia.
+  ProfileAvatar.forStory({
+    this.user,
+    this.currentStory,
+    this.size,
+    this.isPictureWithoutElements,
+    this.isPictureFromStory,
+    this.isPictureFromLogin,
+  });
+
+  /// Obtener el radio de la foto de perfil.
+  ///
+  /// Este se puede ver modificado dependiendo de si se trata de una historia o
+  /// no.
+  ///
+  /// **El tamaño se reduce con la historia porque detrás tiene un círculo azul,
+  /// por lo que cuando se reduce el tamaño del widget que muestra la imagen,
+  /// se ve ese círculo, el cual es representativo de una historia ([Story])
+  /// que no se ha visto.**
+  ///
+  /// - Si es una historia, entonces ver si la historia ya se vio o no.
+  ///
+  ///    - Si no se ha visto, reducir el tamaño.
+  ///    - Si la historia ya se vio, entonces no reducir el tamaño.
+  ///
+  /// - Si no es una historia, no reducir el tamaño.
+  double _getPictureRadius() {
+    /// Si la foto de perfil viene de las historias y se ha visto, se regresa
+    /// un tamaño menor.
+    ///
+    /// Con el [?.] solamente avanzamos en la condición si es que existe una
+    /// historia [singleStory]. Si no existe, no sigue avanzando en la
+    /// verificación de la condicional.
+    if (isPictureFromStory && !user.singleStory?.isViewed) {
+      return size - 3;
+    }
+
+    /// Si la foto de perfil no se ha visto, regresar el tamaño original.
+    else {
+      return size;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,10 +115,18 @@ class ProfileAvatar extends StatelessWidget {
         /// Crea un círculo azul alrededor de la foto de perfil si [hasBorder]
         /// es true.
         CircleAvatar(
-          radius: 20.0,
+          radius: size,
           backgroundColor: Palette.facebookBlue,
 
           /// Crea un avatar circular con la foto de perfil del usuario.
+          ///
+          /// Para esto cambiar su tamaño y que se vea el borde, hay que
+          /// revisar varias cosas:
+          ///
+          /// - Si la foto a dibujar se trata de una historia. Una vez revisado
+          /// esto, tendríamos que revisar lo siguiente:
+          ///
+          ///   - Si la historia ya se vio o no.
           child: CircleAvatar(
             /// Si [hasBorder] == true -> La foto de perfil será más pequeña que
             /// el contenedor padre, por lo que se logrará ver el borde azul
@@ -82,15 +135,15 @@ class ProfileAvatar extends StatelessWidget {
             /// Si [hasBorder] == false -> La foto de perfil será del mismo
             /// tamaño que el contenedor padre [CircleAvatar], por lo que el
             /// borde azul no se verá.
-            radius: hasBorder ? 17.0 : 20.0,
+            radius: _getPictureRadius(),
             backgroundColor: Colors.grey[200],
             // Imagen de fondo obtenida de un URL.
-            backgroundImage: CachedNetworkImageProvider(imageUrl),
+            backgroundImage: CachedNetworkImageProvider(user.imageUrl),
           ),
         ),
         // Si [isOnline] == true, mostrar ícono verde indicando conexión.
         // Si no es true, entonces poner un SizedBox del menor tamaño posible.
-        isOnline
+        user.isOnline
             // [Positioned] pone el widget en la posición indicada respecto al
             // contenedor.
             ? Positioned(
@@ -121,14 +174,31 @@ class ProfileAvatar extends StatelessWidget {
   }
 }
 
+/// Crear la foto de perfil con el archivo de la imagen.
+///
+/// Se crea una foto de perfil de distinta forma dependiendo de si la imagen se
+/// obtuvo de internet o de los assets del sistema de archivos.
+///
+/// - AssetImage()
+/// - CachedNetworkImageProvider()
+class _CreatePicture extends StatelessWidget {
+  const _CreatePicture({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
 /// Agregar a la foto de perfil el número de notificaciones en un círculo rojo
 /// en la esquina superior derecha
 class _NotificationsCircle extends StatelessWidget {
   /// Tamaño de la foto de perfil.
-  /// 
+  ///
   /// A partir del tamaño de la foto de perfil se calcula el tamaño del círculo
   /// de notifiaciones.
   final double profilePictureSize;
+
   /// Número de notificaciones.
   final int notificationsNumber;
 
@@ -136,22 +206,22 @@ class _NotificationsCircle extends StatelessWidget {
   final Color borderColor;
 
   /// Número de notificaciones a mostrar en el círculo.
-  /// 
+  ///
   /// - Si el número de notificaciones([notificationsNumber]) es mayor a  99,
   /// mostrar el 99.
-  /// 
+  ///
   /// - Si el número de notificaciones ([notificationsNumber]) es menor a 0,
   /// mostrar el 0.
-  /// 
+  ///
   /// - Si el número de notificaciones ([notificationsNumber]) es mayor o igual
   /// a 1 y menor o igual a 99, muestra el número sin modificar.
-  /// 
+  ///
   /// - Si el número de notificaciones ([notificationsNumber]) es igual a 0, no
   /// lo muestra. Esto se comprueba desde el [Widget] [ProfileAvatar].
   String notificationsNumberToShow;
 
   /// Tamaño del círculo de notificaciones.
-  /// 
+  ///
   /// Este será calculado a partir del tamaño de la foto de perfil.
   double notificationsSize;
 
@@ -160,31 +230,27 @@ class _NotificationsCircle extends StatelessWidget {
     @required this.profilePictureSize,
     @required this.notificationsNumber,
     this.borderColor = Palette.darkBackground,
-    }) : super(key: key)
-    {
-      /// Revisar el número de notificaciones para ver qué número se va a
-      /// mostrar.
-      notificationsNumberToShow =
-          ((notificationsNumber > 99)
-          ? 99
-          : notificationsNumber).toString();
+  }) : super(key: key) {
+    /// Revisar el número de notificaciones para ver qué número se va a
+    /// mostrar.
+    notificationsNumberToShow =
+        ((notificationsNumber > 99) ? 99 : notificationsNumber).toString();
 
-      /// Calcular el tamaño del círculo de notificaciones.
-      notificationsSize = profilePictureSize / 2.8;
-    }
-
-
+    /// Calcular el tamaño del círculo de notificaciones.
+    notificationsSize = profilePictureSize / 2.8;
+  }
 
   @override
   Widget build(BuildContext context) {
     /// El ícono de notificaciones debe estar alineado en la esquina superior
     /// derecha de la foto de perfil.
-    /// 
+    ///
     /// Creo que el [Align] debería estar en el [ProfileAvatar].
     return Align(
       alignment: Alignment.topRight,
+
       /// Contenedor con el número de notificaciones y su borde.
-      /// 
+      ///
       /// El círculo con el color de fondo del número de notificaciones está
       /// definido en el [child] de este [Widget].
       child: Container(
@@ -196,7 +262,7 @@ class _NotificationsCircle extends StatelessWidget {
         // color: Colors.transparent,
 
         /// Borde alrededor del círculo de notificaciones.
-        /// 
+        ///
         /// Podría hacerlo con dos [CircleAvatar], uno más grande que el otro,
         /// pero no tendría mucha coherencia con el nombre del [Widget].
         decoration: BoxDecoration(
