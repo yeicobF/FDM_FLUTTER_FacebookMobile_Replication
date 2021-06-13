@@ -125,9 +125,11 @@ class _LoginScreenContent extends StatelessWidget {
             ],
           ),
 
-          const Expanded(
+          Expanded(
             flex: 1,
-            child: _ForgotPassword(),
+            child: _ForgotPassword(
+              onPressed: () => print("Forgot Password?"),
+            ),
           ),
         ],
       ),
@@ -146,7 +148,7 @@ class _TextInputField extends StatelessWidget {
   ///
   /// Este es diferente cuando está activo y cuando no lo está.
   Map<String, Color> get bottomBorderColors => const {
-        "blueFocus": Color(0xFF3987ea),
+        "blueFocus": Palette.fbButtonLighterBlue,
         "grayNotFocus": Color(0xFF505153),
       };
 
@@ -163,13 +165,13 @@ class _TextInputField extends StatelessWidget {
   final bool isPassword;
 
   /// Tamaño de la fuente cuando está ingresando texto.
-  final double inputFontSize; 
+  final double inputFontSize;
 
   const _TextInputField({
     Key key,
     @required this.hintText,
     @required this.isPassword,
-    this.inputFontSize = 21.0,
+    this.inputFontSize = 22.0,
   }) : super(key: key);
 
   @override
@@ -201,7 +203,7 @@ class _TextInputField extends StatelessWidget {
           color: hintTextColor,
           //decorationColor: Colors.grey,
           fontSize: inputFontSize - 1.0,
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w500,
           letterSpacing: -0.1,
         ),
         enabledBorder: UnderlineInputBorder(
@@ -245,15 +247,13 @@ class _LoginButton extends StatelessWidget {
   /// Color del botón.
   final Color buttonColor;
 
-
   const _LoginButton({
     Key key,
     @required this.onPressed,
-    this.buttonColor = const Color(0xFF3987ea),
+    this.buttonColor = Palette.fbButtonLighterBlue,
 
     // this.buttonColor = Colors.blueAccent,
-    this.fontColor = const Color(0xFF97c6fe),
-
+    this.fontColor = Palette.fbFontLighterBlue,
     this.fontSize = 19.0,
   }) : super(key: key);
 
@@ -282,7 +282,7 @@ class _LoginButton extends StatelessWidget {
           "Log In",
           style: TextStyle(
             fontSize: fontSize,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w700,
             color: fontColor,
           ),
         ),
@@ -310,12 +310,20 @@ class _LoginButton extends StatelessWidget {
   }
 }
 
+/// Botón de texto para ver opciones de recuperación de contraseña.
+///
 /// Texto que indica la siguiente leyenda:
 ///
-/// "Forgot Password?"
+/// > "Forgot Password?"
 class _ForgotPassword extends StatelessWidget {
+  /// Función a ejecutar cuando se presione el botón.
+  final void Function() onPressed;
+
   /// Color de la fuente.
   final Color fontColor;
+
+  /// Tamaño de la fuente.
+  final double fontSize;
 
   /// Alineación del texto.
   ///
@@ -327,11 +335,13 @@ class _ForgotPassword extends StatelessWidget {
 
   const _ForgotPassword({
     Key key,
+    @required this.onPressed,
     this.fontColor = const Color(0xFF4e9af5),
 
     /// Por default se inicializará en la parte inferior si no se envía el
     /// parámetro.
     this.alignment = Alignment.bottomCenter,
+    this.fontSize = 19.0,
   }) : super(key: key);
 
   @override
@@ -348,19 +358,17 @@ class _ForgotPassword extends StatelessWidget {
     // TIENE CIERTO GRADO DE RESPONSIVIDAD.
     return Align(
       alignment: alignment,
-      child: SizedBox(
-        height: 40,
-        // QUE EL ANCHO SEA EL MÁXIMO POSIBLE.
-        // https://stackoverflow.com/questions/50014342/button-width-match-parent
-        width: double.infinity,
-        child: Center(
-          child: Text(
-            "Forgot Password?",
-            style: TextStyle(
-              fontSize: 16.5,
-              fontWeight: FontWeight.w700,
-              color: fontColor,
-            ),
+      // QUE EL ANCHO SEA EL MÁXIMO POSIBLE.
+      // https://stackoverflow.com/questions/50014342/button-width-match-parent
+      child: TextButton(
+        onPressed: onPressed,
+        child: Text(
+          "Forgot Password?",
+          style: TextStyle(
+            fontSize: fontSize,
+            fontWeight: FontWeight.w600,
+            color: fontColor,
+            letterSpacing: 0.5,
           ),
         ),
       ),

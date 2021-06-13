@@ -31,6 +31,14 @@ class Palette {
   /// Color azul que se encuentra en Facebook.
   static const Color facebookBlue = Color(0xFF1777F2);
 
+  /// Color azul más claro para botones.
+  static const Color fbButtonLighterBlue = Color(0xFF3987ea);
+
+  /// Color azul más claro para el texto.
+  /// 
+  /// Es más blanco que azul.
+  static const Color fbFontLighterBlue = Color(0xFF97c6fe);
+
   /// Fondo oscuro de pantalla.
   static const Color darkBackground = Color.fromARGB(255, 36, 37, 39);
 
