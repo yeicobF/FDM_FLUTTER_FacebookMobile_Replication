@@ -12,6 +12,9 @@ import 'package:flutter/material.dart';
 /// >  Palette.nombreVariable
 /// > ```
 class Palette {
+  /// Color blanco.
+  static const Color white = Color(0xFFFFFFFF);
+
   /// Color del [Scaffold].
   static const Color scaffold = Color(0xFFF0F2F5);
 
@@ -19,6 +22,10 @@ class Palette {
   static const Map<String, Color> firstScreenColors = {
       "fbButtonColor": Color(0xFF273951),
       "fbFontColor": Color(0xFF4e9af5),
+  };
+
+  static const Map<String, Color> secondScreenColors = {
+
   };
 
   /// Color azul que se encuentra en Facebook.
