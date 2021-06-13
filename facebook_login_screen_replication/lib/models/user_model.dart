@@ -156,55 +156,55 @@ class User {
   int get totalPosts => postList.length;
 }
 
-/* ----------------- MÉTODOS PARA CREAR LAS FOTOS DE PERFIL ----------------- */
-
-// - Número de notificaciones: Círuclo rojo en esquina superior derecha con el
-//    número de notificaciones pendientes.
-// - Si estás conectado: Círculo verde.
-// - Si no estás conectado: Círculo rojo.
-
-// Crear la foto de perfil sin nada más (notificaciones, etc).
-Widget createBareProfilePicture(double size) {
-  return Container(
-    // 60 es el tamaño promedio.
-    width: size,
-    height: size,
-    // color: Colors.white,
-
-    // PARA HACER EL CÍRCULO SEGUÍ LO SIGUIENTE:
-    // https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
-    decoration: BoxDecoration(
-      color: Colors.white,
-      shape: BoxShape.circle,
-      // Ya que tiene un borde establecido por default se lo quitamos.
-      border: Border.all(
-        // YA NO SE MUESTRA EL BORDE NEGRO QUE SE VEÍA EN LA FOTO DE PERFIL.
-        color: Colors.transparent,
-        width: 0,
-      ),
-      image: DecorationImage(
-        /// Revisar si la imagen proviene de internet o del sistema de
-        /// archivos. Dependiendo de la procedencia, se utiliza uno u otro
-        /// widget.
-        image: AssetImage(imageUrl),
-
-        // image: isProfilePictureFromInternet
-        //     ? CachedNetworkImageProvider(imageUrl)
-        //     : AssetImage(imageUrl),
-
-        // Así se baja la calidad.
-        // image: ResizeImage(
-        //   AssetImage(imageUrl),
-        //   width: size.toInt(),
-        //   height: size.toInt()
-        // ),
-        fit: BoxFit.cover,
-      ),
-    ),
-  );
-}
-
-// Crear la foto de perfil con un círculo verde  en la esquina inferior derecha,
-// indicando que un usuario está conectado.
-Widget createConnectedProfilePicture() {}
-
+// /* ----------------- MÉTODOS PARA CREAR LAS FOTOS DE PERFIL ----------------- */
+// 
+// // - Número de notificaciones: Círuclo rojo en esquina superior derecha con el
+// //    número de notificaciones pendientes.
+// // - Si estás conectado: Círculo verde.
+// // - Si no estás conectado: Círculo rojo.
+// 
+// // Crear la foto de perfil sin nada más (notificaciones, etc).
+// Widget createBareProfilePicture(double size) {
+//   return Container(
+//     // 60 es el tamaño promedio.
+//     width: size,
+//     height: size,
+//     // color: Colors.white,
+// 
+//     // PARA HACER EL CÍRCULO SEGUÍ LO SIGUIENTE:
+//     // https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
+//     decoration: BoxDecoration(
+//       color: Colors.white,
+//       shape: BoxShape.circle,
+//       // Ya que tiene un borde establecido por default se lo quitamos.
+//       border: Border.all(
+//         // YA NO SE MUESTRA EL BORDE NEGRO QUE SE VEÍA EN LA FOTO DE PERFIL.
+//         color: Colors.transparent,
+//         width: 0,
+//       ),
+//       image: DecorationImage(
+//         /// Revisar si la imagen proviene de internet o del sistema de
+//         /// archivos. Dependiendo de la procedencia, se utiliza uno u otro
+//         /// widget.
+//         image: AssetImage(imageUrl),
+// 
+//         // image: isProfilePictureFromInternet
+//         //     ? CachedNetworkImageProvider(imageUrl)
+//         //     : AssetImage(imageUrl),
+// 
+//         // Así se baja la calidad.
+//         // image: ResizeImage(
+//         //   AssetImage(imageUrl),
+//         //   width: size.toInt(),
+//         //   height: size.toInt()
+//         // ),
+//         fit: BoxFit.cover,
+//       ),
+//     ),
+//   );
+// }
+// 
+// // Crear la foto de perfil con un círculo verde  en la esquina inferior derecha,
+// // indicando que un usuario está conectado.
+// Widget createConnectedProfilePicture() {}
+// 

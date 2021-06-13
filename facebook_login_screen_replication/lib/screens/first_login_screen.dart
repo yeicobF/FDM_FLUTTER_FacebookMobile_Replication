@@ -14,8 +14,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart'
 import '../config/palette.dart' show Palette;
 import '../data/initial_data.dart' show InitialData;
 
-/// USUARIO
+/// Modelos.
 import '../models/models.dart' show User;
+
+/// Widgets.
+import '../widgets/widgets.dart' show ProfileAvatar;
 
 /// Primera pantalla de Login.
 ///
@@ -160,7 +163,6 @@ class _DisplayAllScreenElements extends StatelessWidget {
 
                       _ShowUserInfo(
                         currentUser: currentUser,
-                        pictureSize: 65,
                       ),
                       // Este es un separador entre la información del
                       // usuario y los botones.
@@ -336,9 +338,9 @@ class _CreateNewFacebookAccountButton extends StatelessWidget {
   Widget build(BuildContext context) {
     // PREFERIRÍA PONER UN "EXPANDED" en lugar de un "PADDING", pero como tengo
     // los elementos en distintas columnas y contenedores, cuando utilizo el
-    // EXPANDED, la pantalla solo se ve del contenedor del primer contenedor, así
-    // que mejor utilicé el PADDING, pero esto le quita la responsividad y solo se
-    // vería igual en el mismo dispositivo (Google Pixel 2).
+    // EXPANDED, la pantalla solo se ve del contenedor del primer contenedor,
+    // así que mejor utilicé el PADDING, pero esto le quita la responsividad y
+    // solo se vería igual en el mismo dispositivo (Google Pixel 2).
     //
     // - ESTO DE ARRIBA ERA PORQUE HABÍA PUESTO PADDING.
 
@@ -401,7 +403,7 @@ class _ShowUserInfo extends StatelessWidget {
   const _ShowUserInfo({
     Key key,
     @required this.currentUser,
-    @required this.pictureSize,
+    this.pictureSize = 65.0,
   }) : super(key: key);
 
   @override
@@ -429,13 +431,10 @@ class _ShowUserInfo extends StatelessWidget {
           Container(
             /// Margin a la derecha de la foto de perfil.
             margin: const EdgeInsets.only(right: 12),
-            child: (currentUser.notificationsNumber > 0)
-                ? currentUser.createProfilePictureWithNotifications(
-                    pictureSize,
-                  )
-                : currentUser.createBareProfilePicture(
-                    pictureSize,
-                  ),
+            child: ProfileAvatar.forLogin(
+              user: currentUser,
+              size: pictureSize,
+            ),
           ),
 
           Text(

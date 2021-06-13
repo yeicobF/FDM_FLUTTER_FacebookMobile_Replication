@@ -28,7 +28,7 @@ abstract class InitialData {
       caption: "Hola",
       comments: 23,
       imageUrl: "assets/user/post_images/german.jpg",
-      isProfilePictureFromInternet: false,
+      isPictureFromInternet: false,
       likes: 102,
       shares: 13,
       timeAgo: "5hr",
@@ -38,7 +38,7 @@ abstract class InitialData {
       caption: "Isaac",
       comments: 666,
       imageUrl: "assets/user/post_images/rodrigo.jpg",
-      isProfilePictureFromInternet: false,
+      isPictureFromInternet: false,
       likes: 666,
       shares: 666,
       timeAgo: "6s",
@@ -60,7 +60,7 @@ abstract class InitialData {
           r" \ /" +
           "  v",
       imageUrl: "assets/user/post_images/sergio_1.jpg",
-      isProfilePictureFromInternet: false,
+      isPictureFromInternet: false,
       comments: 2,
       likes: 22,
       shares: 222,
@@ -70,7 +70,7 @@ abstract class InitialData {
     Post(
       caption: "",
       imageUrl: "assets/user/post_images/eduardo_gambling.jpg",
-      isProfilePictureFromInternet: false,
+      isPictureFromInternet: false,
       timeAgo: "",
       likes: 1500,
       comments: 123,
@@ -80,7 +80,7 @@ abstract class InitialData {
     Post(
       caption: 'Check out these cool puppers',
       timeAgo: '58m',
-      isProfilePictureFromInternet: true,
+      isPictureFromInternet: true,
       imageUrl: 'https://images.unsplash.com/photo-1525253086316-d0c936c814f8',
       likes: 1202,
       comments: 184,
@@ -91,7 +91,7 @@ abstract class InitialData {
       caption:
           'Please enjoy this placeholder text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       timeAgo: '3hr',
-      isProfilePictureFromInternet: true,
+      isPictureFromInternet: true,
       imageUrl: null,
       likes: 683,
       comments: 79,
@@ -101,7 +101,7 @@ abstract class InitialData {
     Post(
       caption: 'This is a very good boi.',
       timeAgo: '8hr',
-      isProfilePictureFromInternet: true,
+      isPictureFromInternet: true,
       imageUrl:
           'https://images.unsplash.com/photo-1575535468632-345892291673?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
       likes: 894,
@@ -112,7 +112,7 @@ abstract class InitialData {
     Post(
       caption: 'Adventure 🏔',
       timeAgo: '15hr',
-      isProfilePictureFromInternet: true,
+      isPictureFromInternet: true,
       imageUrl:
           'https://images.unsplash.com/photo-1573331519317-30b24326bb9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
       likes: 722,
@@ -124,7 +124,7 @@ abstract class InitialData {
       caption:
           'More placeholder text for the soul: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       timeAgo: '1d',
-      isProfilePictureFromInternet: true,
+      isPictureFromInternet: true,
       imageUrl: null,
       likes: 482,
       comments: 37,
@@ -134,7 +134,7 @@ abstract class InitialData {
     Post(
       caption: 'A classic.',
       timeAgo: '1d',
-      isProfilePictureFromInternet: true,
+      isPictureFromInternet: true,
       imageUrl:
           'https://images.unsplash.com/reserve/OlxPGKgRUaX0E1hg3b3X_Dumbo.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
       likes: 1523,

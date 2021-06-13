@@ -114,7 +114,7 @@ class ProfileAvatar extends StatelessWidget {
   /// En esta pantalla se muestra el círculo de notificaciones.
   ProfileAvatar.forLogin({
     @required this.user,
-    this.size = 20.0,
+    @required this.size,
   })  : isPictureFromLogin = true,
         isPictureFromStory = false,
         isPictureWithoutElements = false;
@@ -325,6 +325,7 @@ class _CreatePicture extends StatelessWidget {
       backgroundImage: isProfilePictureFromInternet
           ? CachedNetworkImageProvider(imageUrl)
           : AssetImage(imageUrl) as ImageProvider,
+          
     );
   }
 }
