@@ -62,13 +62,10 @@ class FirstLoginScreen extends StatelessWidget {
       //   brightness: Brightness.dark, // status bar brightness
       // ),
       // ---------------------------------------------------------------------
-      body: Container(
-        // Fondo de Facebook oscuro.
-        color: Palette.darkBackground,
-        // Mostrar todos los elementos de la pantalla.
-        child:
-            _DisplayAllScreenElements(currentUser: InitialData.currentUser),
-      ),
+
+      // Fondo de Facebook oscuro.
+      backgroundColor: Palette.darkBackground,
+      body: _DisplayAllScreenElements(currentUser: InitialData.currentUser),
     );
   }
 }
@@ -433,15 +430,17 @@ class _ShowUserInfo extends StatelessWidget {
           ),
 
           /// Ponemos un [Expanded] para que el texto actúe de una forma con el
-          /// Overflow. 
-          /// 
+          /// Overflow.
+          ///
           /// Si no ponemos [Expanded], el texto no tiene tamaño limitante.
           Expanded(
             child: Text(
               currentUser.name,
               textAlign: TextAlign.left,
+
               /// Número máximo de líneas para el nombre: 2.
               maxLines: 2,
+
               /// Mostrar 3 puntos cuando el nombre supere el tamaño del
               /// [Widget] y el número máximo de líneas [maxLines].
               overflow: TextOverflow.ellipsis,
@@ -452,6 +451,7 @@ class _ShowUserInfo extends StatelessWidget {
               ),
             ),
           ),
+
           /// Ocupa el último espacio de la pantalla.
           Container(
             alignment: Alignment.center,

@@ -11,7 +11,7 @@ class LoginScreenAfterClick extends StatelessWidget {
   final Color fbFontColor = const Color(0xFF4e9af5);
   final Color fbFontColor2 = const Color(0xFFFFFFFF);
   final Color fbButtonColor2 = const Color(0xFF0F163D);
-  final Color fbGray = const Color(0x636565);
+  final Color fbGray = const Color(0xFF636565);
 // const Color fbFontColor = Color(0xFF4e9bf9);
 
   // Obtener el tamaño inicial de la pantalla para así, si cambia el tamaño
@@ -341,15 +341,13 @@ class _ForgotPassword extends StatelessWidget {
         // QUE EL ANCHO SEA EL MÁXIMO POSIBLE.
         // https://stackoverflow.com/questions/50014342/button-width-match-parent
         width: double.infinity,
-        child: Container(
-          child: Center(
-            child: Text(
-              "Forgot Password?",
-              style: TextStyle(
-                fontSize: 16.5,
-                fontWeight: FontWeight.w700,
-                color: fontColor,
-              ),
+        child: Center(
+          child: Text(
+            "Forgot Password?",
+            style: TextStyle(
+              fontSize: 16.5,
+              fontWeight: FontWeight.w700,
+              color: fontColor,
             ),
           ),
         ),
