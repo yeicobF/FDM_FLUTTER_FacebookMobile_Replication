@@ -62,17 +62,12 @@ class FirstLoginScreen extends StatelessWidget {
       //   brightness: Brightness.dark, // status bar brightness
       // ),
       // ---------------------------------------------------------------------
-      body: FractionallySizedBox(
-        widthFactor: 1,
-        heightFactor: 1,
-        // UN CONTENEDOR PARA PODER ESTABLECER EL COLOR DEL FONDO DE LA PANTALLA.
-        child: Container(
-          // Fondo de Facebook oscuro.
-          color: Palette.darkBackground,
-          // Mostrar todos los elementos de la pantalla.
-          child:
-              _DisplayAllScreenElements(currentUser: InitialData.currentUser),
-        ),
+      body: Container(
+        // Fondo de Facebook oscuro.
+        color: Palette.darkBackground,
+        // Mostrar todos los elementos de la pantalla.
+        child:
+            _DisplayAllScreenElements(currentUser: InitialData.currentUser),
       ),
     );
   }
@@ -398,12 +393,12 @@ class _ShowUserInfo extends StatelessWidget {
   final User currentUser;
 
   /// Tamaño de la foto de perfil del usuario.
-  final double pictureSize;
+  final double pictureRadius;
 
   const _ShowUserInfo({
     Key key,
     @required this.currentUser,
-    this.pictureSize = 65.0,
+    this.pictureRadius = 30.0,
   }) : super(key: key);
 
   @override
@@ -411,11 +406,11 @@ class _ShowUserInfo extends StatelessWidget {
     // Guardar foto de perfil dependiendo de si tiene notificaciones o no.
     // final Widget _profilePicture = (currentUser.notificationsNumber > 0)
     //     ? currentUser.createProfilePictureWithNotifications(
-    //         pictureSize,
+    //         pictureRadius,
     //         const EdgeInsets.only(right: 0),
     //       )
     //     : currentUser.createBareProfilePicture(
-    //         pictureSize, const EdgeInsets.only(right: 0));
+    //         pictureRadius, const EdgeInsets.only(right: 0));
 
     return Container(
       margin: const EdgeInsets.only(
@@ -433,30 +428,37 @@ class _ShowUserInfo extends StatelessWidget {
             margin: const EdgeInsets.only(right: 12),
             child: ProfileAvatar.forLogin(
               user: currentUser,
-              size: pictureSize,
+              radius: pictureRadius,
             ),
           ),
 
-          Text(
-            currentUser.name,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+          /// Ponemos un [Expanded] para que el texto actúe de una forma con el
+          /// Overflow. 
+          /// 
+          /// Si no ponemos [Expanded], el texto no tiene tamaño limitante.
+          Expanded(
+            child: Text(
+              currentUser.name,
+              textAlign: TextAlign.left,
+              /// Número máximo de líneas para el nombre: 2.
+              maxLines: 2,
+              /// Mostrar 3 puntos cuando el nombre supere el tamaño del
+              /// [Widget] y el número máximo de líneas [maxLines].
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-          // EXPANDED para que se ocupe todo el ancho restante. Si solo pongo el
-          // container, no se adaptará el ancho
-          Expanded(
-            // ESTE DEBERÍA DE SER UN BOTÓN.
-            child: Container(
-              alignment: Alignment.centerRight,
-              child: const Icon(
-                // FontAwesomeIcons.ellipsisV, // ESTÁ MÁS ROBUSTO
-                Icons.more_vert,
-                color: Colors.white,
-              ),
+          /// Ocupa el último espacio de la pantalla.
+          Container(
+            alignment: Alignment.center,
+            child: const Icon(
+              // FontAwesomeIcons.ellipsisV, // ESTÁ MÁS ROBUSTO
+              Icons.more_vert,
+              color: Colors.white,
             ),
           )
         ],

@@ -8,12 +8,14 @@
 /// - Número de notificaciones.
 /// - Borde azul para cuando se muestra en historias.
 /// - Círculo verde indicando que el usuario está conectado.
-
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:facebook_login_screen_replication/models/models.dart';
 import 'package:flutter/material.dart';
 
-import '../config/palette.dart';
+/// Paleta de colores.
+import '../config/palette.dart' show Palette;
+
+/// Clases de los modelos.
+import '../models/models.dart' show Story, User;
 
 /// Clase para crear una foto de perfil con diversas variantes.
 ///
@@ -41,8 +43,10 @@ class ProfileAvatar extends StatelessWidget {
   /// Usuario al cual le pertenece la foto de perfil.
   final User user;
 
-  /// Tamaño de la foto de perfil.
-  final double size;
+  /// Radio de la foto de perfil.
+  ///
+  /// Esto es porque la foto de perfil se genera de forma circular.
+  final double radius;
 
   /// Indicador de que se quiere mostrar la foto de perfil sin ningún elemento
   /// por encima.
@@ -90,7 +94,7 @@ class ProfileAvatar extends StatelessWidget {
   ProfileAvatar({
     Key key,
     @required this.user,
-    this.size = 20.0,
+    this.radius = 20.0,
     this.isPictureWithoutElements = false,
   })  : isPictureFromLogin = false,
         isPictureFromStory = false,
@@ -101,7 +105,7 @@ class ProfileAvatar extends StatelessWidget {
   ProfileAvatar.forStory({
     @required this.user,
     @required this.currentStory,
-    this.size = 20.0,
+    this.radius = 20.0,
   })  :
 
         /// La imagen sí es de las historias.
@@ -114,7 +118,7 @@ class ProfileAvatar extends StatelessWidget {
   /// En esta pantalla se muestra el círculo de notificaciones.
   ProfileAvatar.forLogin({
     @required this.user,
-    @required this.size,
+    @required this.radius,
   })  : isPictureFromLogin = true,
         isPictureFromStory = false,
         isPictureWithoutElements = false;
@@ -143,12 +147,12 @@ class ProfileAvatar extends StatelessWidget {
     /// historia [singleStory]. Si no existe, no sigue avanzando en la
     /// verificación de la condicional.
     if (isPictureFromStory && !user.singleStory?.isViewed) {
-      return size - 3.0;
+      return radius - 3.0;
     }
 
     /// Si la foto de perfil no se ha visto, regresar el tamaño original.
     else {
-      return size;
+      return radius;
     }
   }
 
@@ -163,9 +167,18 @@ class ProfileAvatar extends StatelessWidget {
   Widget _getElementAbovePicture() {
     /// Revisar si la foto es de la pantalla de Login.
     if (isPictureFromLogin) {
-      return _NotificationsCircle(
-        profilePictureSize: size,
-        notificationsNumber: user.notificationsNumber,
+      return Positioned(
+        top: 0,
+        right: 0,
+
+        /// Contenedor con el número de notificaciones y su borde.
+        ///
+        /// El círculo con el color de fondo del número de notificaciones está
+        /// definido en el [child] de este [Widget].
+        child: _NotificationsCircle(
+          profilePictureSize: radius * 2,
+          notificationsNumber: user.notificationsNumber,
+        ),
       );
     }
 
@@ -204,7 +217,7 @@ class ProfileAvatar extends StatelessWidget {
         /// Crea un círculo azul alrededor de la foto de perfil si [hasBorder]
         /// es true.
         CircleAvatar(
-          radius: size,
+          radius: radius,
           backgroundColor: Palette.facebookBlue,
 
           /// Crea un avatar circular con la foto de perfil del usuario.
@@ -217,7 +230,7 @@ class ProfileAvatar extends StatelessWidget {
           ///
           ///   - Si la historia ya se vio o no.
           child: _CreatePicture(
-            size: _getPictureRadius(),
+            radius: _getPictureRadius(),
             imageUrl: user.imageUrl,
             isProfilePictureFromInternet: user.isProfilePictureFromInternet,
           ),
@@ -258,7 +271,7 @@ class ProfileAvatar extends StatelessWidget {
 /// - CachedNetworkImageProvider()
 class _CreatePicture extends StatelessWidget {
   /// Tamaño de la imagen.
-  final double size;
+  final double radius;
 
   /// Url de la imagen.
   final String imageUrl;
@@ -276,7 +289,7 @@ class _CreatePicture extends StatelessWidget {
   /// manera:**
   ///
   /// ```dart
-  /// backgroundImage: isProfilePictureFromInternet
+  /// foregroundImage: isProfilePictureFromInternet
   ///    ? CachedNetworkImageProvider(imageUrl)
   ///    : AssetImage(imageUrl);
   /// ```
@@ -284,7 +297,7 @@ class _CreatePicture extends StatelessWidget {
   /// > **Por lo que se tuvo que hacer un cast:**
   ///
   /// ```dart
-  /// backgroundImage: isProfilePictureFromInternet
+  /// foregroundImage: isProfilePictureFromInternet
   ///    ? CachedNetworkImageProvider(imageUrl)
   ///    : AssetImage(imageUrl) as ImageProvider;
   /// ```
@@ -297,7 +310,7 @@ class _CreatePicture extends StatelessWidget {
 
   const _CreatePicture({
     Key key,
-    @required this.size,
+    @required this.radius,
     @required this.imageUrl,
     @required this.isProfilePictureFromInternet,
   }) : super(key: key);
@@ -314,7 +327,7 @@ class _CreatePicture extends StatelessWidget {
       /// Si [hasBorder] == false -> La foto de perfil será del mismo
       /// tamaño que el contenedor padre [CircleAvatar], por lo que el
       /// borde azul no se verá.
-      radius: size,
+      radius: radius,
       backgroundColor: Colors.grey[200],
 
       /// Imagen de fondo obtenida de un URL.
@@ -329,7 +342,7 @@ class _CreatePicture extends StatelessWidget {
       /// manera:**
       ///
       /// ```dart
-      /// backgroundImage: isProfilePictureFromInternet
+      /// foregroundImage: isProfilePictureFromInternet
       ///    ? CachedNetworkImageProvider(imageUrl)
       ///    : AssetImage(imageUrl);
       /// ```
@@ -337,10 +350,15 @@ class _CreatePicture extends StatelessWidget {
       /// > **Por lo que se tuvo que hacer un cast:**
       ///
       /// ```dart
-      /// backgroundImage: isProfilePictureFromInternet
+      /// foregroundImage: isProfilePictureFromInternet
       ///    ? CachedNetworkImageProvider(imageUrl)
       ///    : AssetImage(imageUrl) as ImageProvider;
       /// ```
+      foregroundImage: isProfilePictureFromInternet
+          ? CachedNetworkImageProvider(imageUrl)
+          : AssetImage(imageUrl) as ImageProvider,
+
+      /// [backgroundImage] es un fallback de [foregroundImage].
       backgroundImage: isProfilePictureFromInternet
           ? CachedNetworkImageProvider(imageUrl)
           : AssetImage(imageUrl) as ImageProvider,
@@ -393,6 +411,17 @@ class _NotificationsCircle extends StatelessWidget {
   /// de notifiaciones.
   final double profilePictureSize;
 
+  /// Tamaño de fuente con la que mostrar las notificaciones.
+  ///
+  /// - Si las notificaciones tienen 2 dígitos y son menores a 100, disminuir
+  /// el tamaño de la fuente un poco.
+  ///
+  /// - Si son más de 100 notificaciones, disminuir aún más las notificaciones
+  /// para mostrar un "+99", el cual ocupa más espacio.
+  ///
+  /// - Si son menos de 10 notificaciones, mostrar la fuente original.
+  double fontSize;
+
   /// Número de notificaciones.
   final int notificationsNumber;
 
@@ -404,14 +433,11 @@ class _NotificationsCircle extends StatelessWidget {
   /// - Si el número de notificaciones([notificationsNumber]) es mayor a  99,
   /// mostrar el 99.
   ///
-  /// - Si el número de notificaciones ([notificationsNumber]) es menor a 0,
-  /// mostrar el 0.
-  ///
   /// - Si el número de notificaciones ([notificationsNumber]) es mayor o igual
   /// a 1 y menor o igual a 99, muestra el número sin modificar.
   ///
   /// - Si el número de notificaciones ([notificationsNumber]) es igual a 0, no
-  /// lo muestra. Esto se comprueba desde el [Widget] [ProfileAvatar].
+  /// lo muestra.
   String notificationsNumberToShow;
 
   /// Tamaño del círculo de notificaciones.
@@ -423,15 +449,22 @@ class _NotificationsCircle extends StatelessWidget {
     Key key,
     @required this.profilePictureSize,
     @required this.notificationsNumber,
+    this.fontSize = 13.0,
     this.borderColor = Palette.darkBackground,
   }) : super(key: key) {
     /// Revisar el número de notificaciones para ver qué número se va a
     /// mostrar.
     notificationsNumberToShow =
-        ((notificationsNumber > 99) ? 99 : notificationsNumber).toString();
+        ((notificationsNumber > 99) ? "+99" : notificationsNumber).toString();
+
+    fontSize = notificationsNumber >= 10 && notificationsNumber <= 99
+        ? fontSize - 2.0
+        : notificationsNumber >= 100
+            ? fontSize - 4.0
+            : fontSize;
 
     /// Calcular el tamaño del círculo de notificaciones.
-    notificationsSize = profilePictureSize / 2.8;
+    notificationsSize = profilePictureSize / 2.6;
   }
 
   @override
@@ -440,66 +473,63 @@ class _NotificationsCircle extends StatelessWidget {
     /// derecha de la foto de perfil.
     ///
     /// Creo que el [Align] debería estar en el [ProfileAvatar].
-    return Align(
-      alignment: Alignment.topRight,
+    ///
+    /// - Si el número de notificaciones es menor o igual a 0, no mostrarlo.
+    return notificationsNumber <= 0
+        ? const SizedBox.shrink()
+        : Container(
+            width: notificationsSize,
+            height: notificationsSize,
+            // alignment: Alignment.topRight,
+            padding: const EdgeInsets.all(0.0),
+            margin: const EdgeInsets.all(0.0),
+            // color: Colors.transparent,
 
-      /// Contenedor con el número de notificaciones y su borde.
-      ///
-      /// El círculo con el color de fondo del número de notificaciones está
-      /// definido en el [child] de este [Widget].
-      child: Container(
-        width: notificationsSize,
-        height: notificationsSize,
-        // alignment: Alignment.topRight,
-        padding: const EdgeInsets.all(0.0),
-        margin: const EdgeInsets.all(0.0),
-        // color: Colors.transparent,
-
-        /// Borde alrededor del círculo de notificaciones.
-        ///
-        /// Podría hacerlo con dos [CircleAvatar], uno más grande que el otro,
-        /// pero no tendría mucha coherencia con el nombre del [Widget].
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          // Color rojo.
-          color: borderColor,
-          // border: Border.all(
-          //   color: global_values.darkBackground,
-          //   // style: BorderStyle.none,
-          //   width: 2,
-          // )
-        ),
-
-        /// PUSE LAS NOTIFICACIONES AQUÍ, ya que con el BoxDecoration y
-        /// su borde, se alcanzaba a ver un pequeño borde rojo detrás
-        /// del borde gris, lo cual era molesto. Entonces mejor solo
-        /// tomé el tamaño relativo del contenedor padre y lo puse del
-        /// color de las notificaciones, simulando el borde gris (del
-        /// color de la pantalla).
-        child: FractionallySizedBox(
-          // alignment: Alignment.center,
-          heightFactor: 0.8,
-          widthFactor: 0.8,
-          child: Container(
-            // color: Colors.green,
-            alignment: Alignment.center,
-            decoration: const BoxDecoration(
+            /// Borde alrededor del círculo de notificaciones.
+            ///
+            /// Podría hacerlo con dos [CircleAvatar], uno más grande que el otro,
+            /// pero no tendría mucha coherencia con el nombre del [Widget].
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
               // Color rojo.
-              color: Palette.notificationsRed,
+              color: borderColor,
+              // border: Border.all(
+              //   color: global_values.darkBackground,
+              //   // style: BorderStyle.none,
+              //   width: 2,
+              // )
             ),
-            // AQUÍ VA EL NÚMERO DE NOTIFICACIONES.
-            child: Text(
-              notificationsNumberToShow,
-              style: const TextStyle(
-                color: Color(0xFFffffff),
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
+
+            /// PUSE LAS NOTIFICACIONES AQUÍ, ya que con el BoxDecoration y
+            /// su borde, se alcanzaba a ver un pequeño borde rojo detrás
+            /// del borde gris, lo cual era molesto. Entonces mejor solo
+            /// tomé el tamaño relativo del contenedor padre y lo puse del
+            /// color de las notificaciones, simulando el borde gris (del
+            /// color de la pantalla).
+            child: FractionallySizedBox(
+              // alignment: Alignment.center,
+              heightFactor: 0.8,
+              widthFactor: 0.8,
+              child: Container(
+                // color: Colors.green,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  // Color rojo.
+                  color: Palette.notificationsRed,
+                ),
+                // AQUÍ VA EL NÚMERO DE NOTIFICACIONES.
+                child: Text(
+                  notificationsNumberToShow,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: const Color(0xFFffffff),
+                    fontSize: fontSize,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-      ),
-    );
+          );
   }
 }

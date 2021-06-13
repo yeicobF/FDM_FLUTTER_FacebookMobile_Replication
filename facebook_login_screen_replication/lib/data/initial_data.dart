@@ -11,16 +11,6 @@ abstract class InitialData {
   /// perfil.
   static const String profilePicsPath = "assets/user/profile_pictures";
 
-  /// Usuario actual que utilizará la app.
-  ///
-  /// Toma la variable [profilePicsPath] para acceder de forma variable al
-  /// directorio en donde se encuentran las fotos de perfil.
-  static final User currentUser = User(
-    name: "Jacob Flores",
-    imageUrl: "$profilePicsPath/invincible_1.png",
-    isProfilePictureFromInternet: false,
-  );
-
   /// Lista de publicaciones.
   static final List<Post> postList = [
     // 0
@@ -394,7 +384,26 @@ abstract class InitialData {
     ),
   ];
 
-  // currentUser = friendsList[1];
+  /// Usuario actual que utilizará la app.
+  ///
+  /// Toma la variable [profilePicsPath] para acceder de forma variable al
+  /// directorio en donde se encuentran las fotos de perfil.
+  static final User currentUser = User(
+    name: "Jacob Flores",
+    // imageUrl: "$profilePicsPath/venom.jpg",
+    imageUrl: "$profilePicsPath/invincible_1.png",
+    isProfilePictureFromInternet: false,
+  );
+
+  /// Para probar con diversos usuarios finales de la lista de usuarios
+  /// [friendsList].
+  // static final currentUser = friendsList[2];
+
+  // static final currentUser = friendsList[friendsList.length - 1];
+
+  // static final currentUser = friendsList[1];
+
+/* -------------------------------------------------------------------------- */
 
   /// Agregar a todos los usuarios a la lista de amigos.
   ///
