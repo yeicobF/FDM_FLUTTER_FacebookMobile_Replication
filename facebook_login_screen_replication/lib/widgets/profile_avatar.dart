@@ -147,6 +147,7 @@ class ProfileAvatar extends StatelessWidget {
     /// historia [singleStory]. Si no existe, no sigue avanzando en la
     /// verificación de la condicional.
     if (isPictureFromStory) {
+      print("user.singleStory: ${user.singleStory}");
       if (!user.singleStory.isViewed) {
         return radius - 3.0;
       }

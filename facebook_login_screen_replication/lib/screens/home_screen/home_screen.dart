@@ -70,11 +70,16 @@ class HomeScreen extends StatelessWidget {
   }
 
   /// Función para obtener una lista con todas las historias de los amigos.
-  List<Story> getFriendsStories() {
+  /// 
+  /// Regresa un mapa con la historia y el usuario que la creó. Así podemos
+  /// mostrar los datos con maryor facilidad.
+  /// 
+  /// **Map<Story, User>**
+  Map<Story, User> getFriendsStories() {
     print("getFriendsStories");
 
     /// Lista de historias.
-    final List<Story> stories = [];
+    final Map<Story, User> stories = {};
 
     /// Recorremos a todos los amigos del usuario para obtener las historias.
     ///
@@ -84,7 +89,7 @@ class HomeScreen extends StatelessWidget {
     /// que sí tiene una historia.
     for (final User friend in currentUser.friends) {
       if (friend.singleStory != null) {
-        stories.add(friend.singleStory);
+        stories[friend.singleStory] = friend;
       }
     }
     return stories;

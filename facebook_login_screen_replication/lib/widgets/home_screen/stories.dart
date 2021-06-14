@@ -14,7 +14,9 @@ class Stories extends StatelessWidget {
   final User currentUser;
 
   /// Lista de las historias.
-  final List<Story> stories;
+  ///
+  /// Se tiene la historia y su usuario en un mapa.
+  final Map<Story, User> stories;
 
   const Stories({
     Key key,
@@ -30,7 +32,8 @@ class Stories extends StatelessWidget {
     /// más adelante, pero tiene que estar incializada.
     ///
     /// Toma una historia de la lista de todas las historias de los usuarios.
-    Story story = stories[0];
+    Story story = stories.keys.elementAt(0);
+    User storyOwner = stories.values.elementAt(0);
 
     return Container(
       height: 200.0,
@@ -49,7 +52,14 @@ class Stories extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           /// Si el índice [index] del [itemBuilder] > 0 -> Tomar la historia
           /// del índice anterior.
-          if (index > 0) story = stories[index - 1];
+          if (index > 0) {
+            /// Historia actual.
+            story = stories.keys.elementAt(index - 1);
+
+            /// Creador de la historia.
+            storyOwner = stories.values.elementAt(index - 1);
+          }
+          ;
 
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4.0),
@@ -72,7 +82,8 @@ class Stories extends StatelessWidget {
                 /// Si estamos en el índice [index] > 0, mostramos la historia
                 /// actual.
                 : _StoryCard(
-                  currentUser: currentUser,
+                    currentUser: storyOwner,
+
                     /// Pasamos la historia actual para renderizarla.
                     story: story,
                   ),
@@ -268,6 +279,11 @@ class _PlaceStoryImage extends StatelessWidget {
           )
         : Image(
             image: AssetImage(imageUrl),
+            /// Toma TODA la altura del contenedor.
+            height: double.infinity,
+            width: 110.0,
+            // Que la imagen cubra todo el espacio disponible del contenedor.
+            fit: BoxFit.cover,
           );
   }
 }
