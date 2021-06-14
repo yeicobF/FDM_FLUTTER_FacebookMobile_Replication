@@ -70,17 +70,17 @@ class HomeScreen extends StatelessWidget {
   }
 
   /// Función para obtener una lista con todos los amigos que tienen historias.
-  /// 
+  ///
   /// Regresa un mapa con la historia y el usuario que la creó. Así podemos
   /// mostrar los datos con maryor facilidad.
-  /// 
+  ///
   /// **Map<Story, User>**
   // Map<Story, User> getFriendsWithStories() {
   List<User> getFriendsWithStories() {
     // print("getFriendsWithStories");
 
     /// Lista de historias.
-    /// 
+    ///
     /// Como es un mapa, no se pueden guardar llaves duplicadas, entonces
     /// guardaré este mapa en otro que guarde el número de la historia para que
     /// ya no ocurra ese problema de las llaves duplicadas.
@@ -173,128 +173,145 @@ class HomeScreen extends StatelessWidget {
     /// Íconos de la barra superior de notificaciones de color negro.
     FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
 
-
-
     /// Publicaciones de los amigos.
     final Map<Post, User> friendsPosts = getFriendsPosts(getFriendsWithPosts());
 
-    return Scaffold(
-      body: CustomScrollView(
-        /// [slivers]: Todo deben ser slivers, no solo contenedores.
-        slivers: [
-          /// [SliverAppBar]:
-          /// - Scroll hacia abajo -> Se esconde la barra superior.
-          /// - Scroll hacia arriba -> Se muestra la barra superior.
-          SliverAppBar(
-            // Se cambian los colores de los elementos de la barra de
-            // notificaciones.
-            brightness: Brightness.light,
-            backgroundColor: Colors.white,
-            centerTitle: false,
-
-            /// Para no tener que hacer scroll hasta arriba para que se vea la
-            /// [AppBar].
-            floating: true,
-            backwardsCompatibility: true,
-
-            /// Para que se vea una sombra debajo de la [AppBar].
-            /// [forceElevated]: true,
-            title: const Text(
-              "facebook",
-              style: TextStyle(
-                color: Palette.facebookBlue,
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold,
-                letterSpacing: -1.2,
-              ),
-            ),
-
-            /// [actions]: Para hacer funcionar a los botones.
-            actions: [
-              /// Para simular el círculo gris de alrededor del ícono.
-              CircleButton(
-                icon: Icons.search,
-                iconSize: 30.0,
-                // icon: FontAwesomeIcons.search,
-                // iconSize: 26.0,
-                onPressed: () => print("Search"),
-              ),
-              CircleButton(
-                icon: MdiIcons.facebookMessenger,
-                iconSize: 30.0,
-                onPressed: () => print("Messenger"),
-              ),
-            ],
-          ),
-
-          /// Los elementos requieren estar en un [Sliver] para poder estar
-          /// dentro los "[slivers]" del [CustomScrollView].
-          SliverToBoxAdapter(
-            // Contenedor debajo de la AppBar.
-            // Sección para crear una publicación.
-            child: CreatePostContainer(
-              currentUser: currentUser,
-            ),
-          ),
-
-          /// [Sliver] con [Padding] para estar separado de la parte superior.
-          /// [Rooms] Lista de usuarios conectados.
-          SliverPadding(
-            padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
-
-            /// Toma otro sliver, el cual ya teníamos definido.
-            sliver: SliverToBoxAdapter(
-              /// Lista de usuarios conectados.
+    return SafeArea(
+      child: Scaffold(
+        body: CustomScrollView(
+          /// [slivers]: Todo deben ser slivers, no solo contenedores.
+          slivers: [
+            /// [SliverAppBar]:
+            /// - Scroll hacia abajo -> Se esconde la barra superior.
+            /// - Scroll hacia arriba -> Se muestra la barra superior.
+            SliverAppBar(
+              /// [leading] es un Widget que se coloca a la izquierda del [title].
               ///
-              /// - Los tomamos de la función en donde se obtiene la lista con
-              /// los amigos.
-              child: Rooms(onlineUsers: getOnlineFriends()),
-            ),
-          ),
+              /// Lo agregué porque al poner el [Navigator] para cambiar de
+              /// pantallas,se agregaba un botón automáticamentea para cambiar de
+              /// pantallas.
+              leading: null,
 
-          /// Lista con todas las historias.
-          SliverPadding(
-            padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
-            // Toma otro sliver, el cual ya teníamos definido.
-            sliver: SliverToBoxAdapter(
-              /// [Stories] Lista de las historias.
-              child: Stories(
+              /// [automaticallyImplyLeading] agrega un Widget de acuerdo al
+              /// contexto de forma automática si [leading] = null.
+              ///
+              /// Por eso ponemos [automaticallyImplyLeading] = false, para que no
+              /// se genere ningún widget.
+              automaticallyImplyLeading: false,
+
+              /// [leadingWidth] es el ancho del [leading] [Widget].
+              leadingWidth: 0.0,
+
+              // Se cambian los colores de los elementos de la barra de
+              // notificaciones.
+              brightness: Brightness.light,
+              backgroundColor: Colors.white,
+              centerTitle: false,
+
+              /// Para no tener que hacer scroll hasta arriba para que se vea la
+              /// [AppBar].
+              floating: true,
+              backwardsCompatibility: true,
+
+              /// Para que se vea una sombra debajo de la [AppBar].
+              /// [forceElevated]: true,
+              title: const Text(
+                "facebook",
+                style: TextStyle(
+                  color: Palette.facebookBlue,
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: -1.2,
+                ),
+              ),
+
+              /// [actions]: Para hacer funcionar a los botones.
+              actions: [
+                /// Para simular el círculo gris de alrededor del ícono.
+                CircleButton(
+                  icon: Icons.search,
+                  iconSize: 30.0,
+                  // icon: FontAwesomeIcons.search,
+                  // iconSize: 26.0,
+                  onPressed: () => print("Search"),
+                ),
+                CircleButton(
+                  icon: MdiIcons.facebookMessenger,
+                  iconSize: 30.0,
+                  onPressed: () => print("Messenger"),
+                ),
+              ],
+            ),
+
+            /// Los elementos requieren estar en un [Sliver] para poder estar
+            /// dentro los "[slivers]" del [CustomScrollView].
+            SliverToBoxAdapter(
+              // Contenedor debajo de la AppBar.
+              // Sección para crear una publicación.
+              child: CreatePostContainer(
                 currentUser: currentUser,
-                friendsWithStories: getFriendsWithStories(),
               ),
             ),
-          ),
 
-          /// Publicaciones de los usuarios.
-          SliverList(
-            /// [delegate] - {SliverChildDelegate delegate}
-            /// Creates a sliver that places box children in a
-            /// linear array.
-            ///
-            /// [SliverChildBuilderDelegate] es como un equivalente al
-            /// [ListView.builder()].
-            delegate: SliverChildBuilderDelegate(
-              /// Función para renderizar todas las publicaciones.
-              (BuildContext context, int index) {
-                /// Usuario de la publicación actual.
-                final User postOwner = friendsPosts.values.elementAt(index);
-                
-                /// Publicación respecto al índice actual.
-                final Post post = friendsPosts.keys.elementAt(index);
-                // final Post post = posts[index];
+            /// [Sliver] con [Padding] para estar separado de la parte superior.
+            /// [Rooms] Lista de usuarios conectados.
+            SliverPadding(
+              padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
 
-                /// Renderizar el post actual.
-                return PostContainer(
-                  user: postOwner,
-                  post: post,
-                  );
-              },
-
-              /// [childCount]: Número de elementos a mostrar.
-              childCount: friendsPosts.length,
+              /// Toma otro sliver, el cual ya teníamos definido.
+              sliver: SliverToBoxAdapter(
+                /// Lista de usuarios conectados.
+                ///
+                /// - Los tomamos de la función en donde se obtiene la lista con
+                /// los amigos.
+                child: Rooms(onlineUsers: getOnlineFriends()),
+              ),
             ),
-          ),
-        ],
+
+            /// Lista con todas las historias.
+            SliverPadding(
+              padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+              // Toma otro sliver, el cual ya teníamos definido.
+              sliver: SliverToBoxAdapter(
+                /// [Stories] Lista de las historias.
+                child: Stories(
+                  currentUser: currentUser,
+                  friendsWithStories: getFriendsWithStories(),
+                ),
+              ),
+            ),
+
+            /// Publicaciones de los usuarios.
+            SliverList(
+              /// [delegate] - {SliverChildDelegate delegate}
+              /// Creates a sliver that places box children in a
+              /// linear array.
+              ///
+              /// [SliverChildBuilderDelegate] es como un equivalente al
+              /// [ListView.builder()].
+              delegate: SliverChildBuilderDelegate(
+                /// Función para renderizar todas las publicaciones.
+                (BuildContext context, int index) {
+                  /// Usuario de la publicación actual.
+                  final User postOwner = friendsPosts.values.elementAt(index);
+
+                  /// Publicación respecto al índice actual.
+                  final Post post = friendsPosts.keys.elementAt(index);
+                  // final Post post = posts[index];
+
+                  /// Renderizar el post actual.
+                  return PostContainer(
+                    user: postOwner,
+                    post: post,
+                  );
+                },
+
+                /// [childCount]: Número de elementos a mostrar.
+                childCount: friendsPosts.length,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

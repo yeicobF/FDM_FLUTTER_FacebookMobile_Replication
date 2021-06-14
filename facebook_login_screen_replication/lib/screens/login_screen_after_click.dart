@@ -1,5 +1,6 @@
 /// Segunda pantalla de inicio de sesión.
 
+import 'package:facebook_login_screen_replication/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
@@ -21,6 +22,14 @@ class LoginScreenAfterClick extends StatelessWidget {
   // Guardar si se comenzó a ingresar texto. Esto lo recibe desde la función
   // de las entradas de texto.
   static bool isInputActive = false;
+
+  /// Usuario que está utilizando la app.
+  final User currentUser;
+
+  const LoginScreenAfterClick({
+    Key key,
+    @required this.currentUser,
+  }) : super(key: key);
 
   // Guardamos el tamaño de pantalla inicial y el actual.
   // double initialScreenHeight = null;
@@ -49,23 +58,25 @@ class LoginScreenAfterClick extends StatelessWidget {
 
     // Obtener altura de la STATUS BAR:
     // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
-    return const Scaffold(
-      backgroundColor: Palette.darkBackground,
-      // resizeToAvoidBottomInset: false,
-      // ---------------------------------------------------------------------
-      // CON EL APPBAR SE PUEDEN CAMBIAR LOS ATRIBUTOS DEL StatusBar respecto
-      // a sus colores, pero es menos lío con "FlutterStatusbarcolor"
-      //          ------------------------------------------
-      // appBar: AppBar(
-      //   // AppBar tendrá el tamaño de la statusBar.
-      //   toolbarHeight: 1,
-      //   bottomOpacity: 0.4,
-      //   backgroundColor: global_values.darkBackground, // status bar color
-      //   // ÍCONOS DEL STATUS BAR: BLANCOS - Brightness.darkk
-      //   brightness: Brightness.dark, // status bar brightness
-      // ),
-      // ---------------------------------------------------------------------
-      body: _LoginScreenContent(),
+    return const SafeArea(
+      child: Scaffold(
+        backgroundColor: Palette.darkBackground,
+        // resizeToAvoidBottomInset: false,
+        // ---------------------------------------------------------------------
+        // CON EL APPBAR SE PUEDEN CAMBIAR LOS ATRIBUTOS DEL StatusBar respecto
+        // a sus colores, pero es menos lío con "FlutterStatusbarcolor"
+        //          ------------------------------------------
+        // appBar: AppBar(
+        //   // AppBar tendrá el tamaño de la statusBar.
+        //   toolbarHeight: 1,
+        //   bottomOpacity: 0.4,
+        //   backgroundColor: global_values.darkBackground, // status bar color
+        //   // ÍCONOS DEL STATUS BAR: BLANCOS - Brightness.darkk
+        //   brightness: Brightness.dark, // status bar brightness
+        // ),
+        // ---------------------------------------------------------------------
+        body: _LoginScreenContent(),
+      ),
     );
   }
 }
@@ -120,7 +131,15 @@ class _LoginScreenContent extends StatelessWidget {
                 ),
               ),
               _LoginButton(
-                onPressed: () => print("Log In"),
+                onPressed: () => {
+                  print("Log In"),
+
+                  /// [Navigator.pushNamed(context, "/home_screen")]
+                  ///
+                  /// Funciona para cambiar de esta pantalla a la
+                  /// feed principal.
+                  Navigator.pushNamed(context, "/home_screen"),
+                },
               ),
             ],
           ),

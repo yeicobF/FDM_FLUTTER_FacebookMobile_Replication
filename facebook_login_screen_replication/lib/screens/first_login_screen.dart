@@ -25,14 +25,16 @@ import '../widgets/widgets.dart' show ProfileAvatar;
 /// En esta pantalla se renderiza la foto de perfil, la cual indica el número de
 /// notificaciones que el usuario no ha visto.
 class FirstLoginScreen extends StatelessWidget {
+  /// Usuario que está utilizando la app.
+  final User currentUser;
+
+  const FirstLoginScreen({
+    Key key,
+    @required this.currentUser,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    /// Establecer número de notificaciones del usuario actual.
-    InitialData.currentUser.notificationsNumber = 1000;
-
-    // Establecer los amigos del usuario actual.
-    InitialData.currentUser.friends = InitialData.friendsList;
-
     /// [FlutterStatusbarcolor.setStatusBarColor(Palette.darkBackground)]
     /// - CAMBIAR COLOR DEL statusBar.
     ///
@@ -46,26 +48,28 @@ class FirstLoginScreen extends StatelessWidget {
     // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
     // final double statusBarHeight = MediaQuery.of(context).padding.top;
 
-    return Scaffold(
-      // Obtener altura de la STATUS BAR:
-      // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
-      // ---------------------------------------------------------------------
-      // CON EL APPBAR SE PUEDEN CAMBIAR LOS ATRIBUTOS DEL StatusBar respecto
-      // a sus colores, pero es menos lío con "FlutterStatusbarcolor"
-      //          ------------------------------------------
-      // appBar: AppBar(
-      //   // AppBar tendrá el tamaño de la statusBar.
-      //   toolbarHeight: 1,
-      //   bottomOpacity: 0.4,
-      //   backgroundColor: global_values.darkBackground, // status bar color
-      //   // ÍCONOS DEL STATUS BAR: BLANCOS - Brightness.darkk
-      //   brightness: Brightness.dark, // status bar brightness
-      // ),
-      // ---------------------------------------------------------------------
+    return SafeArea(
+      child: Scaffold(
+        // Obtener altura de la STATUS BAR:
+        // https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter
+        // ---------------------------------------------------------------------
+        // CON EL APPBAR SE PUEDEN CAMBIAR LOS ATRIBUTOS DEL StatusBar respecto
+        // a sus colores, pero es menos lío con "FlutterStatusbarcolor"
+        //          ------------------------------------------
+        // appBar: AppBar(
+        //   // AppBar tendrá el tamaño de la statusBar.
+        //   toolbarHeight: 1,
+        //   bottomOpacity: 0.4,
+        //   backgroundColor: global_values.darkBackground, // status bar color
+        //   // ÍCONOS DEL STATUS BAR: BLANCOS - Brightness.darkk
+        //   brightness: Brightness.dark, // status bar brightness
+        // ),
+        // ---------------------------------------------------------------------
 
-      // Fondo de Facebook oscuro.
-      backgroundColor: Palette.darkBackground,
-      body: _DisplayAllScreenElements(currentUser: InitialData.currentUser),
+        // Fondo de Facebook oscuro.
+        backgroundColor: Palette.darkBackground,
+        body: _DisplayAllScreenElements(currentUser: InitialData.currentUser),
+      ),
     );
   }
 }
@@ -83,7 +87,7 @@ class _DisplayAllScreenElements extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext _) {
+  Widget build(BuildContext context) {
     /* ------------- COLUMNA CON TODOS LOS ELEMENTOS DE LA PANTALLA ------------- */
     return Column(
       children: [
@@ -164,6 +168,14 @@ class _DisplayAllScreenElements extends StatelessWidget {
                       /* ------------------------- ROW CON ÍCONO Y TEXTO. ------------------------- */
 
                       _LargeIconAndTextButton(
+                        onPressed: () {
+                          print("Log Into Another Account");
+                          /// [Navigator.pushNamed(context, "/second_login")]
+                          ///
+                          /// Funciona para cambiar de esta pantalla a la
+                          /// segunda.
+                          Navigator.pushNamed(context, "/second_login");
+                        },
                         icon: Icons.add_sharp,
                         // null, // null PARA QUE EL TAMAÑO DEL ÍCONO SEA EL DEFAULT.
                         text: "Log Into Another Account",
@@ -171,6 +183,14 @@ class _DisplayAllScreenElements extends StatelessWidget {
                         fontColor: Palette.firstScreenColors["fbFontColor"],
                       ),
                       _LargeIconAndTextButton(
+                        onPressed: () {
+                          print("Find Your Account");
+                          /// [Navigator.pushNamed(context, "/second_login")]
+                          ///
+                          /// Funciona para cambiar de esta pantalla a la
+                          /// segunda.
+                          Navigator.pushNamed(context, "/second_login");
+                        },
                         icon: Icons.search,
                         iconSize: 28,
                         // ES MÁS PARECIDO, PERO LA VERSIÓN "LIGHT" ES DE PAGA.
@@ -212,6 +232,9 @@ class _DisplayAllScreenElements extends StatelessWidget {
 /// - [ÍCONO]  Log Into Another Account
 /// - [ÍCONO] Find Your Account
 class _LargeIconAndTextButton extends StatelessWidget {
+  /// Función a ejecutar al dar click al botón.
+  final void Function() onPressed;
+
   /// Ícono a mostrar.
   final IconData icon;
 
@@ -232,6 +255,7 @@ class _LargeIconAndTextButton extends StatelessWidget {
   /// Constructor.
   const _LargeIconAndTextButton({
     Key key,
+    @required this.onPressed,
     @required this.icon,
 
     /// Parámetro opcional.
@@ -264,7 +288,7 @@ class _LargeIconAndTextButton extends StatelessWidget {
       /// Ponemos un botón, que estará decorado con distintos [Widget]s.
       child: TextButton(
         /// Al presionar el botón queremos cambiar de pantalla.
-        onPressed: () => print("\n Botón $text -> CAMBIAR DE PANTALLA"),
+        onPressed: onPressed,
         style: ButtonStyle(
           /// Le quitamos [Padding] al botón, ya que agregaba uno indeseado.
           padding: MaterialStateProperty.all(EdgeInsets.zero),

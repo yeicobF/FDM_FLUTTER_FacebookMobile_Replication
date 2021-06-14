@@ -1,3 +1,4 @@
+import 'package:facebook_login_screen_replication/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -21,23 +22,52 @@ import 'screens.dart';
 /// Es stateful, ya que tendrá que manejar los cambios entre pantallas,
 /// manteniendo el estado de la pestaña seleccionada.
 class NavScreen extends StatefulWidget {
+  /// Usuario que está utilizando la app.
+  final User currentUser;
+
+  const NavScreen({
+    Key key,
+    @required this.currentUser,
+  }) : super(key: key);
+
   @override
   _NavScreenState createState() => _NavScreenState();
 }
 
 class _NavScreenState extends State<NavScreen> {
-  /// Lista de las pantallas de la app.
-  final List<Widget> _screens = [
-    HomeScreen(
-      currentUser: InitialData.currentUser,
-    ),
-    // Scaffold por ahora, ya que no están hechas las pantallas.
-    const Scaffold(),
-    const Scaffold(),
-    const Scaffold(),
-    const Scaffold(),
-    const Scaffold(),
-  ];
+  /// Lista con las pantallas.
+  ///
+  /// Se inicializa en [initState()], ya que depende de la información del
+  /// [Widget] para inicializar [currentUser].
+  ///
+  /// Para accceder a los atributos del [Widget] se hace de la siguiente forma:
+  ///
+  /// ```dart
+  /// widget.currentUser
+  /// ```
+  ///
+  /// - Fuente: https://stackoverflow.com/questions/50818770/passing-data-to-a-stateful-widget
+  List<Widget> _screens;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    /// Inicializamos las pantallas con [currentUser] que viene desde el
+    /// [Widget] como tal.
+    _screens = [
+      HomeScreen(
+        currentUser: widget.currentUser,
+      ),
+      // Scaffold por ahora, ya que no están hechas las pantallas.
+      const Scaffold(),
+      const Scaffold(),
+      const Scaffold(),
+      const Scaffold(),
+      const Scaffold(),
+    ];
+  }
 
   /// Lista de íconos para la [CustomTabBar].
   final List<IconData> _icons = const [
@@ -54,6 +84,8 @@ class _NavScreenState extends State<NavScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // _screens.
+
     /// CAMBIAR COLOR DEL statusBar (barra superior de notificaciones).
     /// https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter
     FlutterStatusbarcolor.setStatusBarColor(Colors.white);
