@@ -69,18 +69,28 @@ class HomeScreen extends StatelessWidget {
     return onlineFriends;
   }
 
-  /// Función para obtener una lista con todas las historias de los amigos.
+  /// Función para obtener una lista con todos los amigos que tienen historias.
   /// 
   /// Regresa un mapa con la historia y el usuario que la creó. Así podemos
   /// mostrar los datos con maryor facilidad.
   /// 
   /// **Map<Story, User>**
-  Map<Story, User> getFriendsStories() {
-    print("getFriendsStories");
+  // Map<Story, User> getFriendsWithStories() {
+  List<User> getFriendsWithStories() {
+    // print("getFriendsWithStories");
 
     /// Lista de historias.
-    final Map<Story, User> stories = {};
+    /// 
+    /// Como es un mapa, no se pueden guardar llaves duplicadas, entonces
+    /// guardaré este mapa en otro que guarde el número de la historia para que
+    /// ya no ocurra ese problema de las llaves duplicadas.
+    // final Map<Story, User> stories = {};
 
+    /// Lista de usuarios que tienen historias.
+    final List<User> friendsWithStories = [];
+
+    // int friendNumber = 0;
+    // int storyNumber = 0;
     /// Recorremos a todos los amigos del usuario para obtener las historias.
     ///
     /// Primero se recorre al amigo, y se obtienen todas sus historias.
@@ -88,11 +98,21 @@ class HomeScreen extends StatelessWidget {
     /// - Se agrega la historia [singleStory] si no es null, ya que significa
     /// que sí tiene una historia.
     for (final User friend in currentUser.friends) {
+      // print("${friendNumber} -> friend: ${friend.name}");
       if (friend.singleStory != null) {
-        stories[friend.singleStory] = friend;
+        friendsWithStories.add(friend);
+
+        // print("\t - This friend has a story: ${storyNumber}");
+        // stories[friend.singleStory] = friend;
+        // storyNumber++;
       }
+      // friendNumber++;
     }
-    return stories;
+
+    // print("Número de historias encontradas: ${stories.length}");
+
+    return friendsWithStories;
+    // return stories;
   }
 
   /// Función para obtener a todos los amigos que tienen publicaciones.
@@ -240,7 +260,7 @@ class HomeScreen extends StatelessWidget {
               /// [Stories] Lista de las historias.
               child: Stories(
                 currentUser: currentUser,
-                stories: getFriendsStories(),
+                friendsWithStories: getFriendsWithStories(),
               ),
             ),
           ),

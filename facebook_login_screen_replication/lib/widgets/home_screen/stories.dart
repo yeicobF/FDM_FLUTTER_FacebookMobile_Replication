@@ -13,15 +13,18 @@ class Stories extends StatelessWidget {
   /// Usuario actual.
   final User currentUser;
 
+  /// Lista de usuarios con historias.
+  final List<User> friendsWithStories;
+
   /// Lista de las historias.
   ///
   /// Se tiene la historia y su usuario en un mapa.
-  final Map<Story, User> stories;
+  // final Map<Story, User> stories;
 
   const Stories({
     Key key,
     @required this.currentUser,
-    @required this.stories,
+    @required this.friendsWithStories,
   }) : super(key: key);
 
   @override
@@ -32,8 +35,8 @@ class Stories extends StatelessWidget {
     /// más adelante, pero tiene que estar incializada.
     ///
     /// Toma una historia de la lista de todas las historias de los usuarios.
-    Story story = stories.keys.elementAt(0);
-    User storyOwner = stories.values.elementAt(0);
+    Story story = friendsWithStories[0].singleStory;
+    User storyOwner = friendsWithStories[0];
 
     return Container(
       height: 200.0,
@@ -48,19 +51,23 @@ class Stories extends StatelessWidget {
         /// [itemCount]:
         /// 1 (Contenedor para agregar una hisoria),
         /// + [stories.length] (Número de historias)
-        itemCount: 1 + stories.length,
+        /// 
+        /// Por ahora el número de historias es igual al número de amigso con
+        /// historias, pero en un caso más específico deberían ser
+        /// contabilizadas todas las historias de cada usuario.
+        itemCount: 1 + friendsWithStories.length,
         itemBuilder: (BuildContext context, int index) {
           /// Si el índice [index] del [itemBuilder] > 0 -> Tomar la historia
           /// del índice anterior.
           if (index > 0) {
             /// Historia actual.
-            story = stories.keys.elementAt(index - 1);
+            story = friendsWithStories[index - 1].singleStory;
+            // story = stories.keys.elementAt(index - 1);
 
             /// Creador de la historia.
-            storyOwner = stories.values.elementAt(index - 1);
+            storyOwner = friendsWithStories[index - 1];
+            // storyOwner = stories.values.elementAt(index - 1);
           }
-          ;
-
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4.0),
 
@@ -279,6 +286,7 @@ class _PlaceStoryImage extends StatelessWidget {
           )
         : Image(
             image: AssetImage(imageUrl),
+
             /// Toma TODA la altura del contenedor.
             height: double.infinity,
             width: 110.0,

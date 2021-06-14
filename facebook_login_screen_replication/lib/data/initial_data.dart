@@ -25,6 +25,30 @@ abstract class InitialData {
     ),
     // 1
     Post(
+      /// Concatenamos una RAW String para que no tenga problemas con nuevas líneas ni backslashes o caracteres especiales:
+      ///
+      /// https://www.educative.io/edpresso/how-to-create-a-raw-string-in-dart
+      /// https://github.com/Crissov/unicode-proposals/issues/408
+      caption:
+           "   ʌ" + "\n" +
+          r"  / \" + "\n" +
+          r" /   \" + "\n" +
+           " | | |" + "\n" +
+          r" \  \/" + "\n" +
+          r" /\  \" + "\n" +
+           " | | |" + "\n" +
+          r" \   /" + "\n" +
+          r"  \ /" + "\n" +
+           "   v",
+      imageUrl: "assets/user/post_images/sergio_1.jpg",
+      isPictureFromInternet: false,
+      comments: 2,
+      likes: 22,
+      shares: 222,
+      timeAgo: "2s",
+    ),
+    // 2
+    Post(
       caption: "Isaac",
       comments: 666,
       imageUrl: "assets/user/post_images/rodrigo.jpg",
@@ -33,44 +57,12 @@ abstract class InitialData {
       shares: 666,
       timeAgo: "6s",
     ),
-    // 2
-    Post(
-      /// Concatenamos una RAW String para que no tenga problemas con nuevas líneas ni backslashes o caracteres especiales:
-      ///
-      /// https://www.educative.io/edpresso/how-to-create-a-raw-string-in-dart
-      /// https://github.com/Crissov/unicode-proposals/issues/408
-      caption: "  ʌ" +
-          "\n" +
-          r" / \" +
-          "\n" +
-          r"/   \" +
-          "\n" +
-          "| | |" +
-          "\n" +
-          r"\ \/" +
-          "\n" +
-          r"/\  \" +
-          "\n" +
-          "| | |" +
-          "\n" +
-          r"\   /" +
-          "\n" +
-          r" \ /" +
-          "\n" +
-          "  v",
-      imageUrl: "assets/user/post_images/sergio_1.jpg",
-      isPictureFromInternet: false,
-      comments: 2,
-      likes: 22,
-      shares: 222,
-      timeAgo: "2s",
-    ),
     // 3
     Post(
       caption: "",
       imageUrl: "assets/user/post_images/eduardo_gambling.jpg",
       isPictureFromInternet: false,
-      timeAgo: "",
+      timeAgo: "30m",
       likes: 1500,
       comments: 123,
       shares: 5000,
@@ -249,7 +241,7 @@ abstract class InitialData {
       singleStory: stories[0],
     ),
     User(
-      name: "Sergio",
+      name: "𝕤ergio 𝔰",
       imageUrl: "$profilePicsPath/sergio.jpg",
       isProfilePictureFromInternet: false,
       singlePost: postList[1],

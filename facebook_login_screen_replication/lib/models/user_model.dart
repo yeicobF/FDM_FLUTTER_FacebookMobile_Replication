@@ -12,30 +12,30 @@ class User {
 
   /// Booleano para indicar si la foto de perfil proviene del sistema de
   /// archivos o de internet.
-  /// 
+  ///
   /// - Si la imagen viene de internet, utilizar
   /// [CachedNetworkImageProvider].
-  /// 
+  ///
   /// - Si la imagen no viene de internet significa que viene de los
   /// [Asset]s, por lo que hay que utilizar [AssetImage].
-  /// 
+  ///
   /// **El linter marcaba error si el casting se hacía de la siguiente
   /// manera:**
-  /// 
+  ///
   /// ```dart
   /// backgroundImage: isProfilePictureFromInternet
   ///    ? CachedNetworkImageProvider(imageUrl)
   ///    : AssetImage(imageUrl);
   /// ```
-  /// 
+  ///
   /// > **Por lo que se tuvo que hacer un cast:**
-  /// 
+  ///
   /// ```dart
   /// backgroundImage: isProfilePictureFromInternet
   ///    ? CachedNetworkImageProvider(imageUrl)
   ///    : AssetImage(imageUrl) as ImageProvider;
   /// ```
-  /// 
+  ///
   /// > **Fuente:**
   /// >
   /// > - *https://github.com/flutter/flutter/issues/77782*
@@ -76,6 +76,14 @@ class User {
   /// Solo una hisoria.
   final Story singleStory;
 
+  /// Número de historias que tiene el usuario.
+  int get storyNumber {
+    if (singleStory != null) {
+      return 1;
+    }
+    return 0;
+  }
+
   /// Constructor de la clase.
   ///
   /// Inicializa las variables, además de recibir unos parámetros nombrados
@@ -102,7 +110,6 @@ class User {
 
     /// Podemos inicializar al usuario con amigos.
     this.friends,
-    
   }) {
     /// Obtención del momento en que se creó la cuenta.
     creationDate = DateTime.now();
@@ -160,12 +167,12 @@ class User {
 }
 
 // /* ----------------- MÉTODOS PARA CREAR LAS FOTOS DE PERFIL ----------------- */
-// 
+//
 // // - Número de notificaciones: Círuclo rojo en esquina superior derecha con el
 // //    número de notificaciones pendientes.
 // // - Si estás conectado: Círculo verde.
 // // - Si no estás conectado: Círculo rojo.
-// 
+//
 // // Crear la foto de perfil sin nada más (notificaciones, etc).
 // Widget createBareProfilePicture(double size) {
 //   return Container(
@@ -173,7 +180,7 @@ class User {
 //     width: size,
 //     height: size,
 //     // color: Colors.white,
-// 
+//
 //     // PARA HACER EL CÍRCULO SEGUÍ LO SIGUIENTE:
 //     // https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531
 //     decoration: BoxDecoration(
@@ -190,11 +197,11 @@ class User {
 //         /// archivos. Dependiendo de la procedencia, se utiliza uno u otro
 //         /// widget.
 //         image: AssetImage(imageUrl),
-// 
+//
 //         // image: isProfilePictureFromInternet
 //         //     ? CachedNetworkImageProvider(imageUrl)
 //         //     : AssetImage(imageUrl),
-// 
+//
 //         // Así se baja la calidad.
 //         // image: ResizeImage(
 //         //   AssetImage(imageUrl),
@@ -206,8 +213,8 @@ class User {
 //     ),
 //   );
 // }
-// 
+//
 // // Crear la foto de perfil con un círculo verde  en la esquina inferior derecha,
 // // indicando que un usuario está conectado.
 // Widget createConnectedProfilePicture() {}
-// 
+//
