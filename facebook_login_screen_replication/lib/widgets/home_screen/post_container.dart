@@ -216,6 +216,7 @@ class _PostHeader extends StatelessWidget {
 /// - Número de comentarios
 /// - Número de veces compartidas
 class _PostStats extends StatelessWidget {
+  /// Publicación.
   final Post post;
 
   const _PostStats({
@@ -229,26 +230,9 @@ class _PostStats extends StatelessWidget {
       children: [
         Row(
           children: [
-            Container(
-              padding: const EdgeInsets.all(4.0),
-              decoration: const BoxDecoration(
-                color: Palette.facebookBlue,
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(
-                Icons.thumb_up,
-                size: 10.0,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(width: 4.0),
             Expanded(
-              /// Likes
-              child: Text(
-                "${post.likes}",
-                style: TextStyle(
-                  color: Colors.grey[600],
-                ),
+              child: _LikesIconAndNumber(
+                post: post,
               ),
             ),
             const SizedBox(width: 4.0),
@@ -280,7 +264,9 @@ class _PostStats extends StatelessWidget {
             _PostButton(
               icon: Icon(
                 MdiIcons.thumbUpOutline,
-                color: Colors.grey[600],
+
+                /// El color es diferente si el post tiene like.
+                color: post.isLiked ? Palette.facebookBlue : Colors.grey[600],
                 size: 20.0,
               ),
               label: "Like",
@@ -306,6 +292,47 @@ class _PostStats extends StatelessWidget {
             ),
           ],
         )
+      ],
+    );
+  }
+}
+
+class _LikesIconAndNumber extends StatelessWidget {
+  /// Publicación.
+  final Post post;
+
+  const _LikesIconAndNumber({
+    Key key,
+    @required this.post,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(4.0),
+          decoration: const BoxDecoration(
+            color: Palette.facebookBlue,
+            shape: BoxShape.circle,
+          ),
+          child: const Icon(
+            Icons.thumb_up,
+            size: 10.0,
+            color: Colors.white,
+          ),
+        ),
+        const SizedBox(width: 4.0),
+        Expanded(
+          /// Likes
+          child: Text(
+            "${post.likes}",
+            style: TextStyle(
+              /// El color es diferente si el post tiene like.
+              color: post.isLiked ? Palette.facebookBlue : Colors.grey[600],
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -356,7 +383,13 @@ class _PostButton extends StatelessWidget {
               children: [
                 icon,
                 const SizedBox(width: 4.0),
-                Text(label),
+                Text(
+                  label,
+                  style: TextStyle(
+                    /// El texto tomará el mismo color que el del ícono.
+                    color: icon.color,
+                  ),
+                ),
               ],
             ),
           ),

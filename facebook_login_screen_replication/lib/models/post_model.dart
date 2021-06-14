@@ -5,6 +5,9 @@ class Post {
   /// Caption del post (descripción o lo que se muestra).
   final String caption;
 
+  /// Ver si el botón está en estado de "like".
+  final bool isLiked;
+
   /// Imágenes del post.
   ///
   /// Las imágenes se guardan en una lista de direcciones en el sistema de
@@ -95,6 +98,7 @@ class Post {
     @required this.likes,
     @required this.comments,
     @required this.shares,
+    this.isLiked = false,
     this.imgPathList,
   }) {
     // Establecemos la creación del Post.
