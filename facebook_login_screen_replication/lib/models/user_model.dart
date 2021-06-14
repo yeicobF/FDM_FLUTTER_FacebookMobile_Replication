@@ -1,8 +1,8 @@
 /// Archivo en el que se manejan los datos de usuario.
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../config/palette.dart' show Palette;
 import 'models.dart';
 
 /// Clase en donde se guardarán todos los elementos de un usuario.

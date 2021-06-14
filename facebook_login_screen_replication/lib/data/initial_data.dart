@@ -22,6 +22,7 @@ abstract class InitialData {
       likes: 102,
       shares: 13,
       timeAgo: "5hr",
+      isLiked: true,
     ),
     // 1
     Post(

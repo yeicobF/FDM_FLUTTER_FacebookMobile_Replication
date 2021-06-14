@@ -25,7 +25,7 @@ import 'screens/screens.dart';
 // void main() => runApp(MaterialApp(home: login_screen_after_click.LoginScreenAfterClick()));
 void main() {
   /// Establecer número de notificaciones del usuario actual.
-  InitialData.currentUser.notificationsNumber = 1000;
+  InitialData.currentUser.notificationsNumber = 0;
 
   // Establecer los amigos del usuario actual.
   // InitialData.currentUser.friends = InitialData.friendsList;

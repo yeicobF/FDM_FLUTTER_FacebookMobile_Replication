@@ -109,7 +109,9 @@ class ProfileAvatar extends StatelessWidget {
 
         /// La imagen sí es de las historias.
         isPictureFromStory = true,
-        isPictureWithoutElements = false,
+
+        /// No queremos mostrar elementos encima, solo disminuir el tamaño o dejarlo normal dependiendo de si ya se vio la historia o no.
+        isPictureWithoutElements = true,
         isPictureFromLogin = false;
 
   /// Constructor para la foto de perfil en la pantalla de Login.
@@ -146,7 +148,7 @@ class ProfileAvatar extends StatelessWidget {
     /// historia [singleStory]. Si no existe, no sigue avanzando en la
     /// verificación de la condicional.
     if (isPictureFromStory && !user.singleStory.isViewed) {
-        return radius - 3.0;
+      return radius - 3.0;
     }
 
     /// Si la foto de perfil no se ha visto, regresar el tamaño original.

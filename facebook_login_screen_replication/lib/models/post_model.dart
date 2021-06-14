@@ -5,6 +5,9 @@ class Post {
   /// Caption del post (descripción o lo que se muestra).
   final String caption;
 
+  /// Ver si el botón está en estado de "like".
+  bool isLiked;
+
   /// Imágenes del post.
   ///
   /// Las imágenes se guardan en una lista de direcciones en el sistema de
@@ -67,7 +70,9 @@ class Post {
   final String imageUrl;
 
   /// Número de likes.
-  final int likes;
+  /// 
+  /// Estos pueden ser modificados.
+  int likes;
 
   /// Número de comentarios.
   final int comments;
@@ -92,9 +97,10 @@ class Post {
     @required this.isPictureFromInternet,
     @required this.imageUrl,
     @required this.timeAgo,
-    @required this.likes,
+    this.likes = 0,
     @required this.comments,
     @required this.shares,
+    this.isLiked = false,
     this.imgPathList,
   }) {
     // Establecemos la creación del Post.
