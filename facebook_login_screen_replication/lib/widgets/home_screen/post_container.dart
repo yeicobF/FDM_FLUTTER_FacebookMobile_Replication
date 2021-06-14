@@ -215,7 +215,9 @@ class _PostHeader extends StatelessWidget {
 /// - Likes
 /// - Número de comentarios
 /// - Número de veces compartidas
-class _PostStats extends StatelessWidget {
+///
+/// Es un [StatefulWidget] porque cambia el color del like cuando se presiona.
+class _PostStats extends StatefulWidget {
   /// Publicación.
   final Post post;
 
@@ -225,6 +227,25 @@ class _PostStats extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  __PostStatsState createState() => __PostStatsState();
+}
+
+class __PostStatsState extends State<_PostStats> {
+  /// Cambiar los likes al dar click.
+  ///
+  /// - Se aumenta en 1 si no tiene like.
+  /// - Se disminuye en 1 si tiene like.
+  void likePost() {
+    setState(() {
+      /// Si no tenía like, ponerle el estado y aumentar el like.
+      widget.post.isLiked ? widget.post.likes -= 1 : widget.post.likes += 1;
+
+      /// Invertir el estado en el que estaban los likes.
+      widget.post.isLiked = !widget.post.isLiked;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -232,14 +253,14 @@ class _PostStats extends StatelessWidget {
           children: [
             Expanded(
               child: _LikesIconAndNumber(
-                post: post,
+                post: widget.post,
               ),
             ),
             const SizedBox(width: 4.0),
 
             /// Comentarios
             Text(
-              "${post.comments} Comments",
+              "${widget.post.comments} Comments",
               style: TextStyle(
                 color: Colors.grey[600],
               ),
@@ -248,7 +269,7 @@ class _PostStats extends StatelessWidget {
 
             /// Compartidas
             Text(
-              "${post.shares} Shares",
+              "${widget.post.shares} Shares",
               style: TextStyle(
                 color: Colors.grey[600],
               ),
@@ -266,11 +287,16 @@ class _PostStats extends StatelessWidget {
                 MdiIcons.thumbUpOutline,
 
                 /// El color es diferente si el post tiene like.
-                color: post.isLiked ? Palette.facebookBlue : Colors.grey[600],
+                color: widget.post.isLiked
+                    ? Palette.facebookBlue
+                    : Colors.grey[600],
                 size: 20.0,
               ),
               label: "Like",
-              onTap: () => print("Like"),
+              onTap: () {
+                print("Like");
+                likePost();
+              },
             ),
             _PostButton(
               icon: Icon(
@@ -330,6 +356,7 @@ class _LikesIconAndNumber extends StatelessWidget {
             style: TextStyle(
               /// El color es diferente si el post tiene like.
               color: post.isLiked ? Palette.facebookBlue : Colors.grey[600],
+              fontWeight: post.isLiked ? FontWeight.w500 : FontWeight.w400,
             ),
           ),
         ),
@@ -388,6 +415,12 @@ class _PostButton extends StatelessWidget {
                   style: TextStyle(
                     /// El texto tomará el mismo color que el del ícono.
                     color: icon.color,
+
+                    /// Si el color del ícono es azul, significa que tiene like,
+                    /// entonces poner la fuente con más peso.
+                    fontWeight: icon.color == Palette.facebookBlue
+                        ? FontWeight.w500
+                        : FontWeight.w400,
                   ),
                 ),
               ],

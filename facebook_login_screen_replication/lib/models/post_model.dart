@@ -6,7 +6,7 @@ class Post {
   final String caption;
 
   /// Ver si el botón está en estado de "like".
-  final bool isLiked;
+  bool isLiked;
 
   /// Imágenes del post.
   ///
@@ -70,7 +70,9 @@ class Post {
   final String imageUrl;
 
   /// Número de likes.
-  final int likes;
+  /// 
+  /// Estos pueden ser modificados.
+  int likes;
 
   /// Número de comentarios.
   final int comments;
@@ -95,7 +97,7 @@ class Post {
     @required this.isPictureFromInternet,
     @required this.imageUrl,
     @required this.timeAgo,
-    @required this.likes,
+    this.likes = 0,
     @required this.comments,
     @required this.shares,
     this.isLiked = false,
