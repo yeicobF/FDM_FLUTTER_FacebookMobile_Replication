@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../widgets/widgets.dart' show CustomTabBar;
+/// Datos iniciales de la app.
+import '../../data/initial_data.dart';
 
-/// PANTALLAS.
+/// Todos los widgets.
+import '../../widgets/widgets.dart' show CustomTabBar;
+
+/// PANTALLAS de la feed principal.
 import 'screens.dart';
 
 /// Pantallas de navegación.
@@ -24,7 +28,9 @@ class NavScreen extends StatefulWidget {
 class _NavScreenState extends State<NavScreen> {
   /// Lista de las pantallas de la app.
   final List<Widget> _screens = [
-    HomeScreen(),
+    HomeScreen(
+      currentUser: InitialData.currentUser,
+    ),
     // Scaffold por ahora, ya que no están hechas las pantallas.
     const Scaffold(),
     const Scaffold(),
