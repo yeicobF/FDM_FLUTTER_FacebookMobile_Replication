@@ -1,10 +1,9 @@
+/// Programa en donde se inicia la app.
+
 import 'package:flutter/material.dart';
 
-/* ------------------------------ LAS PANTALLAS ----------------------------- */
-// PANTALLA INICIAL
-import 'screens/first_login_screen.dart' show FirstLoginScreen;
-// PANTALLA DESPUÉS DE DAR CLICK A BOTÓN
-import 'screens/login_screen_after_click.dart' show LoginScreenAfterClick;
+/// Todas las pantallas.
+import 'screens/screens.dart';
 
 /* -------------------------------------------------------------------------- */
 
@@ -22,7 +21,7 @@ import 'screens/login_screen_after_click.dart' show LoginScreenAfterClick;
 
 // void main() => runApp(MaterialApp(home: first_login_screen.FirstLoginScreen()));
 // void main() => runApp(MaterialApp(home: login_screen_after_click.LoginScreenAfterClick()));
-void main() => runApp(const FacebookScreens(screenNumber: 0));
+void main() => runApp(const FacebookScreens(screenNumber: 2));
 
 /// CLASE PROVISIONAL PARA MOSTRAR LAS PANTALLAS QUE HEMOS HECHO DEPENDIENDO DEL
 /// NÚMERO QUE RECIBA COMO PARÁMETRO.
@@ -34,6 +33,7 @@ class FacebookScreens extends StatelessWidget {
   List<Widget> get screens => [
         FirstLoginScreen(),
         LoginScreenAfterClick(),
+        NavScreen(),
       ];
 
   const FacebookScreens({
