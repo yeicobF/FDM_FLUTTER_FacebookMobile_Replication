@@ -72,6 +72,7 @@ class Stories extends StatelessWidget {
                 /// Si estamos en el índice [index] > 0, mostramos la historia
                 /// actual.
                 : _StoryCard(
+                  currentUser: currentUser,
                     /// Pasamos la historia actual para renderizarla.
                     story: story,
                   ),
@@ -108,7 +109,7 @@ class _StoryCard extends StatelessWidget {
   const _StoryCard({
     Key key,
     this.isAddStory = false,
-    this.currentUser,
+    @required this.currentUser,
     this.story,
   }) : super(key: key);
 
@@ -123,19 +124,19 @@ class _StoryCard extends StatelessWidget {
         /// Imagen tomada de un URL de internet.
         ClipRRect(
           borderRadius: BorderRadius.circular(12.0),
-          child: CachedNetworkImage(
-            /// Si [isAddStory] == true -> Se muestra la foto de perfil del
-            /// usuario actual como fondo del recuadro de la historia.
-            /// Si [isAddStory] == false -> Se muestra foto de la historia de
-            /// otro usuario.
-            imageUrl: isAddStory ? currentUser.imageUrl : story.imageUrl,
 
-            /// Toma TODA la altura del contenedor.
-            height: double.infinity,
-            width: 110.0,
-            // Que la imagen cubra todo el espacio disponible del contenedor.
-            fit: BoxFit.cover,
-          ),
+          /// Renderizar la imagen dependiendo de si pertenece al usuario que
+          /// está utilizando su app o si es de sus amigos.
+          child: isAddStory
+              ? _PlaceStoryImage(
+                  imageUrl: currentUser.imageUrl,
+                  isPictureFromInternet:
+                      currentUser.isProfilePictureFromInternet,
+                )
+              : _PlaceStoryImage(
+                  imageUrl: story.imageUrl,
+                  isPictureFromInternet: story.isPictureFromInternet,
+                ),
         ),
 
         /// Degradado para que el texto inferior sea más legible. Va de más
@@ -224,5 +225,49 @@ class _StoryCard extends StatelessWidget {
         )
       ],
     );
+  }
+}
+
+/// Agregar la imagen de la historia.
+///
+/// Hay varias posibilidades:
+///
+/// - Foto de perfil del usuario si es el que está utilizando Facebook.
+///
+/// - Foto de historia si es un amigo del usuario principal.
+///
+/// Además, puede ser una imagen de internet o del sistema de assets.
+class _PlaceStoryImage extends StatelessWidget {
+  /// Url de la imagen.
+  final String imageUrl;
+
+  /// Si la imagen a mostrar viene de internet.
+  final bool isPictureFromInternet;
+
+  const _PlaceStoryImage({
+    Key key,
+    @required this.imageUrl,
+    @required this.isPictureFromInternet,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return isPictureFromInternet
+        ? CachedNetworkImage(
+            /// Si [isAddStory] == true -> Se muestra la foto de perfil del
+            /// usuario actual como fondo del recuadro de la historia.
+            /// Si [isAddStory] == false -> Se muestra foto de la historia de
+            /// otro usuario.
+            imageUrl: imageUrl,
+
+            /// Toma TODA la altura del contenedor.
+            height: double.infinity,
+            width: 110.0,
+            // Que la imagen cubra todo el espacio disponible del contenedor.
+            fit: BoxFit.cover,
+          )
+        : Image(
+            image: AssetImage(imageUrl),
+          );
   }
 }

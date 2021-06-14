@@ -99,12 +99,15 @@ class User {
 
     /// Solo una historia.
     this.singleStory,
+
+    /// Podemos inicializar al usuario con amigos.
+    this.friends,
+    
   }) {
     /// Obtención del momento en que se creó la cuenta.
     creationDate = DateTime.now();
 
     /// Inicialización de listas vacías.
-    friends = [];
     postList = [];
 
     /// Inicializar el número de notificaciones.

@@ -71,6 +71,8 @@ class HomeScreen extends StatelessWidget {
 
   /// Función para obtener una lista con todas las historias de los amigos.
   List<Story> getFriendsStories() {
+    print("getFriendsStories");
+
     /// Lista de historias.
     final List<Story> stories = [];
 
@@ -145,6 +147,8 @@ class HomeScreen extends StatelessWidget {
 
     /// Íconos de la barra superior de notificaciones de color negro.
     FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
+
+
 
     /// Publicaciones de los amigos.
     final Map<Post, User> friendsPosts = getFriendsPosts(getFriendsWithPosts());
