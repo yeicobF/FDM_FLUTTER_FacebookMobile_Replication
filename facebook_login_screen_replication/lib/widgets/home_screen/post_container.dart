@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../config/palette.dart' show Palette;
-import '../../models/models.dart' show Post;
+import '../../models/models.dart' show Post, User;
 import '../widgets.dart' show ProfileAvatar;
 
 /// Manejador de publicaciones de usuarios.
@@ -11,11 +11,15 @@ import '../widgets.dart' show ProfileAvatar;
 /// Se manejan las publicaciones de los usuarios, las cuales pueden tener
 /// solamente texto o también una imagen.
 class PostContainer extends StatelessWidget {
+  /// Usuario al que pertenece la publicación.
+  final User user;
+
   /// Publicación a mostrar.
   final Post post;
 
   const PostContainer({
     Key key,
+    @required this.user,
     @required this.post,
   }) : super(key: key);
 
@@ -53,7 +57,10 @@ class PostContainer extends StatelessWidget {
                 /// - Foto de perfil
                 /// - Column(Nombre + hace cuánto tiempo se creó la publicación)
                 /// - Ícono de más
-                _PostHeader(post: post),
+                _PostHeader(
+                  user: user,
+                  post: post,
+                ),
                 const SizedBox(height: 4.0),
 
                 /// Texto de la publicación.
@@ -113,14 +120,17 @@ class PostContainer extends StatelessWidget {
 /// - Column(Nombre + hace cuánto tiempo se creó la publicación)
 /// - Ícono de más
 class _PostHeader extends StatelessWidget {
+  /// Información del usuario.
+  final User user;
+
   /// Publicacion que se mostrará.
   ///
   /// Se requiere este atributo para poder acceder a los datos de la
   /// publicación.
   final Post post;
-
   const _PostHeader({
     Key key,
+    @required this.user,
     @required this.post,
   }) : super(key: key);
 
@@ -130,7 +140,10 @@ class _PostHeader extends StatelessWidget {
       children: [
         /// Foto de perfil del usuario.
         ProfileAvatar(
-          imageUrl: post.user.imageUrl,
+          user: user,
+
+          /// La foto de perfil va sola, sin elementos encima.
+          isPictureWithoutElements: true,
         ),
         const SizedBox(width: 8.0),
 
@@ -145,7 +158,7 @@ class _PostHeader extends StatelessWidget {
             children: [
               /// Nombre del usuario.
               Text(
-                post.user.name,
+                user.name,
                 style: const TextStyle(
                   fontWeight: FontWeight.w600,
                 ),
@@ -289,6 +302,12 @@ class _PostStats extends StatelessWidget {
 }
 
 /// Generador de botón.
+///
+/// Los botones para los que se utiliza este Widget son:
+///
+/// - Like
+/// - Comment
+/// - Share
 class _PostButton extends StatelessWidget {
   /// Ícono del botón ya creado.
   final Icon icon;

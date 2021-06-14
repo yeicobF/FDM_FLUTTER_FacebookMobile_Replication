@@ -30,7 +30,10 @@ class CreatePostContainer extends StatelessWidget {
             children: [
               /// [ProfileAvatar]: Crea un avatar circular.
               ProfileAvatar(
-                imageUrl: currentUser.imageUrl,
+                user: currentUser,
+
+                /// La foto de perfil va sola, sin elementos encima.
+                isPictureWithoutElements: true,
               ),
 
               /// Agregamos un espacio entre la foto de perfil y el texto.
