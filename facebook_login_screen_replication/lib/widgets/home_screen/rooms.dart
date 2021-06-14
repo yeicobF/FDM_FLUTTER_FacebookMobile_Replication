@@ -41,9 +41,7 @@ class Rooms extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: ProfileAvatar(
-              imageUrl: user.imageUrl,
-              // [isActive] para indicar que los usuarios están conectados.
-              isActive: true,
+              user: user,
             ),
           );
         },

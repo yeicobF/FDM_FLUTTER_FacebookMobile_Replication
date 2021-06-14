@@ -186,26 +186,13 @@ class _StoryCard extends StatelessWidget {
               ///
               /// La imagen muestra un círculo azul alrededor de la foto de
               /// perfil.
-              : ProfileAvatar(
-                  imageUrl: story.user.imageUrl,
+              : ProfileAvatar.forStory(
+                  /// Usuario del que se está mostrando la historia.
+                  user: currentUser,
 
-                  /// En [hasBorder] mandamos el valor [story.isViewed], el
-                  /// cual indica si una historia ha sido vista o no.
-                  ///
-                  /// Si la historia ya se vio ([story.isViewed] == true) -> No
-                  /// se dibujará el borde azul circular alrededor de la
-                  /// historia.
-                  ///
-                  /// Si la historia no se ha visto ([story.isViewed] == false)
-                  /// -> se dibujará el borde azul alrededor de la foto de
-                  /// perfil.
-                  ///
-                  /// ![story.isViewed] significa que si la historia se ha
-                  /// visto, no tiene borde:
-                  ///
-                  /// -> ![story.isViewed] = true -> [hasBorder] = false.
-                  /// -> ![story.isViewed] = false -> [hasBorder] = true.
-                  hasBorder: !story.isViewed,
+                  /// La foto de perfil será generada dependiendo de si la
+                  /// historia ha sido vista o no.
+                  currentStory: story,
                 ),
         ),
 
@@ -219,7 +206,7 @@ class _StoryCard extends StatelessWidget {
           ///
           /// Si [isAddToStory] == false -> Mostrar nombre de usuario.
           child: Text(
-            isAddStory ? "Add to Story" : story.user.name,
+            isAddStory ? "Add to Story" : currentUser.name,
 
             /// Número máximo de líneas para mostrar el texto.
             maxLines: 2,

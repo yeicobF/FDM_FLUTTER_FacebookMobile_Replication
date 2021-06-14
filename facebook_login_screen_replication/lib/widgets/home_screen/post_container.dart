@@ -93,7 +93,17 @@ class PostContainer extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
 
                   /// La imagen como tal.
-                  child: CachedNetworkImage(imageUrl: post.imageUrl),
+                  ///
+                  /// - Si la imagen proviene de internet, utilizar el Widget
+                  /// [CachedNetworkImage] para crearla.
+                  ///
+                  /// - Si la imagen no viene de internet, utilizar el widget
+                  /// [Image] para crearla.
+                  child: post.isPictureFromInternet
+                      ? CachedNetworkImage(imageUrl: post.imageUrl)
+                      : Image(
+                          image: AssetImage(post.imageUrl),
+                        ),
                 )
               // Si no hay imagen, poner un widget sin tamaño (por decirlo de
               // alguna forma).
