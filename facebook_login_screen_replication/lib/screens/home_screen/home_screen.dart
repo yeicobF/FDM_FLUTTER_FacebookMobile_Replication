@@ -88,6 +88,55 @@ class HomeScreen extends StatelessWidget {
     return stories;
   }
 
+  /// Función para obtener a todos los amigos que tienen publicaciones.
+  ///
+  /// Obteniendo a los amigos será más fácil recorrer usuario por usuario y que
+  /// así no hayan problemas al generar cada publicación con su información de
+  /// usuario.
+  List<User> getFriendsWithPosts() {
+    /// Lista de amigos con publicaciones.
+    final List<User> friendsWithPosts = [];
+
+    /// Recorrer a los amigos del usuario y agregar a la lista a los que tengan
+    /// una publicación.
+    for (final User friend in currentUser.friends) {
+      /// Si el post no es null, agregar al amigo a la lista.
+      if (friend.singlePost != null) {
+        friendsWithPosts.add(friend);
+      }
+    }
+    return friendsWithPosts;
+  }
+
+  /// Obtener una lista con todas las publicaciones de todos los amigos.
+  ///
+  /// Esta función está apoyada por [getFriendsWithPosts()], ya que tenemos a
+  /// todos los amigos con publicaciones, por lo que obtener las publicaciones
+  /// es más sencillo.
+  ///
+  /// **Devolvemos un mapa con el usuario y la publicación [Map<Post, User>]
+  /// para obtener más fácil la información. Está en ese orden, ya que creo que
+  /// las llaves se sobreescriben si se tienen las mismas, así que como todos
+  /// los [Post]s son diferentes, esa es la llave, ya que un usuario podría
+  /// tener más de un [Post].**
+  Map<Post, User> getFriendsPosts(List<User> friendsWithPosts) {
+    final Map<Post, User> friendsPosts = {};
+
+    /// Recorremos la lista de todos los amigos con publicaciones.
+    for (final User friend in friendsWithPosts) {
+      /// Guardamos en el mapa los datos de la siguiente manera:
+      ///
+      /// [Map<Post, User>]
+      ///
+      /// Así que se identificarían de la siguiente forma:
+      ///
+      /// - Key: [Post].
+      /// - Value: [User].
+      friendsPosts[friend.singlePost] = friend;
+    }
+    return friendsPosts;
+  }
+
   @override
   Widget build(BuildContext context) {
     /// CAMBIAR COLOR DEL statusBar (barra superior de notificaciones).
@@ -96,6 +145,9 @@ class HomeScreen extends StatelessWidget {
 
     /// Íconos de la barra superior de notificaciones de color negro.
     FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
+
+    /// Publicaciones de los amigos.
+    final Map<Post, User> friendsPosts = getFriendsPosts(getFriendsWithPosts());
 
     return Scaffold(
       body: CustomScrollView(
@@ -195,15 +247,22 @@ class HomeScreen extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               /// Función para renderizar todas las publicaciones.
               (BuildContext context, int index) {
+                /// Usuario de la publicación actual.
+                final User postOwner = friendsPosts.values.elementAt(index);
+                
                 /// Publicación respecto al índice actual.
-                final Post post = posts[index];
+                final Post post = friendsPosts.keys.elementAt(index);
+                // final Post post = posts[index];
 
                 /// Renderizar el post actual.
-                return PostContainer(post: post);
+                return PostContainer(
+                  user: postOwner,
+                  post: post,
+                  );
               },
 
               /// [childCount]: Número de elementos a mostrar.
-              childCount: posts.length,
+              childCount: friendsPosts.length,
             ),
           ),
         ],
