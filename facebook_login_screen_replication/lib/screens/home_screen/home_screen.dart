@@ -1,27 +1,92 @@
+/// Pantalla en donde se encuentra la feed principal del usuario.
+///
+/// Se encuentran los siguientes elementos:
+///
+/// - Contenedor para crear publicación.
+/// - Lista de usuarios conectados.
+/// - Historias de amigos.
+/// - Scroll con todas las publicaciones.
+
 import 'package:flutter/material.dart';
-// Cambiar colores de la "status bar" y la barra inferior con botones del
-// celular.
+
+/// Cambiar colores de la "status bar" y la barra inferior con botones del
+/// celular.
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart'
     show FlutterStatusbarcolor;
-// ÍCONOS MATERIAL DESIGN.
+
+/// ÍCONOS MATERIAL DESIGN.
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart'
     show MdiIcons;
 
-/// Colores
-import '../config/palette.dart' show Palette;
+/// Colores.
+import '../../config/palette.dart' show Palette;
+
 /// Información predefinida de los usuarios.
-import '../data/data.dart' show currentUser, onlineUsers, posts, stories;
-import '../models/models.dart' show Post;
+import '../../data/initial_data.dart';
+
+/// Modelos de las clases.
+import '../../models/models.dart' show Post, Story, User;
+
 /// Botones, ...
-import '../widgets/widgets.dart' show CircleButton, CreatePostContainer, PostContainer, Rooms, Stories;
+import '../../widgets/widgets.dart'
+    show CircleButton, CreatePostContainer, PostContainer, Rooms, Stories;
 
 /// CLASE EN LA QUE SE MANEJARÁ LA PANTALLA INICIAL DE FACEBOOK.
 class HomeScreen extends StatelessWidget {
   /// Colores del botón del SliverAppBar.
-  final fbColors = {
-    "fbIconCircle": const Color(0xFFf1f2f6),
-    "fbIcon": const Color(0xFF010102),
+  final fbColors = const {
+    "fbIconCircle": Color(0xFFf1f2f6),
+    "fbIcon": Color(0xFF010102),
   };
+
+  /// Usuario actual de la aplicación.
+  final User currentUser;
+
+  const HomeScreen({
+    Key key,
+    @required this.currentUser,
+  }) : super(key: key);
+
+  /// Función para obtener una lisat con los amigos conectados del usuario
+  /// actual.
+  List<User> getOnlineFriends() {
+    /// Lista de amigos conectados.
+    ///
+    /// Se inicializa con [final], por lo que se define en tiempo de
+    /// compilación (o algo así), y mejora el rendimiento. Aún así, [final] no
+    /// permite reasignar un valor a la variable, pero sus valores internos no
+    /// son [final], por lo que podemos agregar elementos sin problemas.
+    final List<User> onlineFriends = [];
+
+    /// Recorremos a todos los amigos y agregamos a la lista a los que estén
+    /// corectados.
+    for (final User friend in currentUser.friends) {
+      /// Si el amigo está conectado, agregarlo a la lista.
+      if (friend.isOnline) {
+        onlineFriends.add(friend);
+      }
+    }
+    return onlineFriends;
+  }
+
+  /// Función para obtener una lista con todas las historias de los amigos.
+  List<Story> getFriendsStories() {
+    /// Lista de historias.
+    final List<Story> stories = [];
+
+    /// Recorremos a todos los amigos del usuario para obtener las historias.
+    ///
+    /// Primero se recorre al amigo, y se obtienen todas sus historias.
+    ///
+    /// - Se agrega la historia [singleStory] si no es null, ya que significa
+    /// que sí tiene una historia.
+    for (final User friend in currentUser.friends) {
+      if (friend.singleStory != null) {
+        stories.add(friend.singleStory);
+      }
+    }
+    return stories;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,20 +148,26 @@ class HomeScreen extends StatelessWidget {
 
           /// Los elementos requieren estar en un [Sliver] para poder estar
           /// dentro los "[slivers]" del [CustomScrollView].
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             // Contenedor debajo de la AppBar.
             // Sección para crear una publicación.
-            child: CreatePostContainer(currentUser: currentUser),
+            child: CreatePostContainer(
+              currentUser: currentUser,
+            ),
           ),
 
           /// [Sliver] con [Padding] para estar separado de la parte superior.
           /// [Rooms] Lista de usuarios conectados.
-          const SliverPadding(
-            padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
-            // Toma otro sliver, el cual ya teníamos definido.
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
+
+            /// Toma otro sliver, el cual ya teníamos definido.
             sliver: SliverToBoxAdapter(
-              // Lista de usuarios conectados.
-              child: Rooms(onlineUsers: onlineUsers),
+              /// Lista de usuarios conectados.
+              ///
+              /// - Los tomamos de la función en donde se obtiene la lista con
+              /// los amigos.
+              child: Rooms(onlineUsers: getOnlineFriends()),
             ),
           ),
 
@@ -108,7 +179,7 @@ class HomeScreen extends StatelessWidget {
               /// [Stories] Lista de las historias.
               child: Stories(
                 currentUser: currentUser,
-                stories: stories,
+                stories: getFriendsStories(),
               ),
             ),
           ),
