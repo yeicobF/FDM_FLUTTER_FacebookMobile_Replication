@@ -185,9 +185,16 @@ class _DisplayAllScreenElements extends StatelessWidget {
 
 /* ---------- ÚLTIMO BOTÓN PARA CREAR UNA NUEVA CUENTA DE FACEBOOK ---------- */
 
-                _CreateNewFacebookAccountButton(
-                  buttonColor: Palette.firstScreenColors["fbButtonColor"],
-                  fontColor: Palette.firstScreenColors["fbFontColor"],
+                Expanded(
+                  child: Container(
+                    width: double.infinity,
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: _CreateNewFacebookAccountButton(
+                        onPressed: () => print("CREATE NEW FACEBOOK ACCOUNT"),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -309,74 +316,6 @@ class _LargeIconAndTextButton extends StatelessWidget {
   }
 }
 
-/// Generador de botón para crear una nueva cuenta de facebook.
-///
-/// > "CREATE NEW FACEBOOK ACCOUNT"
-class _CreateNewFacebookAccountButton extends StatelessWidget {
-  /// Color del botón.
-  final Color buttonColor;
-
-  /// Color de la fuente.
-  final Color fontColor;
-
-  /// Constructor.
-  const _CreateNewFacebookAccountButton({
-    Key key,
-    @required this.buttonColor,
-    @required this.fontColor,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    // PREFERIRÍA PONER UN "EXPANDED" en lugar de un "PADDING", pero como tengo
-    // los elementos en distintas columnas y contenedores, cuando utilizo el
-    // EXPANDED, la pantalla solo se ve del contenedor del primer contenedor,
-    // así que mejor utilicé el PADDING, pero esto le quita la responsividad y
-    // solo se vería igual en el mismo dispositivo (Google Pixel 2).
-    //
-    // - ESTO DE ARRIBA ERA PORQUE HABÍA PUESTO PADDING.
-
-    /// CON [Expanded] SE TOMA TODO EL TAMAÑO RESTANTE DE LA PANTALLA, POR LO
-    /// QUE TIENE CIERTO GRADO DE RESPONSIVIDAD.
-    return Expanded(
-      // padding: const EdgeInsets.only(top: 150),
-
-      /// ALINEAMOS EL BOTÓN AL FONDO DEL TAMAÑO RESTANTE DE LA PANTALLA.
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: SizedBox(
-          height: 40,
-
-          /// [width.infinity]: QUE EL ANCHO SEA EL MÁXIMO POSIBLE.
-          ///
-          /// https://stackoverflow.com/questions/50014342/button-width-match-parent
-          width: double.infinity,
-
-          /// Contenedor con el texto.
-          child: Container(
-            decoration: BoxDecoration(
-              color: buttonColor,
-              borderRadius: BorderRadius.circular(5.0),
-            ),
-
-            /// Centrar texto.
-            child: Center(
-              child: Text(
-                "CREATE NEW FACEBOOK ACCOUNT",
-                style: TextStyle(
-                  fontSize: 16.5,
-                  fontWeight: FontWeight.w700,
-                  color: fontColor,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 /// Muestra los datos del usuario.
 ///
 /// Se muestran los siguientes delementos:
@@ -462,6 +401,80 @@ class _ShowUserInfo extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+/// Generador de botón para crear una nueva cuenta de facebook.
+///
+/// > "CREATE NEW FACEBOOK ACCOUNT"
+class _CreateNewFacebookAccountButton extends StatelessWidget {
+  /// Función a ejecutar cuando se de click al botón.
+  final void Function() onPressed;
+
+  /// Tamaño de la fuente.
+  final double fontSize;
+
+  /// Color de la fuente.
+  final Color fontColor;
+
+  /// Color del botón.
+  final Color buttonColor;
+
+  /// Constructor.
+  const _CreateNewFacebookAccountButton({
+    Key key,
+    @required this.onPressed,
+    this.fontSize = 15.0,
+    this.fontColor = Palette.fbFirstLoginFontColor,
+    this.buttonColor = Palette.fbFirstLoginButtonColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // PREFERIRÍA PONER UN "EXPANDED" en lugar de un "PADDING", pero como tengo
+    // los elementos en distintas columnas y contenedores, cuando utilizo el
+    // EXPANDED, la pantalla solo se ve del contenedor del primer contenedor,
+    // así que mejor utilicé el PADDING, pero esto le quita la responsividad y
+    // solo se vería igual en el mismo dispositivo (Google Pixel 2).
+    //
+    // - ESTO DE ARRIBA ERA PORQUE HABÍA PUESTO PADDING.
+
+    /// CON [Expanded] SE TOMA TODO EL TAMAÑO RESTANTE DE LA PANTALLA, POR LO
+    /// QUE TIENE CIERTO GRADO DE RESPONSIVIDAD.
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(0.0),
+      // decoration: BoxDecoration(
+      //   color: buttonColor,
+      //   borderRadius: BorderRadius.circular(5.0),
+      // ),
+
+      /// Centrar texto.
+      child: TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+          alignment: Alignment.center,
+          padding: const EdgeInsets.all(0.0),
+          backgroundColor: buttonColor,
+
+          /// shape: RoundedRectangleBorder
+          ///
+          /// - https://stackoverflow.com/questions/49991444/create-a-rounded-button-button-with-border-radius-in-flutter
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(6.0),
+          ),
+        ),
+        child: Text(
+          "CREATE NEW FACEBOOK ACCOUNT",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: fontSize,
+            fontWeight: FontWeight.w700,
+            color: fontColor,
+          ),
+        ),
       ),
     );
   }

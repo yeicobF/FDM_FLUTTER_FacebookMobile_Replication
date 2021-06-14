@@ -22,7 +22,7 @@ import 'screens/login_screen_after_click.dart' show LoginScreenAfterClick;
 
 // void main() => runApp(MaterialApp(home: first_login_screen.FirstLoginScreen()));
 // void main() => runApp(MaterialApp(home: login_screen_after_click.LoginScreenAfterClick()));
-void main() => runApp(const FacebookScreens(screenNumber: 1));
+void main() => runApp(const FacebookScreens(screenNumber: 0));
 
 /// CLASE PROVISIONAL PARA MOSTRAR LAS PANTALLAS QUE HEMOS HECHO DEPENDIENDO DEL
 /// NÚMERO QUE RECIBA COMO PARÁMETRO.

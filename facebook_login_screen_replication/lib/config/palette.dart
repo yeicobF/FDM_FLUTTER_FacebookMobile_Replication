@@ -24,9 +24,8 @@ class Palette {
       "fbFontColor": Color(0xFF4e9af5),
   };
 
-  static const Map<String, Color> secondScreenColors = {
-
-  };
+  static const fbFirstLoginButtonColor = Color(0xFF273951);
+  static const fbFirstLoginFontColor = Color(0xFF4e9af5);
 
   /// Color azul que se encuentra en Facebook.
   static const Color facebookBlue = Color(0xFF1777F2);
