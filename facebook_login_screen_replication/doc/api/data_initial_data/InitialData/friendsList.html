@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the friendsList property from the InitialData class, for the Dart programming language.">
+  <title>friendsList property - InitialData class - initial_data library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">facebook_login_screen_replication</a></li>
+    <li><a href="../../data_initial_data/data_initial_data-library.html">initial_data</a></li>
+    <li><a href="../../data_initial_data/InitialData-class.html">InitialData</a></li>
+    <li class="self-crumb">friendsList property</li>
+  </ol>
+  <div class="self-name">friendsList</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-property">friendsList</span> property 
+</h1></div>
+
+        <section class="multi-line-signature">
+          <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../models_user_model/User-class.html">User</a></span>&gt;</span>
+          <span class="name ">friendsList</span>
+          <div class="features">final</div>
+
+        </section>
+        
+<section class="desc markdown">
+  <p>Lista de amigos.</p>
+<ul>
+<li>Agregaré algunos amigos solo como prueba.</li>
+</ul>
+<h2 id="otra-opcin-con-la-anterior-implementacin-era-poner-los--usuarios-en">Otra opción con la anterior implementación era poner los  usuarios en</h2>
+<p>un mapa con sus nombres para luego agregarlos a la lista de amigos. Esto
+solamente para hacerlo más entendible relativamente. Esto se muestra en
+el siguiente código:</p>
+<pre class="language-dart"><code class="language-dart">
+// Crear mapa con los usuarios.
+ final Map&lt;String, User&gt; usersMap = {
+   "german": User("Germán González", "$profilePicsPath/german.jpg"),
+   "sergio": User("Sergio", "$profilePicsPath/sergio.jpg"),
+   "rodrigo": User("Rodrigo", "$profilePicsPath/rodrigo.jpg"),
+   "eduardo": User("Eduardo", "$profilePicsPath/eduardo_roca.jpg"),
+ };
+
+// Crear una lista con cada uno de los usuarios que fueron definidos de
+// manera más específica.
+ final List&lt;User&gt; friendsList = [
+   usersMap["german"],
+   usersMap["sergio"],
+   usersMap["rodrigo"],
+   usersMap["eduardo"],
+ ];
+</code></pre>
+</section>
+
+        
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">static final List&lt;User&gt; friendsList = [
+  User(
+    name: &quot;Germán González&quot;,
+    imageUrl: &quot;$profilePicsPath&#47;german.jpg&quot;,
+    isProfilePictureFromInternet: false,
+    singlePost: postList[0],
+    singleStory: stories[0],
+  ),
+  User(
+    name: &quot;𝕤ergio 𝔰&quot;,
+    imageUrl: &quot;$profilePicsPath&#47;sergio.jpg&quot;,
+    isProfilePictureFromInternet: false,
+    singlePost: postList[1],
+    singleStory: stories[1],
+  ),
+  User(
+    name: &quot;Rodrigo&quot;,
+    imageUrl: &quot;$profilePicsPath&#47;rodrigo.jpg&quot;,
+    isProfilePictureFromInternet: false,
+    singlePost: postList[2],
+    singleStory: stories[2],
+  ),
+  User(
+    name: &quot;Eduardo&quot;,
+    imageUrl: &quot;$profilePicsPath&#47;eduardo_roca.jpg&quot;,
+    isProfilePictureFromInternet: false,
+    singlePost: postList[3],
+    singleStory: stories[3],
+  ),
+  User(
+    name: &#39;David Brooks&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+    singlePost: postList[4],
+    singleStory: stories[4],
+  ),
+  User(
+    name: &#39;Jane Doe&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+    singlePost: postList[5],
+    singleStory: stories[5],
+  ),
+  User(
+    name: &#39;Matthew Hinkle&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1331&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+    singlePost: postList[6],
+    singleStory: stories[6],
+  ),
+  User(
+    name: &#39;Amy Smith&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=700&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+    singlePost: postList[7],
+    singleStory: stories[7],
+  ),
+  User(
+    name: &#39;Ed Morris&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1521119989659-a83eee488004?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=664&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+    singlePost: postList[8],
+    singleStory: stories[8],
+  ),
+  User(
+    name: &#39;Carolyn Duncan&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+    singlePost: postList[9],
+    singleStory: stories[9],
+  ),
+  User(
+    name: &#39;Paul Pinnock&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1519631128182-433895475ffe?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;Elizabeth Wong&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1515077678510-ce3bdf418862?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjF9&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;James Lathrop&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=592&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;Jessie Samson&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;David Brooks&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;Jane Doe&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;Matthew Hinkle&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1331&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;Amy Smith&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=700&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;Ed Morris&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1521119989659-a83eee488004?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=664&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;Carolyn Duncan&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;Paul Pinnock&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1519631128182-433895475ffe?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;Elizabeth Wong&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1515077678510-ce3bdf418862?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjF9&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;James Lathrop&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=592&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+  User(
+    name: &#39;Jessie Samson&#39;,
+    imageUrl:
+        &#39;https:&#47;&#47;images.unsplash.com&#47;photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80&#39;,
+    isProfilePictureFromInternet: true,
+  ),
+];
+
+</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">facebook_login_screen_replication</a></li>
+  <li><a href="../../data_initial_data/data_initial_data-library.html">initial_data</a></li>
+  <li><a href="../../data_initial_data/InitialData-class.html">InitialData</a></li>
+  <li class="self-crumb">friendsList property</li>
+</ol>
+
+
+    <h5>InitialData class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../data_initial_data/InitialData-class.html#constructors">Constructors</a></li>
+    <li><a href="../../data_initial_data/InitialData/InitialData.html">InitialData</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../data_initial_data/InitialData-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title inherited"><a href="../../data_initial_data/InitialData-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../data_initial_data/InitialData-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+    <li class="section-title"><a href="../../data_initial_data/InitialData-class.html#static-properties">Static properties</a></li>
+    <li><a href="../../data_initial_data/InitialData/currentUser.html">currentUser</a></li>
+    <li><a href="../../data_initial_data/InitialData/friendsList.html">friendsList</a></li>
+    <li><a href="../../data_initial_data/InitialData/postList.html">postList</a></li>
+
+
+    <li class="section-title"><a href="../../data_initial_data/InitialData-class.html#constants">Constants</a></li>
+    <li><a href="../../data_initial_data/InitialData/profilePicsPath-constant.html">profilePicsPath</a></li>
+    <li><a href="../../data_initial_data/InitialData/stories-constant.html">stories</a></li>
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    facebook_login_screen_replication
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

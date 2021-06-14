@@ -27,8 +27,7 @@ import '../models/models.dart' show Story, User;
 /// historias.
 ///
 /// - Una foto de perfil con ícono de estar conectado solamente se indicará si
-/// todos los booleanos que indican qué tipo de imagen será
-/// ([isPictureFromLogin], [[isPictureFromStory], [isBarePicture]]),
+/// todos los booleanos que indican qué tipo de imagen será.
 /// están en false.
 ///
 ///

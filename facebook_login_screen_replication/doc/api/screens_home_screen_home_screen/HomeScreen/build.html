@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the HomeScreen class, for the Dart programming language.">
+  <title>build method - HomeScreen class - home_screen library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">facebook_login_screen_replication</a></li>
+    <li><a href="../../screens_home_screen_home_screen/screens_home_screen_home_screen-library.html">home_screen</a></li>
+    <li><a href="../../screens_home_screen_home_screen/HomeScreen-class.html">HomeScreen</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">build</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features">override</div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Describes the part of the user interface represented by this widget.</p>
+<p>The framework calls this method when this widget is inserted into the tree
+in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
+(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
+method can potentially be called in every frame and should not have any side
+effects beyond building a widget.</p>
+<p>The framework replaces the subtree below this widget with the widget
+returned by this method, either by updating the existing subtree or by
+removing the subtree and inflating a new subtree, depending on whether the
+widget returned by this method can update the root of the existing
+subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
+<p>Typically implementations return a newly created constellation of widgets
+that are configured with information from this widget's constructor and
+from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
+<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
+tree at which this widget is being built. For example, the context
+provides the set of inherited widgets for this location in the tree. A
+given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
+arguments over time if the widget is moved around the tree or if the
+widget is inserted into the tree in multiple places at once.</p>
+<p>The implementation of this method must only depend on:</p>
+<ul>
+<li>the fields of the widget, which themselves must not change over time,
+and</li>
+<li>any ambient state obtained from the <code>context</code> using
+<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
+</ul>
+<p>If a widget's <a href="../../screens_home_screen_home_screen/HomeScreen/build.html">build</a> method is to depend on anything else, use a
+<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  &#47;&#47;&#47; CAMBIAR COLOR DEL statusBar (barra superior de notificaciones).
+  &#47;&#47;&#47; https:&#47;&#47;stackoverflow.com&#47;questions&#47;52489458&#47;how-to-change-status-bar-color-in-flutter
+  FlutterStatusbarcolor.setStatusBarColor(Colors.white);
+
+  &#47;&#47;&#47; Íconos de la barra superior de notificaciones de color negro.
+  FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
+
+  &#47;&#47;&#47; Publicaciones de los amigos.
+  final Map&lt;Post, User&gt; friendsPosts = getFriendsPosts(getFriendsWithPosts());
+
+  return SafeArea(
+    child: Scaffold(
+      body: CustomScrollView(
+        &#47;&#47;&#47; [slivers]: Todo deben ser slivers, no solo contenedores.
+        slivers: [
+          &#47;&#47;&#47; [SliverAppBar]:
+          &#47;&#47;&#47; - Scroll hacia abajo -&gt; Se esconde la barra superior.
+          &#47;&#47;&#47; - Scroll hacia arriba -&gt; Se muestra la barra superior.
+          SliverAppBar(
+            &#47;&#47;&#47; [leading] es un Widget que se coloca a la izquierda del [title].
+            &#47;&#47;&#47;
+            &#47;&#47;&#47; Lo agregué porque al poner el [Navigator] para cambiar de
+            &#47;&#47;&#47; pantallas,se agregaba un botón automáticamentea para cambiar de
+            &#47;&#47;&#47; pantallas.
+            leading: null,
+
+            &#47;&#47;&#47; [automaticallyImplyLeading] agrega un Widget de acuerdo al
+            &#47;&#47;&#47; contexto de forma automática si [leading] = null.
+            &#47;&#47;&#47;
+            &#47;&#47;&#47; Por eso ponemos [automaticallyImplyLeading] = false, para que no
+            &#47;&#47;&#47; se genere ningún widget.
+            automaticallyImplyLeading: false,
+
+            &#47;&#47;&#47; [leadingWidth] es el ancho del [leading] [Widget].
+            leadingWidth: 0.0,
+
+            &#47;&#47; Se cambian los colores de los elementos de la barra de
+            &#47;&#47; notificaciones.
+            brightness: Brightness.light,
+            backgroundColor: Colors.white,
+            centerTitle: false,
+
+            &#47;&#47;&#47; Para no tener que hacer scroll hasta arriba para que se vea la
+            &#47;&#47;&#47; [AppBar].
+            floating: true,
+            backwardsCompatibility: true,
+
+            &#47;&#47;&#47; Para que se vea una sombra debajo de la [AppBar].
+            &#47;&#47;&#47; [forceElevated]: true,
+            title: const Text(
+              &quot;facebook&quot;,
+              style: TextStyle(
+                color: Palette.facebookBlue,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold,
+                letterSpacing: -1.2,
+              ),
+            ),
+
+            &#47;&#47;&#47; [actions]: Para hacer funcionar a los botones.
+            actions: [
+              &#47;&#47;&#47; Para simular el círculo gris de alrededor del ícono.
+              CircleButton(
+                icon: Icons.search,
+                iconSize: 30.0,
+                &#47;&#47; icon: FontAwesomeIcons.search,
+                &#47;&#47; iconSize: 26.0,
+                onPressed: () =&gt; print(&quot;Search&quot;),
+              ),
+              CircleButton(
+                icon: MdiIcons.facebookMessenger,
+                iconSize: 30.0,
+                onPressed: () =&gt; print(&quot;Messenger&quot;),
+              ),
+            ],
+          ),
+
+          &#47;&#47;&#47; Los elementos requieren estar en un [Sliver] para poder estar
+          &#47;&#47;&#47; dentro los &quot;[slivers]&quot; del [CustomScrollView].
+          SliverToBoxAdapter(
+            &#47;&#47; Contenedor debajo de la AppBar.
+            &#47;&#47; Sección para crear una publicación.
+            child: CreatePostContainer(
+              currentUser: currentUser,
+            ),
+          ),
+
+          &#47;&#47;&#47; [Sliver] con [Padding] para estar separado de la parte superior.
+          &#47;&#47;&#47; [Rooms] Lista de usuarios conectados.
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
+
+            &#47;&#47;&#47; Toma otro sliver, el cual ya teníamos definido.
+            sliver: SliverToBoxAdapter(
+              &#47;&#47;&#47; Lista de usuarios conectados.
+              &#47;&#47;&#47;
+              &#47;&#47;&#47; - Los tomamos de la función en donde se obtiene la lista con
+              &#47;&#47;&#47; los amigos.
+              child: Rooms(onlineUsers: getOnlineFriends()),
+            ),
+          ),
+
+          &#47;&#47;&#47; Lista con todas las historias.
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+            &#47;&#47; Toma otro sliver, el cual ya teníamos definido.
+            sliver: SliverToBoxAdapter(
+              &#47;&#47;&#47; [Stories] Lista de las historias.
+              child: Stories(
+                currentUser: currentUser,
+                friendsWithStories: getFriendsWithStories(),
+              ),
+            ),
+          ),
+
+          &#47;&#47;&#47; Publicaciones de los usuarios.
+          SliverList(
+            &#47;&#47;&#47; [delegate] - {SliverChildDelegate delegate}
+            &#47;&#47;&#47; Creates a sliver that places box children in a
+            &#47;&#47;&#47; linear array.
+            &#47;&#47;&#47;
+            &#47;&#47;&#47; [SliverChildBuilderDelegate] es como un equivalente al
+            &#47;&#47;&#47; [ListView.builder()].
+            delegate: SliverChildBuilderDelegate(
+              &#47;&#47;&#47; Función para renderizar todas las publicaciones.
+              (BuildContext context, int index) {
+                &#47;&#47;&#47; Usuario de la publicación actual.
+                final User postOwner = friendsPosts.values.elementAt(index);
+
+                &#47;&#47;&#47; Publicación respecto al índice actual.
+                final Post post = friendsPosts.keys.elementAt(index);
+                &#47;&#47; final Post post = posts[index];
+
+                &#47;&#47;&#47; Renderizar el post actual.
+                return PostContainer(
+                  user: postOwner,
+                  post: post,
+                );
+              },
+
+              &#47;&#47;&#47; [childCount]: Número de elementos a mostrar.
+              childCount: friendsPosts.length,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">facebook_login_screen_replication</a></li>
+  <li><a href="../../screens_home_screen_home_screen/screens_home_screen_home_screen-library.html">home_screen</a></li>
+  <li><a href="../../screens_home_screen_home_screen/HomeScreen-class.html">HomeScreen</a></li>
+  <li class="self-crumb">build method</li>
+</ol>
+
+
+    <h5>HomeScreen class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../screens_home_screen_home_screen/HomeScreen-class.html#constructors">Constructors</a></li>
+    <li><a href="../../screens_home_screen_home_screen/HomeScreen/HomeScreen.html">HomeScreen</a></li>
+
+
+    <li class="section-title">
+      <a href="../../screens_home_screen_home_screen/HomeScreen-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../screens_home_screen_home_screen/HomeScreen/currentUser.html">currentUser</a></li>
+    <li><a href="../../screens_home_screen_home_screen/HomeScreen/fbColors.html">fbColors</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../screens_home_screen_home_screen/HomeScreen-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../screens_home_screen_home_screen/HomeScreen/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
+    <li><a href="../../screens_home_screen_home_screen/HomeScreen/getFriendsPosts.html">getFriendsPosts</a></li>
+    <li><a href="../../screens_home_screen_home_screen/HomeScreen/getFriendsWithPosts.html">getFriendsWithPosts</a></li>
+    <li><a href="../../screens_home_screen_home_screen/HomeScreen/getFriendsWithStories.html">getFriendsWithStories</a></li>
+    <li><a href="../../screens_home_screen_home_screen/HomeScreen/getOnlineFriends.html">getOnlineFriends</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></li>
+
+    <li class="section-title inherited"><a href="../../screens_home_screen_home_screen/HomeScreen-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    facebook_login_screen_replication
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

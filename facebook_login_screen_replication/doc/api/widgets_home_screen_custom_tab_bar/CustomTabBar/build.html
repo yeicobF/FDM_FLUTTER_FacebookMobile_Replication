@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the CustomTabBar class, for the Dart programming language.">
+  <title>build method - CustomTabBar class - custom_tab_bar library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">facebook_login_screen_replication</a></li>
+    <li><a href="../../widgets_home_screen_custom_tab_bar/widgets_home_screen_custom_tab_bar-library.html">custom_tab_bar</a></li>
+    <li><a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar-class.html">CustomTabBar</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">build</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features">override</div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Describes the part of the user interface represented by this widget.</p>
+<p>The framework calls this method when this widget is inserted into the tree
+in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
+(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
+method can potentially be called in every frame and should not have any side
+effects beyond building a widget.</p>
+<p>The framework replaces the subtree below this widget with the widget
+returned by this method, either by updating the existing subtree or by
+removing the subtree and inflating a new subtree, depending on whether the
+widget returned by this method can update the root of the existing
+subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
+<p>Typically implementations return a newly created constellation of widgets
+that are configured with information from this widget's constructor and
+from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
+<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
+tree at which this widget is being built. For example, the context
+provides the set of inherited widgets for this location in the tree. A
+given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
+arguments over time if the widget is moved around the tree or if the
+widget is inserted into the tree in multiple places at once.</p>
+<p>The implementation of this method must only depend on:</p>
+<ul>
+<li>the fields of the widget, which themselves must not change over time,
+and</li>
+<li>any ambient state obtained from the <code>context</code> using
+<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
+</ul>
+<p>If a widget's <a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar/build.html">build</a> method is to depend on anything else, use a
+<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  &#47;&#47;&#47; [TabBar]: Barra de pestañas.
+  &#47;&#47;&#47;
+  &#47;&#47;&#47; Cambia el focus de cada pestaña en la barra automáticamente al dar
+  &#47;&#47;&#47; click.
+  return TabBar(
+    indicatorPadding: EdgeInsets.zero,
+
+    &#47;&#47;&#47; [indicator] se refiere al indicador de que estás en el elemento
+    &#47;&#47;&#47; (pestaña) acutal.
+    indicator: const BoxDecoration(
+      &#47;&#47;&#47; Borde superior azul para indicar que estás en dicha pestaña.
+      border: Border(
+        top: BorderSide(
+          color: Palette.facebookBlue,
+          width: 3.0,
+        ),
+      ),
+    ),
+
+    &#47;&#47;&#47; Cada uno de los elementos de dicha barra, será un ícono de los
+    &#47;&#47;&#47; obtenidos por parámetro.
+    &#47;&#47;&#47;
+    &#47;&#47;&#47; Requiere un lista de [Tab]s: [List&lt;Widget&gt; tabs].
+    tabs: icons
+
+        &#47;&#47;&#47; Se convierte la lista de íconos a un mapa.
+        &#47;&#47;&#47;
+        &#47;&#47;&#47; Esto requerirá un índice ([iconIndex]) y devolver un [MapEntry].
+        .asMap()
+
+        &#47;&#47;&#47; Se hace un mapeo de los íconos para poderlos establecerlos como
+        &#47;&#47;&#47; las [tabs].
+        &#47;&#47;&#47;
+        &#47;&#47;&#47; [.map] regresa un iterable.
+        .map(
+          &#47;&#47;&#47; Cada elemento del mapa se convierte en una [Tab], dado que con
+          &#47;&#47;&#47; la función de debajo se itera por cada uno de los elementos del
+          &#47;&#47;&#47; arreglo.
+          &#47;&#47;&#47;
+          &#47;&#47;&#47; Estos elementos se establecen como el [icon] de cada una de las
+          &#47;&#47;&#47; [Tab]. Por esta razón, el &quot;[icon]: [Icon(currentIconInMap)]&quot;.
+          &#47;&#47;&#47;
+          &#47;&#47;&#47; Además, se recibe un índice del ícono, con el cual se podrá
+          &#47;&#47;&#47; comprobar si el índice [iconIndex] es el mismo que el de la
+          &#47;&#47;&#47; pestaña seleccionada [_selectedIndex].
+          &#47;&#47;&#47;
+          &#47;&#47;&#47; - Se devuelve un [MapEntry] porque se convirtió la lista en un
+          &#47;&#47;&#47; mapa.
+          (iconIndex, currentIconInMap) =&gt; MapEntry(
+            &#47;&#47;&#47; [MapEntry] requiere de un índice ([iconIndex]) que se refiere
+            &#47;&#47;&#47; a la llave, y el valor de cada llave ([Tab]). Después podemos
+            &#47;&#47;&#47; tomar cada valor del mapa sin tomar su llave.
+            iconIndex,
+            Tab(
+              icon: Icon(
+                currentIconInMap,
+                size: 30.0,
+
+                &#47;&#47;&#47; Si el ícono actual es el mismo índice que el de la
+                &#47;&#47;&#47; pestaña seleccionada, entonces ponerle un color azul.
+                color: iconIndex == selectedIndex
+                    ? Palette.facebookBlue
+                    : Colors.black45,
+              ),
+            ),
+          ),
+        )
+
+        &#47;&#47;&#47; Con [.values] se obtienen solo los valores del mapa y no las
+        &#47;&#47;&#47; llaves.
+        .values
+
+        &#47;&#47;&#47; Al haber obtenido los valores del mapa de pestañas, se puede
+        &#47;&#47;&#47; convertir en una lista, que es lo que requiere el atributo [tabs].
+        &#47;&#47;&#47;
+        &#47;&#47;&#47; Se devuelve una lista de widgets ([List&lt;Widget&gt;]) con solo
+        &#47;&#47;&#47; pestañas ([Tab()]), las cuales se generaron al hacer el mapeado
+        &#47;&#47;&#47; de los íconos.
+        .toList(),
+
+    &#47;&#47;&#47; Función a ejecutar al dar click a otra pestaña.
+    onTap: onTap,
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">facebook_login_screen_replication</a></li>
+  <li><a href="../../widgets_home_screen_custom_tab_bar/widgets_home_screen_custom_tab_bar-library.html">custom_tab_bar</a></li>
+  <li><a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar-class.html">CustomTabBar</a></li>
+  <li class="self-crumb">build method</li>
+</ol>
+
+
+    <h5>CustomTabBar class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar-class.html#constructors">Constructors</a></li>
+    <li><a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar/CustomTabBar.html">CustomTabBar</a></li>
+
+
+    <li class="section-title">
+      <a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
+    <li><a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar/icons.html">icons</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
+    <li><a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar/onTap.html">onTap</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar/selectedIndex.html">selectedIndex</a></li>
+
+    <li class="section-title"><a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></li>
+
+    <li class="section-title inherited"><a href="../../widgets_home_screen_custom_tab_bar/CustomTabBar-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    facebook_login_screen_replication
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+
