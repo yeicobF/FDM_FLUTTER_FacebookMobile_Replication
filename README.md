@@ -89,12 +89,13 @@ Todas las pantallas que se muestran son del programa ejecutándose en un emulado
 de **Android 11** en **Google Pixel 3**. Son varias columnas en la imagen para
 que no se vean tan grandes.
 
-| NÚMERO DE PANTALLA | DESCRIPCIÓN DE PANTALLA |           IMAGEN 1            |           IMAGEN 2            |           IMAGEN 3            |           IMAGEN 4            |
-| :----------------: | :---------------------: | :---------------------------: | :---------------------------: | :---------------------------: | :---------------------------: |
-|         1          |   Pantalla prinicipal   | ![1 - own main login screen]  | ![2 - own main login screen]  | ![3 - own main login screen]  | ![4 - own main login screen]  |
-|         1          |   Pantalla prinicipal   | ![5 - own main login screen]  | ![6 - own main login screen]  | ![7 - own main login screen]  | ![8 - own main login screen]  |
-|         1          |   Pantalla prinicipal   | ![9 - own main login screen]  | ![10 - own main login screen] | ![11 - own main login screen] | ![12 - own main login screen] |
-|         1          |   Pantalla prinicipal   | ![13 - own main login screen] | ![14 - own main login screen] | ![15 - own main login screen] |               -               |
+| NÚMERO DE PANTALLA | DESCRIPCIÓN DE PANTALLA |           IMAGEN 1            |           IMAGEN 2            |           IMAGEN 3            |
+| :----------------: | :---------------------: | :---------------------------: | :---------------------------: | :---------------------------: |
+|         1          |   Pantalla prinicipal   | ![1 - own main login screen]  | ![2 - own main login screen]  | ![3 - own main login screen]  |
+|         1          |   Pantalla prinicipal   | ![4 - own main login screen]  | ![5 - own main login screen]  | ![6 - own main login screen]  |
+|         1          |   Pantalla prinicipal   | ![7 - own main login screen]  | ![8 - own main login screen] | ![9 - own main login screen] |
+|         1          |   Pantalla prinicipal   | ![10 - own main login screen] | ![11 - own main login screen] | ![12 - own main login screen] |
+|         1          |   Pantalla prinicipal   | ![13 - own main login screen] | ![14 - own main login screen] | ![15 - own main login screen] |
 
 [1 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/1.png "1 - OWN MAIN LOGIN SCREEN"
 [2 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/2.png "2 - OWN MAIN LOGIN SCREEN"
@@ -111,8 +112,6 @@ que no se vean tan grandes.
 [13 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/13.png "13 - OWN MAIN LOGIN SCREEN"
 [14 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/14.png "14 - OWN MAIN LOGIN SCREEN"
 [15 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/15.png "15 - OWN MAIN LOGIN SCREEN"
-
-6SEM_FDM\2P\facebook_login_screen_replication\VIDEOS_SS_PROGRESS\Pixel 3 - ANDROID 11\Login 1\12_Dom_13_06_2021_05-51AM.png
 
 ## **1.6. DOCUMENTACIÓN AUTOMÁTICA CON _`dartdoc`_**
 
