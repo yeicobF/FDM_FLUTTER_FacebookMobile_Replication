@@ -85,11 +85,34 @@ inicio de sesión, y pantalla después de dar click al botón de inicio de sesi�
 
 ## 1.5. **RESULTADOS DE LAS PANTALLAS**
 
-| NÚMERO DE PANTALLA |                                 DESCRIPCIÓN DE PANTALLA                                  |    IMAGEN DE LA PANTALLA     |
-| :----------------: | :--------------------------------------------------------------------------------------: | :--------------------------: |
-|         1          | PRIMERA PANTALLA DE INICIO DE SESIÓN QUE MUESTRA NÚMERO DE NOTIFICACIONES [SAMSUNG A20S] | ![1 - OWN MAIN LOGIN SCREEN] |
+Todas las pantallas que se muestran son del programa ejecutándose en un emulador
+de **Android 11** en **Google Pixel 3**. Son varias columnas en la imagen para
+que no se vean tan grandes.
 
-[1 - own main login screen]: VIDEOS_SS_PROGRESS/JACOB_CELL/loginScreen_1_JACOB_CELL.png "1 - OWN MAIN LOGIN SCREEN"
+| NÚMERO DE PANTALLA | DESCRIPCIÓN DE PANTALLA |           IMAGEN 1            |           IMAGEN 2            |           IMAGEN 3            |           IMAGEN 4            |
+| :----------------: | :---------------------: | :---------------------------: | :---------------------------: | :---------------------------: | :---------------------------: |
+|         1          |   Pantalla prinicipal   | ![1 - own main login screen]  | ![2 - own main login screen]  | ![3 - own main login screen]  | ![4 - own main login screen]  |
+|         1          |   Pantalla prinicipal   | ![5 - own main login screen]  | ![6 - own main login screen]  | ![7 - own main login screen]  | ![8 - own main login screen]  |
+|         1          |   Pantalla prinicipal   | ![9 - own main login screen]  | ![10 - own main login screen] | ![11 - own main login screen] | ![12 - own main login screen] |
+|         1          |   Pantalla prinicipal   | ![13 - own main login screen] | ![14 - own main login screen] | ![15 - own main login screen] |               -               |
+
+[1 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/1.png "1 - OWN MAIN LOGIN SCREEN"
+[2 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/2.png "2 - OWN MAIN LOGIN SCREEN"
+[3 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/3.png "3 - OWN MAIN LOGIN SCREEN"
+[4 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/4.png "4 - OWN MAIN LOGIN SCREEN"
+[5 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/5.png "5 - OWN MAIN LOGIN SCREEN"
+[6 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/6.png "6 - OWN MAIN LOGIN SCREEN"
+[7 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/7.png "7 - OWN MAIN LOGIN SCREEN"
+[8 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/8.png "8 - OWN MAIN LOGIN SCREEN"
+[9 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/9.png "9 - OWN MAIN LOGIN SCREEN"
+[10 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/10.png "10 - OWN MAIN LOGIN SCREEN"
+[11 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/11.png "11 - OWN MAIN LOGIN SCREEN"
+[12 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/12.png "12 - OWN MAIN LOGIN SCREEN"
+[13 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/13.png "13 - OWN MAIN LOGIN SCREEN"
+[14 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/14.png "14 - OWN MAIN LOGIN SCREEN"
+[15 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/15.png "15 - OWN MAIN LOGIN SCREEN"
+
+6SEM_FDM\2P\facebook_login_screen_replication\VIDEOS_SS_PROGRESS\Pixel 3 - ANDROID 11\Login 1\12_Dom_13_06_2021_05-51AM.png
 
 ## **1.6. DOCUMENTACIÓN AUTOMÁTICA CON _`dartdoc`_**
 
@@ -788,7 +811,7 @@ trabajar bien con flutter, que son las siguientes:
   - **C:\SDKs\flutter\bin\cache\dart-sdk\bin**
 
     > Esta variable de usuario es requerida para poder ejecutar **_`dartdoc`_**
-    >  desde la terminal.
+    > desde la terminal.
 
 - **`FLUTTER_ROOT`**
 

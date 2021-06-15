@@ -234,13 +234,13 @@ abstract class InitialData {
   ///  ];
   /// ```
   static final List<User> friendsList = [
-    User(
-      name: "Germán González",
-      imageUrl: "$profilePicsPath/german.jpg",
-      isProfilePictureFromInternet: false,
-      singlePost: postList[0],
-      singleStory: stories[0],
-    ),
+    // User(
+    //   name: "Germán González",
+    //   imageUrl: "$profilePicsPath/german.jpg",
+    //   isProfilePictureFromInternet: false,
+    //   singlePost: postList[0],
+    //   singleStory: stories[0],
+    // ),
     User(
       name: "𝕤ergio 𝔰",
       imageUrl: "$profilePicsPath/sergio.jpg",
@@ -407,6 +407,8 @@ abstract class InitialData {
     isProfilePictureFromInternet: false,
     friends: friendsList,
   );
+
+  
 
   /// Para probar con diversos usuarios finales de la lista de usuarios
   /// [friendsList].
