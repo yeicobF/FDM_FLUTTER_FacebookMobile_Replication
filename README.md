@@ -1,4 +1,6 @@
-# **[T2.3] COPIAR DIVERSAS PANTALLAS DE LA APP DE FACEBOOK PARA CELULAR**
+# **FUNDAMENTOS DESARROLLO MÓVIL: PROYECTO PARA FINAL DE SEMESTRE**
+
+Este es el proyecto que se debió entregar para final del semestre.
 
 > - Para esta actividad trabajaremos en equipo Germán y yo.
 >
@@ -7,6 +9,12 @@
 ## **_FECHA DE ENTREGA_**
 
 > Viernes, 11 de junio del 2021, 5PM
+
+### **FECHA EN QUE LO ENTREGAMOS**
+
+> Lunes, 14 de JUNIO del 2021
+
+## **REQUERIMIENTOS DE ENTREGA DE PROYECTO**
 
 ## **NOMBRE DEL PAQUETE DE LA APP**
 
@@ -89,19 +97,31 @@ Todas las pantallas que se muestran son del programa ejecutándose en un emulado
 de **Android 11** en **Google Pixel 3**. Son varias columnas en la imagen para
 que no se vean tan grandes.
 
-| NÚMERO DE PANTALLA |               DESCRIPCIÓN DE PANTALLA               |            IMAGEN 1             |            IMAGEN 2             |            IMAGEN 3             |
-| :----------------: | :-------------------------------------------------: | :-----------------------------: | :-----------------------------: | :-----------------------------: |
-|         1          |    Pantalla prinicipal: Login y datos de usuario    |  ![1 - own main login screen]   |  ![2 - own main login screen]   |  ![3 - own main login screen]   |
-|         1          |    Pantalla prinicipal: Login y datos de usuario    |  ![4 - own main login screen]   |  ![5 - own main login screen]   |  ![6 - own main login screen]   |
-|         1          |    Pantalla prinicipal: Login y datos de usuario    |  ![7 - own main login screen]   |  ![8 - own main login screen]   |  ![9 - own main login screen]   |
-|         1          |    Pantalla prinicipal: Login y datos de usuario    |  ![10 - own main login screen]  |  ![11 - own main login screen]  |  ![12 - own main login screen]  |
-|         1          |    Pantalla prinicipal: Login y datos de usuario    |  ![13 - own main login screen]  |  ![14 - own main login screen]  |  ![15 - own main login screen]  |
-|         2          | Segunda pantalla: Login - Input de datos de usuario | ![1 - own second login screen]  | ![2 - own second login screen]  | ![3 - own second login screen]  |
-|         2          | Segunda pantalla: Login - Input de datos de usuario | ![4 - own second login screen]  | ![5 - own second login screen]  | ![6 - own second login screen]  |
-|         2          | Segunda pantalla: Login - Input de datos de usuario | ![7 - own second login screen]  | ![8 - own second login screen]  | ![9 - own second login screen]  |
-|         2          | Segunda pantalla: Login - Input de datos de usuario | ![10 - own second login screen] | ![11 - own second login screen] | ![12 - own second login screen] |
-|         2          | Segunda pantalla: Login - Input de datos de usuario | ![13 - own second login screen] | ![14 - own second login screen] | ![15 - own second login screen] |
-|         2          | Segunda pantalla: Login - Input de datos de usuario | ![16 - own second login screen] |                -                |                -                |
+| NÚMERO DE PANTALLA |                                               DESCRIPCIÓN DE PANTALLA                                               |            IMAGEN 1             |            IMAGEN 2             |            IMAGEN 3             |
+| :----------------: | :-----------------------------------------------------------------------------------------------------------------: | :-----------------------------: | :-----------------------------: | :-----------------------------: |
+|         1          |                                   Pantalla prinicipal: Login y datos de usuario.                                    |  ![1 - own main login screen]   |  ![2 - own main login screen]   |  ![3 - own main login screen]   |
+|         1          |                                   Pantalla prinicipal: Login y datos de usuario.                                    |  ![4 - own main login screen]   |  ![5 - own main login screen]   |  ![6 - own main login screen]   |
+|         1          |                                   Pantalla prinicipal: Login y datos de usuario.                                    |  ![7 - own main login screen]   |  ![8 - own main login screen]   |  ![9 - own main login screen]   |
+|         1          |                                   Pantalla prinicipal: Login y datos de usuario.                                    |  ![10 - own main login screen]  |  ![11 - own main login screen]  |  ![12 - own main login screen]  |
+|         1          |                                   Pantalla prinicipal: Login y datos de usuario.                                    |  ![13 - own main login screen]  |  ![14 - own main login screen]  |  ![15 - own main login screen]  |
+|         -          |                                                          -                                                          |                -                |                -                |                -                |
+|         2          |                                Segunda pantalla: Login : Input de datos de usuario.                                 | ![1 - own second login screen]  | ![2 - own second login screen]  | ![3 - own second login screen]  |
+|         2          |                                Segunda pantalla: Login : Input de datos de usuario.                                 | ![4 - own second login screen]  | ![5 - own second login screen]  | ![6 - own second login screen]  |
+|         2          |                                Segunda pantalla: Login : Input de datos de usuario.                                 | ![7 - own second login screen]  | ![8 - own second login screen]  | ![9 - own second login screen]  |
+|         2          |                                Segunda pantalla: Login : Input de datos de usuario.                                 | ![10 - own second login screen] | ![11 - own second login screen] | ![12 - own second login screen] |
+|         2          |                                Segunda pantalla: Login : Input de datos de usuario.                                 | ![13 - own second login screen] | ![14 - own second login screen] | ![15 - own second login screen] |
+|         2          |                                Segunda pantalla: Login : Input de datos de usuario.                                 | ![16 - own second login screen] |                -                |                -                |
+|         -          |                                                          -                                                          |                -                |                -                |                -                |
+|         3          | Tercera y última pantalla: Feed principal -> Crear publicación, ver usuarios conectados, historias y publicaciones. |   ![1 - own main feed screen]   |   ![2 - own main feed screen]   |   ![3 - own main feed screen]   |
+|         3          | Tercera y última pantalla: Feed principal -> Crear publicación, ver usuarios conectados, historias y publicaciones. |   ![4 - own main feed screen]   |   ![5 - own main feed screen]   |   ![6 - own main feed screen]   |
+|         3          | Tercera y última pantalla: Feed principal -> Crear publicación, ver usuarios conectados, historias y publicaciones. |   ![7 - own main feed screen]   |   ![8 - own main feed screen]   |   ![9 - own main feed screen]   |
+|         3          | Tercera y última pantalla: Feed principal -> Crear publicación, ver usuarios conectados, historias y publicaciones. |  ![10 - own main feed screen]   |  ![11 - own main feed screen]   |  ![12 - own main feed screen]   |
+|         3          | Tercera y última pantalla: Feed principal -> Crear publicación, ver usuarios conectados, historias y publicaciones. |  ![13 - own main feed screen]   |  ![14 - own main feed screen]   |  ![15 - own main feed screen]   |
+|         3          | Tercera y última pantalla: Feed principal -> Crear publicación, ver usuarios conectados, historias y publicaciones. |  ![16 - own main feed screen]   |  ![17 - own main feed screen]   |  ![18 - own main feed screen]   |
+|         3          | Tercera y última pantalla: Feed principal -> Crear publicación, ver usuarios conectados, historias y publicaciones. |  ![19 - own main feed screen]   |  ![20 - own main feed screen]   |  ![21 - own main feed screen]   |
+|         3          | Tercera y última pantalla: Feed principal -> Crear publicación, ver usuarios conectados, historias y publicaciones. |  ![22 - own main feed screen]   |  ![23 - own main feed screen]   |  ![24 - own main feed screen]   |
+|         3          | Tercera y última pantalla: Feed principal -> Crear publicación, ver usuarios conectados, historias y publicaciones. |  ![25 - own main feed screen]   |  ![26 - own main feed screen]   |  ![27 - own main feed screen]   |
+|         3          | Tercera y última pantalla: Feed principal -> Crear publicación, ver usuarios conectados, historias y publicaciones. |  ![28 - own main feed screen]   |                -                |                -                |
 
 [//]: <IMÁGENES DE LA PRIMERA PANTALLA>
 [1 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/1.png "1 - OWN MAIN LOGIN SCREEN"
@@ -137,6 +157,34 @@ que no se vean tan grandes.
 [15 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/15.png "15 - OWN SECOND LOGIN SCREEN"
 [16 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/16.png "16 - OWN SECOND LOGIN SCREEN"
 [//]: <IMÁGENES TERCERA PANTALLA>
+[1 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/1.png "1 - OWN MAIN FEED SCREEN"
+[2 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/2.png "2 - OWN MAIN FEED SCREEN"
+[3 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/3.png "3 - OWN MAIN FEED SCREEN"
+[4 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/4.png "4 - OWN MAIN FEED SCREEN"
+[5 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/5.png "5 - OWN MAIN FEED SCREEN"
+[6 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/6.png "6 - OWN MAIN FEED SCREEN"
+[7 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/7.png "7 - OWN MAIN FEED SCREEN"
+[8 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/8.png "8 - OWN MAIN FEED SCREEN"
+[9 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/9.png "9 - OWN MAIN FEED SCREEN"
+[10 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/10.png "10 - OWN MAIN FEED SCREEN"
+[11 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/11.png "11 - OWN MAIN FEED SCREEN"
+[12 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/12.png "12 - OWN MAIN FEED SCREEN"
+[13 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/13.png "13 - OWN MAIN FEED SCREEN"
+[14 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/14.png "14 - OWN MAIN FEED SCREEN"
+[15 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/15.png "15 - OWN MAIN FEED SCREEN"
+[16 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/16.png "16 - OWN MAIN FEED SCREEN"
+[17 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/17.png "17 - OWN MAIN FEED SCREEN"
+[18 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/18.png "18 - OWN MAIN FEED SCREEN"
+[19 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/19.png "19 - OWN MAIN FEED SCREEN"
+[20 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/20.png "20 - OWN MAIN FEED SCREEN"
+[21 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/21.png "21 - OWN MAIN FEED SCREEN"
+[22 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/22.png "22 - OWN MAIN FEED SCREEN"
+[23 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/23.png "23 - OWN MAIN FEED SCREEN"
+[24 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/24.png "24 - OWN MAIN FEED SCREEN"
+[25 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/25.png "25 - OWN MAIN FEED SCREEN"
+[26 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/26.png "26 - OWN MAIN FEED SCREEN"
+[27 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/27.png "27 - OWN MAIN FEED SCREEN"
+[28 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/28.png "28 - OWN MAIN FEED SCREEN"
 
 ## **1.6. DOCUMENTACIÓN AUTOMÁTICA CON _`dartdoc`_**
 
@@ -209,7 +257,7 @@ flutter pub global activate dartdoc
 
 Para que todo funcione correctamente, hay que instalar varias cosas:
 
-### 1.7.1. **[Android Studio]**
+### 1.7.1. **Android Studio**
 
 Simplemente descarga el archivo que se encuentra en el enlace y ejecutalo.
 Después podrás configurarlo como tú quieras.
@@ -479,7 +527,7 @@ muy bien la liberación de ese espacio.
 3. Listo. Ahora has liberado una buen cantidad de espacio en el disco duro.
    Puedes hacer esto en cualquier momento (mientras no utilices el dispositivo).
 
-### 1.7.2. **[Flutter]**
+### 1.7.2. **Flutter**
 
 Entra al enlace de la documentación oficial de [Flutter] y en la sección de
 **_"[Get the Flutter SDK]"_** da click en el botón de descarga, el cual dice
@@ -527,7 +575,7 @@ siguiente enlace** (te enviará dentro del README):
 
 > [CONFIGURACIÓN DE VARIABLE DE USUARIO PARA FLUTTER](#flutter-user-var "VARIABLE DE USUARIO PARA FLUTTER")
 
-### 1.7.3. **[Chocolatey]**
+### 1.7.3. **Chocolatey**
 
 [Chocolatey] es un administrador de paquetes en Windows, con el que podemos
 instalar una diversidad de paquetes (valga la redundancia) de forma sencilla
@@ -587,7 +635,7 @@ los siguientes pasos:
 
    ![Chocolatey installation ready](README_imgs/ps-chocolatey-choco.png "Chocolatey installation ready")
 
-### 1.7.4. **[scrcpy]**
+### 1.7.4. **scrcpy**
 
 [scrcpy] es una aplicación para poder ver la pantalla de tu celular en tu
 computadora, conectándolo con un cable USB. Se puede instalar de diversas
@@ -797,13 +845,13 @@ instalada de Java.
 
 ![java --version | Funcionando correctamente](README_imgs/ENV_VARS/env-vars_9.png "java --version | Funcionando correctamente")
 
-<h3 id="as-user-var"><strong>4.2. ANDROID STUDIO</strong></h3>
+### **ANDROID STUDIO**
 
 Para [Android Studio] solo hay una **_VARIABLE DE USUARIO_** que yo utilicé:
 
 > - ANDROID_SDK_ROOT=C:\Users\\...\AppData\Local\Android\Sdk
 
-<h3 id="flutter-user-var"><strong>4.3. FLUTTER</strong></h3>
+### **FLUTTER**
 
 Para que flutter sea reconocido en el sistema, hay que agregarlo a las
 variables de usuario, [como es indicado en la documentación](https://flutter.dev/docs/get-started/install/windows#update-your-path "Flutter | Windows Install | Update your path").
