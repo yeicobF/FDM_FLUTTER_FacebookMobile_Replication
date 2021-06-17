@@ -582,7 +582,7 @@ Siguiendo lo anterior, `Sound null safety` estaría activado.
 Para ver cómo configurar la variable de usuario, dirígete a la **sección del
 siguiente enlace** (te enviará dentro del README):
 
-> [CONFIGURACIÓN DE VARIABLE DE USUARIO PARA FLUTTER](#flutter-user-var "VARIABLE DE USUARIO PARA FLUTTER")
+> [CONFIGURACIÓN DE VARIABLE DE USUARIO PARA FLUTTER](#94-flutter "VARIABLE DE USUARIO PARA FLUTTER")
 
 ### 8.3. **Chocolatey**
 
