@@ -89,14 +89,21 @@ Todas las pantallas que se muestran son del programa ejecutándose en un emulado
 de **Android 11** en **Google Pixel 3**. Son varias columnas en la imagen para
 que no se vean tan grandes.
 
-| NÚMERO DE PANTALLA | DESCRIPCIÓN DE PANTALLA |           IMAGEN 1            |           IMAGEN 2            |           IMAGEN 3            |
-| :----------------: | :---------------------: | :---------------------------: | :---------------------------: | :---------------------------: |
-|         1          |   Pantalla prinicipal   | ![1 - own main login screen]  | ![2 - own main login screen]  | ![3 - own main login screen]  |
-|         1          |   Pantalla prinicipal   | ![4 - own main login screen]  | ![5 - own main login screen]  | ![6 - own main login screen]  |
-|         1          |   Pantalla prinicipal   | ![7 - own main login screen]  | ![8 - own main login screen] | ![9 - own main login screen] |
-|         1          |   Pantalla prinicipal   | ![10 - own main login screen] | ![11 - own main login screen] | ![12 - own main login screen] |
-|         1          |   Pantalla prinicipal   | ![13 - own main login screen] | ![14 - own main login screen] | ![15 - own main login screen] |
+| NÚMERO DE PANTALLA |               DESCRIPCIÓN DE PANTALLA               |            IMAGEN 1             |            IMAGEN 2             |            IMAGEN 3             |
+| :----------------: | :-------------------------------------------------: | :-----------------------------: | :-----------------------------: | :-----------------------------: |
+|         1          |    Pantalla prinicipal: Login y datos de usuario    |  ![1 - own main login screen]   |  ![2 - own main login screen]   |  ![3 - own main login screen]   |
+|         1          |    Pantalla prinicipal: Login y datos de usuario    |  ![4 - own main login screen]   |  ![5 - own main login screen]   |  ![6 - own main login screen]   |
+|         1          |    Pantalla prinicipal: Login y datos de usuario    |  ![7 - own main login screen]   |  ![8 - own main login screen]   |  ![9 - own main login screen]   |
+|         1          |    Pantalla prinicipal: Login y datos de usuario    |  ![10 - own main login screen]  |  ![11 - own main login screen]  |  ![12 - own main login screen]  |
+|         1          |    Pantalla prinicipal: Login y datos de usuario    |  ![13 - own main login screen]  |  ![14 - own main login screen]  |  ![15 - own main login screen]  |
+|         2          | Segunda pantalla: Login - Input de datos de usuario | ![1 - own second login screen]  | ![2 - own second login screen]  | ![3 - own second login screen]  |
+|         2          | Segunda pantalla: Login - Input de datos de usuario | ![4 - own second login screen]  | ![5 - own second login screen]  | ![6 - own second login screen]  |
+|         2          | Segunda pantalla: Login - Input de datos de usuario | ![7 - own second login screen]  | ![8 - own second login screen]  | ![9 - own second login screen]  |
+|         2          | Segunda pantalla: Login - Input de datos de usuario | ![10 - own second login screen] | ![11 - own second login screen] | ![12 - own second login screen] |
+|         2          | Segunda pantalla: Login - Input de datos de usuario | ![13 - own second login screen] | ![14 - own second login screen] | ![15 - own second login screen] |
+|         2          | Segunda pantalla: Login - Input de datos de usuario | ![16 - own second login screen] |                -                |                -                |
 
+[//]: <IMÁGENES DE LA PRIMERA PANTALLA>
 [1 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/1.png "1 - OWN MAIN LOGIN SCREEN"
 [2 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/2.png "2 - OWN MAIN LOGIN SCREEN"
 [3 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/3.png "3 - OWN MAIN LOGIN SCREEN"
@@ -112,6 +119,24 @@ que no se vean tan grandes.
 [13 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/13.png "13 - OWN MAIN LOGIN SCREEN"
 [14 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/14.png "14 - OWN MAIN LOGIN SCREEN"
 [15 - own main login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/15.png "15 - OWN MAIN LOGIN SCREEN"
+[//]: <IMÁGENES SEGUNDA PANTALLA>
+[1 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/1.png "1 - OWN SECOND LOGIN SCREEN"
+[2 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/2.png "2 - OWN SECOND LOGIN SCREEN"
+[3 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/3.png "3 - OWN SECOND LOGIN SCREEN"
+[4 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/4.png "4 - OWN SECOND LOGIN SCREEN"
+[5 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/5.png "5 - OWN SECOND LOGIN SCREEN"
+[6 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/6.png "6 - OWN SECOND LOGIN SCREEN"
+[7 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/7.png "7 - OWN SECOND LOGIN SCREEN"
+[8 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/8.png "8 - OWN SECOND LOGIN SCREEN"
+[9 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/9.png "9 - OWN SECOND LOGIN SCREEN"
+[10 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/10.png "10 - OWN SECOND LOGIN SCREEN"
+[11 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/11.png "11 - OWN SECOND LOGIN SCREEN"
+[12 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/12.png "12 - OWN SECOND LOGIN SCREEN"
+[13 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/13.png "13 - OWN SECOND LOGIN SCREEN"
+[14 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/14.png "14 - OWN SECOND LOGIN SCREEN"
+[15 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/15.png "15 - OWN SECOND LOGIN SCREEN"
+[16 - own second login screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/16.png "16 - OWN SECOND LOGIN SCREEN"
+[//]: <IMÁGENES TERCERA PANTALLA>
 
 ## **1.6. DOCUMENTACIÓN AUTOMÁTICA CON _`dartdoc`_**
 
