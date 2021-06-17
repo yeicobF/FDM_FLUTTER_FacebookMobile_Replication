@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="fundamentos-desarrollo-m%C3%B3vil-proyecto-para-final-de-semestre"><strong>FUNDAMENTOS DESARROLLO MÓVIL: PROYECTO PARA FINAL DE SEMESTRE</strong></h1>
+<p>Este es el proyecto que se debió entregar para final del semestre.</p>
+<blockquote>
+<ul>
+<li>Para esta actividad trabajaremos en equipo Germán y yo.</li>
+</ul>
+<p>Es el trabajo para fin de semestre.</p>
+</blockquote>
+<h2 id="1-fecha-de-entrega">1. <strong><em>FECHA DE ENTREGA</em></strong></h2>
+<blockquote>
+<p>Viernes, 11 de junio del 2021, 5PM</p>
+</blockquote>
+<h3 id="11-fecha-en-que-lo-entregamos">1.1. <strong>FECHA EN QUE LO ENTREGAMOS</strong></h3>
+<blockquote>
+<p>Lunes, 14 de JUNIO del 2021</p>
+</blockquote>
+<h2 id="2-requerimientos-de-entrega-de-proyecto">2. <strong>REQUERIMIENTOS DE ENTREGA DE PROYECTO</strong></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">DESCRIPCIÓN</th>
+<th style="text-align:center">IMAGEN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Requerimientos para la entrega del proyecto</td>
+<td style="text-align:center"><img src="README_imgs/FDM_RUBRICA_PROYECTO_FLUTTER.png" alt="Requerimientos para la entrega del proyecto" title="Requerimientos para la entrega del proyecto"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-nombre-del-paquete-de-la-app">3. <strong>NOMBRE DEL PAQUETE DE LA APP</strong></h2>
+<p>El nombre del paquete de la app lo cambié para registrarlo con Firebase,
+siguiendo la nomenclatura:</p>
+<blockquote>
+<p>com.company.appname</p>
+<ul>
+<li>NOMBRE DEL PAQUETE:
+<ul>
+<li>com.uaslp.facebook_simple_replication</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="4-tabla-de-contenidos">4. <strong><em>TABLA DE CONTENIDOS</em></strong></h2>
+<ul>
+<li><a href="#fundamentos-desarrollo-m%C3%B3vil-proyecto-para-final-de-semestre"><strong>FUNDAMENTOS DESARROLLO MÓVIL: PROYECTO PARA FINAL DE SEMESTRE</strong></a>
+<ul>
+<li><a href="#1-fecha-de-entrega">1. <strong><em>FECHA DE ENTREGA</em></strong></a>
+<ul>
+<li><a href="#11-fecha-en-que-lo-entregamos">1.1. <strong>FECHA EN QUE LO ENTREGAMOS</strong></a></li>
+</ul>
+</li>
+<li><a href="#2-requerimientos-de-entrega-de-proyecto">2. <strong>REQUERIMIENTOS DE ENTREGA DE PROYECTO</strong></a></li>
+<li><a href="#3-nombre-del-paquete-de-la-app">3. <strong>NOMBRE DEL PAQUETE DE LA APP</strong></a></li>
+<li><a href="#4-tabla-de-contenidos">4. <strong><em>TABLA DE CONTENIDOS</em></strong></a></li>
+<li><a href="#5-pantallas-objetivo">5. <strong>PANTALLAS OBJETIVO</strong></a></li>
+<li><a href="#6-resultados-de-las-pantallas">6. <strong>RESULTADOS DE LAS PANTALLAS</strong></a></li>
+<li><a href="#7-16-documentaci%C3%B3n-autom%C3%A1tica-con-dartdoc">7. <strong>1.6. DOCUMENTACIÓN AUTOMÁTICA CON <em><code>dartdoc</code></em></strong></a></li>
+<li><a href="#8-instalaciones">8. <strong>INSTALACIONES</strong></a>
+<ul>
+<li><a href="#81-android-studio">8.1. <strong>Android Studio</strong></a>
+<ul>
+<li><a href="#811-configuraci%C3%B3n-obligatoria-android-studio">8.1.1. <strong>CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO</strong></a>
+<ul>
+<li><a href="#8111-instalaci%C3%B3n-de-paquetes">8.1.1.1. <strong>INSTALACIÓN DE PAQUETES</strong></a></li>
+<li><a href="#8112-instalaci%C3%B3n-de-plugins">8.1.1.2. <strong>INSTALACIÓN DE PLUGINS</strong></a></li>
+<li><a href="#8113-comprobaci%C3%B3n-de-actualizaciones">8.1.1.3. <strong>COMPROBACIÓN DE ACTUALIZACIONES</strong></a></li>
+</ul>
+</li>
+<li><a href="#812-crear-un-emulador-de-android-android-virtual-device">8.1.2. <strong>CREAR UN <code>EMULADOR DE ANDROID</code> (<code>ANDROID VIRTUAL DEVICE</code>)</strong></a>
+<ul>
+<li><a href="#8121-recomendaci%C3%B3n-importante-para-el-avd">8.1.2.1. <strong><em>RECOMENDACIÓN IMPORTANTE PARA EL AVD</em></strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#82-flutter">8.2. <strong>Flutter</strong></a>
+<ul>
+<li><a href="#821-en-qu%C3%A9-directorio-colocar-flutter">8.2.1. <strong><em>EN QUÉ DIRECTORIO COLOCAR FLUTTER</em></strong></a></li>
+<li><a href="#822-flutter-sound-null-safety">8.2.2. <strong>FLUTTER</strong> <strong><em><code>SOUND NULL SAFETY</code></em></strong></a></li>
+<li><a href="#823-variable-de-usuario">8.2.3. <strong>VARIABLE DE USUARIO</strong></a></li>
+</ul>
+</li>
+<li><a href="#83-chocolatey">8.3. <strong>Chocolatey</strong></a>
+<ul>
+<li><a href="#831-instrucciones-instalaci%C3%B3n-desde-powershell">8.3.1. <strong><em>INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL</em></strong></a></li>
+</ul>
+</li>
+<li><a href="#84-scrcpy">8.4. <strong>scrcpy</strong></a>
+<ul>
+<li><a href="#841-instrucciones-instalaci%C3%B3n-desde-powershell-con-chocolatey">8.4.1. <strong><em>INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY</em></strong></a></li>
+</ul>
+</li>
+<li><a href="#85-java">8.5. <strong>JAVA</strong></a>
+<ul>
+<li><a href="#851-informaci%C3%B3n-sobre-las-versiones-de-java">8.5.1. <strong><em>INFORMACIÓN SOBRE LAS VERSIONES DE JAVA</em></strong></a></li>
+<li><a href="#852-conceptos-en-los-acr%C3%B3nimos-de-java-jdk-jvm-jre">8.5.2. <strong>CONCEPTOS EN LOS ACRÓNIMOS DE JAVA:</strong> <strong><em><code>JDK, JVM, JRE</code></em></strong></a></li>
+<li><a href="#853-descarga-de-java">8.5.3. <strong>DESCARGA DE JAVA</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#9-variables-del-sistema-o-de-usuario">9. <strong><em>VARIABLES DEL SISTEMA o de USUARIO</em></strong></a>
+<ul>
+<li><a href="#91-acceder-a-la-secci%C3%B3n-para-editar-las-variables">9.1. <strong>ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES</strong></a></li>
+<li><a href="#92-variable-del-sistema-java_home">9.2. <strong>VARIABLE DEL SISTEMA: <code>JAVA_HOME</code></strong></a>
+<ul>
+<li><a href="#921-verificaci%C3%B3n-de-que-java_home-est%C3%A1-establecido">9.2.1. VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO</a></li>
+</ul>
+</li>
+<li><a href="#93-android-studio">9.3. <strong>ANDROID STUDIO</strong></a></li>
+<li><a href="#94-flutter">9.4. <strong>FLUTTER</strong></a>
+<ul>
+<li><a href="#941-otras-variables-de-usuario-para-flutter-y-dart">9.4.1. OTRAS VARIABLES DE USUARIO PARA FLUTTER y DART</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#10-firebase">10. FIREBASE</a>
+<ul>
+<li><a href="#101-screenshots-configuraci%C3%B3n-firebase">10.1. SCREENSHOTS CONFIGURACIÓN FIREBASE</a></li>
+<li><a href="#102-agregar-las-siguientes-l%C3%ADneas">10.2. AGREGAR LAS SIGUIENTES LÍNEAS</a></li>
+</ul>
+</li>
+<li><a href="#11-recursos-de-facebook-app-svg-%C3%ADconos-">11. RECURSOS DE FACEBOOK APP (SVG, ÍCONOS, ...)</a>
+<ul>
+<li><a href="#111-logo-de-facebook">11.1. LOGO DE FACEBOOK</a></li>
+<li><a href="#112-reacciones-de-facebook">11.2. <strong>REACCIONES DE FACEBOOK</strong></a></li>
+<li><a href="#113-uso-de-%C3%ADconos">11.3. USO DE ÍCONOS</a>
+<ul>
+<li><a href="#1131-google-fonts--material-icons">11.3.1. GOOGLE FONTS | MATERIAL ICONS</a>
+<ul>
+<li><a href="#11311-%C3%ADconos-que-podr%C3%ADamos-utilizar">11.3.1.1. Íconos que podríamos utilizar</a></li>
+</ul>
+</li>
+<li><a href="#1132-%C3%ADconos-con-font-awesome">11.3.2. <strong>Íconos con Font Awesome</strong></a>
+<ul>
+<li><a href="#11321-%C3%ADconos-que-podr%C3%ADamos-utilizar">11.3.2.1. <strong>Íconos que podríamos utilizar</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#12-enlaces-extra-que-fueron-%C3%BAtiles">12. <strong><em>ENLACES EXTRA QUE FUERON ÚTILES</em></strong></a></li>
+</ul>
+</li>
+</ul>
+<h2 id="5-pantallas-objetivo">5. <strong>PANTALLAS OBJETIVO</strong></h2>
+<p>Hay dos pantallas que tenemos como objetivo, pero una es opcional: pantalla de
+inicio de sesión, y pantalla después de dar click al botón de inicio de sesión.</p>
+<ul>
+<li>
+<p>P<strong>antalla principal de inicio de sesión (los colores se modificaron al exportar
+desde Photoshop, ya que le quité la imagen original).</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">NÚMERO DE PANTALLA</th>
+<th style="text-align:center">DESCRIPCIÓN DE PANTALLA</th>
+<th style="text-align:center">IMAGEN DE LA PANTALLA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">PRIMERA PANTALLA DE INICIO DE SESIÓN CON LOS COLORES MODIFICADOS</td>
+<td style="text-align:center"><img src="objective-program-screens/LOGIN_SCREENS/1_main-login-with-picture_PICTURE-GONE_MODIFIED-COLORS-PS.png" alt="1 - MAIN LOGIN SCREEN - PICTURE GONE" title="1 | MAIN LOGIN SCREEN | PICTURE GONE"></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">COLORES ORIGINALES DE LA PRIMERA PANTALLA DE INICIO DE SESIÓN</td>
+<td style="text-align:center"><img src="objective-program-screens/LOGIN_SCREENS/1_main-login-with-picture_ORIGINAL-COLORS.png" alt="1 - MAIN LOGIN SCREEN - ORIGINAL COLORS" title="1 | MAIN LOGIN SCREEN | ORIGINAL COLORS"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">PANTALLA PARA INICIAR SESIÓN DESPUÉS DE DAR CLICK AL BOTÓN &quot;Log Into Another Account&quot;</td>
+<td style="text-align:center"><img src="objective-program-screens/LOGIN_SCREENS/2_login-into-account-clicked_NO-NUMBER.png" alt="2 - LOGIN AFTER CLICKING BUTTON" title="2 | LOGIN AFTER CLICKING BUTTON"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">FEED PRINCIPAL DESPUÉS DE HABER INICIADO SESIÓN (LOS ELEMENTOS SON IMPRECISOS RESPECTO A POSICIÓN Y TAMAÑO PORQUE LA IMAGEN FUE EDITADA PARA OCULTAR INFORMACIÓN PERSONAL. NOS BASAMOS EN LA IMAGEN SIN EDITAR.)</td>
+<td style="text-align:center"><img src="objective-program-screens/MAIN_FEED_SCREENS/main-feed_screen_1_EDITADA-SIN-DATOS-PERSONALES.png" alt="3 - MAIN FEED - EDITED IMAGE" title="3 | MAIN FEED | EDITED IMAGE"></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h2 id="6-resultados-de-las-pantallas">6. <strong>RESULTADOS DE LAS PANTALLAS</strong></h2>
+<p>Todas las pantallas que se muestran son del programa ejecutándose en un emulador
+de <strong>Android 11</strong> en <strong>Google Pixel 3</strong>. Son varias columnas en la imagen para
+que no se vean tan grandes.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">NÚMERO DE PANTALLA</th>
+<th style="text-align:center">DESCRIPCIÓN DE PANTALLA</th>
+<th style="text-align:center">IMAGEN 1</th>
+<th style="text-align:center">IMAGEN 2</th>
+<th style="text-align:center">IMAGEN 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Pantalla prinicipal: Login y datos de usuario.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/1.png" alt="1 - own main login screen" title="1 - OWN MAIN LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/2.png" alt="2 - own main login screen" title="2 - OWN MAIN LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/3.png" alt="3 - own main login screen" title="3 - OWN MAIN LOGIN SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Pantalla prinicipal: Login y datos de usuario.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/4.png" alt="4 - own main login screen" title="4 - OWN MAIN LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/5.png" alt="5 - own main login screen" title="5 - OWN MAIN LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/6.png" alt="6 - own main login screen" title="6 - OWN MAIN LOGIN SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Pantalla prinicipal: Login y datos de usuario.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/7.png" alt="7 - own main login screen" title="7 - OWN MAIN LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/8.png" alt="8 - own main login screen" title="8 - OWN MAIN LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/9.png" alt="9 - own main login screen" title="9 - OWN MAIN LOGIN SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Pantalla prinicipal: Login y datos de usuario.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/10.png" alt="10 - own main login screen" title="10 - OWN MAIN LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/11.png" alt="11 - own main login screen" title="11 - OWN MAIN LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/12.png" alt="12 - own main login screen" title="12 - OWN MAIN LOGIN SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Pantalla prinicipal: Login y datos de usuario.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/13.png" alt="13 - own main login screen" title="13 - OWN MAIN LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/14.png" alt="14 - own main login screen" title="14 - OWN MAIN LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_1/15.png" alt="15 - own main login screen" title="15 - OWN MAIN LOGIN SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Segunda pantalla: Login : Input de datos de usuario.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/1.png" alt="1 - own second login screen" title="1 - OWN SECOND LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/2.png" alt="2 - own second login screen" title="2 - OWN SECOND LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/3.png" alt="3 - own second login screen" title="3 - OWN SECOND LOGIN SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Segunda pantalla: Login : Input de datos de usuario.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/4.png" alt="4 - own second login screen" title="4 - OWN SECOND LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/5.png" alt="5 - own second login screen" title="5 - OWN SECOND LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/6.png" alt="6 - own second login screen" title="6 - OWN SECOND LOGIN SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Segunda pantalla: Login : Input de datos de usuario.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/7.png" alt="7 - own second login screen" title="7 - OWN SECOND LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/8.png" alt="8 - own second login screen" title="8 - OWN SECOND LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/9.png" alt="9 - own second login screen" title="9 - OWN SECOND LOGIN SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Segunda pantalla: Login : Input de datos de usuario.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/10.png" alt="10 - own second login screen" title="10 - OWN SECOND LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/11.png" alt="11 - own second login screen" title="11 - OWN SECOND LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/12.png" alt="12 - own second login screen" title="12 - OWN SECOND LOGIN SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Segunda pantalla: Login : Input de datos de usuario.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/13.png" alt="13 - own second login screen" title="13 - OWN SECOND LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/14.png" alt="14 - own second login screen" title="14 - OWN SECOND LOGIN SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/15.png" alt="15 - own second login screen" title="15 - OWN SECOND LOGIN SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Segunda pantalla: Login : Input de datos de usuario.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/Login_2/16.png" alt="16 - own second login screen" title="16 - OWN SECOND LOGIN SCREEN"></td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Tercera y última pantalla: Feed principal -&gt; Crear publicación, ver usuarios conectados, historias y publicaciones.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/1.png" alt="1 - own main feed screen" title="1 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/2.png" alt="2 - own main feed screen" title="2 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/3.png" alt="3 - own main feed screen" title="3 - OWN MAIN FEED SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Tercera y última pantalla: Feed principal -&gt; Crear publicación, ver usuarios conectados, historias y publicaciones.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/4.png" alt="4 - own main feed screen" title="4 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/5.png" alt="5 - own main feed screen" title="5 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/6.png" alt="6 - own main feed screen" title="6 - OWN MAIN FEED SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Tercera y última pantalla: Feed principal -&gt; Crear publicación, ver usuarios conectados, historias y publicaciones.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/7.png" alt="7 - own main feed screen" title="7 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/8.png" alt="8 - own main feed screen" title="8 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/9.png" alt="9 - own main feed screen" title="9 - OWN MAIN FEED SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Tercera y última pantalla: Feed principal -&gt; Crear publicación, ver usuarios conectados, historias y publicaciones.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/10.png" alt="10 - own main feed screen" title="10 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/11.png" alt="11 - own main feed screen" title="11 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/12.png" alt="12 - own main feed screen" title="12 - OWN MAIN FEED SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Tercera y última pantalla: Feed principal -&gt; Crear publicación, ver usuarios conectados, historias y publicaciones.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/13.png" alt="13 - own main feed screen" title="13 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/14.png" alt="14 - own main feed screen" title="14 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/15.png" alt="15 - own main feed screen" title="15 - OWN MAIN FEED SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Tercera y última pantalla: Feed principal -&gt; Crear publicación, ver usuarios conectados, historias y publicaciones.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/16.png" alt="16 - own main feed screen" title="16 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/17.png" alt="17 - own main feed screen" title="17 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/18.png" alt="18 - own main feed screen" title="18 - OWN MAIN FEED SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Tercera y última pantalla: Feed principal -&gt; Crear publicación, ver usuarios conectados, historias y publicaciones.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/19.png" alt="19 - own main feed screen" title="19 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/20.png" alt="20 - own main feed screen" title="20 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/21.png" alt="21 - own main feed screen" title="21 - OWN MAIN FEED SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Tercera y última pantalla: Feed principal -&gt; Crear publicación, ver usuarios conectados, historias y publicaciones.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/22.png" alt="22 - own main feed screen" title="22 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/23.png" alt="23 - own main feed screen" title="23 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/24.png" alt="24 - own main feed screen" title="24 - OWN MAIN FEED SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Tercera y última pantalla: Feed principal -&gt; Crear publicación, ver usuarios conectados, historias y publicaciones.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/25.png" alt="25 - own main feed screen" title="25 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/26.png" alt="26 - own main feed screen" title="26 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/27.png" alt="27 - own main feed screen" title="27 - OWN MAIN FEED SCREEN"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Tercera y última pantalla: Feed principal -&gt; Crear publicación, ver usuarios conectados, historias y publicaciones.</td>
+<td style="text-align:center"><img src="VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/28.png" alt="28 - own main feed screen" title="28 - OWN MAIN FEED SCREEN"></td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-16-documentaci%C3%B3n-autom%C3%A1tica-con-dartdoc">7. <strong>1.6. DOCUMENTACIÓN AUTOMÁTICA CON <em><code>dartdoc</code></em></strong></h2>
+<p>En dart, gracias a un comando llamado <strong><em><code>dartdoc</code></em></strong>, es posible generar la
+documentación de <strong><em><code>Dart</code></em></strong> y <strong><em><code>Flutter</code></em></strong> de forma automática, pero hay que
+seguir ciertos pasos:</p>
+<ol>
+<li>
+<p>Hay que establecer la siguiente variable de usuario en <strong><code>Path</code></strong>:</p>
+<ul>
+<li><strong><code>C:\SDKs\flutter\bin\cache\dart-sdk\bin</code></strong></li>
+</ul>
+</li>
+<li>
+<p>Hay que seguir una convención de comentarios específica para que se generen
+descripciones en los elementos de la documentación. Estas convenciones se
+encuentran definidas en <a href="https://dart.dev/guides/language/effective-dart/documentation" title="Dart / Docs / Effective Dart: Documentation"><strong>Effective Dart: Documentation</strong></a>,
+en donde lo más importante es lo siguiente:</p>
+<ul>
+<li>
+<p>Los comentarios deben de iniciar con <strong>3 backslashes (\\\)</strong> si queremos
+que aparezca el texto en la documentación. Si lo hacemos con 2 (\\), no
+saldrá.</p>
+</li>
+<li>
+<p>Podemos agregar descripciones de archivos, clases, atributos, funciones,
+y no estoy seguro de si se puede de más cosas, pero eso se puede
+encontrar en la misma documentación.</p>
+</li>
+<li>
+<p>Hay ciertas convenciones para que estén estructurados de una mejor forma
+(según <a href="https://dart.dev/guides/language/effective-dart/documentation" title="Dart / Docs / Effective Dart: Documentation"><strong>Effective Dart: Documentation</strong></a>),
+por lo que si quieres saber más al respecto, tendrás que revisar la
+documentación oficial.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Entrar al directorio inicial de tu aplicación.</p>
+<pre class="hljs"><code><div> <span class="hljs-attr">cd</span> <span class="hljs-string">carpeta_prinicipal_app_flutter</span>
+</div></code></pre>
+<blockquote>
+<p>Dentro podrás encontrar (entre otros más) los siguientes directorios:</p>
+<ul>
+<li><strong><code>android/</code></strong></li>
+<li><strong><code>build/</code></strong></li>
+<li><strong><code>ios/</code></strong></li>
+<li><strong><code>lib/</code></strong></li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>Ejecutar el siguiente comando para activar <strong><em><code>dartdoc</code></em></strong>:</p>
+</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-attr">flutter</span> <span class="hljs-string">pub global activate dartdoc</span>
+</div></code></pre>
+<ol start="5">
+<li>
+<p>Ejecutar el siguiente comando para generar la documentación:</p>
+<pre class="hljs"><code><div><span class="hljs-attr">dartdoc</span>
+</div></code></pre>
+</li>
+<li>
+<p>Una vez realizados los pasos anteriores, encontraremos la documentación en
+formato <strong><em><code>html</code></em></strong> junto con más documentos en el siguiente directorio:</p>
+<blockquote>
+<blockquote>
+<p><strong><code>carpeta_prinicipal_app_flutter\doc\api\</code></strong></p>
+</blockquote>
+<p>El archivo específico es el siguiente:</p>
+<blockquote>
+<p><strong><code>carpeta_prinicipal_app_flutter\doc\api\index.html</code></strong></p>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>Para ver la documentación, solamente hay que abrir el archivo y se abrirá una
+ventana en nuestro navegador. El documento tiene enlaces a los elementos,
+además de la descripción de cada uno a los que le agregamos con los
+comentarios en el formato mencionado anteriormente (\\\).</p>
+</li>
+</ol>
+<h2 id="8-instalaciones">8. <strong>INSTALACIONES</strong></h2>
+<p>Para que todo funcione correctamente, hay que instalar varias cosas:</p>
+<h3 id="81-android-studio">8.1. <strong>Android Studio</strong></h3>
+<p>Simplemente descarga el archivo que se encuentra en el enlace y ejecutalo.
+Después podrás configurarlo como tú quieras.</p>
+<h4 id="811-configuraci%C3%B3n-obligatoria-android-studio">8.1.1. <strong>CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO</strong></h4>
+<p>Para que Android Studio y Flutter funcionen de manera correcta, hay que
+configurar unos elementos que serán obligatorios, siguiendo los siguientes pasos:</p>
+<h5 id="8111-instalaci%C3%B3n-de-paquetes">8.1.1.1. <strong>INSTALACIÓN DE PAQUETES</strong></h5>
+<p>Hay una serie de paquetes necesarios para trabajar con Flutter y el emulador de
+Android, entre otras cosas más.</p>
+<ol>
+<li>
+<p>Abre Android Studio.</p>
+<p><img src="README_imgs/AS_CONFIG/as_1.png" alt="Ventana inicial AS" title="Ventana inicial AS"></p>
+</li>
+<li>
+<p>Da click en el botón ⚙ <strong><code>Configure</code></strong>.</p>
+<p><img src="README_imgs/AS_CONFIG/as_2.png" alt="Ventana inicial AS | Botón configure" title="Ventana inicial AS | Botón configure"></p>
+</li>
+<li>
+<p>Abre la ventana de configuraciones del <strong><code>SDK (Software Developer Kit)</code></strong>
+dando click en el botón <strong><code>SDK Manager</code></strong>.</p>
+<p><img src="README_imgs/AS_CONFIG/as_3.png" alt="Ventana inicial AS | Configure/SDK Manager" title="Ventana inicial AS | Configure/SDK Manager"></p>
+<ul>
+<li>
+<p>Te aparecerá una ventana con la lista de los <strong><code>Android SDK</code></strong>, los cuales te
+permitirán desarrollar aplicaciones en ese sistema operativo.</p>
+<p><img src="README_imgs/AS_CONFIG/as_4.png" alt="Android SDK/SDK Platforms" title="Android SDK/SDK Platforms"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>De la lista de <strong><code>SDK Platforms</code></strong> puedes elegir el que quieras, pero en mi
+caso tuve que eleguir el <strong><code>Android 8.1 (Oreo) | API Level: 27</code></strong> porque el
+profesor así lo indicó por su estabilidad.</p>
+<p><img src="README_imgs/AS_CONFIG/as_5.png" alt="Android SDK/SDK Platforms/Android 8.1 (Oreo)" title="Android SDK/SDK Platforms/Android 8.1 (Oreo)"></p>
+</li>
+<li>
+<p>Ahora dirígete a la pestaña de <strong><code>SDK Tools</code></strong> dentro del mismo submenú. Está
+a la derecha de la pestaña del paso anterior (<strong><code>SDK Platforms</code></strong>).</p>
+<p><img src="README_imgs/AS_CONFIG/as_6.png" alt="Android SDK/SDK Tools" title="Android SDK/SDK Tools"></p>
+</li>
+<li>
+<p><strong>Tendrás que seleccionar una serie de elementos</strong> (<strong><em>sin quitar la selección de
+los seleccionados por default</em></strong>) que te permitirán trabajar con
+el desarrollo de tus aplicaciones y el uso del <strong><em><code>emulador de Android</code></em></strong>.
+Estos elementos son los siguientes:</p>
+<ul>
+<li>
+<p><strong>Google USB Driver</strong></p>
+<p><img src="README_imgs/AS_CONFIG/as_8.png" alt="Google USB Driver" title="Google USB Driver"></p>
+</li>
+<li>
+<p><strong><em>El siguiente elemento depende de tu procesador</em></strong>:</p>
+<ul>
+<li>
+<p><strong><em>Si tienes un procesador de Intel, selecciona la siguiente opción</em></strong>:</p>
+<blockquote>
+<p><strong>Intel x86 Emulator Accelerator (HAXM Installer)</strong></p>
+</blockquote>
+</li>
+<li>
+<p><strong><em>Si tienes un procesador de AMD, selecciona la siguiente opción</em></strong>:</p>
+<blockquote>
+<p><strong>Android Emulator Hypervisor Driver for AMD Processors (installer)</strong></p>
+</blockquote>
+</li>
+</ul>
+<p><img src="README_imgs/AS_CONFIG/as_10.png" alt="AMD and Intel Emulator elements installer" title="AMD and Intel Emulator elements installer"></p>
+</li>
+<li>
+<p>[<em><strong><code>OPCIONAL POR SI QUIERES LA ÚLTIMA VERSION (NO ESTABLE) DE ESTE ELEMENTO</code></strong></em>]
+<strong>Android SDK Build-Tools 31-rc3</strong> (<strong><em>YO NO LA SELECCIONARÉ, A MENOS QUE
+TENGA PROBLEMAS CON LA ÚLTIMA VERSIÓN ESTABLE</em></strong>)</p>
+<ol>
+<li>
+<p>Da click en el botón de la parte inferior derecha que dice
+&quot;<strong><em><code>Show Package Details</code></em></strong>&quot; para mostrar TODAS las versiones de cada
+paquete.</p>
+</li>
+<li>
+<p>Da click en la última versión del paquete, la cual puede estar hasta
+o hasta abajo de la lista, dependiendo del orden en el que estén
+mostrados. Es la versión con los números más altos.</p>
+</li>
+</ol>
+<p><img src="README_imgs/AS_CONFIG/as_9.png" alt="Android SDK Build-Tools 31-rc3" title="Android SDK Build-Tools 31-rc3"></p>
+</li>
+<li>
+<p>[<em><strong><code>OPCIONAL POR SI QUIERES PODER UTILIZAR LA LÍNEA DE COMANDOS</code></strong></em>]
+<strong>Android SDK Command-line Tools (latest)</strong></p>
+<p><img src="README_imgs/AS_CONFIG/as_7.png" alt="Android SDK Command-line Tools (latest)" title="Android SDK Command-line Tools (latest)"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Ahora, para que todo sea instalado, da click en el botón &quot;<strong><em><code>Apply</code></em></strong>&quot;.</p>
+<p><img src="README_imgs/AS_CONFIG/as_11.png" alt="Apply all installed elements" title="Apply all installed elements"></p>
+</li>
+<li>
+<p>Aparecerá una ventana que te pedirá confirmar los cambios. Da click en el
+botón &quot;<strong><em><code>OK</code></em></strong>&quot;.</p>
+<p><img src="README_imgs/AS_CONFIG/as_13.png" alt="Apply all installed elements" title="Apply all installed elements"></p>
+</li>
+<li>
+<p>Aparecerá otra ventana en donde tendrás que aceptar los términos y
+condiciones de cada licencia. Acéptalos y da click al botón &quot;<strong><em><code>Finish</code></em></strong>&quot;.</p>
+<p><img src="README_imgs/AS_CONFIG/as_14.png" alt="License Agreement | Accept Terms and Conditions" title="License Agreement | Accept Terms and Conditions"></p>
+</li>
+<li>
+<p>Después de esto, te mostrará el progreso de instalación de los paquetes.</p>
+</li>
+</ol>
+<p><img src="README_imgs/AS_CONFIG/as_15.png" alt="Component Installer | Installing Requested Components" title="Component Installer | Installing Requested Components"></p>
+<ol start="11">
+<li>
+<p>Una vez terminada la instalación, da click en el botón &quot;<strong><em><code>Finish</code></em></strong>&quot;.</p>
+<p><img src="README_imgs/AS_CONFIG/as_16.png" alt="Component Installer | Finish" title="Component Installer | Finish"></p>
+</li>
+<li>
+<p>Ahora da click en el botón &quot;<strong><em><code>OK</code></em></strong>&quot;.</p>
+</li>
+</ol>
+<p><img src="README_imgs/AS_CONFIG/as_17.png" alt="Finish configuration" title="Finish configuration"></p>
+<h5 id="8112-instalaci%C3%B3n-de-plugins">8.1.1.2. <strong>INSTALACIÓN DE PLUGINS</strong></h5>
+<p>Para trabajar con Flutter de forma cómoda, hay que instalar una serie de Plugins
+que nos facilitarán el desarrollo de los programas.</p>
+<ol>
+<li>
+<p>Abre Android Studio.</p>
+<p><img src="README_imgs/AS_CONFIG/as_1.png" alt="Ventana inicial AS" title="Ventana inicial AS"></p>
+</li>
+<li>
+<p>Da click en el botón ⚙ <strong><code>Configure</code></strong>.</p>
+<p><img src="README_imgs/AS_CONFIG/as_2.png" alt="Ventana inicial AS | Botón configure" title="Ventana inicial AS | Botón configure"></p>
+</li>
+<li>
+<p>Da click en el botón &quot;<strong><em><code>Plugins</code></em></strong>&quot;.</p>
+<p><img src="README_imgs/AS_CONFIG/as_24.png" alt="Ventana inicial AS | Configure/Check for Updates" title="Ventana inicial AS | Configure/Check for Updates"></p>
+</li>
+<li>
+<p>Te aparecerá una nueva ventana. Selecciona el apartado de
+&quot;<strong><em><code>Marketplace</code></em></strong>&quot;.</p>
+<p><img src="README_imgs/AS_CONFIG/as_25.png" alt="Plugins | Installed" title="Plugins | Installed"></p>
+</li>
+<li>
+<p>Busca &quot;<strong><code>Flutter</code></strong>&quot;, seleccionalo y da click en &quot;<strong><em><code>Install</code></em></strong>&quot;.</p>
+<p><img src="README_imgs/AS_CONFIG/as_26.png" alt="Plugins | Marketplace | Flutter" title="Plugins | Marketplace | Flutter"></p>
+</li>
+<li>
+<p>Te indicará que también tienes que instalar el plugin de &quot;<strong><em><code>Dart</code></em></strong>&quot;. Da
+click en &quot;<strong><em><code>Install</code></em></strong>&quot;, ya que <strong><em><code>Flutter</code> se escribe en <code>Dart</code></em></strong>, por lo que es
+necesario.</p>
+<p><img src="README_imgs/AS_CONFIG/as_27.png" alt="Plugins | Marketplace | Flutter" title="Plugins | Marketplace | Flutter"></p>
+</li>
+<li>
+<p>Si es que te lo pide, da click en &quot;<strong><code>Restart IDE</code></strong>&quot; para que se apliquen
+los cambios.</p>
+<p><img src="README_imgs/AS_CONFIG/as_23.png" alt="Plugins | Restart IDE" title="Plugins | Restart IDE"></p>
+</li>
+</ol>
+<h5 id="8113-comprobaci%C3%B3n-de-actualizaciones">8.1.1.3. <strong>COMPROBACIÓN DE ACTUALIZACIONES</strong></h5>
+<p>Hay que comprobar si hay actualizaciones disponibles.</p>
+<ol>
+<li>
+<p>Abre Android Studio.</p>
+<p><img src="README_imgs/AS_CONFIG/as_1.png" alt="Ventana inicial AS" title="Ventana inicial AS"></p>
+</li>
+<li>
+<p>Da click en el botón ⚙ <strong><code>Configure</code></strong>.</p>
+<p><img src="README_imgs/AS_CONFIG/as_2.png" alt="Ventana inicial AS | Botón configure" title="Ventana inicial AS | Botón configure"></p>
+</li>
+<li>
+<p>Da click en el botón &quot;<strong><em><code>Check for Updates</code></em></strong>&quot;.</p>
+<p><img src="README_imgs/AS_CONFIG/as_18.png" alt="Ventana inicial AS | Configure/Check for Updates" title="Ventana inicial AS | Configure/Check for Updates"></p>
+<ul>
+<li>
+<p>Si hay actualizaciones te lo indicará como en la siguiente captura. Da
+click a ese botón/hipervínculo.</p>
+<p><img src="README_imgs/AS_CONFIG/as_19.png" alt="Plugin Updates Available" title="Plugin Updates Available"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Te aparecerá una nueva ventana. Da click a &quot;<strong><em><code>Update</code></em></strong>&quot; de forma
+individual si solo quieres actualizar elementos en específico, o da click en
+&quot;Update all&quot; si quieres que todos los paquetes se actualicen automáticamente.</p>
+<p><img src="README_imgs/AS_CONFIG/as_20.png" alt="Updates available" title="Updates available">
+<img src="README_imgs/AS_CONFIG/as_21.png" alt="Updating" title="Updating"></p>
+</li>
+<li>
+<p>Si es que te lo pide, da click en &quot;<strong><code>Restart IDE</code></strong>&quot; para que se apliquen
+los cambios.</p>
+<p><img src="README_imgs/AS_CONFIG/as_22.png" alt="Updates | Restart IDE" title="Updates | Restart IDE"></p>
+<p><img src="README_imgs/AS_CONFIG/as_23.png" alt="Updates | Restart IDE" title="Updates | Restart IDE"></p>
+</li>
+<li>
+<p>Listo.</p>
+</li>
+</ol>
+<h4 id="812-crear-un-emulador-de-android-android-virtual-device">8.1.2. <strong>CREAR UN <code>EMULADOR DE ANDROID</code> (<code>ANDROID VIRTUAL DEVICE</code>)</strong></h4>
+<p>Para correr un programa podemos utilizar nuestro celular conectándolo a a la
+computadora mediante cable USB, o mediante un emulador de Android creado con
+Android Studio.</p>
+<ol>
+<li>
+<p>Abre Android Studio.</p>
+<p><img src="README_imgs/AS_CONFIG/as_1.png" alt="Ventana inicial AS" title="Ventana inicial AS"></p>
+</li>
+<li>
+<p>Da click en el botón ⚙ <strong><code>Configure</code></strong>.</p>
+<p><img src="README_imgs/AS_CONFIG/as_2.png" alt="Ventana inicial AS | Botón configure" title="Ventana inicial AS | Botón configure"></p>
+</li>
+<li>
+<p>Da click en la opción de <strong><code>AVD Manager</code></strong>.</p>
+<p><img src="README_imgs/AS_CONFIG/as-avd_1.png" alt="Ventana inicial AS | AVD Manager" title="Ventana inicial AS | AVD Manager"></p>
+<ul>
+<li>
+<p>Se abrirá una nueva ventana &quot;<strong><code>Your Virtual Devices</code></strong>&quot;, en donde se
+encontrará una lista de dispositivos virtuales (emuladores de android).</p>
+<p><img src="README_imgs/AS_CONFIG/as-avd_2.png" alt="Android Virtual Device Manager | Your Virtual Devices" title="Android Virtual Device Manager | Your Virtual Devices"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Da click en <strong><code>Create Virtual Device</code></strong>.</p>
+<p><img src="README_imgs/AS_CONFIG/as-avd_3.png" alt="Android Virtual Device Manager | Your Virtual Devices | Create Virtual Device..." title="Android Virtual Device Manager | Your Virtual Devices | Create Virtual Device..."></p>
+</li>
+<li>
+<p>Aparecerá una nueva ventana: <strong><code>Virtual Device Configuration</code></strong>. Elige el
+dispositivo que quieras emular. En mi caso elegí el <strong><code>Pixel 2</code></strong>, que es el
+que recomendó el profesor. Después das click en el botón <strong><code>Next</code></strong>.</p>
+<p><img src="README_imgs/AS_CONFIG/as-avd_4.png" alt="AVD Manager | Virtual Device Configuration | Select Hardware" title="AVD Manager | Virtual Device Configuration | Select Hardware"></p>
+</li>
+<li>
+<p>Selecciona el Sistema Operativo que quieres que emule el dispositivo virtual.
+En mi caso elegí <strong><code>Android 8.1 (Oreo) | API Level: 27</code></strong>.</p>
+<ul>
+<li>
+<p>Si no lo tienes descargado, lo tendrás que descargar dando click al
+<strong><code>Download</code></strong> que está a la derecha del nombre del Sistema Operativo.</p>
+<p><img src="README_imgs/AS_CONFIG/as-avd_5.png" alt="Oreo (8.1) | Download" title="Oreo (8.1) | Download"></p>
+</li>
+</ul>
+<p><img src="README_imgs/AS_CONFIG/as-avd_6.png" alt="Oreo (8.1) | Installing" title="Oreo (8.1) | Installing"></p>
+</li>
+<li>
+<p>Una vez terminada la instalación del API que elegiste, da click en
+<strong><code>Finish</code></strong>.</p>
+<p><img src="README_imgs/AS_CONFIG/as-avd_7.png" alt="Finish API installation" title="Finish API installation"></p>
+</li>
+<li>
+<p>Da click en <strong><code>Next</code></strong> después de elegir la API a utilizar.</p>
+<p><img src="README_imgs/AS_CONFIG/as-avd_8.png" alt="System Image selected" title="System Image selected"></p>
+</li>
+<li>
+<p>Verifica tu configuración y cuando todo esté como lo deseas, da click en
+<strong><code>Finish</code></strong>.</p>
+<ul>
+<li>En esta sección puedes cambiar el nombre del dispositivo y algunas
+configuraciones avanzadas.</li>
+</ul>
+<p><img src="README_imgs/AS_CONFIG/as-avd_9.png" alt="AVD | Verify Configuration" title="AVD | Verify Configuration"></p>
+</li>
+<li>
+<p>Ya está todo listo. Ahora puedes iniciar tu dispositivo dando click en el
+botón verde bajo la sección &quot;<strong><code>Actions</code></strong>&quot;.</p>
+</li>
+</ol>
+<p><img src="README_imgs/AS_CONFIG/as-avd_10.png" alt="Launch AVD in emulator" title="Launch AVD in emulator"></p>
+<h5 id="8121-recomendaci%C3%B3n-importante-para-el-avd">8.1.2.1. <strong><em>RECOMENDACIÓN IMPORTANTE PARA EL AVD</em></strong></h5>
+<p>Cada vez, el AVD va a ir ocupando una mayor cantidad de espacio en el disco
+duro, el cual se puede ver en la sección de &quot;<strong><code>Size on Disk</code></strong>&quot;, así que viene
+muy bien la liberación de ese espacio.</p>
+<p><img src="README_imgs/AS_CONFIG/as-avd_11.png" alt="AVD Size on Disk" title="AVD Size on Disk"></p>
+<ol>
+<li>
+<p>En la sección &quot;<strong><code>Actions</code></strong>&quot; da click al botón que tiene la flecha para
+abajo.</p>
+<p><img src="README_imgs/AS_CONFIG/as-avd_12.png" alt="AVD Options" title="AVD Options"></p>
+</li>
+<li>
+<p>Da click a &quot;<strong><code>Wipe Data</code></strong>&quot;.</p>
+<p><img src="README_imgs/AS_CONFIG/as-avd_13.png" alt="AVD | Wipe Data" title="AVD | Wipe Data"></p>
+</li>
+<li>
+<p>Listo. Ahora has liberado una buen cantidad de espacio en el disco duro.
+Puedes hacer esto en cualquier momento (mientras no utilices el dispositivo).</p>
+</li>
+</ol>
+<h3 id="82-flutter">8.2. <strong>Flutter</strong></h3>
+<p>Entra al enlace de la documentación oficial de <a href="https://flutter.dev/docs/get-started/install/windows" title="Descargar flutter en Windows | flutter_windows_2.0.6-stable.zip">Flutter</a> y en la sección de
+<strong><em>&quot;<a href="https://flutter.dev/docs/get-started/install/windows#get-the-flutter-sdk" title="Flutter Windows Install | Get the Flutter SDK">Get the Flutter SDK</a>&quot;</em></strong> da click en el botón de descarga, el cual dice
+<strong><em><code>flutter_windows_2.0.6-stable.zip</code></em></strong>.</p>
+<h4 id="821-en-qu%C3%A9-directorio-colocar-flutter">8.2.1. <strong><em>EN QUÉ DIRECTORIO COLOCAR FLUTTER</em></strong></h4>
+<p>Para no tener problemas con espacios y demás, coloqué Flutter directamente en el
+directorio principal del disco duro (<strong><code>C:/</code></strong>), creando una carpeta dentro y
+extrayéndolo. Entonces quedaría de la siguiente forma:</p>
+<blockquote>
+<p><strong><code>C:\SDKs\flutter</code></strong></p>
+</blockquote>
+<p>Así, cada vez que quiera encontrar Flutter, será más sencillo.</p>
+<h4 id="822-flutter-sound-null-safety">8.2.2. <strong>FLUTTER</strong> <strong><em><code>SOUND NULL SAFETY</code></em></strong></h4>
+<blockquote>
+<p><strong><em>A día de hoy, Viernes, 21 de mayo del 2021, aún no lo implementamos, pero
+dejamos las instrucciones para un futuro.</em></strong></p>
+</blockquote>
+<p>Habilitamos la opción <code>Sound Null Safety</code> de Flutter para evitar problemas con
+valores null. Esto lo podemos encontrar en la documentación:</p>
+<blockquote>
+<p><a href="https://dart.dev/null-safety#enable-null-safety" title="Dart | Samples &amp; tutorials/Null Safety">Dart | Samples &amp; tutorials/Null Safety</a></p>
+</blockquote>
+<p>Como se indica en el sitio web:</p>
+<p><strong><em>To make Dart treat your code as null safe, the SDK constraints must</em></strong>
+<strong><em>require a language version that has null safety support. For example, your</em></strong>
+<strong><em><code>pubspec.yaml</code> file might have the following constraints:</em></strong></p>
+<blockquote>
+<pre class="hljs"><code><div><span class="hljs-attr">environment:</span>
+  <span class="hljs-attr">sdk:</span> <span class="hljs-string">"&gt;=2.12.0 &lt;3.0.0"</span>
+</div></code></pre>
+</blockquote>
+<p>Siguiendo lo anterior, <code>Sound null safety</code> estaría activado.</p>
+<h4 id="823-variable-de-usuario">8.2.3. <strong>VARIABLE DE USUARIO</strong></h4>
+<p>Para ver cómo configurar la variable de usuario, dirígete a la <strong>sección del
+siguiente enlace</strong> (te enviará dentro del README):</p>
+<blockquote>
+<p><a href="#flutter-user-var" title="VARIABLE DE USUARIO PARA FLUTTER">CONFIGURACIÓN DE VARIABLE DE USUARIO PARA FLUTTER</a></p>
+</blockquote>
+<h3 id="83-chocolatey">8.3. <strong>Chocolatey</strong></h3>
+<p><a href="https://chocolatey.org/install" title="INSTALLING CHOCOLATEY">Chocolatey</a> es un administrador de paquetes en Windows, con el que podemos
+instalar una diversidad de paquetes (valga la redundancia) de forma sencilla
+corriendo comandos desde una terminal.</p>
+<blockquote>
+<p>Este es solo para instalar <a href="https://github.com/Genymobile/scrcpy" title="GitHub | Genymobile/scrcpy">scrcpy</a></p>
+</blockquote>
+<h4 id="831-instrucciones-instalaci%C3%B3n-desde-powershell">8.3.1. <strong><em>INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL</em></strong></h4>
+<p>De acuerdo con las instrucciones del sitio web de <a href="https://chocolatey.org/install" title="INSTALLING CHOCOLATEY">Chocolatey</a>, hay que seguir
+los siguientes pasos:</p>
+<blockquote>
+<p>REQUIREMENTS</p>
+<ul>
+<li>Windows 7+ / Windows Server 2003+</li>
+<li>PowerShell v2+ (minimum is v3 for install from this website due to TLS 1.2
+requirement)</li>
+<li>.NET Framework 4+ (the installation will attempt to install .NET 4.0 if you do
+not have it installed)(minimum is 4.5 for install from this website due to TLS
+1.2 requirement)</li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p>First, ensure that you are using an
+<a href="https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/" title="administrative shell">administrative shell</a> -
+you can also install as a non-admin, check out <a href="https://docs.chocolatey.org/en-us/choco/setup#non-administrative-install" title="Non-Administrative Installation">Non-Administrative
+Installation</a>.</p>
+</li>
+<li>
+<p>Install with powershell.exe</p>
+<blockquote>
+<p><strong><em>NOTE:</em> Please inspect <a href="https://chocolatey.org/install.ps1" title="https://chocolatey.org/install.ps1">https://chocolatey.org/install.ps1</a>
+prior to running any of these scripts to ensure safety. We already know
+it's safe, but you should verify the security and contents of any script
+from the internet you are not familiar with. All of these scripts download
+a remote PowerShell script and execute it on your machine. We take security
+very seriously.
+<a href="https://docs.chocolatey.org/en-us/information/security" title="Learn more about our security protocols">Learn more about our security protocols</a>
+.</strong></p>
+</blockquote>
+<p>With PowerShell, you must ensure <a href="https://go.microsoft.com/fwlink/?LinkID=135170" title="Get-ExecutionPolicy">Get-ExecutionPolicy</a>
+is not Restricted. We suggest using <code>Bypass</code> to bypass the policy to get
+things installed or <code>AllSigned</code> for quite a bit more security.</p>
+<ul>
+<li>Run <code>Get-ExecutionPolicy</code>. If it returns <code>Restricted</code>, then run <code>Set-ExecutionPolicy AllSigned</code> or <code>Set-ExecutionPolicy Bypass -Scope Process</code>.</li>
+</ul>
+<p>Now run the following command:</p>
+<blockquote>
+<pre class="hljs"><code><div><span class="hljs-built_in">Set-ExecutionPolicy</span> Bypass <span class="hljs-literal">-Scope</span> <span class="hljs-keyword">Process</span> <span class="hljs-literal">-Force</span>; [<span class="hljs-type">System.Net.ServicePointManager</span>]::SecurityProtocol = [<span class="hljs-type">System.Net.ServicePointManager</span>]::SecurityProtocol <span class="hljs-operator">-bor</span> <span class="hljs-number">3072</span>; iex ((<span class="hljs-built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="hljs-string">'https://chocolatey.org/install.ps1'</span>))
+</div></code></pre>
+</blockquote>
+</li>
+<li>
+<p>Paste the copied text into your shell and press Enter.</p>
+</li>
+<li>
+<p>Wait a few seconds for the command to complete.</p>
+</li>
+<li>
+<p>If you don't see any errors, you are ready to use Chocolatey! Type <code>choco</code> or
+<code>choco -?</code> now, or see <a href="https://docs.chocolatey.org/en-us/getting-started" title="Getting Started">Getting Started</a>
+for usage instructions.</p>
+<p><img src="README_imgs/ps-chocolatey.png" alt="Chocolatey installation ready" title="Chocolatey installation ready"></p>
+<p><img src="README_imgs/ps-chocolatey-choco.png" alt="Chocolatey installation ready" title="Chocolatey installation ready"></p>
+</li>
+</ol>
+<h3 id="84-scrcpy">8.4. <strong>scrcpy</strong></h3>
+<p><a href="https://github.com/Genymobile/scrcpy" title="GitHub | Genymobile/scrcpy">scrcpy</a> es una aplicación para poder ver la pantalla de tu celular en tu
+computadora, conectándolo con un cable USB. Se puede instalar de diversas
+formas, indicadas en el GitHub, al que puedes hacer dando click aquí: <a href="https://github.com/Genymobile/scrcpy" title="GitHub | Genymobile/scrcpy">scrcpy</a>.</p>
+<h4 id="841-instrucciones-instalaci%C3%B3n-desde-powershell-con-chocolatey">8.4.1. <strong><em>INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY</em></strong></h4>
+<p>En mi caso, decidí instalarlo con <a href="https://chocolatey.org/install" title="INSTALLING CHOCOLATEY">Chocolatey</a>, ya que es más rápido y sencillo
+que tener que descomprimir carpetas manualmente y cosas así.</p>
+<p>Hay que ejecutar los siguientes comandos en la terminal de <code>Windows Powershell</code>,
+que ya viene instalada en Windows 10.</p>
+<blockquote>
+<p><strong>NOTA</strong>: Va a pedir que aceptes varias cosas, por lo que tendrás que hacerlo
+para que los programas se puedas descargar e instalar.</p>
+<ul>
+<li><strong><code>Y</code></strong> &lt;- <strong>Correr solo el script actual.</strong></li>
+<li><strong><code>A</code></strong> &lt;- <strong>Correr todos los scripts.</strong></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p>Hay que instalar una cosa antes, para hacerlo funcionar, que es el <code>Android Debug Bridge (adb)</code>:</p>
+<blockquote>
+<pre class="hljs"><code><div><span class="hljs-attr">choco</span> <span class="hljs-string">install adb</span>
+</div></code></pre>
+</blockquote>
+<p><img src="README_imgs/ps-choco-adb_1.png" alt="choco install adb | Installing" title="choco install adb | Installing"></p>
+<p><img src="README_imgs/ps-choco-adb_2.png" alt="choco install adb | Installed" title="choco install adb | Installed"></p>
+</li>
+<li>
+<p>Ahora ya habría que instalar [scrpy] escribiendo lo siguiente:</p>
+<blockquote>
+<pre class="hljs"><code><div><span class="hljs-attr">choco</span> <span class="hljs-string">install scrcpy</span>
+</div></code></pre>
+</blockquote>
+<p><img src="README_imgs/ps-choco-scrcpy_1.png" alt="choco install scrcpy | Installing" title="choco install scrcpy | Installing"></p>
+<p><img src="README_imgs/ps-choco-scrcpy_2.png" alt="choco install scrcpy | Installed" title="choco install scrcpy | Installed"></p>
+</li>
+</ol>
+<h3 id="85-java">8.5. <strong>JAVA</strong></h3>
+<p>Es necesario tener instalado Java y tenerlo en las variables del sistema para
+poder ejecutar los programas.</p>
+<h4 id="851-informaci%C3%B3n-sobre-las-versiones-de-java">8.5.1. <strong><em>INFORMACIÓN SOBRE LAS VERSIONES DE JAVA</em></strong></h4>
+<p>Hay diversas versiones de Java, por lo que hay que saber elegir cuál utilizar.
+En el siguiente enlace esto viene bien explicado:</p>
+<blockquote>
+<ul>
+<li><a href="https://www.stackchief.com/blog/Which%20Version%20of%20Java%20Should%20You%20Use%3F" title="stackchief | Which Version of Java Should You Use?">stackchief | Which Version of Java Should You Use?</a></li>
+</ul>
+</blockquote>
+<h4 id="852-conceptos-en-los-acr%C3%B3nimos-de-java-jdk-jvm-jre">8.5.2. <strong>CONCEPTOS EN LOS ACRÓNIMOS DE JAVA:</strong> <strong><em><code>JDK, JVM, JRE</code></em></strong></h4>
+<p>Hay diversos acrónimos que se manejan en Java, por lo que identificar cuál
+significa qué cosa es complicado.</p>
+<p>La información para conocer esto la encontré en el siguiente enlace (mismo del
+punto anterior):</p>
+<blockquote>
+<ul>
+<li>
+<p><a href="https://www.stackchief.com/blog/Which%20Version%20of%20Java%20Should%20You%20Use%3F" title="stackchief | Which Version of Java Should You Use?">stackchief | Which Version of Java Should You Use?</a></p>
+</li>
+<li>
+<p><strong><code>JDK: Java Developer Kit</code></strong></p>
+<p>The <strong><code>Java Developer Kit (JDK)</code></strong> is a development environment that you
+download for developing Java applications. It includes the JRE as well as an
+interpreter, compiler, and other tools for debugging and development. You'll
+need the JDK to develop Java applications, but not to run them. This is
+because the JRE is included with Java installs.</p>
+</li>
+<li>
+<p><strong><code>JVM: Java Virtual Machine</code></strong></p>
+<p>The <strong><code>Java Virtual Machine (JVM)</code></strong> which is an abstract computing machine
+that enables your computer to run a Java program.</p>
+</li>
+<li>
+<p><strong><code>JRE: Java Runtime Environment</code></strong></p>
+<p>Java requires a runtime environment <strong>to execute the code you write</strong>. When
+you download Java, you also get the <strong><code>Java Runtime Environment (JRE)</code></strong>.
+This JRE includes a Java Virtual Machine (JVM) which is an abstract
+computing machine that enables your computer to run a Java program.</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="853-descarga-de-java">8.5.3. <strong>DESCARGA DE JAVA</strong></h4>
+<p>En mi caso descargué la versión <strong><code>Java SE 11 (LTS)</code></strong>, ya que es la última
+versión que se ha lanzado con <strong><code>LTS (Long Term Support - Soporte a largo plazo)</code></strong>, lo que significa que es una versión que tendrá soporte por mucho más
+tiempo de lo habitual. Esto no debería se un problema y podría instalar la
+última versión que se ha lanzado, la <strong><code>Java SE 16</code></strong>, pero por ahora instalaré
+esta.</p>
+<blockquote>
+<ul>
+<li><a href="https://www.theserverside.com/opinion/Dont-ever-put-a-non-Java-LTS-release-into-production" title="TheServerSide | Don't ever put a non-Java LTS release into production">TheServerSide | Don't ever put a non-Java LTS release into production</a></li>
+</ul>
+</blockquote>
+<p>Por lo que leí, la próxima versión de <strong><code>Java LTS</code></strong> será la versión <strong><code>17</code></strong>, y
+llegará en este año 2021, pero a día de hoy, Mayo del 2021 aún no ha salido.
+Cada versión de Java es lanzada cada 6 meses.</p>
+<blockquote>
+<p><strong><em>ENLACE DE DESCARGA DE VERSIONES DE <code>JAVA SE (Standard Edition)</code></em></strong></p>
+<ul>
+<li><a href="https://www.oracle.com/mx/java/technologies/javase-downloads.html" title="Oracle | Java SE Downloads | Java Platform, Standard Edition">Oracle | Java SE Downloads | Java Platform, Standard Edition</a></li>
+</ul>
+<p><strong><em>DESCARGAS DE <code>Java SE Development Kit (JDK) 11</code></em></strong></p>
+<ul>
+<li><a href="https://www.oracle.com/mx/java/technologies/javase-jdk11-downloads.html" title="Oracle | Java SE Development Kit 11 Downloads">Oracle | Java SE Development Kit 11 Downloads</a></li>
+</ul>
+</blockquote>
+<ul>
+<li><strong><em>Descargué la versión de Windows:</em></strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Product / File Description</th>
+<th style="text-align:center">File Size</th>
+<th style="text-align:center">Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Windows x64 Installer</strong></td>
+<td style="text-align:center">152.05 MB</td>
+<td style="text-align:center">jdk-11.0.11_windows-x64_bin.exe</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong><em>NOTA: REQUIERES TENER UNA CUENTA DE <code>ORACLE</code> PARA LA INSTALACIÓN.</em></strong></p>
+<ul>
+<li><strong><em>DIRECTORIO EN MI PC: <code>C:\Program Files\Java\jdk-11.0.11\</code></em></strong>#</li>
+</ul>
+</blockquote>
+<h2 id="9-variables-del-sistema-o-de-usuario">9. <strong><em>VARIABLES DEL SISTEMA o de USUARIO</em></strong></h2>
+<p>Para que los programas funcionen de la mejor forma posible, hay que establecer
+las variables del sistema que identifiquen a los programas. Esto se explicará
+en esta sección.</p>
+<p>Además, las variables del sistema permiten ejecutar ciertas instrucciones desde
+la línea de comandos.</p>
+<h3 id="91-acceder-a-la-secci%C3%B3n-para-editar-las-variables">9.1. <strong>ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES</strong></h3>
+<p>Para esto hay que seguir una serie de pasos que serán indicados a continuación.</p>
+<ol>
+<li>
+<p>Abre el buscador de Windows. Hay 2 formas de hacerlo.</p>
+<ol>
+<li>Presiona la lupa que está al lado del ícono de Windows en la barra de
+tareas.</li>
+<li>Presiona la combinación de teclas: <strong><em><code>Windows + S</code></em></strong></li>
+</ol>
+</li>
+<li>
+<p>Escribir en la barra lo siguiente: <strong><code>env</code></strong>.</p>
+</li>
+<li>
+<p>Selecciona la opción: &quot;<strong><em><code>Editar las variables de entorno del sistema</code></em></strong>&quot;.</p>
+<p><img src="README_imgs/ENV_VARS/env-vars_1.png" alt="Buscar | Editar las variables de entorno del sistema" title="Buscar | Editar las variables de entorno del sistema"></p>
+<ul>
+<li>
+<p>Te aparecerá una ventana: <strong>Propiedades del sistema</strong>.</p>
+<p><img src="README_imgs/ENV_VARS/env-vars_2.png" alt="Propiedades del sistema" title="Propiedades del sistema"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Selecciona el botón: &quot;<strong><code>Variables de entorno...</code></strong>&quot;.</p>
+<p><img src="README_imgs/ENV_VARS/env-vars_3.png" alt="Propiedades del sistema | Variables del entorno" title="Propiedades del sistema | Variables del entorno"></p>
+<ul>
+<li>
+<p>Te aparecerá una nueva ventana: &quot;Variables de entorno&quot;, que muestra y da la
+opción de manipular todas las variables de usuario y del sistema.</p>
+<p><img src="README_imgs/ENV_VARS/env-vars_4.png" alt="Variables del entorno" title="Variables del entorno"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>En esta sección ya puedes modificar las <strong><em>variables de usuario o del
+sistema</em></strong> como lo requieras.</p>
+</li>
+</ol>
+<h3 id="92-variable-del-sistema-javahome">9.2. <strong>VARIABLE DEL SISTEMA: <code>JAVA_HOME</code></strong></h3>
+<p>Para poder ejecutar los programas necesitamos tener instalado <code>Java</code> y agregado a <strong><em><code>JAVA_HOME</code></em></strong>.</p>
+<p>En el siguiene enlace están las instrucciones para establecer <strong><em><code>JAVA_HOME</code></em></strong>:</p>
+<blockquote>
+<ul>
+<li><a href="https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html" title="Confluence Support | Setting the JAVA_HOME Variable in Windows">Confluence Support | Setting the JAVA_HOME Variable in Windows</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p>Accede a la ventana de <strong><em>&quot;Variables del entorno&quot;</em></strong> como indican los pasos
+del inicio de la sección.</p>
+<p><img src="README_imgs/ENV_VARS/env-vars_4.png" alt="Variables del entorno" title="Variables del entorno"></p>
+</li>
+<li>
+<p>En las <strong><em><code>variables del sistema</code></em></strong> da click en &quot;<strong><em><code>Nueva...</code></em></strong>&quot;.</p>
+<p><img src="README_imgs/ENV_VARS/env-vars_5.png" alt="Variables del sistema | Nueva..." title="Variables del sistema | Nueva..."></p>
+</li>
+<li>
+<p>En el campo &quot;<strong><em><code>Nombre de la variable:</code></em></strong>&quot; ingresa lo siguiente:</p>
+<blockquote>
+<p>JAVA_HOME</p>
+</blockquote>
+<p><img src="README_imgs/ENV_VARS/env-vars_6.png" alt="Nombre de la variable: JAVA_HOME" title="Nombre de la variable: JAVA_HOME"></p>
+</li>
+<li>
+<p>En el campo &quot;<strong><em><code>Valor de la variable:</code></em></strong>&quot; ingresa el directorio de
+instalación de tu JDK. En mi caso fue el siguiente (no lleva backslash &quot;\&quot;
+al final):</p>
+<blockquote>
+<p>C:\Program Files\Java\jdk-11.0.11</p>
+</blockquote>
+<p><img src="README_imgs/ENV_VARS/env-vars_7.png" alt="Valor de la variable" title="Valor de la variable"></p>
+</li>
+<li>
+<p>Da click en &quot;<strong><em><code>Aceptar</code></em></strong>&quot;.</p>
+</li>
+<li>
+<p>Listo, tu variable del sistema ya está establecida.</p>
+<p><img src="README_imgs/ENV_VARS/env-vars_8.png" alt="JAVA_HOME en VARIABLES DEL SISTEMA" title="JAVA_HOME en VARIABLES DEL SISTEMA"></p>
+</li>
+</ol>
+<h4 id="921-verificaci%C3%B3n-de-que-javahome-est%C3%A1-establecido">9.2.1. VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO</h4>
+<p>Hay que verificar que todo haya salido bien y el sistema identifica la variable
+<strong><em><code>JAVA_HOME</code></em></strong>. Esto se logra ejecutando un comando después de haber
+reiniciado cualquier terminal que haya abierta, ya que si no, las variables del
+sistema no se actualizan, y si no hay efecto, entonces hay que reiniciar el
+sistema.</p>
+<p>El comando es el siguiente:</p>
+<blockquote>
+<pre class="hljs"><code><div><span class="hljs-attr">java</span> <span class="hljs-string">--version</span>
+</div></code></pre>
+</blockquote>
+<p>Si todo se configuró correctamente, te mostrará un mensaje con tu versión
+instalada de Java.</p>
+<p><img src="README_imgs/ENV_VARS/env-vars_9.png" alt="java --version | Funcionando correctamente" title="java --version | Funcionando correctamente"></p>
+<h3 id="93-android-studio">9.3. <strong>ANDROID STUDIO</strong></h3>
+<p>Para <a href="https://developer.android.com/studio" title="Descargar Android Studio en Windows | 4.2 for Windows 64-bit (934 MiB)">Android Studio</a> solo hay una <strong><em>VARIABLE DE USUARIO</em></strong> que yo utilicé:</p>
+<blockquote>
+<ul>
+<li>ANDROID_SDK_ROOT=C:\Users\...\AppData\Local\Android\Sdk</li>
+</ul>
+</blockquote>
+<h3 id="94-flutter">9.4. <strong>FLUTTER</strong></h3>
+<p>Para que flutter sea reconocido en el sistema, hay que agregarlo a las
+variables de usuario, <a href="https://flutter.dev/docs/get-started/install/windows#update-your-path" title="Flutter | Windows Install | Update your path">como es indicado en la documentación</a>.</p>
+<p>En la sección de <strong>variables de usuario</strong> hay que revisar si ya hay una variable
+llamada <strong><code>Path</code></strong>.</p>
+<ul>
+<li>
+<p>Si no la hay, habrá que crearla.</p>
+</li>
+<li>
+<p>Si la hay, seguir los siguientes pasos:</p>
+<ol>
+<li>
+<p>Dar click en la variable <strong><code>Path</code></strong>.</p>
+</li>
+<li>
+<p>Dar click en el botón <strong>&quot;<code>Editar...</code>&quot;</strong>.</p>
+</li>
+<li>
+<p>Dar click en el botón <strong>&quot;<code>Nuevo</code>&quot;</strong>.</p>
+</li>
+<li>
+<p>En el campo agregar el directorio de <strong><code>flutter\bin</code></strong> dependiendo de en
+dónde instalaste <strong><code>Flutter</code></strong>.</p>
+<blockquote>
+<p>En mi caso puse lo siguiente en <strong><code>Path</code></strong>:</p>
+<ul>
+<li><strong><em><code>C:\SDKs\flutter\bin</code></em></strong></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="941-otras-variables-de-usuario-para-flutter-y-dart">9.4.1. OTRAS VARIABLES DE USUARIO PARA FLUTTER y DART</h4>
+<p>Además, es necesario agregar otras <strong><code>variables de usuario</code></strong> para poder
+trabajar bien con flutter, que son las siguientes:</p>
+<ul>
+<li>
+<p><strong><code>Path</code></strong></p>
+<ul>
+<li>
+<p><strong>C:\SDKs\flutter\.pub-cache\bin</strong></p>
+</li>
+<li>
+<p><strong>C:\SDKs\flutter\bin\cache\dart-sdk\bin</strong></p>
+<blockquote>
+<p>Esta variable de usuario es requerida para poder ejecutar <strong><em><code>dartdoc</code></em></strong>
+desde la terminal.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>FLUTTER_ROOT</code></strong></p>
+<ul>
+<li><strong>C:\SDKs\flutter</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="10-firebase">10. FIREBASE</h2>
+<p>Para poder utilizar Firebase se tuvieron que realizar algunas modificaciones
+en algunos archivos, además de hacer la configuración en línea.</p>
+<blockquote>
+<ul>
+<li>com.uaslp.facebook_simple_replication</li>
+</ul>
+</blockquote>
+<h3 id="101-screenshots-configuraci%C3%B3n-firebase">10.1. SCREENSHOTS CONFIGURACIÓN FIREBASE</h3>
+<p><img src="./README_imgs/FLUTTER_CONFIG/flutterConfiguration_1.png" alt="Firebase configuration screenshots 1" title="Firebase configuration screenshots 1">
+<img src="./README_imgs/FLUTTER_CONFIG/flutterConfiguration_2.png" alt="Firebase configuration screenshots 2" title="Firebase configuration screenshots 2">
+<img src="./README_imgs/FLUTTER_CONFIG/flutterConfiguration_3.png" alt="Firebase configuration screenshots 3" title="Firebase configuration screenshots 3">
+<img src="./README_imgs/FLUTTER_CONFIG/flutterConfiguration_4.png" alt="Firebase configuration screenshots 4" title="Firebase configuration screenshots 4">
+<img src="./README_imgs/FLUTTER_CONFIG/flutterConfiguration_5.png" alt="Firebase configuration screenshots 5" title="Firebase configuration screenshots 5"></p>
+<h3 id="102-agregar-las-siguientes-l%C3%ADneas">10.2. AGREGAR LAS SIGUIENTES LÍNEAS</h3>
+<p>De las instrucciones de <strong><em>Agrega Firebase a tu app para Android</em></strong>:</p>
+<blockquote>
+<ol start="3">
+<li>
+<p>Agregar el SDK de Firebase</p>
+<p>El complemento de Google Services para
+<a href="https://gradle.org/" title="https://gradle.org/">Gradle</a> carga el archivo
+google-services.json que acabas de descargar. Para usar el complemento, debes
+modificar los archivos <strong><em><code>build.gradle</code></em></strong>.</p>
+<p><strong>Archivo *</strong><code>build.gradle</code><strong>* de nivel de proyecto</strong>
+(<strong><em><code>&lt;project&gt;/build.gradle</code></em></strong>):</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">buildscript</span> {
+  <span class="hljs-keyword">repositories</span> {
+    <span class="hljs-comment">// Check that you have the following line (if not, add it):</span>
+    google()  <span class="hljs-comment">// Google's Maven repository</span>
+  }
+  <span class="hljs-keyword">dependencies</span> {
+    ...
+    <span class="hljs-comment">// Add this line</span>
+    <span class="hljs-keyword">classpath</span> <span class="hljs-string">'com.google.gms:google-services:4.3.8'</span>
+  }
+}
+
+<span class="hljs-keyword">allprojects</span> {
+  ...
+  <span class="hljs-keyword">repositories</span> {
+    <span class="hljs-comment">// Check that you have the following line (if not, add it):</span>
+    google()  <span class="hljs-comment">// Google's Maven repository</span>
+    ...
+  }
+}
+</div></code></pre>
+<p><strong>Archivo *</strong><code>build.gradle</code><strong>* de nivel de app</strong>
+(<strong><em><code>&lt;project&gt;/&lt;app-module&gt;/build.gradle</code></em></strong>):</p>
+<pre class="hljs"><code><div>apply plugin: <span class="hljs-string">'com.android.application'</span>
+<span class="hljs-comment">// Add this line</span>
+apply plugin: <span class="hljs-string">'com.google.gms.google-services'</span>
+
+<span class="hljs-keyword">dependencies</span> {
+  <span class="hljs-comment">// Import the Firebase BoM</span>
+  implementation platform(<span class="hljs-string">'com.google.firebase:firebase-bom:28.0.1'</span>)
+
+  <span class="hljs-comment">// Add the dependencies for the desired Firebase products</span>
+  <span class="hljs-comment">// https://firebase.google.com/docs/android/setup#available-libraries</span>
+}
+</div></code></pre>
+</li>
+</ol>
+<p>Después de haber realizado estos pasos anteriores, utilizar el comando
+<code>flutter pacckages get</code> (equivalente a <code>flutter pub get</code>) para que quede todo
+actualizado, el cual es indicado en el siguiente sitio web:</p>
+<ul>
+<li><a href="https://firebase.google.com/docs/flutter/setup?platform=android#add-config-file" title="Firebase | Documentación | Firebase / Documentos / Información básica / Agrega Firebase a tu app de Flutter">Firebase | Documentación | Firebase / Documentos / Información básica / Agrega Firebase a tu app de Flutter</a></li>
+</ul>
+</blockquote>
+<h2 id="11-recursos-de-facebook-app-svg-%C3%ADconos">11. RECURSOS DE FACEBOOK APP (SVG, ÍCONOS, ...)</h2>
+<p>Para poder maquetar de forma más precisa las pantallas de la app de Facebook
+para celulares, necesitamos diversos recursos, como los íconos de Facebook,
+reacciones y demás.</p>
+<p>En esta sección se encontrarán diversos enlaces, en los cuales se podrán
+encontrar los recursos que utilizamos.</p>
+<h3 id="111-logo-de-facebook">11.1. LOGO DE FACEBOOK</h3>
+<p>Los logos de Facebook los descargamos de la página oficial de los recursos
+(assets):</p>
+<blockquote>
+<ul>
+<li><a href="https://en.facebookbrand.com/facebookapp/assets/f-logo/?audience=landing" title="Brand Resources / Facebook App / “f” Logo">Brand Resources / Facebook App / “f” Logo</a></li>
+</ul>
+</blockquote>
+<p>Los logotipos descargados se encuentran en el siguiente directorio:</p>
+<p><a href="facebook_login_screen_replication/assets/fb_official/logos/" title="Directorio con todos los logos descargados | assets/fb_official/logos/">Directorio con todos los logos descargados | assets/fb_official/logos/</a></p>
+<blockquote>
+<p>Los logos con la F blanca y el círculo azul, se encuentran en diversos
+directorios y con diversos tamaños, por lo que los listaré para encontrarlos
+con mayor facilidad y utilizar los que más nos convengan:</p>
+<ul>
+<li>
+<p><a href="facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/" title="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/">Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/</a></p>
+<ul>
+<li><img src="facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png" alt="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png" title="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_58.png"></li>
+<li><img src="facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png" alt="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png" title="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_72.png"></li>
+<li><img src="facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png" alt="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png" title="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_100.png"></li>
+<li><img src="facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png" alt="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png" title="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_144.png"></li>
+<li><img src="facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png" alt="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png" title="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_250.png"></li>
+<li><img src="facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png" alt="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png" title="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_512.png"></li>
+<li><img src="facebook_login_screen_replication/assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png" alt="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png" title="assets/fb_official/logos/f_Logo_Online_04_2019/Color/PNG/f_logo_RGB-Blue_1024.png"></li>
+</ul>
+</li>
+<li>
+<p><a href="facebook_login_screen_replication/assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/" title="Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/">Carpeta principal de los siguientes logos: assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/</a></p>
+<ul>
+<li><img src="facebook_login_screen_replication/assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png" alt="assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png" title="assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png"></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="112-reacciones-de-facebook">11.2. <strong>REACCIONES DE FACEBOOK</strong></h3>
+<p>Facebook tiene su propio sitio web en donde provee de estos íconos, pero se
+tienen que seguir ciertas pautas para utilizarlos de forma que no se rompan las
+normas de Facebook. El enlace es el siguiente:</p>
+<blockquote>
+<ul>
+<li><a href="https://en.facebookbrand.com/facebookapp/assets/reactions/" title="Brand Resources / Facebook App / Reactions"><strong><em>Brand Resources / Facebook App / Reactions</em></strong></a></li>
+</ul>
+</blockquote>
+<p>El problema es que se descargan como una imagen en PNG y los necesitamos por
+separado, por lo que recurrimos al siguiente enlace:</p>
+<blockquote>
+<ul>
+<li><a href="https://iconscout.com/icon-pack/facebook-reactions-emoticons" title="iconscout | Facebook Reaction Icon Pack">iconscout | Facebook Reaction Icon Pack</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p><strong>Y para poder renderizar y modificar los elementos en SVG podemos utilizar
+el siguiente paquete:</strong></p>
+<blockquote>
+<ul>
+<li><a href="https://pub.dev/packages/flutter_svg" title="pub.dev | flutter_svg 0.22.0">pub.dev | flutter_svg 0.22.0</a></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="113-uso-de-%C3%ADconos">11.3. USO DE ÍCONOS</h3>
+<p>Podemos utilizar varios paquetes de íconos. En nuestro caso consideramos
+Font Awesome y Material Design.</p>
+<h4 id="1131-google-fonts--material-icons">11.3.1. GOOGLE FONTS | MATERIAL ICONS</h4>
+<blockquote>
+<p><a href="https://fonts.google.com/icons" title="Google Fonts | Material Icons">Google Fonts | Material Icons</a></p>
+</blockquote>
+<h5 id="11311-%C3%ADconos-que-podr%C3%ADamos-utilizar">11.3.1.1. Íconos que podríamos utilizar</h5>
+<ul>
+<li><a href="https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Afacebook" title="Facebook">Facebook</a></li>
+<li><a href="https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Asearch" title="Search">Search</a></li>
+<li><a href="https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Aadd" title="Add">Add</a></li>
+<li><a href="https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert" title="https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert">More Vert</a></li>
+<li><a href="https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Ainfo" title="info_outlined">info_outlined</a></li>
+</ul>
+<h4 id="1132-%C3%ADconos-con-font-awesome">11.3.2. <strong>Íconos con Font Awesome</strong></h4>
+<p>Font Awesome, nos provee de una gran cantidad de elementos.</p>
+<p>Utilizamos el paquete:</p>
+<blockquote>
+<p><a href="https://pub.dev/packages/font_awesome_flutter" title="font_awesome_flutter 9.0.0">pub.dev | font_awesome_flutter 9.0.0</a></p>
+</blockquote>
+<p>Para que funcione hay que agregar el nombre del paquete y la última versión
+(9.0.0) a las dependencias del <a href="pubspec.yaml" title="pubspec.yaml">pubspec.yaml</a>.</p>
+<h5 id="11321-%C3%ADconos-que-podr%C3%ADamos-utilizar">11.3.2.1. <strong>Íconos que podríamos utilizar</strong></h5>
+<ul>
+<li><a href="https://fontawesome.com/icons/search?style=solid" title="search">search</a>
+<ul>
+<li>El problema es que es más robusto que el de facebook.</li>
+<li>El de Facebook parece ser el <code>LIGHT</code>, pero ese requiere versión <code>PRO</code>.</li>
+</ul>
+</li>
+<li><a href="https://fontawesome.com/icons/facebook?style=brands" title="facebook">facebook</a></li>
+<li><a href="https://fontawesome.com/icons/plus?style=solid" title="plus">plus</a>
+<ul>
+<li>También es algo robusto.</li>
+<li>El de Facebook parece ser la versión <code>LIGHT</code>.</li>
+</ul>
+</li>
+<li><a href="https://fontawesome.com/icons/ellipsis-v?style=solid" title="elipsis-v">elipsis-v</a>
+<ul>
+<li>También parece que la versión de Facebook es la <code>LIGHT</code> o la <code>PRO</code>.</li>
+</ul>
+</li>
+<li><a href="https://fontawesome.com/icons/info-circle?style=solid" title="info-circle">info-circle</a>
+<ul>
+<li><strong><code>LIGHT</code></strong>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-enlaces-extra-que-fueron-%C3%BAtiles">12. <strong><em>ENLACES EXTRA QUE FUERON ÚTILES</em></strong></h2>
+<ul>
+<li>
+<p><a href="">https://www.youtube.com/watch?v=d5PpeNb-dOY</a></p>
+</li>
+<li>
+<p><a href="">https://stackoverflow.com/questions/50081213/how-do-i-use-hexadecimal-color-strings-in-flutter</a></p>
+</li>
+<li>
+<p><a href="">https://www.tutorialspoint.com/dart_programming/dart_programming_map.htm</a></p>
+</li>
+<li>
+<p><a href="">https://stackoverflow.com/questions/29182581/global-variables-in-dart</a></p>
+</li>
+<li>
+<p><a href="">https://stackoverflow.com/questions/49541354/disable-defaultfocushighlightenabled-in-the-android-part-for-a-xamarin-forms-app</a></p>
+<ul>
+<li><a href="">https://github.com/flutter/flutter/issues/16810</a></li>
+</ul>
+</li>
+<li>
+<p><a href="">https://aschilken.medium.com/flutter-best-practices-colors-and-textstyles-6e14b06fc3a1</a></p>
+</li>
+<li>
+<p><a href="">https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter</a></p>
+</li>
+<li>
+<p><a href="">https://stackoverflow.com/questions/64873410/how-to-get-status-bar-height-in-flutter</a></p>
+<ul>
+<li><a href="">https://stackoverflow.com/questions/61969143/no-mediaquery-ancestor-could-be-found</a></li>
+</ul>
+</li>
+<li>
+<p><a href="">https://stackoverflow.com/questions/50522237/flutter-circle-design/50524531</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/17006664/what-is-the-dart-null-checking-idiom-or-best-practice" title="Stack Overflow | What is the Dart null checking idiom or best practice?">Stack Overflow | What is the Dart null checking idiom or best practice?</a></p>
+<ul>
+<li><a href="https://stackoverflow.com/a/58027593/13562806" title="Stack Overflow | What is the Dart null checking idiom or best practice? | atreeon's answer">Stack Overflow | What is the Dart null checking idiom or best practice? | atreeon's answer</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/50014342/button-width-match-parent" title="Stack Overflow | Button Width Match Parent">Stack Overflow | Button Width Match Parent</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Genymobile/scrcpy/issues/21" title="GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21">GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21</a></p>
+<ul>
+<li><a href="https://github.com/Genymobile/scrcpy/issues/21#issuecomment-371967985" title="GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21 | Command to take Screenshot or record video">GitHub | Genymobile/scrcpy | Screenshot/Record Screen #21 | Command to take Screenshot or record video</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/49279379/how-to-clear-flutters-build-cache" title="Stack Overflow | How to clear Flutter's Build cache?">Stack Overflow | How to clear Flutter's Build cache?</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/47423297/how-can-i-add-a-border-to-a-widget-in-flutter" title="Stack Overflow | How can I add a border to a widget in Flutter?">Stack Overflow | How can I add a border to a widget in Flutter?</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/59878027/flutter-image-variable" title="Stack Overflow | Flutter Image Variable">Stack Overflow | Flutter Image Variable</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/49977864/how-to-make-a-widget-fill-remaining-space-in-a-column" title="Stack Overflow | How to make a widget fill remaining space in a Column">Stack Overflow | How to make a widget fill remaining space in a Column</a></p>
+</li>
+<li>
+<p><a href="https://dart.dev/guides/language/effective-dart/style" title="Dart | Effective Dart: Style">Dart | Effective Dart: Style</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/run-dart/dart-dartlang-introduction-string-interpolation-8ed99174119a" title="Medium | DARTLANG | Dart (DartLang) Introduction: String Interpolation">Medium | DARTLANG | Dart (DartLang) Introduction: String Interpolation</a></p>
+</li>
+<li>
+<p><a href="https://dev.to/newtonmunene_yg/dart-getters-and-setters-1c8f" title="Dart getters and setters">Dart getters and setters</a></p>
+</li>
+<li>
+<p><a href="https://dart.dev/guides/language/language-tour#getters-and-setters" title="Dart | A tour of the Dart language">Dart | A tour of the Dart language</a></p>
+</li>
+<li>
+<p><a href="https://gist.github.com/aruld/1299218" title="GitHub Gist | aruld/foreachlistset.dart">GitHub Gist | aruld/foreachlistset.dart</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/a/13264231/13562806" title="Stack Overflow | What is the difference between named and positional parameters in Dart? | Seth Ladd">Stack Overflow | What is the difference between named and positional parameters in Dart? | Seth Ladd</a></p>
+</li>
+</ul>
+
+</body>
+</html>

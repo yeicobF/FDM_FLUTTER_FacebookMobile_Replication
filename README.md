@@ -6,17 +6,21 @@ Este es el proyecto que se debió entregar para final del semestre.
 >
 > Es el trabajo para fin de semestre.
 
-## **_FECHA DE ENTREGA_**
+## 1. **_FECHA DE ENTREGA_**
 
 > Viernes, 11 de junio del 2021, 5PM
 
-### **FECHA EN QUE LO ENTREGAMOS**
+### 1.1. **FECHA EN QUE LO ENTREGAMOS**
 
 > Lunes, 14 de JUNIO del 2021
 
-## **REQUERIMIENTOS DE ENTREGA DE PROYECTO**
+## 2. **REQUERIMIENTOS DE ENTREGA DE PROYECTO**
 
-## **NOMBRE DEL PAQUETE DE LA APP**
+|                 DESCRIPCIÓN                 |                                                                   IMAGEN                                                                   |
+| :-----------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
+| Requerimientos para la entrega del proyecto | ![Requerimientos para la entrega del proyecto](README_imgs/FDM_RUBRICA_PROYECTO_FLUTTER.png "Requerimientos para la entrega del proyecto") |
+
+## 3. **NOMBRE DEL PAQUETE DE LA APP**
 
 El nombre del paquete de la app lo cambié para registrarlo con Firebase,
 siguiendo la nomenclatura:
@@ -26,52 +30,58 @@ siguiendo la nomenclatura:
 > - NOMBRE DEL PAQUETE:
 >   - com.uaslp.facebook_simple_replication
 
-## **_TABLA DE CONTENIDOS_**
+## 4. **_TABLA DE CONTENIDOS_**
 
-- [1. **_FECHA DE ENTREGA_**](#11-fecha-de-entrega)
-- [2. **NOMBRE DEL PAQUETE DE LA APP**](#12-nombre-del-paquete-de-la-app)
-- [4. **PANTALLAS OBJETIVO**](#14-pantallas-objetivo)
-- [5. **RESULTADOS DE LAS PANTALLAS**](#15-resultados-de-las-pantallas)
-- [6. DOCUMENTACIÓN AUTOMÁTICA CON **_`dartdoc`_**](#16-documentación-automática-con-dartdoc)
-- [7. **INSTALACIONES**](#17-instalaciones)
-  - [7.1. **Android Studio**](#171-android-studio)
-    - [7.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**](#1711-configuración-obligatoria-android-studio)
-      - [7.1.1.1. **INSTALACIÓN DE PAQUETES**](#17111-instalación-de-paquetes)
-      - [7.1.1.2. **INSTALACIÓN DE PLUGINS**](#17112-instalación-de-plugins)
-      - [7.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**](#17113-comprobación-de-actualizaciones)
-    - [7.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**](#1712-crear-un-emulador-de-android-android-virtual-device)
-      - [7.1.2.1. **_RECOMENDACIÓN IMPORTANTE PARA EL AVD_**](#17121-recomendación-importante-para-el-avd)
-  - [7.2. **Flutter**](#172-flutter)
-    - [7.2.1. **_EN QUÉ DIRECTORIO COLOCAR FLUTTER_**](#1721-en-qué-directorio-colocar-flutter)
-    - [7.2.2. **FLUTTER** **_`SOUND NULL SAFETY`_**](#1722-flutter-sound-null-safety)
-    - [7.2.3. **VARIABLE DE USUARIO**](#1723-variable-de-usuario)
-  - [7.3. **Chocolatey**](#173-chocolatey)
-    - [7.3.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL_**](#1731-instrucciones-instalación-desde-powershell)
-  - [7.4. **scrcpy**](#174-scrcpy)
-    - [7.4.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY_**](#1741-instrucciones-instalación-desde-powershell-con-chocolatey)
-  - [7.5. **JAVA**](#175-java)
-    - [7.5.1. **_INFORMACIÓN SOBRE LAS VERSIONES DE JAVA_**](#1751-información-sobre-las-versiones-de-java)
-    - [7.5.2. **CONCEPTOS EN LOS ACRÓNIMOS DE JAVA:** **_`JDK, JVM, JRE`_**](#1752-conceptos-en-los-acrónimos-de-java-jdk-jvm-jre)
-    - [7.5.3. **DESCARGA DE JAVA**](#1753-descarga-de-java)
-- [8. **_VARIABLES DEL SISTEMA o de USUARIO_**](#18-variables-del-sistema-o-de-usuario)
-  - [8.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**](#181-acceder-a-la-sección-para-editar-las-variables)
-  - [8.2. **VARIABLE DEL SISTEMA: `JAVA_HOME`**](#182-variable-del-sistema-java_home)
-    - [8.2.1. VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO](#1821-verificación-de-que-java_home-está-establecido)
-    - [8.2.2. OTRAS VARIABLES DE USUARIO PARA FLUTTER y DART](#1822-otras-variables-de-usuario-para-flutter-y-dart)
-- [9. FIREBASE](#19-firebase)
-  - [9.1. SCREENSHOTS CONFIGURACIÓN FIREBASE](#191-screenshots-configuración-firebase)
-  - [9.2. AGREGAR LAS SIGUIENTES LÍNEAS](#192-agregar-las-siguientes-líneas)
-- [10. RECURSOS DE FACEBOOK APP (SVG, ÍCONOS, ...)](#110-recursos-de-facebook-app-svg-íconos-)
-  - [10.1. LOGO DE FACEBOOK](#1101-logo-de-facebook)
-  - [10.2. **REACCIONES DE FACEBOOK**](#1102-reacciones-de-facebook)
-  - [10.3. USO DE ÍCONOS](#1103-uso-de-íconos)
-    - [10.3.1. GOOGLE FONTS | MATERIAL ICONS](#11031-google-fonts--material-icons)
-      - [10.3.1.1. Íconos que podríamos utilizar](#110311-íconos-que-podríamos-utilizar)
-    - [10.3.2. **Íconos con Font Awesome**](#11032-íconos-con-font-awesome)
-      - [10.3.2.1. **Íconos que podríamos utilizar**](#110321-íconos-que-podríamos-utilizar)
-- [11. **_ENLACES EXTRA QUE FUERON ÚTILES_**](#111-enlaces-extra-que-fueron-útiles)
+- [**FUNDAMENTOS DESARROLLO MÓVIL: PROYECTO PARA FINAL DE SEMESTRE**](#fundamentos-desarrollo-móvil-proyecto-para-final-de-semestre)
+  - [1. **_FECHA DE ENTREGA_**](#1-fecha-de-entrega)
+    - [1.1. **FECHA EN QUE LO ENTREGAMOS**](#11-fecha-en-que-lo-entregamos)
+  - [2. **REQUERIMIENTOS DE ENTREGA DE PROYECTO**](#2-requerimientos-de-entrega-de-proyecto)
+  - [3. **NOMBRE DEL PAQUETE DE LA APP**](#3-nombre-del-paquete-de-la-app)
+  - [4. **_TABLA DE CONTENIDOS_**](#4-tabla-de-contenidos)
+  - [5. **PANTALLAS OBJETIVO**](#5-pantallas-objetivo)
+  - [6. **RESULTADOS DE LAS PANTALLAS**](#6-resultados-de-las-pantallas)
+  - [7. **1.6. DOCUMENTACIÓN AUTOMÁTICA CON _`dartdoc`_**](#7-16-documentación-automática-con-dartdoc)
+  - [8. **INSTALACIONES**](#8-instalaciones)
+    - [8.1. **Android Studio**](#81-android-studio)
+      - [8.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**](#811-configuración-obligatoria-android-studio)
+        - [8.1.1.1. **INSTALACIÓN DE PAQUETES**](#8111-instalación-de-paquetes)
+        - [8.1.1.2. **INSTALACIÓN DE PLUGINS**](#8112-instalación-de-plugins)
+        - [8.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**](#8113-comprobación-de-actualizaciones)
+      - [8.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**](#812-crear-un-emulador-de-android-android-virtual-device)
+        - [8.1.2.1. **_RECOMENDACIÓN IMPORTANTE PARA EL AVD_**](#8121-recomendación-importante-para-el-avd)
+    - [8.2. **Flutter**](#82-flutter)
+      - [8.2.1. **_EN QUÉ DIRECTORIO COLOCAR FLUTTER_**](#821-en-qué-directorio-colocar-flutter)
+      - [8.2.2. **FLUTTER** **_`SOUND NULL SAFETY`_**](#822-flutter-sound-null-safety)
+      - [8.2.3. **VARIABLE DE USUARIO**](#823-variable-de-usuario)
+    - [8.3. **Chocolatey**](#83-chocolatey)
+      - [8.3.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL_**](#831-instrucciones-instalación-desde-powershell)
+    - [8.4. **scrcpy**](#84-scrcpy)
+      - [8.4.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY_**](#841-instrucciones-instalación-desde-powershell-con-chocolatey)
+    - [8.5. **JAVA**](#85-java)
+      - [8.5.1. **_INFORMACIÓN SOBRE LAS VERSIONES DE JAVA_**](#851-información-sobre-las-versiones-de-java)
+      - [8.5.2. **CONCEPTOS EN LOS ACRÓNIMOS DE JAVA:** **_`JDK, JVM, JRE`_**](#852-conceptos-en-los-acrónimos-de-java-jdk-jvm-jre)
+      - [8.5.3. **DESCARGA DE JAVA**](#853-descarga-de-java)
+  - [9. **_VARIABLES DEL SISTEMA o de USUARIO_**](#9-variables-del-sistema-o-de-usuario)
+    - [9.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**](#91-acceder-a-la-sección-para-editar-las-variables)
+    - [9.2. **VARIABLE DEL SISTEMA: `JAVA_HOME`**](#92-variable-del-sistema-java_home)
+      - [9.2.1. VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO](#921-verificación-de-que-java_home-está-establecido)
+    - [9.3. **ANDROID STUDIO**](#93-android-studio)
+    - [9.4. **FLUTTER**](#94-flutter)
+      - [9.4.1. OTRAS VARIABLES DE USUARIO PARA FLUTTER y DART](#941-otras-variables-de-usuario-para-flutter-y-dart)
+  - [10. FIREBASE](#10-firebase)
+    - [10.1. SCREENSHOTS CONFIGURACIÓN FIREBASE](#101-screenshots-configuración-firebase)
+    - [10.2. AGREGAR LAS SIGUIENTES LÍNEAS](#102-agregar-las-siguientes-líneas)
+  - [11. RECURSOS DE FACEBOOK APP (SVG, ÍCONOS, ...)](#11-recursos-de-facebook-app-svg-íconos-)
+    - [11.1. LOGO DE FACEBOOK](#111-logo-de-facebook)
+    - [11.2. **REACCIONES DE FACEBOOK**](#112-reacciones-de-facebook)
+    - [11.3. USO DE ÍCONOS](#113-uso-de-íconos)
+      - [11.3.1. GOOGLE FONTS | MATERIAL ICONS](#1131-google-fonts--material-icons)
+        - [11.3.1.1. Íconos que podríamos utilizar](#11311-íconos-que-podríamos-utilizar)
+      - [11.3.2. **Íconos con Font Awesome**](#1132-íconos-con-font-awesome)
+        - [11.3.2.1. **Íconos que podríamos utilizar**](#11321-íconos-que-podríamos-utilizar)
+  - [12. **_ENLACES EXTRA QUE FUERON ÚTILES_**](#12-enlaces-extra-que-fueron-útiles)
 
-## 1.4. **PANTALLAS OBJETIVO**
+## 5. **PANTALLAS OBJETIVO**
 
 Hay dos pantallas que tenemos como objetivo, pero una es opcional: pantalla de
 inicio de sesión, y pantalla después de dar click al botón de inicio de sesión.
@@ -91,7 +101,7 @@ inicio de sesión, y pantalla después de dar click al botón de inicio de sesi�
 [2 - login after clicking button]: objective-program-screens/LOGIN_SCREENS/2_login-into-account-clicked_NO-NUMBER.png "2 | LOGIN AFTER CLICKING BUTTON"
 [3 - main feed - edited image]: objective-program-screens/MAIN_FEED_SCREENS/main-feed_screen_1_EDITADA-SIN-DATOS-PERSONALES.png "3 | MAIN FEED | EDITED IMAGE"
 
-## 1.5. **RESULTADOS DE LAS PANTALLAS**
+## 6. **RESULTADOS DE LAS PANTALLAS**
 
 Todas las pantallas que se muestran son del programa ejecutándose en un emulador
 de **Android 11** en **Google Pixel 3**. Son varias columnas en la imagen para
@@ -186,7 +196,7 @@ que no se vean tan grandes.
 [27 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/27.png "27 - OWN MAIN FEED SCREEN"
 [28 - own main feed screen]: VIDEOS_SS_PROGRESS/Pixel_3-ANDROID_11/FINALES/HomeScreen/28.png "28 - OWN MAIN FEED SCREEN"
 
-## **1.6. DOCUMENTACIÓN AUTOMÁTICA CON _`dartdoc`_**
+## 7. **1.6. DOCUMENTACIÓN AUTOMÁTICA CON _`dartdoc`_**
 
 En dart, gracias a un comando llamado **_`dartdoc`_**, es posible generar la
 documentación de **_`Dart`_** y **_`Flutter`_** de forma automática, pero hay que
@@ -253,21 +263,21 @@ flutter pub global activate dartdoc
    además de la descripción de cada uno a los que le agregamos con los
    comentarios en el formato mencionado anteriormente (\\\\\\).
 
-## 1.7. **INSTALACIONES**
+## 8. **INSTALACIONES**
 
 Para que todo funcione correctamente, hay que instalar varias cosas:
 
-### 1.7.1. **Android Studio**
+### 8.1. **Android Studio**
 
 Simplemente descarga el archivo que se encuentra en el enlace y ejecutalo.
 Después podrás configurarlo como tú quieras.
 
-#### 1.7.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**
+#### 8.1.1. **CONFIGURACIÓN OBLIGATORIA ANDROID STUDIO**
 
 Para que Android Studio y Flutter funcionen de manera correcta, hay que
 configurar unos elementos que serán obligatorios, siguiendo los siguientes pasos:
 
-##### 1.7.1.1.1. **INSTALACIÓN DE PAQUETES**
+##### 8.1.1.1. **INSTALACIÓN DE PAQUETES**
 
 Hay una serie de paquetes necesarios para trabajar con Flutter y el emulador de
 Android, entre otras cosas más.
@@ -368,7 +378,7 @@ Android, entre otras cosas más.
 
 ![Finish configuration](README_imgs/AS_CONFIG/as_17.png "Finish configuration")
 
-##### 1.7.1.1.2. **INSTALACIÓN DE PLUGINS**
+##### 8.1.1.2. **INSTALACIÓN DE PLUGINS**
 
 Para trabajar con Flutter de forma cómoda, hay que instalar una serie de Plugins
 que nos facilitarán el desarrollo de los programas.
@@ -405,7 +415,7 @@ que nos facilitarán el desarrollo de los programas.
 
    ![Plugins | Restart IDE](README_imgs/AS_CONFIG/as_23.png "Plugins | Restart IDE")
 
-##### 1.7.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**
+##### 8.1.1.3. **COMPROBACIÓN DE ACTUALIZACIONES**
 
 Hay que comprobar si hay actualizaciones disponibles.
 
@@ -442,7 +452,7 @@ Hay que comprobar si hay actualizaciones disponibles.
 
 6. Listo.
 
-#### 1.7.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**
+#### 8.1.2. **CREAR UN `EMULADOR DE ANDROID` (`ANDROID VIRTUAL DEVICE`)**
 
 Para correr un programa podemos utilizar nuestro celular conectándolo a a la
 computadora mediante cable USB, o mediante un emulador de Android creado con
@@ -507,7 +517,7 @@ Android Studio.
 
 ![Launch AVD in emulator](README_imgs/AS_CONFIG/as-avd_10.png "Launch AVD in emulator")
 
-##### 1.7.1.2.1. **_RECOMENDACIÓN IMPORTANTE PARA EL AVD_**
+##### 8.1.2.1. **_RECOMENDACIÓN IMPORTANTE PARA EL AVD_**
 
 Cada vez, el AVD va a ir ocupando una mayor cantidad de espacio en el disco
 duro, el cual se puede ver en la sección de "**`Size on Disk`**", así que viene
@@ -527,7 +537,7 @@ muy bien la liberación de ese espacio.
 3. Listo. Ahora has liberado una buen cantidad de espacio en el disco duro.
    Puedes hacer esto en cualquier momento (mientras no utilices el dispositivo).
 
-### 1.7.2. **Flutter**
+### 8.2. **Flutter**
 
 Entra al enlace de la documentación oficial de [Flutter] y en la sección de
 **_"[Get the Flutter SDK]"_** da click en el botón de descarga, el cual dice
@@ -535,7 +545,7 @@ Entra al enlace de la documentación oficial de [Flutter] y en la sección de
 
 [get the flutter sdk]: https://flutter.dev/docs/get-started/install/windows#get-the-flutter-sdk "Flutter Windows Install | Get the Flutter SDK"
 
-#### 1.7.2.1. **_EN QUÉ DIRECTORIO COLOCAR FLUTTER_**
+#### 8.2.1. **_EN QUÉ DIRECTORIO COLOCAR FLUTTER_**
 
 Para no tener problemas con espacios y demás, coloqué Flutter directamente en el
 directorio principal del disco duro (**`C:/`**), creando una carpeta dentro y
@@ -545,7 +555,7 @@ extrayéndolo. Entonces quedaría de la siguiente forma:
 
 Así, cada vez que quiera encontrar Flutter, será más sencillo.
 
-#### 1.7.2.2. **FLUTTER** **_`SOUND NULL SAFETY`_**
+#### 8.2.2. **FLUTTER** **_`SOUND NULL SAFETY`_**
 
 > **_A día de hoy, Viernes, 21 de mayo del 2021, aún no lo implementamos, pero
 > dejamos las instrucciones para un futuro._**
@@ -568,14 +578,14 @@ Como se indica en el sitio web:
 
 Siguiendo lo anterior, `Sound null safety` estaría activado.
 
-#### 1.7.2.3. **VARIABLE DE USUARIO**
+#### 8.2.3. **VARIABLE DE USUARIO**
 
 Para ver cómo configurar la variable de usuario, dirígete a la **sección del
 siguiente enlace** (te enviará dentro del README):
 
 > [CONFIGURACIÓN DE VARIABLE DE USUARIO PARA FLUTTER](#flutter-user-var "VARIABLE DE USUARIO PARA FLUTTER")
 
-### 1.7.3. **Chocolatey**
+### 8.3. **Chocolatey**
 
 [Chocolatey] es un administrador de paquetes en Windows, con el que podemos
 instalar una diversidad de paquetes (valga la redundancia) de forma sencilla
@@ -583,7 +593,7 @@ corriendo comandos desde una terminal.
 
 > Este es solo para instalar [scrcpy]
 
-#### 1.7.3.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL_**
+#### 8.3.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL_**
 
 De acuerdo con las instrucciones del sitio web de [Chocolatey], hay que seguir
 los siguientes pasos:
@@ -635,13 +645,13 @@ los siguientes pasos:
 
    ![Chocolatey installation ready](README_imgs/ps-chocolatey-choco.png "Chocolatey installation ready")
 
-### 1.7.4. **scrcpy**
+### 8.4. **scrcpy**
 
 [scrcpy] es una aplicación para poder ver la pantalla de tu celular en tu
 computadora, conectándolo con un cable USB. Se puede instalar de diversas
 formas, indicadas en el GitHub, al que puedes hacer dando click aquí: [scrcpy].
 
-#### 1.7.4.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY_**
+#### 8.4.1. **_INSTRUCCIONES INSTALACIÓN DESDE POWERSHELL con CHOCOLATEY_**
 
 En mi caso, decidí instalarlo con [Chocolatey], ya que es más rápido y sencillo
 que tener que descomprimir carpetas manualmente y cosas así.
@@ -675,19 +685,19 @@ que ya viene instalada en Windows 10.
 
    ![choco install scrcpy | Installed](README_imgs/ps-choco-scrcpy_2.png "choco install scrcpy | Installed")
 
-### 1.7.5. **JAVA**
+### 8.5. **JAVA**
 
 Es necesario tener instalado Java y tenerlo en las variables del sistema para
 poder ejecutar los programas.
 
-#### 1.7.5.1. **_INFORMACIÓN SOBRE LAS VERSIONES DE JAVA_**
+#### 8.5.1. **_INFORMACIÓN SOBRE LAS VERSIONES DE JAVA_**
 
 Hay diversas versiones de Java, por lo que hay que saber elegir cuál utilizar.
 En el siguiente enlace esto viene bien explicado:
 
 > - [stackchief | Which Version of Java Should You Use?]
 
-#### 1.7.5.2. **CONCEPTOS EN LOS ACRÓNIMOS DE JAVA:** **_`JDK, JVM, JRE`_**
+#### 8.5.2. **CONCEPTOS EN LOS ACRÓNIMOS DE JAVA:** **_`JDK, JVM, JRE`_**
 
 Hay diversos acrónimos que se manejan en Java, por lo que identificar cuál
 significa qué cosa es complicado.
@@ -719,7 +729,7 @@ punto anterior):
 
 [stackchief | which version of java should you use?]: https://www.stackchief.com/blog/Which%20Version%20of%20Java%20Should%20You%20Use%3F "stackchief | Which Version of Java Should You Use?"
 
-#### 1.7.5.3. **DESCARGA DE JAVA**
+#### 8.5.3. **DESCARGA DE JAVA**
 
 En mi caso descargué la versión **`Java SE 11 (LTS)`**, ya que es la última
 versión que se ha lanzado con **`LTS (Long Term Support - Soporte a largo plazo)`**, lo que significa que es una versión que tendrá soporte por mucho más
@@ -751,7 +761,7 @@ Cada versión de Java es lanzada cada 6 meses.
 >
 > - **_DIRECTORIO EN MI PC: `C:\Program Files\Java\jdk-11.0.11\`_**#
 
-## 1.8. **_VARIABLES DEL SISTEMA o de USUARIO_**
+## 9. **_VARIABLES DEL SISTEMA o de USUARIO_**
 
 Para que los programas funcionen de la mejor forma posible, hay que establecer
 las variables del sistema que identifiquen a los programas. Esto se explicará
@@ -760,7 +770,7 @@ en esta sección.
 Además, las variables del sistema permiten ejecutar ciertas instrucciones desde
 la línea de comandos.
 
-### 1.8.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**
+### 9.1. **ACCEDER A LA SECCIÓN PARA EDITAR LAS VARIABLES**
 
 Para esto hay que seguir una serie de pasos que serán indicados a continuación.
 
@@ -789,7 +799,7 @@ Para esto hay que seguir una serie de pasos que serán indicados a continuación
 5. En esta sección ya puedes modificar las **_variables de usuario o del
    sistema_** como lo requieras.
 
-### 1.8.2. **VARIABLE DEL SISTEMA: `JAVA_HOME`**
+### 9.2. **VARIABLE DEL SISTEMA: `JAVA_HOME`**
 
 Para poder ejecutar los programas necesitamos tener instalado `Java` y agregado a **_`JAVA_HOME`_**.
 
@@ -826,7 +836,7 @@ En el siguiene enlace están las instrucciones para establecer **_`JAVA_HOME`_**
 
    ![JAVA_HOME en VARIABLES DEL SISTEMA](README_imgs/ENV_VARS/env-vars_8.png "JAVA_HOME en VARIABLES DEL SISTEMA")
 
-#### 1.8.2.1. VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO
+#### 9.2.1. VERIFICACIÓN DE QUE JAVA_HOME ESTÁ ESTABLECIDO
 
 Hay que verificar que todo haya salido bien y el sistema identifica la variable
 **_`JAVA_HOME`_**. Esto se logra ejecutando un comando después de haber
@@ -845,13 +855,13 @@ instalada de Java.
 
 ![java --version | Funcionando correctamente](README_imgs/ENV_VARS/env-vars_9.png "java --version | Funcionando correctamente")
 
-### **ANDROID STUDIO**
+### 9.3. **ANDROID STUDIO**
 
 Para [Android Studio] solo hay una **_VARIABLE DE USUARIO_** que yo utilicé:
 
 > - ANDROID_SDK_ROOT=C:\Users\\...\AppData\Local\Android\Sdk
 
-### **FLUTTER**
+### 9.4. **FLUTTER**
 
 Para que flutter sea reconocido en el sistema, hay que agregarlo a las
 variables de usuario, [como es indicado en la documentación](https://flutter.dev/docs/get-started/install/windows#update-your-path "Flutter | Windows Install | Update your path").
@@ -872,7 +882,7 @@ llamada **`Path`**.
      >
      > - **_`C:\SDKs\flutter\bin`_**
 
-#### 1.8.2.2. OTRAS VARIABLES DE USUARIO PARA FLUTTER y DART
+#### 9.4.1. OTRAS VARIABLES DE USUARIO PARA FLUTTER y DART
 
 Además, es necesario agregar otras **`variables de usuario`** para poder
 trabajar bien con flutter, que son las siguientes:
@@ -889,14 +899,14 @@ trabajar bien con flutter, que son las siguientes:
 
   - **C:\SDKs\flutter**
 
-## 1.9. FIREBASE
+## 10. FIREBASE
 
 Para poder utilizar Firebase se tuvieron que realizar algunas modificaciones
 en algunos archivos, además de hacer la configuración en línea.
 
 > - com.uaslp.facebook_simple_replication
 
-### 1.9.1. SCREENSHOTS CONFIGURACIÓN FIREBASE
+### 10.1. SCREENSHOTS CONFIGURACIÓN FIREBASE
 
 ![Firebase configuration screenshots 1](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_1.png "Firebase configuration screenshots 1")
 ![Firebase configuration screenshots 2](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_2.png "Firebase configuration screenshots 2")
@@ -904,7 +914,7 @@ en algunos archivos, además de hacer la configuración en línea.
 ![Firebase configuration screenshots 4](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_4.png "Firebase configuration screenshots 4")
 ![Firebase configuration screenshots 5](./README_imgs/FLUTTER_CONFIG/flutterConfiguration_5.png "Firebase configuration screenshots 5")
 
-### 1.9.2. AGREGAR LAS SIGUIENTES LÍNEAS
+### 10.2. AGREGAR LAS SIGUIENTES LÍNEAS
 
 De las instrucciones de **_Agrega Firebase a tu app para Android_**:
 
@@ -964,7 +974,7 @@ De las instrucciones de **_Agrega Firebase a tu app para Android_**:
 >
 > - [Firebase | Documentación | Firebase / Documentos / Información básica / Agrega Firebase a tu app de Flutter](https://firebase.google.com/docs/flutter/setup?platform=android#add-config-file "Firebase | Documentación | Firebase / Documentos / Información básica / Agrega Firebase a tu app de Flutter")
 
-## 1.10. RECURSOS DE FACEBOOK APP (SVG, ÍCONOS, ...)
+## 11. RECURSOS DE FACEBOOK APP (SVG, ÍCONOS, ...)
 
 Para poder maquetar de forma más precisa las pantallas de la app de Facebook
 para celulares, necesitamos diversos recursos, como los íconos de Facebook,
@@ -973,7 +983,7 @@ reacciones y demás.
 En esta sección se encontrarán diversos enlaces, en los cuales se podrán
 encontrar los recursos que utilizamos.
 
-### 1.10.1. LOGO DE FACEBOOK
+### 11.1. LOGO DE FACEBOOK
 
 Los logos de Facebook los descargamos de la página oficial de los recursos
 (assets):
@@ -1002,7 +1012,7 @@ Los logotipos descargados se encuentran en el siguiente directorio:
 >
 >   - ![assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png](facebook_login_screen_replication/assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png "assets/fb_official/logos/f_Logo_TVFilm_04_2019/Color/f_logo_RGB-Blue_1024.png")
 
-### 1.10.2. **REACCIONES DE FACEBOOK**
+### 11.2. **REACCIONES DE FACEBOOK**
 
 Facebook tiene su propio sitio web en donde provee de estos íconos, pero se
 tienen que seguir ciertas pautas para utilizarlos de forma que no se rompan las
@@ -1020,16 +1030,16 @@ separado, por lo que recurrimos al siguiente enlace:
 
   > - [pub.dev | flutter_svg 0.22.0](https://pub.dev/packages/flutter_svg "pub.dev | flutter_svg 0.22.0")
 
-### 1.10.3. USO DE ÍCONOS
+### 11.3. USO DE ÍCONOS
 
 Podemos utilizar varios paquetes de íconos. En nuestro caso consideramos
 Font Awesome y Material Design.
 
-#### 1.10.3.1. GOOGLE FONTS | MATERIAL ICONS
+#### 11.3.1. GOOGLE FONTS | MATERIAL ICONS
 
 > [Google Fonts | Material Icons](https://fonts.google.com/icons "Google Fonts | Material Icons")
 
-##### 1.10.3.1.1. Íconos que podríamos utilizar
+##### 11.3.1.1. Íconos que podríamos utilizar
 
 - [Facebook](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Afacebook "Facebook")
 - [Search](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Asearch "Search")
@@ -1037,7 +1047,7 @@ Font Awesome y Material Design.
 - [More Vert](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert "https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Amore_vert")
 - [info_outlined](https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Ainfo "info_outlined")
 
-#### 1.10.3.2. **Íconos con Font Awesome**
+#### 11.3.2. **Íconos con Font Awesome**
 
 Font Awesome, nos provee de una gran cantidad de elementos.
 
@@ -1048,7 +1058,7 @@ Utilizamos el paquete:
 Para que funcione hay que agregar el nombre del paquete y la última versión
 (9.0.0) a las dependencias del [pubspec.yaml](pubspec.yaml "pubspec.yaml").
 
-##### 1.10.3.2.1. **Íconos que podríamos utilizar**
+##### 11.3.2.1. **Íconos que podríamos utilizar**
 
 - [search](https://fontawesome.com/icons/search?style=solid "search")
   - El problema es que es más robusto que el de facebook.
@@ -1062,7 +1072,7 @@ Para que funcione hay que agregar el nombre del paquete y la última versión
 - [info-circle](https://fontawesome.com/icons/info-circle?style=solid "info-circle")
   - **`LIGHT`**.
 
-## 1.11. **_ENLACES EXTRA QUE FUERON ÚTILES_**
+## 12. **_ENLACES EXTRA QUE FUERON ÚTILES_**
 
 - [https://www.youtube.com/watch?v=d5PpeNb-dOY]()
 - [https://stackoverflow.com/questions/50081213/how-do-i-use-hexadecimal-color-strings-in-flutter]()
